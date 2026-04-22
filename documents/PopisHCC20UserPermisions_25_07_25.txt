@@ -1,0 +1,45 @@
+﻿Personnel->UserPermisions
+
+(pozice 01) x---------------------------------------
+1...přístup CODACO (nejvyšší oprávnění, veškeré možné nastavení)
+
+(pozice 02) -x--------------------------------------
+1...přístup montážní technik (veškeré nastavení kromě tajných CODACO parametrů)
+
+(pozice 03) --x------------------------------------- (WEB rozhraní) /administration/clients/
+0...nedostatečné oprávnění pro přístup k níže uvedeným funkcím  / tzn. právo 0 + nezadané práva /
+1...právo úpravy údajů klientů, právo změny umístění klientů, právo ukončení pobytu klientů / vždycky přidělené oddělení /
+2...právo přiřazování bezdrátových prvků
+ 
+(pozice 04) ---x------------------------------------ (WEB rozhraní) /administration/employees/
+1...právo úpravy údajů v kartě zaměstnance
+2...právo přiřazování bezdrátových prvků, RFID čipů
+3...právo editace seznamu zaměstnanců a jejich umisťování na oddělení
+
+(pozice 05) ----x----------------------------------- (WEB rozhraní) /history/events/
+1...právo prohlížení historie událostí
+2...právo prohlížení historie chyb
+
+(pozice 06) -----x----------------------------------
+1...právo ovládání přítomností na pokojích
+
+(pozice 07) ------x---------------------------------
+1...právo přístupu do správy úkonů klientů na pokoji (verze CODACO) (WEB rozhraní) /administration/clients-tasks/
+
+(pozice 08) -------x--------------------------------
+1...právo přístupu do správy hlášení poruch na pokoji (WEB rozhraní) /administration/errors/
+
+(pozice 09) --------x-------------------------------
+1...právo objednání úklidu na pokoji (WEB rozhraní) /services/cleaning/
+
+(pozice 10) ---------x------------------------------
+1...právo přístupu do ISCygnus
+
+(pozice 11) ----------x----------------------------- /settings/menu
+
+1...právo nastavení datumu a času systému (WEB rozhraní)							(/settings/datetime)
+    - možnost nastavit datum a čas ručně nebo povolit NTP (automatická synchronizace přes internet)
+    (pokud je nastaveno právo->přístup montážní technik tak je přístupné nastavení časového pásma)
+    (nastavení si budeme předávat přes MYSQL tabulku)
+2...právo nastavení času nočního provozu									(/settings/nightmode)
+    (pro každé oddělení zvlášť nastavit čas od a čas do kdy bude aktivní noční provoz)

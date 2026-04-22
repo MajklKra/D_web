@@ -1,6 +1,5 @@
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
-
-# Start projektu
+# Začčátek projektu
 
 # Jedná se o tuto produkční verze: ----

@@ -1,0 +1,39 @@
+
+# Virtual env
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Env config
+.env
+instance/
+
+# Databases
+*.sqlite3
+*.db
+
+# IDE
+.vscode/
+
+# macOS
+.DS_Store
+
+# Pytest
+.pytest_cache/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+*.pid
+
+# Coverage
+.coverage
+htmlcov/
