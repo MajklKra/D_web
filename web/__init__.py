@@ -27,6 +27,8 @@ def create_app():
 
     # app.config["APP_VERSION"] = __version__
 
+    s_print(f"App version: {app.config["APP_VERSION"]}", "green",0,0)
+
     for rule in app.url_map.iter_rules():
         # print(rule, "->", rule.endpoint)
         s_print(f'{rule} -> {rule.endpoint}', "green",0,0)

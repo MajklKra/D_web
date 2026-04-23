@@ -16,11 +16,13 @@ def index():
 
 if __name__ == '__main__':
 
+    s_print("module __main__ ... ", "blue", 1,1)
+
     system = platform.system()
 
     if system == "Windows":
 
-        s_print("[RUN] OS Windows", "green",1,0)
+        s_print("[RUN] OS Windows", "green",0,0)
         s_print(f"[RUN] Starting Flask server pid={os.getpid()}", "green",0,0)
         s_print("[RUN] debug=True", "green",0,0)
 
