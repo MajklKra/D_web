@@ -6,12 +6,13 @@ from pathlib import Path
 from .forms import LoginForm
 from .blueprints import auth_bp
 from web.share.db import db_connection
+from  web.share.s_print import s_print
 
 
 @auth_bp.route('/')
 def home_page():
 
-    print(" URL / ... ")
+    s_print(f"URL: {request.url}", "green",0,1)
 
     return redirect(url_for('auth.login'))
 
@@ -22,19 +23,7 @@ def login():
     Proces logování
     """
 
-    print(" URL /login ... ")
-
-    ### EXPERIMENTY 27.2.2026 ###
-
-    filename = "taz.png"
-    abs_path = Path(auth_bp.root_path) / "static" / "photos" / filename
-
-    photo_url = url_for("auth.static", filename=f"photos/{filename}") if abs_path.exists() else None
-
-    photo_url = None
-
-    if abs_path.exists():
-        photo_url = url_for("auth.static", filename=f"photos/{filename}")
+    s_print(f"URL: {request.url}", "green",0,1)
 
     generalLogin = "Ruda2025"
     generalpass =  "Ostrava"
@@ -81,7 +70,9 @@ def login():
                     form.password.errors.append("Chybné heslo ! ")
                     focus_field = "password"
 
-                    return render_template("loginForm.html", form=form,focus_field=focus_field, photo_url = photo_url)
+                    s_print(f"Hodnota focus_field je : {focus_field}", "white", 0,0)
+
+                    return render_template("loginForm.html", form=form,focus_field=focus_field)
 
         else:
 
@@ -90,7 +81,9 @@ def login():
                 form.name.errors.append("Chybné jméno ! ")
                 focus_field = "name"
 
-                return render_template("loginForm.html", form=form, focus_field=focus_field, photo_url = photo_url)
+                s_print(f"focus_field: {focus_field}", "white", 0,1)
+
+                return render_template("loginForm.html", form=form, focus_field=focus_field)
 
 
             if (username == generalLogin) and (password != generalpass):
@@ -98,7 +91,9 @@ def login():
                 form.password.errors.append("Chybné heslo ! ")
                 focus_field = "password"
 
-                return render_template("loginForm.html", form=form,focus_field=focus_field, photo_url = photo_url)
+                s_print(f"focus_field: {focus_field}", "white", 0,1)
+
+                return render_template("loginForm.html", form=form,focus_field=focus_field)
 
         if name_count > 0:
 
@@ -120,7 +115,7 @@ def login():
 
         return redirect(url_for("admin_clients.home"))
 
-    return render_template("loginForm.html", form=form, focus_field=focus_field, photo_url = photo_url)
+    return render_template("loginForm.html", form=form, focus_field=focus_field)
 
 def verify_password(plain_text_password, hashed_password):
     # Ověření hesla
@@ -129,7 +124,7 @@ def verify_password(plain_text_password, hashed_password):
     Funkce na porovnání hesel, zda se zadané heslo ve formuláři rovná heslu v databázi pro daný nickname.
     """
 
-    print("Funkce verify_password() ... ")
+    s_print("function verify_password() ... ", "blue", 0,1)
 
     return bcrypt.checkpw(plain_text_password.encode('utf-8'), hashed_password)
 
@@ -139,14 +134,18 @@ def user_logIn(employee_id):
     Saving personal data of personnel
     """
 
-    print("Funkce user_logIn() ... ")
+    s_print("function user_logIn() ... ", "blue", 0,0)
 
     # ✅ vždy začni čistou session
     session.clear()
 
+    # log_blank_line()
+    s_print('session deleted', "white", 0, 1)
+
     try:
         employee_id = int(employee_id)
     except (TypeError, ValueError):
+        s_print('Neplatné employee_id !', "white", 0, 0)
         return "Neplatné employee_id", 400
 
     if employee_id > 0:
@@ -177,11 +176,15 @@ def user_logIn(employee_id):
         if (permissions[0] == '1'):
             session['admin'] = True
 
+            s_print("Permission admin allowed.", "white", 1,0)
+
         else:
             session['admin'] = False
 
         if (permissions[1] == '1'):
             session['tech'] = True
+            s_print("Permission tech allowed.", "white", 1,0)
+
 
         else:
             session['tech'] = False
@@ -203,10 +206,13 @@ def user_logIn(employee_id):
         deps = [x[0] for x in deps]
 
         session['e_deps'] = deps
+        s_print( f'employees departments {deps}', "white", 0,1)
 
         session['e_Cygnus'] = bool(employee_details[4] and employee_details[4].strip())
 
     else:
+
+        s_print('No employee details - Admin access.',"white",1,0)
 
         session["e_id"] = 0
 
@@ -222,6 +228,6 @@ def user_logIn(employee_id):
 @auth_bp.route('/error')
 def error():
 
-   print("URL /error ... ")
+   s_print(f"URL: {request.url}","green",1,1)
 
-   return render_template("error.html")
+   return render_template("Vítej na error page ! ")

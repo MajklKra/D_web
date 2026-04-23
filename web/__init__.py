@@ -1,3 +1,5 @@
+import os
+import platform
 from flask import Flask, render_template, request, g
 from config import Config, setup_logging
 from .version import __version__
@@ -13,21 +15,24 @@ def create_app():
 
     app = Flask(__name__)
 
+    system = platform.system()
+
+    if system == "Windows":
+        os.system('cls')   # Windows
+    elif system == "Linux":
+        os.system('clear') # Linux / macOS
+
     app.config.from_object(Config)  # přidáno
 
     setup_logging(app.config)
 
-    s_print('Function create_app() ...', "blue",1,0)
+    s_print('function create_app() ...', "blue",1,0)
     s_print(f"LOG_ENABLED: {app.config['LOG_ENABLED']}", "green", 1, 0)
 
     app.register_blueprint(auth_bp)
     s_print('bluprint registration -> auth_bp', "green",0,0)
     app.register_blueprint(admin_clients_bp)
     s_print('bluprint registration -> admin_clients_bp', "green",0,0)
-
-    # app.config["APP_VERSION"] = __version__
-
-    s_print(f"App version: {app.config["APP_VERSION"]}", "green",0,0)
 
     for rule in app.url_map.iter_rules():
         # print(rule, "->", rule.endpoint)

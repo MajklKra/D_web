@@ -88,9 +88,7 @@ def log_print(text, color, empty_rows_before, empty_rows_behind):
             if empty_rows_before != 0:
                 logsemptyrowsbefore(empty_rows_before)
 
-            # print(Fore.BLUE + text)
-            logging.info(f" \033[94m ### {text} ### \033[0m")
-            logging.info(f" \033[94m ### {text} ###\033[0m")
+            logging.info(f" \033[94m {text} \033[0m")
 
             if empty_rows_behind != 0:
                 logsemptyrowsbehind(empty_rows_behind)
@@ -100,9 +98,7 @@ def log_print(text, color, empty_rows_before, empty_rows_behind):
             if empty_rows_before != 0:
                 logsemptyrowsbefore(empty_rows_before)
 
-            # print(Fore.RED + text)
-            logging.info(f" \033[91m ### {text} ### \033[0m")
-            logging.info(f" \033[91m ### {text} ###\033[0m")
+            logging.info(f" \033[91m {text} \033[0m")
 
             if empty_rows_behind != 0:
                 logsemptyrowsbehind(empty_rows_behind)
@@ -112,9 +108,7 @@ def log_print(text, color, empty_rows_before, empty_rows_behind):
             if empty_rows_before != 0:
                 logsemptyrowsbefore(empty_rows_before)
 
-            # print(Fore.YELLOW + text)
             logging.info(f" \033[93m ### {text} ### \033[0m")
-            logging.info(f" \033[93m ### {text} ###\033[0m")
 
             if empty_rows_behind != 0:
                 logsemptyrowsbehind(empty_rows_behind)
@@ -124,9 +118,7 @@ def log_print(text, color, empty_rows_before, empty_rows_behind):
             if empty_rows_before != 0:
                 logsemptyrowsbefore(empty_rows_before)
 
-            # print(Fore.WHITE + text)
-            logging.info(f" \033[97m ### {text} ### \033[0m")
-            logging.info(f" \033[97m ### {text} ###\033[0m")
+            logging.info(f" \033[97m {text} \033[0m")
 
             if empty_rows_behind != 0:
                 logsemptyrowsbehind(empty_rows_behind)
@@ -136,10 +128,7 @@ def log_print(text, color, empty_rows_before, empty_rows_behind):
             if empty_rows_before != 0:
                 logsemptyrowsbefore(empty_rows_before)
 
-            # print(Fore.GREEN + text)
-
-            logging.info(f" \033[92m ### {text} ### \033[0m")
-            logging.info(f" \033[92m ### {text} ###\033[0m")
+            logging.info(f" \033[92m  {text} \033[0m")
 
             if empty_rows_behind != 0:
                 logsemptyrowsbehind(empty_rows_behind)

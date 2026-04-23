@@ -4,7 +4,7 @@ import os
 import logging
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
-from web.version import __version__
+# from web.version import __version__
 
 load_dotenv()
 
@@ -15,10 +15,6 @@ class Config:
 
     if not SECRET_KEY:
         raise RuntimeError("SECRET_KEY musí být nastavený v env!")
-
-    # -- Verze aplikace --
-
-    APP_VERSION = __version__
 
     # -- Certifikáty --
     CERT_PATH = os.getenv("CERT_PATH")

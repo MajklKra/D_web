@@ -1,5 +1,5 @@
-__version__ = "1.0.2"
+__version__ = "1.0.24"
 
-# Funkce s_print pro tisk a logování
+# Funkčí github a lokální git repozitář
 
 # Jedná se o tuto produkční verze: ----
