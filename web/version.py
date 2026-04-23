@@ -1,5 +1,5 @@
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 
-# Začčátek projektu
+# Funkce s_print pro tisk a logování
 
 # Jedná se o tuto produkční verze: ----
