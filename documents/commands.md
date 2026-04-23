@@ -9,3 +9,10 @@
 
 - pip freeze > requirements.txt
 
+### Git
+
+git push origin main
+git push d_web main
+
+
+....
