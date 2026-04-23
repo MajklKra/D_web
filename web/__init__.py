@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request, g
 from config import Config, setup_logging
 from .version import __version__
 from .auth.blueprints import auth_bp
@@ -32,6 +32,12 @@ def create_app():
     for rule in app.url_map.iter_rules():
         # print(rule, "->", rule.endpoint)
         s_print(f'{rule} -> {rule.endpoint}', "green",0,0)
+
+    @app.teardown_appcontext
+    def close_db(error=None):
+        conn = g.pop("db_conn", None)
+        if conn is not None:
+            conn.close()
 
     return app
 

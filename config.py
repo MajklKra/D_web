@@ -56,13 +56,9 @@ def setup_logging(config):
     log_dir = getattr(config, "LOG_DIR", "logs")
     os.makedirs(log_dir, exist_ok=True)
 
-    # print(Fore.GREEN + f"[LOGGING] log_dir={log_dir}")
-    # logging.info(f" \033[93m ### [LOGGING] log_dir={log_dir} ### \033[0m")
-
     # vymazat jen v reloader-child procesu (to je ten, co skutečně běží)
     if os.environ.get("WERKZEUG_RUN_MAIN") == "true" or os.environ.get("FLASK_DEBUG") != "1":
         open(os.path.join(log_dir, "app.log"), "w", encoding="utf-8").close()
-        open(os.path.join(log_dir, "performance.log"), "w", encoding="utf-8").close()
 
     mode = "a"
 
@@ -78,33 +74,8 @@ def setup_logging(config):
     app_handler.setLevel(logging.INFO)
     app_handler.setFormatter(default_formatter)
 
-    # print(Fore.GREEN + "[LOGGING] app.log handler created")
-    # logging.info(f" \033[93m ### [LOGGING] app.log handler created ### \033[0m")
-
-    perf_handler = RotatingFileHandler(
-        os.path.join(log_dir, "performance.log"),
-        maxBytes=5_000_000,
-        backupCount=3,
-        encoding="utf-8",
-        mode=mode,
-    )
-    perf_handler.setLevel(logging.INFO)
-    perf_handler.setFormatter(default_formatter)
-
-    # print(Fore.GREEN + "[LOGGING] performance.log handler created")
-    # logging.info(f" \033[93m ### [LOGGING] performance.log handler created ### \033[0m")
-
     root.setLevel(logging.INFO)
     root.addHandler(app_handler)
-
-    perf_logger = logging.getLogger("performance")
-    perf_logger.setLevel(logging.INFO)
-    perf_logger.addHandler(perf_handler)
-    perf_logger.propagate = False
-
-    # logging.getLogger("werkzeug").setLevel(logging.WARNING)
-    # print(Fore.GREEN + "[LOGGING] werkzeug log level set to WARNING")
-    # logging.info(f" \033[93m ### [LOGGING] werkzeug log level set to WARNING ### \033[0m")
 
 def log_blank_line(logger_name: str = ""):
     """
