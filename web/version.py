@@ -1,5 +1,5 @@
-__version__ = "1.0.24"
+__version__ = "1.0.25"
 
-# Funkčí github a lokální git repozitář
+# První favicon vytvořen
 
 # Jedná se o tuto produkční verze: ----

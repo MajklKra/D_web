@@ -460,55 +460,35 @@ body::before
     top: 85px;
   }
 
-  #loginForm
-  {
-    display: none;
-  }
-
 }
 
 /* mobil */
-@media  (min-width: 450px) and (max-width: 575px)
+@media  (min-width: 450px)and(max-width: 575px)
 {
-    body
+    /* body
     {
       background-color: orangered;
-    }
-
-    #loginForm
-    {
-      display: none !important;
-    }
+    } */
 }
 
 /* mobil/tablet */
 @media (min-width: 576px) and (max-width: 767px)
 {
 
-    body
+    /* body
     {
       background-color: orange;
-    }
-
-    #loginForm
-    {
-      display: none;
-    }
+    } */
 
 }
 
 /* tablet*/
 @media (min-width: 768px) and (max-width: 991px)
 {
-    body
+    /* body
     {
       background-color: pink;
-    }
-
-    #loginForm
-    {
-      display: none;
-    }
+    } */
 
 }
 
@@ -523,7 +503,7 @@ body::before
 }
 
 /* počítačová obrazovka */
-@media (min-width: 1200px) and (max-width: 1399px)
+@media (min-width: 1200px) and (max-width: 1400px)
 {
     /* body
     {
@@ -533,7 +513,7 @@ body::before
 }
 
 /* počítačová obrazovka */
-@media (min-width: 1400px)
+@media (min-width: 1401px)
 {
     /* body
     {

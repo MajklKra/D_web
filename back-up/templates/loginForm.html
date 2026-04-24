@@ -3,26 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCS</title>
+    <title>Login form</title>
 
     <link rel="stylesheet" href="{{ url_for('auth.static', filename='css/loginForm.css') }}">
-    <!-- <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/nurse.png') }}"> -->
-
-
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-16x16.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='icons/site.webmanifest') }}">
-
-
-    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest"> -->
-
-
-
-
 
 </head>
 <body class="no-scrollbar">
@@ -111,6 +94,19 @@
         {{ form.submit(id="submitBtn", class="btn tip",  title="Tlačítko pro odeslání dat.")}}
 
     </form>
+
+    <!-- <div id="TazC" {% if not (form.password.errors or form.name.errors) %}style="display:none"{% endif %}>
+
+        <div id="TazC2">
+            <img src="{{ photo_url }}" alt="Moje foto" id="myPortrait">
+        </div>
+
+    </div> -->
+
+    <!-- <div id="spinner" class="spinner-overlay" style="display:none;">
+        <div class="loader"></div>
+        <div id="LFerrorMessage" style="margin-top: 10px;"> Načítání databáze ... </div>
+    </div> -->
 
     <div id="spinner"  class="spinner hideSpinner">
         <div class="loader"></div>
