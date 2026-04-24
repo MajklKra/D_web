@@ -17,11 +17,11 @@ class Config:
         raise RuntimeError("SECRET_KEY musí být nastavený v env!")
 
     # -- Certifikáty --
-    CERT_PATH = os.getenv("CERT_PATH")
-    KEY_PATH = os.getenv("KEY_PATH")
+    # CERT_PATH = os.getenv("CERT_PATH")
+    # KEY_PATH = os.getenv("KEY_PATH")
 
-    if not CERT_PATH or not KEY_PATH:
-        raise RuntimeError("CERT_PATH a KEY_PATH musí být nastavené v env!")
+    # if not CERT_PATH or not KEY_PATH:
+    #     raise RuntimeError("CERT_PATH a KEY_PATH musí být nastavené v env!")
 
     # Linux nastavení
 
