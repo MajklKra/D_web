@@ -39,13 +39,13 @@ if __name__ == '__main__':
         s_print(f"[RUN] Starting Flask server pid={os.getpid()}", "green",0,0)
         s_print(f"[RUN] host={Config.HOST_LINUX} port={Config.PORT_LINUX} debug=False ssl_context=ssl_context", "green",0,0)
         s_print("certificates in use", "green",0,0)
-        # s_print(f"{app.config["CERT_PATH"]}", "green",0,0)
-        # s_print(f"{app.config["KEY_PATH"]}", "green",0,1)
+        s_print(f"{app.config["CERT_PATH"]}", "green",0,0)
+        s_print(f"{app.config["KEY_PATH"]}", "green",0,1)
 
-        # ssl_context = (app.config["CERT_PATH"],app.config["KEY_PATH"])
+        ssl_context = (app.config["CERT_PATH"],app.config["KEY_PATH"])
 
-        # app.run(host=Config.HOST_LINUX, port=Config.PORT_LINUX, ssl_context=ssl_context, debug=False )
-        app.run(host=Config.HOST_LINUX, port=Config.PORT_LINUX, ssl_context='adhoc', debug=False )
+        app.run(host=Config.HOST_LINUX, port=Config.PORT_LINUX, ssl_context=ssl_context, debug=False )
+        # app.run(host=Config.HOST_LINUX, port=Config.PORT_LINUX, ssl_context='adhoc', debug=False )
 
     else:
 

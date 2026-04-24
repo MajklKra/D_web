@@ -319,19 +319,22 @@ body
     {
 
       width: 90%;
-      max-width: 600px;
-      height: 100px;
+      /* max-width: 600px; */
+      max-width: 37.5rem;
+      /* height: 100px; */
+      height: 6.25rem;
     }
 
     #informationText
     {
-      font-size: 14px;
+      /* font-size: 14px; */
+      font-size: 0.875rem;
       line-height: 1.5;
     }
 
     #prohC
     {
-        margin-right: 10px !important;
+        margin-right: 0.625rem !important;
     }
 
     #mobileImg
@@ -360,20 +363,24 @@ body
   {
 
     width: 90%;
-    max-width: 600px;
-    height: 150px;
+    /* max-width: 600px; */
+    max-width: 37.5rem;
+    /* height: 150px; */
+    height: 9.375rem;
 
   }
 
   #informationText
   {
-    font-size: 16px;
+    /* font-size: 16px; */
+    font-size: 1rem;
     line-height: 1.5;
   }
 
   #prohC
   {
-      margin-right: 10px !important;
+      /* margin-right: 10px !important; */
+      margin-right: 0.625rem !important;
   }
 
   #mobileImg
@@ -403,21 +410,29 @@ body
     {
 
       width: 90%;
-      max-width: 600px;
-      height: 200px;
+      /* max-width: 600px; */
+
+      max-width: 37.5rem;
+
+      /* height: 200px; */
+
+      height: 12.5rem;
 
     }
 
     #informationText
     {
 
-      font-size: 20px;
+      /* font-size: 20px; */
+      font-size: 1.25rem;
       line-height: 1.5;
     }
 
     #prohC
     {
-        margin-right: 10px !important;
+        /* margin-right: 10px !important; */
+
+      margin-right: 0.625rem !important;
     }
 
     #mobileImg
@@ -447,21 +462,31 @@ body
     {
 
       width: 90%;
-      max-width: 600px;
-      height: 250px;
+      /* max-width: 600px; */
+
+      max-width: 37.5rem;
+
+      height: 15.625rem;
+
+      /* height: 250px; */
 
     }
 
     #informationText
     {
 
-      font-size: 20px;
+      /* font-size: 20px; */
+
+      font-size: 1.25rem;
+
       line-height: 1.5;
     }
 
     #prohC
     {
-        margin-right: 10px !important;
+        /* margin-right: 10px !important; */
+
+        margin-right: 0.625rem !important;
     }
 
     #mobileImg
@@ -488,25 +513,38 @@ body
 
     #prohibitonC
     {
-      width: 600px;
-      height: 250px;
+      /* width: 600px; */
+
+      width: 37.5rem;
+
+      /* height: 250px; */
+
+      height: 15.625rem;
     }
 
     #informationText
     {
 
-      font-size: 24px;
+      /* font-size: 24px; */
+
+      font-size: 1.5rem;
+
       line-height: 1.5;
     }
 
     #prohC
     {
-        margin-right: 10px;
+      /* margin-right: 10px; */
+
+      margin-right: 0.625rem;
     }
 
     #mobileImg
     {
-        width:  150px;
+        /* width:  150px; */
+
+        width: 9.375rem;
+
         height: auto;
     }
 
@@ -817,7 +855,7 @@ body
    background-color: rgba(128, 0, 0, 0.7);
 
    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35);
-   padding: 20px;
+   padding: 1.25rem;
 
    display: flex;
    flex-direction: row;
@@ -858,14 +896,6 @@ body
 #mobileImg
 {
     color: white;
-}
-
-@font-face
-{
-  font-family: 'Bangers';
-  src: url('/static/fonts/Bangers/Bangers-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face
