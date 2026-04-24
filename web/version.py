@@ -1,5 +1,5 @@
-__version__ = "1.0.25"
+__version__ = "1.0.27"
 
-# První favicon vytvořen
+# Font Chewy implementován
 
 # Jedná se o tuto produkční verze: ----

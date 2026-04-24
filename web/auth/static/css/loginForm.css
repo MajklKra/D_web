@@ -289,168 +289,97 @@ body
 }
 
 /* mobil */
-@media  (max-width: 359px)
+
+
+@media   (max-width: 319px)
 {
     body
     {
       display: none;
+    }
+
+
+}
+
+@media  (min-width: 320px) and (max-width: 359px)
+{
+    body
+    {
+      /* background-color: crimson; */
+
+      background-color: #F08080;
+    }
+
+    #loginForm
+    {
+      display: none !important;
+    }
+
+    #prohibitonC
+    {
+
+      width: 90%;
+      max-width: 600px;
+      height: 100px;
+    }
+
+    #informationText
+    {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    #prohC
+    {
+        margin-right: 10px !important;
+    }
+
+    #mobileImg
+    {
+        width:  auto;
+        height: auto;
     }
 }
 
 @media  (min-width: 360px) and (max-width: 449px)
 {
 
-  #loginForm
-  {
-    width: min(360px, 100%);
-    max-height: 100%;
-    overflow: auto;  /* když je klávesnice, formulář se prostě posune/scrollne */
-
-    box-shadow: none;
-  }
-
-  html, body
-  {
-    margin: 0 !important;
-    height: 100dvh !important;   /* nebo 100vh + JS hack */
-    overflow: hidden !important;
-    padding-top: 30px;
-  }
-
   body
   {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
+     /* background-color: darkviolet; */
 
-  body::before
-  {
-    content: none;
-  }
-
-  #formTitle
-  {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 14px;
-  }
-
-  /* #codaco
-  {
-
-    font-size: 32px;
-
-  } */
-
-  #name
-  {
-
-    width: 100% !important;
-    height: 35px;
-  }
-
-  #l1
-  {
-    font-size: 12px;
-  }
-
-  #l2
-  {
-    font-size: 12px;
-  }
-
-
-  #l3
-  {
-    font-size: 12px;
-  }
-
-  #password
-  {
-    height: 35px;
-  }
-
-  #language
-  {
-
-    height: 35px;
-  }
-
-  #submitBtn
-  {
-
-    background-color: #00AB66;
-
-    width: 80%;
-    height: 35px;
-
-    color: white;
-
-    border-radius: 5px;
-
-    border: none;
-    outline: none;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    display: flex;
-    justify-content: center; /* horizontálně */
-    align-items: center;     /* vertikálně */
-
-    padding: 0;              /* ať default nerozhodí výšku */
-    line-height: 1;          /* jistota proti divnému line-height */
-
-  }
-
-  #codaco
-  {
-    order: -1;               /* Codaco první */
-    font-size: 32px;
-  }
-
-  #titleText
-  {
-    order: 0;                /* text druhý */
-    font-size: 14px;
-  }
-
-
-  /* Dnešní pokusy */
-
-  .error-container
-  {
-    width: 80% !important;
-
-    padding: 5px 5px;
-  }
-
-  #messageC, #messageC2
-  {
-    width:  230px;
-    font-size: 12px;
-  }
-
-  #errorC, #errorC2
-  {
-    height: 35px;
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    top: 85px;
+     background-color: #F08080;
   }
 
   #loginForm
   {
     display: none;
+  }
+
+  #prohibitonC
+  {
+
+    width: 90%;
+    max-width: 600px;
+    height: 150px;
+
+  }
+
+  #informationText
+  {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  #prohC
+  {
+      margin-right: 10px !important;
+  }
+
+  #mobileImg
+  {
+      width:  auto;
+      height: auto;
   }
 
 }
@@ -468,6 +397,33 @@ body
     #loginForm
     {
       display: none !important;
+    }
+
+    #prohibitonC
+    {
+
+      width: 90%;
+      max-width: 600px;
+      height: 200px;
+
+    }
+
+    #informationText
+    {
+
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    #prohC
+    {
+        margin-right: 10px !important;
+    }
+
+    #mobileImg
+    {
+        width:  auto;
+        height: auto;
     }
 }
 
@@ -487,6 +443,33 @@ body
       display: none;
     }
 
+    #prohibitonC
+    {
+
+      width: 90%;
+      max-width: 600px;
+      height: 250px;
+
+    }
+
+    #informationText
+    {
+
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    #prohC
+    {
+        margin-right: 10px !important;
+    }
+
+    #mobileImg
+    {
+        width:  auto;
+        height: auto;
+    }
+
 }
 
 /* tablet*/
@@ -501,6 +484,30 @@ body
     #loginForm
     {
       display: none;
+    }
+
+    #prohibitonC
+    {
+      width: 600px;
+      height: 250px;
+    }
+
+    #informationText
+    {
+
+      font-size: 24px;
+      line-height: 1.5;
+    }
+
+    #prohC
+    {
+        margin-right: 10px;
+    }
+
+    #mobileImg
+    {
+        width:  150px;
+        height: auto;
     }
 
 }
@@ -804,8 +811,6 @@ body
 
 #prohibitonC
 {
-   width: 600px;
-   height: 250px;
    border-radius: 10px;
    /* background-color: rgba(128, 0, 0, 0.5); */
 
@@ -827,12 +832,12 @@ body
   width: 100%;
   color: white;
 
-  font-size: 24px;
   font-weight: bold;
 
-  font-family: sans-serif;
+  font-family: 'Chewy';
 
   /* background-color: blue; */
+
   text-align: justify;
 
   line-height: 1.5;
@@ -840,24 +845,34 @@ body
 
 #prohC
 {
-    width: 30%;
-    height: 100%;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    /* background-color: green; */
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    margin-right: 10px;
-
+  /* background-color: green; */
 }
 
 #mobileImg
 {
-    width:  150px;
-    height: auto;
-
     color: white;
+}
+
+@font-face
+{
+  font-family: 'Bangers';
+  src: url('/static/fonts/Bangers/Bangers-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face
+{
+  font-family: 'Chewy';
+  src: url('/static/fonts/Chewy/Chewy-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
