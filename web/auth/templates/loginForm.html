@@ -28,16 +28,45 @@
         {{ form.hidden_tag() }}  <!-- CSRF token -->
 
         <h1 id="formTitle">
-
-            <span id="titleText">přihlásit se do systému</span>
-            <span id="codaco">Codaco</span></h1>
+            Přihlašení do systému
+        </h1>
 
         <div id="innerC">
 
             <div id="group1" title="Zadejte jméno pro přihlášení!">
 
-                {{ form.name.label(id="l1") }}
-                {{ form.name(maxLength=50, id="name", title="Zadejte jméno pro přihlášení!", autocomplete="off", autofocus=(focus_field=="name")) }}
+                <div class="input-wrapper">
+
+                    <!-- <div class="svg-wrapper"> -->
+
+                        <svg id="nicknameImg" viewBox="0 0 44.64 44.64">
+                            <defs>
+                                <style>
+                                .cls-1 {
+                                    opacity: .7;
+                                }
+
+                                .cls-2 {
+                                    fill: none;
+                                    stroke: #1b2838;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: round;
+                                    stroke-width: 2px;
+                                }
+                                </style>
+                            </defs>
+                            <g class="cls-1">
+                                <circle class="cls-2" cx="22.32" cy="16.79" r="5.48"/>
+                                <path class="cls-2" d="M14.2,30.47c0-4.5,3.65-8.15,8.15-8.15s8.15,3.65,8.15,8.15"/>
+                            </g>
+                        </svg>
+
+                    </div>
+
+
+                    <!-- {{ form.name.label(id="l1") }} -->
+                    {{ form.name(maxLength=50, id="name", title="Zadejte jméno pro přihlášení!", autocomplete="off", autofocus=(focus_field=="name"), placeholder="Přihlašovací jméno") }}
+                <!-- </div> -->
 
 
                 <div id="errorC2" class="error-container" {% if not form.name.errors %}style="display:none"{% endif %}>
@@ -63,10 +92,10 @@
 
             <div id="group2" title="Zadejte heslo!">
 
-                {{ form.password.label (id="l2")}}
+                <!-- {{ form.password.label (id="l2")}} -->
                 <!-- {{ form.password(maxLength=50, id="password", title="Zadej heslo.", required=True, data_error=(form.password.errors[0] if form.password.errors else "")) }} -->
 
-                {{form.password(maxLength=50, id="password", title="Zadej heslo.", autofocus=(focus_field=="password"))}}
+                {{form.password(maxLength=50, id="password", title="Zadej heslo.", autofocus=(focus_field=="password"), placeholder="Heslo")}}
 
                 <div id="errorC" class="error-container" {% if not form.password.errors %}style="display:none"{% endif %}>
 
@@ -93,18 +122,18 @@
 
             <div id="group3"  title="Volba jazyka.">
 
-                {{ form.language.label(id="l3") }}
-                {{ form.language(id="language", title="Volba jazyka.") }}
+                <!-- {{ form.language.label(id="l3") }} -->
+                {{ form.language(id="language", title="Volba jazyka.", placeholder="Heslo")}}
                 {% for err in form.language.errors %}
                     <p style="color:red">{{ err }}</p>
                 {% endfor %}
 
             </div>
 
+            {{ form.submit(id="submitBtn", class="btn tip",  title="Tlačítko pro odeslání dat.")}}
 
         </div>
 
-        {{ form.submit(id="submitBtn", class="btn tip",  title="Tlačítko pro odeslání dat.")}}
 
     </form>
 
@@ -185,7 +214,6 @@
         <div class="loader"></div>
         <div id="LFerrorMessage" style="margin-top: 5px;"> Načítání databáze . . . </div>
     </div>
-
 
     <div id="codacoC">
         <svg

@@ -1,5 +1,5 @@
-__version__ = "1.0.28"
+__version__ = "1.0.29"
 
-# Login - barva pozadí
+# Rozvržení formuláře podle předlohy LoginForm
 
 # Jedná se o tuto produkční verze: ----
