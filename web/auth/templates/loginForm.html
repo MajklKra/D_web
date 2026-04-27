@@ -95,7 +95,24 @@
                 <!-- {{ form.password.label (id="l2")}} -->
                 <!-- {{ form.password(maxLength=50, id="password", title="Zadej heslo.", required=True, data_error=(form.password.errors[0] if form.password.errors else "")) }} -->
 
-                {{form.password(maxLength=50, id="password", title="Zadej heslo.", autofocus=(focus_field=="password"), placeholder="Heslo")}}
+                <div class="input-wrapper">
+
+                        <svg id="passwordImg" viewBox="0 0 44.64 44.64">
+                            <defs>
+                                <style>
+                                .cls-1 {
+                                    fill: #1b2838;
+                                    opacity: .7;
+                                }
+                                </style>
+                            </defs>
+                            <path class="cls-1" d="M28.92,17.17c-.33-3.33-3.15-5.94-6.57-5.94s-6.23,2.61-6.57,5.94c-2.32.52-4.06,2.59-4.06,5.06v4.62c0,2.86,2.33,5.19,5.19,5.19h10.88c2.86,0,5.19-2.33,5.19-5.19v-4.62c0-2.47-1.74-4.54-4.06-5.06ZM22.35,12.82c2.5,0,4.56,1.83,4.95,4.22h-9.89c.38-2.39,2.45-4.22,4.95-4.22ZM31.39,26.85c0,1.99-1.62,3.6-3.6,3.6h-10.88c-1.99,0-3.6-1.62-3.6-3.6v-4.62c0-1.99,1.62-3.6,3.6-3.6h10.88c1.99,0,3.6,1.62,3.6,3.6v4.62Z"/>
+                            <path class="cls-1" d="M22.35,29.05c-1,0-1.81-.81-1.81-1.81v-2.23c-.46-.47-.72-1.1-.72-1.76,0-1.39,1.13-2.52,2.52-2.52s2.52,1.13,2.52,2.52c0,.66-.26,1.29-.72,1.76v2.23c0,1-.81,1.81-1.81,1.81ZM22.35,22.32c-.52,0-.94.42-.94.94,0,.3.14.58.39.76l.33.24v2.99c0,.12.1.22.22.22s.22-.1.22-.22v-2.99l.33-.24c.25-.18.39-.46.39-.76,0-.52-.42-.94-.94-.94Z"/>
+                        </svg>
+
+                        {{form.password(maxLength=50, id="password", title="Zadej heslo.", autofocus=(focus_field=="password"), placeholder="Heslo")}}
+                </div>
+
 
                 <div id="errorC" class="error-container" {% if not form.password.errors %}style="display:none"{% endif %}>
 
@@ -123,14 +140,29 @@
             <div id="group3"  title="Volba jazyka.">
 
                 <!-- {{ form.language.label(id="l3") }} -->
-                {{ form.language(id="language", title="Volba jazyka.", placeholder="Heslo")}}
+                <!-- {{ form.language(id="language", title="Volba jazyka.")}} -->
+
+
+                <select id="language" name="language" title="Volba jazyka." required>
+                    <option value="" disabled selected hidden>Jazyk</option>
+
+                    {% for value, label in form.language.choices %}
+                        {% if value %}
+                            <option value="{{ value }}" {% if form.language.data == value %}selected{% endif %}>
+                                {{ label }}
+                            </option>
+                        {% endif %}
+                    {% endfor %}
+
+                </select>
+
                 {% for err in form.language.errors %}
                     <p style="color:red">{{ err }}</p>
                 {% endfor %}
 
             </div>
 
-            {{ form.submit(id="submitBtn", class="btn tip",  title="Tlačítko pro odeslání dat.")}}
+            {{ form.submit(id="submitBtn", class="btn tip",  title="Tlačítko pro odeslání dat.", placeholder="Jazyk")}}
 
         </div>
 

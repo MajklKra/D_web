@@ -65,3 +65,25 @@ document.getElementById("errorBtn2").addEventListener("click", function ()
 // });
 
 
+function checkDevice()
+{
+  const isSmall = window.innerWidth < 992;
+  const isTouch = window.matchMedia("(pointer: coarse)").matches;
+  const isZoomed = window.devicePixelRatio > 1.5;
+
+  const prohibition = document.getElementById("prohibitonC");
+  const login = document.getElementById("loginForm");
+
+  if (isSmall && (isTouch || !isZoomed)) {
+    prohibition.style.display = "flex";
+    login.style.display = "none";
+  } else {
+    prohibition.style.display = "none";
+    login.style.display = "flex";
+  }
+}
+
+checkDevice();
+window.addEventListener("resize", checkDevice);
+window.visualViewport?.addEventListener("resize", checkDevice);
+window.visualViewport?.addEventListener("resize", checkDevice);

@@ -1,5 +1,5 @@
-__version__ = "1.0.29"
+__version__ = "1.0.30"
 
-# Rozvržení formuláře podle předlohy LoginForm
+# Responsitita chybové hlášky ohledně šířky displeje
 
 # Jedná se o tuto produkční verze: ----
