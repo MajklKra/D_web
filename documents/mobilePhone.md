@@ -6,3 +6,7 @@
 Výška: 595px
 
 
+###  Viewport  ###
+
+Šířka: 1920px
+Výška: 945px

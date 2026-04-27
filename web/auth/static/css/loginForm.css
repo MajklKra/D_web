@@ -29,7 +29,9 @@ body
     margin: 0;
     padding: 0;
 
-    height: 100vh;
+    height: 100dvh;
+
+    position: relative;
 
 }
 
@@ -252,44 +254,7 @@ body
 
 }
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/static/fonts/Montserrat-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/static/fonts/Montserrat-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/static/fonts/Montserrat-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/static/fonts/Montserrat-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/static/fonts/Montserrat-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* mobil */
-
 
 @media   (max-width: 319px)
 {
@@ -568,7 +533,7 @@ body
       display: none !important;
     }
 
-    body::before
+    /* body::before
     {
       content: "";
       position: absolute;
@@ -579,6 +544,11 @@ body
       radial-gradient(circle at 60% 10%, rgba(0, 65, 106,0.20), transparent 55%);
       filter: blur(40px);
       pointer-events: none;
+    } */
+
+    #loginForm
+    {
+      display: none;
     }
 
 }
@@ -593,7 +563,9 @@ body
 
     body
     {
-      background-color: #87CEFA;
+      /* background-color: #87CEFA; */
+
+      background-color: rgba(234,237,239,1);
     }
 
     #prohibitonC
@@ -601,7 +573,7 @@ body
       display: none !important;
     }
 
-    body::before
+    /* body::before
     {
       content: "";
       position: absolute;
@@ -612,6 +584,11 @@ body
       radial-gradient(circle at 60% 10%, rgba(0, 65, 106,0.20), transparent 55%);
       filter: blur(40px);
       pointer-events: none;
+    } */
+
+    #loginForm
+    {
+      display: none;
     }
 
 }
@@ -627,7 +604,25 @@ body
 
     body
     {
-      background-color: #87CEFA;
+      /* background-color: #87CEFA; */
+
+      /* background-color: rgba(234,237,239,1); */
+
+      background: linear-gradient(
+        to bottom,
+        rgb(234,237,239) 0%,
+        rgb(234,237,239) 10%,
+        rgb(236,238,240) 20%,
+        rgb(238,239,242) 30%,
+        rgb(240,241,243) 40%,
+        rgb(242,243,245) 50%,
+        rgb(245,245,247) 60%,
+        rgb(247,248,249) 70%,
+        rgb(250,250,251) 80%,
+        rgb(252,252,253) 90%,
+        rgb(255,255,255) 100%
+      );
+
     }
 
     #prohibitonC
@@ -635,7 +630,7 @@ body
       display: none !important;
     }
 
-    body::before
+    /* body::before
     {
       content: "";
       position: absolute;
@@ -646,6 +641,11 @@ body
       radial-gradient(circle at 60% 10%, rgba(0, 65, 106,0.20), transparent 55%);
       filter: blur(40px);
       pointer-events: none;
+    } */
+
+    #loginForm
+    {
+      display: none;
     }
 
 }
@@ -905,4 +905,26 @@ body
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+#codacoC
+{
+  width: 170px;
+  height: 70px;
+  /* background-color: green; */
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  padding-left: 26px;
+  padding-top: 27px;
+}
+
+#svg1
+{
+  width: 135px;
+  height: auto;
+
+  /* background-color: red; */
 }

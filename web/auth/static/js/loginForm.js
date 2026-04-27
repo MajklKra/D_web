@@ -1,27 +1,29 @@
 
-console.log(' Suc♥️cess Welcome to the login form. ')
+console.log(' Suc♥️cess welcome to the login form. ')
 
-
-function updateSize() {
-  const w = document.documentElement.clientWidth; // stabilnější než innerWidth
+function updateSize()
+{
+  const w = document.documentElement.clientWidth;
   const h = document.documentElement.clientHeight;
 
-  console.log(`Šířka okna: ${w}, Výška okna: ${h}`);
+  console.log('Vieport');
+  console.log(`↔️ šířka okna: ${w}, ↕️ výška okna: ${h}`);
 
-  const el = document.getElementById("loginForm");
-  const rect = el.getBoundingClientRect();
-  console.log(`loginForm: ${rect.width}px × ${rect.height}px`);
+  // const el = document.getElementById("loginForm");
+  // const rect = el.getBoundingClientRect();
+  // console.log(`loginForm: ${rect.width}px × ${rect.height}px`);
+
 }
 
 // místo okamžitého volání:
-requestAnimationFrame(() => {
+requestAnimationFrame(() =>
+{
   requestAnimationFrame(updateSize); // dvojitý RAF = po layoutu i po emulaci
 });
 
 window.addEventListener("resize", updateSize);
 // bonus: emulace často mění visualViewport
 window.visualViewport?.addEventListener("resize", updateSize);
-
 
 document.getElementById("errorBtn").addEventListener("click", function ()
 {
@@ -54,12 +56,12 @@ document.getElementById("errorBtn2").addEventListener("click", function ()
 
 });
 
-
-console.log({
-  body_client: document.body.clientHeight,
-  body_scroll: document.body.scrollHeight,
-  html_client: document.documentElement.clientHeight,
-  html_scroll: document.documentElement.scrollHeight,
-});
+// console.log
+// ({
+//   body_client: document.body.clientHeight,                         // viditelná výška
+//   body_scroll: document.body.scrollHeight,                         // celková výška obsahu
+//   html_client: document.documentElement.clientHeight,              // výška viewportu
+//   html_scroll: document.documentElement.scrollHeight,              // celková výška celé stránky
+// });
 
 

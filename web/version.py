@@ -1,5 +1,5 @@
-__version__ = "1.0.27"
+__version__ = "1.0.28"
 
-# Převod px -> rem pro prohibitonC pro šířky do 996px
+# Login - barva pozadí
 
 # Jedná se o tuto produkční verze: ----
