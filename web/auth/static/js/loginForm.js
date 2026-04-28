@@ -8,11 +8,50 @@ function updateSize()
 
   console.log('Vieport');
   console.log(`↔️ šířka okna: ${w}, ↕️ výška okna: ${h}`);
+  console.log('🔥 šířka okna je:' + window.outerWidth);
 
   // const el = document.getElementById("loginForm");
   // const rect = el.getBoundingClientRect();
   // console.log(`loginForm: ${rect.width}px × ${rect.height}px`);
 
+  if (window.outerWidth < 992)
+  {
+    // alert("Přechod na tablet");
+    // console.log("🔲 Přechod na tablet");
+    const body = document.body;
+    document.body.classList.remove("pc-mode");
+    document.body.classList.add("table-mode");
+
+    const loginForm = document.getElementById("loginForm");
+    loginForm.style.display="none";
+
+    const prohibitonC = document.getElementById("prohibitonC");
+    prohibitonC.style.display = "flex";
+
+    const codacoC = document.getElementById("codacoC");
+    codacoC.style.display="none";
+
+  }
+
+
+  if (window.outerWidth >= 992)
+  {
+
+    const body = document.body;
+
+    document.body.classList.remove("table-mode");
+    document.body.classList.add("pc-mode");
+
+    const loginForm = document.getElementById("loginForm");
+    loginForm.style.display="flex";
+
+    const prohibitonC = document.getElementById("prohibitonC");
+    prohibitonC.style.display = "none";
+
+    const codacoC = document.getElementById("codacoC");
+    codacoC.style.display="flex";
+
+  }
 }
 
 // místo okamžitého volání:
@@ -34,9 +73,6 @@ document.getElementById("errorBtn").addEventListener("click", function ()
     const errorC = document.getElementById("errorC");
     errorC.style.display = "none";
 
-    const tazC = document.getElementById("TazC");
-    tazC.style.display = "none";
-
     document.getElementById("password").focus();   // <- id inputu kam chceš fokus
 });
 
@@ -48,9 +84,6 @@ document.getElementById("errorBtn2").addEventListener("click", function ()
 
     const errorC2 = document.getElementById("errorC2");
     errorC2.style.display = "none";
-
-    const tazC = document.getElementById("TazC");
-    tazC.style.display = "none";
 
     document.getElementById("name").focus();   // <- id inputu kam chceš fokus
 
@@ -65,25 +98,6 @@ document.getElementById("errorBtn2").addEventListener("click", function ()
 // });
 
 
-function checkDevice()
-{
-  const isSmall = window.innerWidth < 992;
-  const isTouch = window.matchMedia("(pointer: coarse)").matches;
-  const isZoomed = window.devicePixelRatio > 1.5;
+/* Dnešní experimenty 28.4.2026 */
 
-  const prohibition = document.getElementById("prohibitonC");
-  const login = document.getElementById("loginForm");
 
-  if (isSmall && (isTouch || !isZoomed)) {
-    prohibition.style.display = "flex";
-    login.style.display = "none";
-  } else {
-    prohibition.style.display = "none";
-    login.style.display = "flex";
-  }
-}
-
-checkDevice();
-window.addEventListener("resize", checkDevice);
-window.visualViewport?.addEventListener("resize", checkDevice);
-window.visualViewport?.addEventListener("resize", checkDevice);
