@@ -121,6 +121,10 @@ function togglePassword()
     eyeClosed.style.display = "inline";
     eyeOpen.style.display = "none";
   }
+
+
+  // 👉 tady přidej:
+  input.style.paddingRight = "55px";
 }
 
 

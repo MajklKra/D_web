@@ -1,5 +1,5 @@
-__version__ = "1.0.35"
+__version__ = "1.0.36"
 
-# Select box language - pohyb šipek
+# Error-boxes udapted - color a size have changed
 
 # Jedná se o tuto produkční verze: ----

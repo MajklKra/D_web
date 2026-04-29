@@ -119,6 +119,8 @@ body
   font-size: 16px;
   font-weight: 500;
 
+  padding-right: 35px;
+
 }
 
 #password
@@ -146,7 +148,7 @@ body
   font-size: 16px;
   font-weight: 500;
 
-  /* padding-right: 40px; */
+  padding-right: 10px;
 }
 
 #language
@@ -411,7 +413,8 @@ body
   box-shadow: 0 6px 14px rgba(95, 158, 160, 0.35);
 }
 
-.btn:hover{
+.btn:hover
+{
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(95, 158, 160, 0.45);
   filter: brightness(1.03);
@@ -425,8 +428,8 @@ body
 
 #errorC, #errorC2
 {
-  width:  360px;
-  height: 50px;
+  width:  436px;
+  height: 46px;
 
   /* background-color: white; */
 
@@ -436,12 +439,14 @@ body
   transform: translate(-50%, -50%); */
 
   transform: translateX(-50%);
-  left: 50%;
-  top: 35px;
+  left:   50%;
+  top:    10px;
 
   /*
   border-radius: 10px;
   border: 1px solid red; */
+
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35);
 
 }
 
@@ -462,23 +467,30 @@ body
 
 .error-container
 {
-  display: grid;
-  grid-template-columns: 1fr auto; /* text bere zbytek, tlačítko auto */
-  align-items: center;             /* vertikálně v řádku */
-  width: 100%;
-  height: 100%;                    /* nebo dej min-height */
-  gap: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-  background:#ffecec;
-  border:1px solid #f5aca6;
-  padding:10px;
-  border-radius:6px;
-  margin-top:8px;
+  background-color: #A52A2A;
+
+  border-radius: 10px;
+
+  color: white;
+
+  font-family: 'Montserrat';
+  font-size: 16px;
+  font-weight: 500;
+
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 .error
 {
-  color: #1F2328;
+  /* color: #1F2328; */
+
+  color: white;
+
   margin: 0;
 
   white-space: nowrap;
@@ -496,12 +508,15 @@ body
   display: grid;
   place-items: center;
 
-  width:  300px;
+  width:  390px;
   height: 100%;
   /* background-color: yellowgreen; */
 
+  font-family: 'Montserrat';
   font-size: 14px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+
+  /* background-color: blue; */
 
 }
 
@@ -515,7 +530,7 @@ body
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  color: red;
+  color: white;
   font-size: 16px;
 
   border: none;
@@ -527,7 +542,7 @@ body
 
 #errorBtn:hover, #errorBtn2:hover
 {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 
@@ -842,7 +857,6 @@ input[type="password"]::-ms-clear
 
 #dropdownImg
 {
-
   /* background-color: lightblue; */
   height: 26px;
 
@@ -866,3 +880,9 @@ input[type="password"]::-ms-clear
 
   transform:  rotate(180deg);
 }
+
+input[type="text"]
+{
+  padding-right: 100px;
+}
+
