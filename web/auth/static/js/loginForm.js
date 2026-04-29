@@ -128,18 +128,25 @@ function togglePassword()
 }
 
 
+/* Otáčení šipky při výběru jazyků */
+
 const languageSelect = document.getElementById("language");
 const dropdownImg = document.getElementById("dropdownImg");
 
-languageSelect.addEventListener("focus", function () {
+languageSelect.addEventListener("focus", function ()
+{
   dropdownImg.classList.add("rotate");
 });
 
-languageSelect.addEventListener("change", function () {
+languageSelect.addEventListener("change", function ()
+{
   dropdownImg.classList.remove("rotate");
   languageSelect.blur(); // důležité
 });
 
-languageSelect.addEventListener("blur", function () {
+languageSelect.addEventListener("blur", function ()
+{
   dropdownImg.classList.remove("rotate");
 });
+
+
