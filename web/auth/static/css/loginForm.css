@@ -146,7 +146,7 @@ body
   font-size: 16px;
   font-weight: 500;
 
-  padding-right: 40px;
+  /* padding-right: 40px; */
 }
 
 #language
@@ -807,7 +807,7 @@ input[type="password"]::-ms-clear
 
   position: absolute;
   top: 14px;
-  left: 397px;
+  left: 395px;
 
   color: rgba(79,83,98,1);
 }
@@ -820,9 +820,49 @@ input[type="password"]::-ms-clear
 
   position: absolute;
   top: 14px;
-  left: 397px;
+  left: 390px;
 
   color: rgba(79,83,98,1);
 
   display: none;
+}
+
+
+#language
+{
+  appearance: none;         /* hlavní */
+  -webkit-appearance: none; /* Safari */
+  -moz-appearance: none;    /* Firefox */
+}
+
+.select-wrapper
+{
+  position: relative;
+}
+
+#dropdownImg
+{
+
+  /* background-color: lightblue; */
+  height: 26px;
+
+  position: absolute;
+  top: 12px;
+  left: 390px;
+
+  color: rgba(79,83,98,1);
+
+  pointer-events: none;
+
+  /* transform: translateY(-50%) rotate(0deg); */
+  transition: transform 0.2s ease;
+  pointer-events: none;
+
+}
+
+#dropdownImg.rotate
+{
+  /* transform: translateY(-50%) rotate(180deg); */
+
+  transform:  rotate(180deg);
 }

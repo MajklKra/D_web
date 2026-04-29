@@ -122,3 +122,20 @@ function togglePassword()
     eyeOpen.style.display = "none";
   }
 }
+
+
+const languageSelect = document.getElementById("language");
+const dropdownImg = document.getElementById("dropdownImg");
+
+languageSelect.addEventListener("focus", function () {
+  dropdownImg.classList.add("rotate");
+});
+
+languageSelect.addEventListener("change", function () {
+  dropdownImg.classList.remove("rotate");
+  languageSelect.blur(); // důležité
+});
+
+languageSelect.addEventListener("blur", function () {
+  dropdownImg.classList.remove("rotate");
+});

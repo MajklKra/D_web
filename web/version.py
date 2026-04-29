@@ -1,5 +1,5 @@
-__version__ = "1.0.34"
+__version__ = "1.0.35"
 
-# Přepinání mezi uzavřeným a otevřeným okem
+# Select box language - pohyb šipek
 
 # Jedná se o tuto produkční verze: ----
