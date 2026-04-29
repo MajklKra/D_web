@@ -98,6 +98,27 @@ document.getElementById("errorBtn2").addEventListener("click", function ()
 // });
 
 
-/* Dnešní experimenty 28.4.2026 */
+/* Dnešní experimenty 29.4.2026 */
 
+function togglePassword()
+{
+  const input = document.getElementById("password");
+  const eyeClosed = document.getElementById("eyeImg");
+  const eyeOpen = document.getElementById("eyeImg2");
 
+  if (input.type === "password")
+  {
+
+    input.type = "text";
+
+    eyeClosed.style.display = "none";
+    eyeOpen.style.display = "inline";
+  }
+  else
+  {
+    input.type = "password";
+
+    eyeClosed.style.display = "inline";
+    eyeOpen.style.display = "none";
+  }
+}

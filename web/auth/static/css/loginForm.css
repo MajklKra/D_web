@@ -145,6 +145,8 @@ body
   font-family: 'Montserrat';
   font-size: 16px;
   font-weight: 500;
+
+  padding-right: 40px;
 }
 
 #language
@@ -198,7 +200,7 @@ body
   font-size: 20px;
   font-weight: 600;
 
-  font-family: Montserrat;
+  font-family: 'Montserrat';;
 
   padding: 0px !important;
 
@@ -321,21 +323,37 @@ body
 @media   (max-width: 319px)
 {
 
+  #codacoC
+  {
+    display: none;
+  }
+
 }
 
 @media  (min-width: 320px) and (max-width: 359px)
 {
-
+  #codacoC
+  {
+    display: none;
+  }
 }
 
 @media  (min-width: 360px) and (max-width: 449px)
 {
-
+    #codacoC
+    {
+      display: none;
+    }
 }
 
 /* mobil */
 @media  (min-width: 450px) and (max-width: 575px)
 {
+
+  #codacoC
+  {
+    display: none;
+  }
 
 }
 
@@ -427,7 +445,7 @@ body
 
 }
 
-#name:focus
+/* #name:focus
 {
   border: 2px solid rgba(25,100,210,1);
 }
@@ -440,7 +458,7 @@ body
 #language:focus
 {
   border: 2px solid rgba(25,100,210,1);
-}
+} */
 
 .error-container
 {
@@ -664,7 +682,9 @@ body
 #svg1
 {
   width: 135px;
-  height: auto;
+  /* height: auto; */
+
+  height: 28px;
 
   /* background-color: red; */
 }
@@ -682,13 +702,13 @@ body
 
 #nicknameImg
 {
-  /* background-color: blue; */
-  width: 40px;
-  height: 40px;
+  /* background-color: lightblue; */
+  width: 45px;
+  height: 45px;
 
   position: absolute;
-  top: 3px;
-  left: 11px;
+  top: 1px;
+  left: 9px;
 }
 
 #name::placeholder
@@ -729,13 +749,14 @@ body
 
 #passwordImg
 {
-  /* background-color: blue; */
-  width: 40px;
-  height: 40px;
+
+  /* background-color: lightblue; */
+  width: 45px;
+  height: 45px;
 
   position: absolute;
-  top: 3px;
-  left: 11px;
+  top: 1px;
+  left: 9px;
 }
 
 #password::placeholder
@@ -745,12 +766,10 @@ body
     font-size: 16px;
 }
 
-
 .table-mode
 {
   background: #F08080 !important;
 }
-
 
 .pc-mode
 {
@@ -770,4 +789,40 @@ body
     );
 }
 
+/* Experimenty 29.4.2026 */
+/* Odstranění nativního oka */
 
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear
+{
+  display: none;
+}
+
+
+#eyeImg
+{
+
+  /* background-color: lightblue; */
+  height: 18px;
+
+  position: absolute;
+  top: 14px;
+  left: 397px;
+
+  color: rgba(79,83,98,1);
+}
+
+#eyeImg2
+{
+
+  /* background-color: lightblue; */
+  height: 18px;
+
+  position: absolute;
+  top: 14px;
+  left: 397px;
+
+  color: rgba(79,83,98,1);
+
+  display: none;
+}
