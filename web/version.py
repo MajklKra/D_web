@@ -1,5 +1,5 @@
-__version__ = "1.0.36"
+__version__ = "1.0.37"
 
-# Error-boxes udapted - color a size have changed
+# CodacoTitle udjusted
 
 # Jedná se o tuto produkční verze: ----
