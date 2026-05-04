@@ -67,7 +67,7 @@ def login():
 
                 if (password != generalpass):
 
-                    form.password.errors.append("Chybné heslo ! ")
+                    form.password.errors.append("Nesprávné heslo.")
                     focus_field = "password"
 
                     s_print(f"Hodnota focus_field je : {focus_field}", "white", 0,0)
@@ -78,7 +78,7 @@ def login():
 
             if (username != generalLogin):
 
-                form.name.errors.append("Chybné jméno ! ")
+                form.name.errors.append("Nesprávné jméno.")
                 focus_field = "name"
 
                 s_print(f"focus_field: {focus_field}", "white", 0,1)
@@ -88,7 +88,7 @@ def login():
 
             if (username == generalLogin) and (password != generalpass):
 
-                form.password.errors.append("Chybné heslo ! ")
+                form.password.errors.append("Nesprávné heslo.")
                 focus_field = "password"
 
                 s_print(f"focus_field: {focus_field}", "white", 0,1)

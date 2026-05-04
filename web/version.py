@@ -1,5 +1,4 @@
-__version__ = "1.0.37"
+__version__ = "1.0.39"
 
-# CodacoTitle udjusted
-
+# První návrh kontroly hesla a jména uživatele?
 # Jedná se o tuto produkční verze: ----

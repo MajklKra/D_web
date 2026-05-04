@@ -64,31 +64,6 @@ window.addEventListener("resize", updateSize);
 // bonus: emulace často mění visualViewport
 window.visualViewport?.addEventListener("resize", updateSize);
 
-document.getElementById("errorBtn").addEventListener("click", function ()
-{
-    console.log("Kliknuto na errorBtn2");
-
-    console.log("Špatné heslo - zavírám chybovou hlášku");
-
-    const errorC = document.getElementById("errorC");
-    errorC.style.display = "none";
-
-    document.getElementById("password").focus();   // <- id inputu kam chceš fokus
-});
-
-document.getElementById("errorBtn2").addEventListener("click", function ()
-{
-    console.log("Kliknuto na errorBtn2");
-
-    console.log("Špatné jméno - zavírám chybovou hlášku");
-
-    const errorC2 = document.getElementById("errorC2");
-    errorC2.style.display = "none";
-
-    document.getElementById("name").focus();   // <- id inputu kam chceš fokus
-
-});
-
 // console.log
 // ({
 //   body_client: document.body.clientHeight,                         // viditelná výška
@@ -147,6 +122,26 @@ languageSelect.addEventListener("change", function ()
 languageSelect.addEventListener("blur", function ()
 {
   dropdownImg.classList.remove("rotate");
+});
+
+/* Obarvení error Error-boxů*/
+
+window.addEventListener("DOMContentLoaded", function () {
+  const nameInput = document.getElementById("name");
+  const passwordInput = document.getElementById("password");
+
+  const nameError = document.getElementById("errorC2");
+  const passwordError = document.getElementById("errorC");
+
+  if (nameError && getComputedStyle(nameError).display !== "none")
+  {
+    nameInput.classList.add("input-error");
+  }
+
+  if (passwordError && getComputedStyle(passwordError).display !== "none")
+  {
+    passwordInput.classList.add("input-error");
+  }
 });
 
 
