@@ -105,24 +105,24 @@ function togglePassword()
 
 /* Otáčení šipky při výběru jazyků */
 
-const languageSelect = document.getElementById("language");
-const dropdownImg = document.getElementById("dropdownImg");
+// const languageSelect = document.getElementById("language");
+// const dropdownImg = document.getElementById("dropdownImg");
 
-languageSelect.addEventListener("focus", function ()
-{
-  dropdownImg.classList.add("rotate");
-});
+// languageSelect.addEventListener("focus", function ()
+// {
+//   dropdownImg.classList.add("rotate");
+// });
 
-languageSelect.addEventListener("change", function ()
-{
-  dropdownImg.classList.remove("rotate");
-  languageSelect.blur(); // důležité
-});
+// languageSelect.addEventListener("change", function ()
+// {
+//   dropdownImg.classList.remove("rotate");
+//   languageSelect.blur(); // důležité
+// });
 
-languageSelect.addEventListener("blur", function ()
-{
-  dropdownImg.classList.remove("rotate");
-});
+// languageSelect.addEventListener("blur", function ()
+// {
+//   dropdownImg.classList.remove("rotate");
+// });
 
 /* Obarvení error Error-boxů*/
 
@@ -145,3 +145,94 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 
+/* Nový language select-box */
+
+const languageSelect = document.getElementById("language");
+const dropdownImg = document.getElementById("dropdownImg");
+
+const languageBtn = document.getElementById("languageBtn");
+const languageText = document.getElementById("languageText");
+const languageMenu = document.getElementById("languageMenu");
+const languageOptions = document.querySelectorAll(".language-option");
+
+function openLanguageMenu()
+{
+  languageMenu.classList.add("open");
+  languageBtn.classList.add("open");
+  dropdownImg.classList.add("rotate");
+}
+
+function closeLanguageMenu() {
+  languageMenu.classList.remove("open");
+  languageBtn.classList.remove("open");
+  dropdownImg.classList.remove("rotate");
+}
+
+function toggleLanguageMenu()
+{
+  if (languageMenu.classList.contains("open"))
+  {
+    closeLanguageMenu();
+  }
+  else
+  {
+    openLanguageMenu();
+  }
+}
+
+function syncLanguageText()
+{
+  const selectedOption = languageSelect.options[languageSelect.selectedIndex];
+
+  if (selectedOption && selectedOption.value)
+  {
+    languageText.textContent = selectedOption.textContent.trim();
+  }
+  else
+  {
+    languageText.textContent = "Jazyk";
+  }
+
+  languageOptions.forEach(function(option)
+  {
+    option.classList.toggle("selected", option.dataset.value === languageSelect.value);
+  });
+}
+
+languageBtn.addEventListener("click", function(event)
+{
+  event.stopPropagation();
+  toggleLanguageMenu();
+});
+
+languageOptions.forEach(function(option) {
+  option.addEventListener("click", function()
+  {
+    languageSelect.value = option.dataset.value;
+
+    languageSelect.dispatchEvent(new Event("change", {
+      bubbles: true
+    }));
+
+    syncLanguageText();
+    closeLanguageMenu();
+  });
+});
+
+document.addEventListener("click", function(event)
+{
+  if (!event.target.closest(".custom-language-select"))
+  {
+    closeLanguageMenu();
+  }
+});
+
+document.addEventListener("keydown", function(event)
+{
+  if (event.key === "Escape")
+  {
+    closeLanguageMenu();
+  }
+});
+
+syncLanguageText();

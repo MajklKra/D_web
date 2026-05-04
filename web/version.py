@@ -1,4 +1,4 @@
-__version__ = "1.0.39"
+__version__ = "1.0.40"
 
-# První návrh kontroly hesla a jména uživatele?
+# Návrh svého selectBoxu.
 # Jedná se o tuto produkční verze: ----

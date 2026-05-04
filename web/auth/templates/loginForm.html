@@ -146,7 +146,7 @@
             </div>
 
 
-            <div id="group3"  title="Volba jazyka.">
+            <!-- <div id="group3"  title="Volba jazyka.">
 
                 <div class="select-wrapper">
 
@@ -171,6 +171,50 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" fill="currentcolor"/>
                   </svg>
 
+
+                </div>
+
+            </div> -->
+
+            <div id="group3"  title="Volba jazyka.">
+
+                <div class="select-wrapper custom-language-select">
+
+                        <select id="language" name="language" required>
+                            <option value="" disabled selected hidden>Jazyk</option>
+
+                            {% for value, label in form.language.choices %}
+                                {% if value %}
+                                    <option value="{{ value }}" {% if form.language.data == value %}selected{% endif %}>
+                                        {{ label }}
+                                    </option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+
+                        <button type="button" id="languageBtn" class="language-btn">
+                            <span id="languageText">Jazyk</span>
+
+                            <svg id="dropdownImg" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                    fill="currentColor"/>
+                            </svg>
+                        </button>
+
+                        <div id="languageMenu" class="language-menu">
+                            {% for value, label in form.language.choices %}
+                                {% if value %}
+                                    <button type="button" class="language-option" data-value="{{ value }}">
+                                        {{ label }}
+                                    </button>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        {% for err in form.language.errors %}
+                            <p style="color:red">{{ err }}</p>
+                        {% endfor %}
 
                 </div>
 
