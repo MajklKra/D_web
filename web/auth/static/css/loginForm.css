@@ -917,12 +917,12 @@ input[type="text"]
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.language-btn:hover,
+/* .language-btn:hover,
 .language-btn.open
 {
   border-color: rgba(53,127,171,0.55);
   box-shadow: 0 6px 16px rgba(53,127,171,0.14);
-}
+} */
 
 .language-menu
 {

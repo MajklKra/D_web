@@ -126,7 +126,8 @@ function togglePassword()
 
 /* Obarvení error Error-boxů*/
 
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function ()
+{
   const nameInput = document.getElementById("name");
   const passwordInput = document.getElementById("password");
 
@@ -162,7 +163,8 @@ function openLanguageMenu()
   dropdownImg.classList.add("rotate");
 }
 
-function closeLanguageMenu() {
+function closeLanguageMenu()
+{
   languageMenu.classList.remove("open");
   languageBtn.classList.remove("open");
   dropdownImg.classList.remove("rotate");
@@ -205,12 +207,14 @@ languageBtn.addEventListener("click", function(event)
   toggleLanguageMenu();
 });
 
-languageOptions.forEach(function(option) {
+languageOptions.forEach(function(option)
+{
   option.addEventListener("click", function()
   {
     languageSelect.value = option.dataset.value;
 
-    languageSelect.dispatchEvent(new Event("change", {
+    languageSelect.dispatchEvent(new Event("change",
+    {
       bubbles: true
     }));
 
