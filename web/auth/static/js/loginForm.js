@@ -102,28 +102,6 @@ function togglePassword()
   input.style.paddingRight = "55px";
 }
 
-
-/* Otáčení šipky při výběru jazyků */
-
-// const languageSelect = document.getElementById("language");
-// const dropdownImg = document.getElementById("dropdownImg");
-
-// languageSelect.addEventListener("focus", function ()
-// {
-//   dropdownImg.classList.add("rotate");
-// });
-
-// languageSelect.addEventListener("change", function ()
-// {
-//   dropdownImg.classList.remove("rotate");
-//   languageSelect.blur(); // důležité
-// });
-
-// languageSelect.addEventListener("blur", function ()
-// {
-//   dropdownImg.classList.remove("rotate");
-// });
-
 /* Obarvení error Error-boxů*/
 
 window.addEventListener("DOMContentLoaded", function ()
@@ -131,8 +109,11 @@ window.addEventListener("DOMContentLoaded", function ()
   const nameInput = document.getElementById("name");
   const passwordInput = document.getElementById("password");
 
+  const languageBtn = document.getElementById("languageBtn");
+
   const nameError = document.getElementById("errorC2");
   const passwordError = document.getElementById("errorC");
+  const languageError = document.getElementById("errorC3");
 
   if (nameError && getComputedStyle(nameError).display !== "none")
   {
@@ -143,6 +124,12 @@ window.addEventListener("DOMContentLoaded", function ()
   {
     passwordInput.classList.add("input-error");
   }
+
+  if (languageError && getComputedStyle(languageError).display !== "none")
+  {
+    languageBtn.classList.add("input-error");
+  }
+
 });
 
 

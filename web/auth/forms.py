@@ -29,9 +29,10 @@ class LoginForm(FlaskForm):
             ("de", "Deutsch"),
         ],
         validators=[
-            DataRequired(message="Vyber jazyk"),
+            DataRequired(message="Vyber jazyk."),
             AnyOf(["cs", "en", "de"])
-        ]
+        ],
+
     )
 
     submit = SubmitField("Přihlásit")

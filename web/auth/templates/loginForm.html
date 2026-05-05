@@ -29,8 +29,6 @@
 
                 <div class="input-wrapper">
 
-                    <!-- <div class="svg-wrapper"> -->
-
                         <svg id="nicknameImg" viewBox="0 0 44.64 44.64">
                             <defs>
                                 <style>
@@ -55,11 +53,7 @@
 
                     </div>
 
-
-                    <!-- {{ form.name.label(id="l1") }} -->
                     {{ form.name(maxLength=50, id="name", title="Zadejte jméno pro přihlášení!", autocomplete="off", autofocus=(focus_field=="name"), placeholder="Přihlašovácí jméno") }}
-                <!-- </div> -->
-
 
                 <div id="errorC2" class="error-container" {% if not form.name.errors %}style="display:none"{% endif %}>
 
@@ -69,16 +63,7 @@
                         {% endfor %}
                     </div>
 
-                    <!-- <button id="errorBtn2" class="close" type="button">
-
-                        <svg width="15px" height="15px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione-monotone" preserveAspectRatio="xMidYMid meet">
-                            <path d="M62 10.571L53.429 2L32 23.429L10.571 2L2 10.571L23.429 32L2 53.429L10.571 62L32 40.571L53.429 62L62 53.429L40.571 32z" fill="currentColor"></path>
-                        </svg>
-
-                    </button> -->
-
                 </div>
-
 
             </div>
 
@@ -105,11 +90,6 @@
                             <path d="M21.0006 12.0007C19.2536 15.5766 15.8779 18 12 18M12 18C8.12204 18 4.7463 15.5766 2.99977 12.0002M12 18L12 21M19.4218 14.4218L21.4999 16.5M16.2304 16.9687L17.5 19.5M4.57812 14.4218L2.5 16.5M7.76953 16.9687L6.5 19.5" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
 
-                        <!-- <svg  id="eyeImg2"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="togglePassword()" style="cursor:pointer;">
-                            <path d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z" stroke="currentcolor" stroke-width="1.5"/>
-                            <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentcolor" stroke-width="1.5"/>
-                        </svg> -->
-
                         <svg id="eyeImg2" viewBox="0 0 44.64 44.64" onclick="togglePassword()" style="cursor:pointer;">
                             <defs>
                                 <style>
@@ -132,55 +112,15 @@
                             <p class="error">{{ err }} </p>
                         {% endfor %}
                     </div>
-
-                    <!-- <button id="errorBtn" class="close" type="button">
-
-                        <svg width="15px" height="15px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione-monotone" preserveAspectRatio="xMidYMid meet">
-                            <path d="M62 10.571L53.429 2L32 23.429L10.571 2L2 10.571L23.429 32L2 53.429L10.571 62L32 40.571L53.429 62L62 53.429L40.571 32z" fill="currentColor"></path>
-                        </svg>
-
-                    </button> -->
-
                 </div>
 
             </div>
-
-
-            <!-- <div id="group3"  title="Volba jazyka.">
-
-                <div class="select-wrapper">
-
-                    <select id="language" name="language" title="Volba jazyka." required>
-                        <option value="" disabled selected hidden>Jazyk</option>
-
-                        {% for value, label in form.language.choices %}
-                        {% if value %}
-                        <option value="{{ value }}" {% if form.language.data == value %}selected{% endif %}>
-                            {{ label }}
-                        </option>
-                        {% endif %}
-                        {% endfor %}
-
-                    </select>
-
-                    {% for err in form.language.errors %}
-                        <p style="color:red">{{ err }}</p>
-                    {% endfor %}
-
-                   <svg id="dropdownImg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" fill="currentcolor"/>
-                  </svg>
-
-
-                </div>
-
-            </div> -->
 
             <div id="group3"  title="Volba jazyka.">
 
                 <div class="select-wrapper custom-language-select">
 
-                        <select id="language" name="language" required>
+                        <select id="language" name="language">
                             <option value="" disabled selected hidden>Jazyk</option>
 
                             {% for value, label in form.language.choices %}
@@ -212,9 +152,13 @@
                             {% endfor %}
                         </div>
 
-                        {% for err in form.language.errors %}
-                            <p style="color:red">{{ err }}</p>
-                        {% endfor %}
+                        <div id="errorC3" class="error-container" {% if not form.language.errors %}style="display:none"{% endif %}>
+                            <div id="messageC3">
+                                {% for err in form.language.errors %}
+                                    <p class="error">{{ err }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
 
                 </div>
 
@@ -226,7 +170,6 @@
 
 
     </form>
-
 
     <div id="prohibitonC">
 

@@ -36,7 +36,6 @@
 }
 
 
-
 html, body
 {
   margin: 0;
@@ -105,15 +104,11 @@ body
     justify-content: flex-start;
     align-items: center;
 
-    /* box-shadow: 1px 1px 6px gray; */
-
     position: relative;
-
 }
 
 #innerC
 {
-  /* width: 80%; */
 
   width: 436px !important;
   height: 70%;
@@ -182,31 +177,6 @@ body
   padding-right: 10px;
 }
 
-/* #language
-{
-
-  width: 100%;
-  height: 46px;
-
-  border-radius: 10px;
-
-  border: none;
-  outline: none;
-
-  border: 3px solid rgba(234,238,245,100);
-
-  color: #324351;
-
-  font-family: 'Montserrat';
-  font-size: 16px !important;
-  font-weight: 500;
-
-  padding-left: 56px;
-
-  cursor: pointer;
-
-} */
-
 #submitBtn
 {
 
@@ -255,46 +225,6 @@ body
   margin-top: 25px;
 
 }
-
-/* #l1
-{
-  font-size: 14px;
-  font-weight: 600;
-
-  color: #1F2328;
-
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
-
-#l2
-{
-  font-size: 14px;
-  font-weight: 600;
-  /* color: #1E90FF; */
-  /* color: rgba(144, 148, 156, 1); */
-  /* color: rgba(36,41,47,1);
-
-  color: #1F2328;
-
-  /* font-family: Arial, Helvetica, sans-serif;
-
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
-
-
-#l3
-{
-  font-size: 14px;
-  font-weight: 600;
-  /* color: #1E90FF;
-
-  color: #1F2328;
-
-  /* font-family: Arial, Helvetica, sans-serif;
-
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-
-} */
 
 #formTitle
 {
@@ -348,7 +278,8 @@ body
   filter: brightness(1.03);
 }
 
-.btn:active{
+.btn:active
+{
   transform: translateY(1px) scale(0.98);
   box-shadow: 0 3px 8px rgba(95, 158, 160, 0.35);
   filter: brightness(0.98);
@@ -364,9 +295,6 @@ body
   transform: translateX(-50%);
   left:   50%;
   top:    194px;
-
-  /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35); */
-
 }
 
 #errorC2
@@ -379,9 +307,6 @@ body
   transform: translateX(-50%);
   left:   50%;
   top:    123px;
-
-  /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35); */
-
 }
 
 .error-container
@@ -396,8 +321,6 @@ body
   border-radius: 10px;
 
   color: red;
-
-  /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.35); */
 }
 
 .error
@@ -424,16 +347,8 @@ body
   justify-content: start;
   align-items: center;
 
-  /* width:  390px; */
   width: 84%;
   height: 100%;
-  /* background-color: yellowgreen;
-
-  font-family: 'Montserrat';
-  font-size: 14px;
-  font-weight: 500;
-
-  /* background-color: blue; */
 
   padding-left: 60px;
 
@@ -441,7 +356,6 @@ body
   font-size: 11px;
   font-weight: 600;
 }
-
 
 #messageC
 {
@@ -451,16 +365,12 @@ body
   justify-content: start;
   align-items: center;
 
-  /* width:  390px; */
   width: 84%;
   height: 100%;
-  /* background-color: yellowgreen; */
 
   font-family: 'Montserrat';
   font-size: 14px;
   font-weight: 500;
-
-  /* background-color: blue; */
 
   padding-left: 60px;
 
@@ -468,8 +378,6 @@ body
   font-size: 11px;
   font-weight: 600;
 }
-
-
 
 #errorBtn, #errorBtn2
 {
@@ -488,21 +396,6 @@ body
 
   cursor: pointer;
 }
-
-
-/* #errorBtn:hover, #errorBtn2:hover
-{
-  /* border: 2px solid blue;
-} */
-
-
-/* #myPortrait
-{
-  width: 100%;
-  height: 100%;
-  object-fit:contain;
-} */
-
 
 .spinner
 {
@@ -553,7 +446,6 @@ body
 {
   display: none;
 }
-
 
 /* Nový projekt dne 24.4.2026 */
 
@@ -753,43 +645,10 @@ input[type="password"]::-ms-clear
   /* background-color: red; */
 }
 
-/* #language
-{
-  appearance: none;         /* hlavní
-  -webkit-appearance: none; /* Safari
-  -moz-appearance: none;    /* Firefox
-} */
-
 .select-wrapper
 {
   position: relative;
 }
-
-/* #dropdownImg
-{
-  /* background-color: lightblue;
-  height: 26px;
-
-  position: absolute;
-  top: 12px;
-  left: 390px;
-
-  color: #324351;
-
-  pointer-events: none;
-
-  /* transform: translateY(-50%) rotate(0deg);
-  transition: transform 0.2s ease;
-  pointer-events: none;
-
-}
-
-#dropdownImg.rotate
-{
-  /* transform: translateY(-50%) rotate(180deg);
-
-  transform:  rotate(180deg);
-} */
 
 input[type="text"]
 {
@@ -801,85 +660,7 @@ input[type="text"]
   border: 3px solid rgba(253,233,223,1) !important;
 }
 
-/* mobil */
-
-@media   (max-width: 319px)
-{
-
-  #codacoC
-  {
-    display: none;
-  }
-
-}
-
-@media  (min-width: 320px) and (max-width: 359px)
-{
-  #codacoC
-  {
-    display: none;
-  }
-}
-
-@media  (min-width: 360px) and (max-width: 449px)
-{
-    #codacoC
-    {
-      display: none;
-    }
-}
-
-/* mobil */
-@media  (min-width: 450px) and (max-width: 575px)
-{
-
-  #codacoC
-  {
-    display: none;
-  }
-
-}
-
-/* mobil/tablet */
-@media (min-width: 576px) and (max-width: 767px)
-{
-
-    #codacoC
-    {
-      display: none;
-    }
-}
-
-/* tablet*/
-@media (min-width: 768px) and (max-width: 991px)
-{
-
-    #codacoC
-    {
-      display: none;
-    }
-
-}
-
-/* počítačová obrazovka */
-@media (min-width: 992px) and (max-width: 1199px)
-{
-
-}
-
-/* počítačová obrazovka */
-@media (min-width: 1200px) and (max-width: 1399px)
-{
-
-}
-
-/* počítačová obrazovka */
-@media (min-width: 1400px)
-{
-
-}
-
-/* Experimental reseatch and development 4.5.2026 */
+/* Experimental research and development 4.5.2026 */
 
 #language
 {
@@ -1010,4 +791,122 @@ input[type="text"]
 {
   transform: rotate(180deg);
 }
+
+/* Dnešní bolestivé experimenty 5.5.2026 */
+
+#errorC3
+{
+  width:  100%;
+  height: 25px;
+
+  position: absolute;
+
+  transform: translateX(-50%);
+  left:   50%;
+  top:    45px;
+
+  /* background-color: yellowgreen; */
+}
+
+
+#messageC3
+{
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  padding-left: 60px;
+
+  font-family: 'Montserrat';
+  font-size: 11px;
+  font-weight: 600;
+
+  /* background-color: yellow; */
+}
+
+/* mobil */
+
+@media   (max-width: 319px)
+{
+
+  #codacoC
+  {
+    display: none;
+  }
+
+}
+
+@media  (min-width: 320px) and (max-width: 359px)
+{
+  #codacoC
+  {
+    display: none;
+  }
+}
+
+@media  (min-width: 360px) and (max-width: 449px)
+{
+    #codacoC
+    {
+      display: none;
+    }
+}
+
+/* mobil */
+@media  (min-width: 450px) and (max-width: 575px)
+{
+
+  #codacoC
+  {
+    display: none;
+  }
+
+}
+
+/* mobil/tablet */
+@media (min-width: 576px) and (max-width: 767px)
+{
+
+    #codacoC
+    {
+      display: none;
+    }
+}
+
+/* tablet*/
+@media (min-width: 768px) and (max-width: 991px)
+{
+
+    #codacoC
+    {
+      display: none;
+    }
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 992px) and (max-width: 1199px)
+{
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1200px) and (max-width: 1399px)
+{
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1400px)
+{
+
+}
+
+
+
 

@@ -31,10 +31,28 @@ def login():
     focus_field = None
     form = LoginForm()
 
+
+    if request.method == "POST":
+        language = request.form.get("language")
+
+        if not language:
+            form.language.errors = list(form.language.errors) + ["Vyber jazyk"]
+            focus_field = "language"
+            return render_template("loginForm.html", form=form, focus_field=focus_field)
+
+        if language not in ["cs", "en", "de"]:
+            form.language.errors = list(form.language.errors) + ["Neplatný jazyk"]
+            focus_field = "language"
+            return render_template("loginForm.html", form=form, focus_field=focus_field)
+
+
     if form.validate_on_submit():
 
         username = form.name.data
         password = form.password.data
+
+        language = request.form.get("language")
+        s_print(f"language: {language}", "white", 0, 1)
 
         SQL_query2 = """
 

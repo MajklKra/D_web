@@ -27,34 +27,10 @@ function updateSize()
   const w = document.documentElement.clientWidth;
   const h = document.documentElement.clientHeight;
 
-  console.log('Vieport');
-  console.log(`↔️ šířka okna: ${w}, ↕️ výška okna: ${h}`);
-  console.log('🔥 šířka okna je:' + window.outerWidth);
+  console.log('Viewport');
+  console.log(`↔️ šířka viewportu: ${w}, ↕️ výška viewportu: ${h}`);
+  console.log('🔥 šířka celého okna je:' + window.outerWidth);
 
-  if (window.outerWidth < 992)
-  {
-
-    const body = document.body;
-    document.body.classList.remove("pc-mode");
-    document.body.classList.add("table-mode");
-
-    const prohibitonC = document.getElementById("prohibitonC");
-    prohibitonC.style.display = "flex";
-
-  }
-
-  if (window.outerWidth >= 992)
-  {
-
-    const body = document.body;
-
-    document.body.classList.remove("table-mode");
-    document.body.classList.add("pc-mode");
-
-    const prohibitonC = document.getElementById("prohibitonC");
-    prohibitonC.style.display = "none";
-
-  }
 }
 
 // místo okamžitého volání:

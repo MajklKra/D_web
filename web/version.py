@@ -1,4 +1,4 @@
-__version__ = "1.0.40"
+__version__ = "1.0.41"
 
-# Návrh svého selectBoxu.
+# Kontrola language Select-boxu.
 # Jedná se o tuto produkční verze: ----
