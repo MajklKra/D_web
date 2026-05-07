@@ -97,7 +97,7 @@ body
   body
   {
     display: none
-  };
+  }
 }
 
 @media  (min-width: 320px) and (max-width: 359px)
@@ -105,7 +105,7 @@ body
   body
   {
     display: none
-  };
+  }
 }
 
 @media  (min-width: 360px) and (max-width: 449px)
@@ -113,7 +113,19 @@ body
   body
   {
     display: none
-  };
+  }
+}
+
+#navBar
+{
+  width: 100%;
+  height: 72px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: start;
+  padding-top: 22px;
 }
 
 /* mobil */
@@ -122,7 +134,7 @@ body
   body
   {
     display: none
-  };
+  }
 }
 
 /* mobil/tablet */
@@ -131,7 +143,7 @@ body
   body
   {
     display: none
-  };
+  }
 }
 
 /* tablet*/
@@ -140,8 +152,10 @@ body
   body
   {
     display: none
-  };
+  }
 }
+
+
 
 /* počítačová obrazovka */
 @media (min-width: 992px) and (max-width: 1199px)
@@ -150,7 +164,12 @@ body
   body
   {
     background-color: lightgreen !important;
-  };
+  }
+
+  #navBar
+  {
+    background-color: green !important;
+  }
 
 }
 
@@ -161,7 +180,12 @@ body
   body
   {
     background-color: lightblue !important;
-  };
+  }
+
+  #navBar
+  {
+    background-color: blue !important;
+  }
 
 }
 
@@ -185,14 +209,17 @@ body
       rgb(252,252,253) 90%,
       rgb(255,255,255) 100%
     );
-  };
+  }
+
+
+  #navBar
+  {
+    background-color: violet !important;
+  }
 
 }
 
-
-
 /* Experimental research and development 5.5.2026 */
-
 
 #whileView
 {
@@ -200,4 +227,273 @@ body
   height: 100%;
 
   background-color: goldenrod !important;
+}
+
+
+#leftMenu
+{
+  /* width: 396px; */
+
+  width: 20.6%;
+
+  height: calc(100% - 72px);
+
+  background-color: yellowgreen !important;
+
+}
+
+
+/*  Dnešní experimenty 6.5.2026 */
+
+#navInformation
+{
+  width: auto;
+  height: 28px;
+  /* max-width: 50%; */
+  max-width: 960px;
+
+  background-color: red;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+#dateC
+{
+  width: 25%;
+  height: 28px;
+
+  background-color: palegreen;
+}
+
+#hourC
+{
+  width: 25%;
+  height: 28px;
+
+  background-color: gold;
+}
+
+#nameC
+{
+  width: auto;
+  height: 28px;
+
+  background-color: lightcoral;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+
+  border-left: 2px solid rgba(180,184,196,1);
+}
+
+#exitC
+{
+  width: auto;
+  height: 28px;
+
+  background-color: lightgray;
+
+  /* position: relative; */
+
+  border-left: 2px solid rgba(180,184,196,1);
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0px;
+}
+
+#exitImg
+{
+  width: 31px;
+  height: 31px;
+
+  /* background-color: transparent; */
+}
+
+#exitBtn
+{
+  /* position: absolute;
+  top: -8px;
+  right: 14px; */
+
+  background-color: transparent;
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 26px;
+  margin-right: 27px;
+
+  width: auto;
+  height: auto;
+
+  padding: 0px;
+  padding-bottom: 1px;
+}
+
+#personImg
+{
+  width: 22px;
+  height: 22px;
+
+  background-color: red;
+
+  margin-right: 23px;
+  margin-left: 20px;
+}
+
+#userName
+{
+  background-color: yellow;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #192838;
+  font-size: 17px;
+
+  margin-left: 20px;
+
+  padding-left: 0px;
+  padding-right: 0px;
+
+  max-width: 250px;
+  min-width: 0;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+#userSurname
+{
+  background-color: cyan;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #192838;
+  font-size: 17px;
+
+  margin-left: 5px;
+
+  padding-left: 0px;
+  padding-right: 0px;
+
+  max-width: 350px;
+  min-width: 0;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Dnešní experimentální programování 7.5.2026 */
+
+#hourC
+{
+  background-color: gold;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border-left: 2px solid rgba(180,184,196,1);
+}
+
+#hour
+{
+  background-color: violet;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 17px;
+  color: #192838;
+
+  margin-left: 16px;
+}
+
+#minutes
+{
+  background-color: lightblue;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 17px;
+  color: #192838;
+
+  margin-right: 20px;
+}
+
+#colon
+{
+  background-color: lightcoral;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 17px;
+  color: #192838;
+}
+
+#dateC
+{
+  background-color: green;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#day
+{
+  background-color: limegreen;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 17px;
+  color: #192838;
+}
+
+.dot
+{
+  background-color: lightsalmon;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 17px;
+  color: #192838;
+
+  margin-right: 6px;
+  /* margin-left: 2px; */
+}
+
+#month
+{
+  background-color: lightseagreen;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 17px;
+  color: #192838;
+}
+
+#year
+{
+  background-color: lightsteelblue;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 17px;
+  color: #192838;
+
+  margin-right: 16px;
 }

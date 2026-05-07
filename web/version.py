@@ -1,4 +1,10 @@
-__version__ = "1.0.41"
+__version__ = "1.0.47"
 
-# Kontrola language Select-boxu.
-# Jedná se o tuto produkční verze: ----
+# První návrh horní lišty vytvořen
+
+
+# Jedná se o tuto produkční verzi č. ----
+
+# Vytvořil Michal Kraninger
+# Datum: 7.5.2026
+
