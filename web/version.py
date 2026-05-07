@@ -1,6 +1,6 @@
-__version__ = "1.0.47"
+__version__ = "1.0.48"
 
-# První návrh horní lišty vytvořen
+# Vložení nadpisu Codaco
 
 
 # Jedná se o tuto produkční verzi č. ----
