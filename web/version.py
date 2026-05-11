@@ -1,10 +1,9 @@
-__version__ = "1.0.51"
+__version__ = "1.0.56"
 
-# Návrh prvního řádku bočního menu - ikona šipky
-
+# Hlavní body v menu vytvořeny
 
 # Jedná se o tuto produkční verzi č. ----
 
-# Vytvořil Michal Kraninger
-# Datum: 7.5.2026
+# Vytvořil  Michal Kraninger
+# Datum:    11.5.2026
 
