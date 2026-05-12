@@ -1,9 +1,9 @@
-__version__ = "1.0.56"
+__version__ = "1.0.58"
 
-# Hlavní body v menu vytvořeny
+# Boční menu left-menu upraveno, za účelem hoveru.
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    11.5.2026
+# Datum:    12.5.2026
 

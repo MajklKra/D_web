@@ -4,6 +4,8 @@ import vokativ
 from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for
 from .blueprints import admin_clients_bp
 from vokativ import vokativ
+from ...version import __version__
+
 
 @admin_clients_bp.route('/home')
 def home():
@@ -15,7 +17,7 @@ def home():
     name = session.get('e_name')
     surname = session.get('e_surname')
 
-    return render_template('base.html', name = name, surname = surname, salutation = salutation)
+    return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__)
 
 
 # @admin_clients_bp.route('/logout')
