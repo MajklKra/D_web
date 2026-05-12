@@ -88,8 +88,6 @@ body
 
 }
 
-
-
 /* mobil */
 
 @media   (max-width: 319px)
@@ -233,14 +231,13 @@ body
   position: relative;
 }
 
-
 #leftMenu
 {
   /* width: 396px; */
 
   width: 20.6%;
 
-  height: calc(100% - 91px);
+  height: calc(100% - 83px);
 
   background-color: yellowgreen !important;
 
@@ -253,7 +250,6 @@ body
   justify-content: start;
   align-items: start;
 }
-
 
 /*  Dnešní experimenty 6.5.2026 */
 
@@ -561,20 +557,14 @@ body
 .mainDescription
 {
   /* width: auto; */
-
   width: 210px;
-
-  /* background-color: pink; */
+  background-color: pink;
   margin: 0px;
   margin-left: 35px;
   font-family: 'Montserrat';
   font-weight: 700;
-  /* font-size: 18px; */
-
   font-size: 19px;
-
   color: #59646f;
-
   display:flex;
   flex-direction: row;
   white-space: nowrap;
@@ -614,27 +604,15 @@ body
 
 #srow1
 {
-
   display: flex;
   flex-direction: row;
-  /* justify-content: start; */
   align-items: center;
-
   width: 94%;
   height: 44px;
-
   padding: 0px;
-
-  /* position: relative; */
-
-
   background-color: #357fab;
-
-  /* margin-bottom: 17px; */
-
   margin-bottom: 6px;
 }
-
 
 #srow1-c1
 {
@@ -657,31 +635,21 @@ body
 {
   background-color: orange;
   width: auto;
-
   height: auto;
-
-  /* flex: 1; */
   min-width: 0;
 }
 
 #srow1-c3
 {
-  /* margin-left: 16px; */
-
   padding-left: 28px;
-
   width: auto;
-
   height: stretch !important;
-
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: center;
 
   padding-right: 7px;
-  /* padding-bottom: 8px; */
-
   padding-bottom: 15px;
 
   background-color: orangered;
@@ -689,15 +657,7 @@ body
   box-sizing: border-box;
 }
 
-
-/* #srow1:hover
-{
-  background-color: #357fab;
-}
- */
-
-
- /* Experimental programming 11.5.2026 */
+/* Experimental programming 11.5.2026 */
 
 #dropdownBtn
 {
@@ -1088,6 +1048,8 @@ body
   border-bottom-right-radius: 10px;
 
   color: white !important;
+
+  cursor: pointer;
 }
 
 
