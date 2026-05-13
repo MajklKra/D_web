@@ -155,8 +155,6 @@ body
   }
 }
 
-
-
 /* počítačová obrazovka */
 @media (min-width: 992px) and (max-width: 1199px)
 {
@@ -170,6 +168,12 @@ body
   {
     background-color: green !important;
   }
+
+  #srow0
+  {
+    height: 25px;
+  }
+
 
 }
 
@@ -185,6 +189,11 @@ body
   #navBar
   {
     background-color: blue !important;
+  }
+
+  #srow0
+  {
+    height: 35px;
   }
 
 }
@@ -217,6 +226,11 @@ body
     background-color: violet !important;
   }
 
+  #srow0
+  {
+    height: 44px;
+  }
+
 }
 
 /* Experimental research and development 5.5.2026 */
@@ -239,6 +253,8 @@ body
 
   height: calc(100% - 83px);
 
+  min-height: 862px;
+
   background-color: yellowgreen !important;
 
   overflow: auto;
@@ -249,6 +265,8 @@ body
   flex-direction: column;
   justify-content: start;
   align-items: start;
+
+
 }
 
 /*  Dnešní experimenty 6.5.2026 */
@@ -581,7 +599,7 @@ body
 
   color: #59646f;
 
-  margin-left: 26px;
+  /* margin-left: 26px; */
 }
 
 #dropdownImg
@@ -602,6 +620,20 @@ body
 
 }
 
+#organization-wrap
+{
+  width: 32px;
+  height: 32px;
+  background-color: black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0px;
+}
+
 #srow1
 {
   display: flex;
@@ -612,12 +644,14 @@ body
   padding: 0px;
   background-color: #357fab;
   margin-bottom: 6px;
+
+  overflow: hidden;
 }
 
 #srow1-c1
 {
   background-color: lightcoral;
-  width: auto;
+  width: 58px;
   height: auto;
 
   padding: 0px;
@@ -626,8 +660,8 @@ body
   box-sizing: border-box;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: end;
   align-items: center;
 }
 
@@ -716,6 +750,32 @@ body
   flex-direction: row;
   justify-content: end;
   align-items: center;
+}
+
+#srow2-c2
+{
+  background-color: orange;
+  width: auto;
+  height: auto;
+  min-width: 0;
+}
+
+#srow2-c3
+{
+  padding-left: 28px;
+  width: auto;
+  height: stretch !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+
+  padding-right: 7px;
+  padding-bottom: 15px;
+
+  background-color: orangered;
+
+  box-sizing: border-box;
 }
 
 #employeeImg
@@ -916,7 +976,7 @@ body
   align-items: center;
 }
 
-#sro4-c2
+#srow4-c2
 {
   background-color: orange;
   width: auto;
@@ -1323,7 +1383,7 @@ body
     background-color: blue !important;
     border: none;
     outline: none;
- }
+}
 
 
 #settings-wrap
@@ -1957,3 +2017,245 @@ body
   padding-left: 22px;
 }
 
+#dropdownBtn7
+{
+    width: auto;
+    height: auto;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-self: center;
+
+    background-color: blue !important;
+    border: none;
+    outline: none;
+
+    visibility: hidden;
+}
+
+
+#dropdownBtn8
+{
+    width: auto;
+    height: auto;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-self: center;
+
+    background-color: blue !important;
+    border: none;
+    outline: none;
+
+    visibility: hidden;
+}
+
+#srow0
+{
+  width: 94%;
+  /* height: 44px; */
+
+  /* height: 5.1%; */
+
+  background-color: red;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: start;
+  align-items: center;
+
+  /* margin-bottom: 7px; */
+  margin-bottom: clamp(5px, 0.4vw, 7px);
+
+  /* min-height: 2.5% !important; */
+
+  min-height: 22px;
+}
+
+#srow0-c1
+{
+  /* width: 58px; */
+
+  width: 15.5%;
+
+  background-color: green;
+  color: red;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: end;
+  align-items: center;
+
+}
+
+#srow0-c2
+{
+  /* width: 245px; */
+
+  width: 65.9%;
+  background-color: orange;
+  color: red;
+  text-align: center;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: start;
+}
+
+#srow0-c3
+{
+  /* width: 55px; */
+  width: 14.7%;
+
+  background-color:#357fab;
+  color: red;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: end;
+  align-items: end;
+
+  /* padding-left: 28px; */
+
+  padding-left: 7.5%;
+
+  /* padding-right: 7px; */
+  /* padding-right: 12.7%; */
+
+  padding-right: 1.88%;
+
+  /* padding-bottom: 15px; */
+
+  /* padding-bottom: 34%; */
+
+  box-sizing: border-box;
+
+}
+
+
+#experimentImg
+{
+  /* width: 28px;   MAX: 28px */
+
+  /* width: 22px; */  /* MIN: 22px */
+
+  /* width: 17px; */
+
+  /* width: clamp(22px, calc(22px + (100vw - 1399px) * 0.012195), 28px); */
+
+  width: clamp(15px, calc(22px + (100vw - 1399px) * 0.012195), 28px);
+
+  height: auto;
+
+  display: block;
+
+  color: red;
+}
+
+#experiment-wrap
+{
+  /* width: 32px;
+  height: 32px; */
+
+  /* width: clamp(22px, calc(19px + (100vw - 1399px) * 0.02642), 32px); */
+  /* height: clamp(19px, calc(19px + (100vw - 1399px) * 0.02642), 32px); */
+
+  width: clamp(22px, calc(22px + (100vw - 1399px) * 0.02642), 32px);
+  /* height: clamp(22px, calc(2px + (100vw - 1399px) * 0.02642), 32px); */
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: black;
+
+}
+
+#experimentDesc
+{
+
+  /* width: 210px; */
+  background-color: pink;
+  margin: 0;
+  /* margin-left: 35px; */
+
+  margin-left: 14.2%;
+
+  font-family: 'Montserrat';
+  font-weight: 700;
+  /* font-size: 19px; */
+
+  font-size: clamp(10px, calc(11px + (100vw - 1399px) * 0.020325), 19px);;
+
+
+  color: #59646f;
+  display:flex;
+  flex-direction: row;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+
+}
+
+#dropdownBtn0
+{
+    width: auto;
+    height: auto;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    /* align-self: center; */
+
+    background-color: gold !important;
+    border: none;
+    outline: none;
+}
+
+#dropdownImg0
+{
+  /* height: 13px; */
+
+  height: auto;
+  /* width: 20px; */
+
+  /* width: 10px; */
+
+  width: clamp(10px, calc(10px + (20 - 10) * ((100vw - 992px) / (1981 - 992))), 20px);;
+
+  color: #59646f;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+
+  background-color: red !important;
+}
+
+
+#spacer
+{
+  height: 34%;
+  width: 100%;
+  background-color: darkgoldenrod;
+}

@@ -1,6 +1,6 @@
-__version__ = "1.0.58"
+__version__ = "1.0.60"
 
-# Boční menu left-menu upraveno, za účelem hoveru.
+# První řádek left-menu navržen jako responsivní
 
 # Jedná se o tuto produkční verzi č. ----
 
