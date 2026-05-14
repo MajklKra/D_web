@@ -1,6 +1,6 @@
-__version__ = "1.0.66"
+__version__ = "1.0.67"
 
-# Probíhající úprava informationBar
+# Probíhající úprava informationBar #2
 
 # Jedná se o tuto produkční verzi č. ----
 

@@ -356,7 +356,6 @@ body
     /* padding-right: 23px !important; */
 
     padding-right: 6.8% !important;
-
     padding-left: 7% !important;
   }
 
@@ -398,6 +397,76 @@ body
 
     max-width: 250px;
   }
+
+  #hourC
+  {
+
+    width: auto;
+    height: 28px;
+
+    /* padding-left: 16px; */
+
+    padding-left: 5.5%;
+
+    /* padding-right: 20px; */
+
+    padding-right: 7.1%;
+
+  }
+
+  #hour
+  {
+    font-size: 17px;
+    /* margin-left: 16px; */
+  }
+
+  #minutes
+  {
+    font-size: 17px;
+    /* margin-right: 20px; */
+  }
+
+  #colon
+  {
+    font-size: 17px;
+  }
+
+  #dateC
+  {
+
+    width: auto;
+
+    height: 28px;
+
+    /* padding-right: 17px; */
+
+    padding-right: 6.3%;
+
+  }
+
+  #day
+  {
+    font-size: 17px;
+  }
+
+  .dot
+  {
+    font-size: 17px;
+    margin-right: 6px;
+  }
+
+  #month
+  {
+    font-size: 17px;
+  }
+
+  #year
+  {
+    font-size: 17px;
+
+    /* margin-right: 16px; */
+  }
+
 
 }
 
@@ -626,7 +695,7 @@ body
   font-size: 17px;
   color: #192838;
 
-  margin-left: 16px;
+  /* margin-left: 16px; */
 }
 
 #minutes
@@ -637,7 +706,7 @@ body
   font-size: 17px;
   color: #192838;
 
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 #colon
@@ -676,7 +745,7 @@ body
   font-size: 17px;
   color: #192838;
 
-  margin-right: 6px;
+  /* margin-right: 6px; */
   /* margin-left: 2px; */
 }
 
@@ -697,7 +766,7 @@ body
   font-size: 17px;
   color: #192838;
 
-  margin-right: 16px;
+  /* margin-right: 16px; */
 }
 
 /* #codacoC
