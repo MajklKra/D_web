@@ -307,6 +307,97 @@ body
     height: auto;
   }
 
+  #exitC
+  {
+    height: 28px;
+
+    /* padding-left: 26px !important; */
+
+    padding-left: 7% !important;
+
+    /* padding-right: 27px !important; */
+
+    padding-right: 7.5% !important;
+  }
+
+  #exitImg
+  {
+    width: 31px;
+    height: 31px;
+    /* background-color: transparent; */
+  }
+
+  #exitBtn
+  {
+    /* margin-left: 26px; */
+
+    /* margin-right: 27px; */
+
+    background-color: orangered;
+
+  }
+
+  #personImg
+  {
+    width: 22px;
+    height: 22px;
+
+    /* margin-right: 23px; */
+    /* margin-left: 20px; */
+
+     margin-left: clamp(12px, 1vw, 20px);
+  }
+
+
+  #nameC
+  {
+    width: auto;
+    height: 28px;
+    /* padding-right: 23px !important; */
+
+    padding-right: 6.8% !important;
+
+    padding-left: 7% !important;
+  }
+
+
+  /* #spacer2
+  {
+    width: 17px;
+    height: 50px;
+
+    background-color: black;
+  }
+ */
+
+  #userSurname
+  {
+    font-size: 17px;
+
+    margin-left: 5px;   /* Dodělat jinde */
+
+    padding-left: 0px;
+    padding-right: 0px;
+
+    max-width: 350px;
+    min-width: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  #userName
+  {
+    font-size: 17px;
+
+    /* margin-left: 20px; */
+
+    padding-left: 0px;
+    padding-right: 0px;
+
+    max-width: 250px;
+  }
 
 }
 
@@ -365,7 +456,10 @@ body
 
 #dateC
 {
-  width: 25%;
+  /* width: 25%; */
+
+  width: auto;
+
   height: 28px;
 
   background-color: palegreen;
@@ -373,7 +467,10 @@ body
 
 #hourC
 {
-  width: 25%;
+  /* width: 25%; */
+
+  width: auto;
+
   height: 28px;
 
   background-color: gold;
@@ -381,8 +478,8 @@ body
 
 #nameC
 {
-  width: auto;
-  height: 28px;
+  /* width: auto;
+  height: 28px; */
 
   background-color: lightcoral;
 
@@ -397,7 +494,7 @@ body
 #exitC
 {
   width: auto;
-  height: 28px;
+  /* height: 28px; */
 
   background-color: lightgray;
 
@@ -429,7 +526,7 @@ body
   top: -8px;
   right: 14px; */
 
-  background-color: transparent;
+  /* background-color: transparent; */
   outline: none;
   border: none;
 
@@ -439,8 +536,8 @@ body
   justify-content: center;
   align-items: center;
 
-  margin-left: 26px;
-  margin-right: 27px;
+  /* margin-left: 26px;
+  margin-right: 27px; */
 
   width: auto;
   height: auto;
@@ -451,13 +548,15 @@ body
 
 #personImg
 {
-  width: 22px;
-  height: 22px;
+
+  /* width: 22px;
+  height: 22px; */
 
   background-color: red;
 
-  margin-right: 23px;
-  margin-left: 20px;
+  /* margin-right: 23px;
+  margin-left: 20px; */
+
 }
 
 #userName
@@ -467,14 +566,14 @@ body
   font-family: 'Montserrat';
   font-weight: 600;
   color: #192838;
-  font-size: 17px;
+  /* font-size: 17px; */
 
-  margin-left: 20px;
+  /* margin-left: 20px; */
 
   padding-left: 0px;
   padding-right: 0px;
 
-  max-width: 250px;
+  /* max-width: 250px; */
   min-width: 0;
 
   overflow: hidden;
@@ -492,7 +591,7 @@ body
   color: #192838;
   font-size: 17px;
 
-  margin-left: 5px;
+  /* margin-left: 5px; */
 
   padding-left: 0px;
   padding-right: 0px;

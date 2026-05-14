@@ -1,6 +1,6 @@
-__version__ = "1.0.65"
+__version__ = "1.0.66"
 
-# Nadpis Codaco upraven #2
+# Probíhající úprava informationBar
 
 # Jedná se o tuto produkční verzi č. ----
 
