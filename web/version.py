@@ -1,9 +1,9 @@
-__version__ = "1.0.61"
+__version__ = "1.0.65"
 
-# Left-menu responsivní
+# Nadpis Codaco upraven #2
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    13.5.2026
+# Datum:    14.5.2026
 

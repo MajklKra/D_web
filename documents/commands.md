@@ -15,6 +15,8 @@ git push d_web main
 
 git log --oneline --graph --decorate --all
 git log --oneline --graph
+git --no-pager log --oneline -30
+git log d_web/main
 
 ### Enviromentální prostředí
 
