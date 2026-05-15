@@ -97,9 +97,9 @@ body
 
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: start;
-  /* padding-top: 22px; */
+
 }
 
 /* mobil */
@@ -168,7 +168,7 @@ body
   {
     background-color: green !important;
     height: 45px;
-    padding: 11px;
+    padding-top: 11px;
   }
 
   #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -200,6 +200,22 @@ body
   }
 
 
+  #userSurname
+  {
+    margin-left: 4px;   /* Dodělat jinde */
+    max-width: 180px;
+  }
+
+  #userName
+  {
+    max-width: 129px;
+  }
+
+  #navInformation
+  {
+    max-width: 496px;
+  }
+
 }
 
 /* počítačová obrazovka */
@@ -215,7 +231,7 @@ body
   {
     background-color: blue !important;
     height: 59px;
-    padding: 15px;
+    padding-top: 15px;
   }
 
   #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -247,6 +263,22 @@ body
     height: auto;
   }
 
+  #userSurname
+  {
+    margin-left: 5px;   /* Dodělat jinde */
+    max-width: 255px;
+  }
+
+  #userName
+  {
+    max-width: 182px;
+  }
+
+  #navInformation
+  {
+    max-width: 700px;
+  }
+
 }
 
 /* počítačová obrazovka */
@@ -271,7 +303,6 @@ body
     );
   }
 
-
   #navBar
   {
     background-color: violet !important;
@@ -283,13 +314,6 @@ body
   {
     height: 44px;
     margin-bottom: 6px;
-  }
-
-  #svg1
-  {
-
-    /* width: 138px; */
-    /* height: auto; */
   }
 
   #codacoC
@@ -307,71 +331,9 @@ body
     height: auto;
   }
 
-  #exitC
-  {
-    height: 28px;
-
-    /* padding-left: 26px !important; */
-
-    padding-left: 7% !important;
-
-    /* padding-right: 27px !important; */
-
-    padding-right: 7.5% !important;
-  }
-
-  #exitImg
-  {
-    width: 31px;
-    height: 31px;
-    /* background-color: transparent; */
-  }
-
-  #exitBtn
-  {
-    /* margin-left: 26px; */
-
-    /* margin-right: 27px; */
-
-    background-color: orangered;
-
-  }
-
-  #personImg
-  {
-    width: 22px;
-    height: 22px;
-
-    /* margin-right: 23px; */
-    /* margin-left: 20px; */
-
-     margin-left: clamp(12px, 1vw, 20px);
-  }
-
-
-  #nameC
-  {
-    width: auto;
-    height: 28px;
-    /* padding-right: 23px !important; */
-
-    padding-right: 6.8% !important;
-    padding-left: 7% !important;
-  }
-
-
-  /* #spacer2
-  {
-    width: 17px;
-    height: 50px;
-
-    background-color: black;
-  }
- */
-
   #userSurname
   {
-    font-size: 17px;
+    /* font-size: 17px; */
 
     margin-left: 5px;   /* Dodělat jinde */
 
@@ -379,94 +341,24 @@ body
     padding-right: 0px;
 
     max-width: 350px;
-    min-width: 0;
 
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 
   #userName
   {
-    font-size: 17px;
-
-    /* margin-left: 20px; */
-
-    padding-left: 0px;
-    padding-right: 0px;
 
     max-width: 250px;
   }
 
-  #hourC
-  {
-
-    width: auto;
-    height: 28px;
-
-    /* padding-left: 16px; */
-
-    padding-left: 5.5%;
-
-    /* padding-right: 20px; */
-
-    padding-right: 7.1%;
-
-  }
-
-  #hour
-  {
-    font-size: 17px;
-    /* margin-left: 16px; */
-  }
-
-  #minutes
-  {
-    font-size: 17px;
-    /* margin-right: 20px; */
-  }
-
-  #colon
-  {
-    font-size: 17px;
-  }
-
   #dateC
   {
-
-    width: auto;
-
-    height: 28px;
-
-    /* padding-right: 17px; */
-
-    padding-right: 6.3%;
-
+    margin-left: 5px !important;
   }
 
-  #day
+  #navInformation
   {
-    font-size: 17px;
+    max-width: 960px;
   }
-
-  .dot
-  {
-    font-size: 17px;
-    margin-right: 6px;
-  }
-
-  #month
-  {
-    font-size: 17px;
-  }
-
-  #year
-  {
-    font-size: 17px;
-
-    /* margin-right: 16px; */
-  }
-
 
 }
 
@@ -510,10 +402,14 @@ body
 
 #navInformation
 {
+
   width: auto;
-  height: 28px;
+  /* height: 28px; */
+
   /* max-width: 50%; */
-  max-width: 960px;
+  /* max-width: 960px; */
+
+  height: auto;
 
   background-color: red;
 
@@ -521,17 +417,28 @@ body
   flex-direction: row;
   justify-content: end;
   align-items: center;
+
+  height: clamp(15px, calc(3.18627451vw - 16.6078431px), 28px);
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #192838;
+  /* font-size: 17px; */
+  font-size: clamp(9px, calc(9px + 7 * ((100vw - 992px) / 929)),17px);
+
 }
 
 #dateC
 {
-  /* width: 25%; */
-
   width: auto;
 
-  height: 28px;
+  /* height: 28px; */
+
+  height: clamp(15px, calc(15px + 13 * ((100vw - 998px) / 922)), 28px);
 
   background-color: palegreen;
+
+  padding-right: clamp(9px, calc(9px + 11 * ((100vw - 992px) / 928)), 17px);
+
 }
 
 #hourC
@@ -540,15 +447,23 @@ body
 
   width: auto;
 
-  height: 28px;
+  /* height: 28px; */
+
+  height: clamp(15px, calc(15px + 13 * ((100vw - 998px) / 922)), 28px);
 
   background-color: gold;
+
+  padding-right: clamp(10px, calc(10px + 10 * ((100vw - 992px) / 928)), 20px);
+  padding-left: clamp(7px, calc(7px + 8 * ((100vw - 992px) / 928)), 14px);
+
 }
 
 #nameC
 {
-  /* width: auto;
-  height: 28px; */
+  width: auto;
+  /* height: 28px; */
+
+  height: clamp(15px, calc(15px + 13 * ((100vw - 998px) / 922)), 28px);
 
   background-color: lightcoral;
 
@@ -558,6 +473,10 @@ body
   align-items: center;
 
   border-left: 2px solid rgba(180,184,196,1);
+
+  padding-right: clamp(13px, calc(13px + 13 * ((100vw - 992px) / 928)), 26px);
+  padding-left: clamp(11px, calc(11px + 12 * ((100vw - 992px) / 928)), 21px);
+
 }
 
 #exitC
@@ -565,12 +484,11 @@ body
   width: auto;
   /* height: 28px; */
 
+  height: clamp(15px, calc(15px + 13 * ((100vw - 998px) / 922)), 28px);
+
   background-color: lightgray;
 
-  /* position: relative; */
-
   border-left: 2px solid rgba(180,184,196,1);
-
   box-sizing: border-box;
 
   display: flex;
@@ -579,12 +497,18 @@ body
   align-items: center;
 
   padding: 0px;
+
+  padding-right: clamp(14px, calc(14px + 13 * ((100vw - 992px) / 408)), 27px);
+  padding-left: clamp(14px, calc(14px + (27 - 14) * ((100vw - 992px) / (1400 - 992))), 26px);
 }
 
 #exitImg
 {
-  width: 31px;
-  height: 31px;
+  /* width: 31px; */
+  width: clamp(16px, calc(16px + 15 * ((100vw - 992px) / 408)), 31px);
+
+  /* height: 31px; */
+  height: auto;
 
   /* background-color: transparent; */
 }
@@ -626,23 +550,18 @@ body
   /* margin-right: 23px;
   margin-left: 20px; */
 
+  width: clamp(7px, calc(7px + 8 * ((100vw - 992px) / 408)), 19px);
+  margin-left: clamp(12px, 1vw, 20px);
+
 }
 
 #userName
 {
   background-color: yellow;
 
-  font-family: 'Montserrat';
-  font-weight: 600;
-  color: #192838;
-  /* font-size: 17px; */
-
-  /* margin-left: 20px; */
-
   padding-left: 0px;
   padding-right: 0px;
 
-  /* max-width: 250px; */
   min-width: 0;
 
   overflow: hidden;
@@ -655,17 +574,9 @@ body
 {
   background-color: cyan;
 
-  font-family: 'Montserrat';
-  font-weight: 600;
-  color: #192838;
-  font-size: 17px;
-
-  /* margin-left: 5px; */
-
   padding-left: 0px;
   padding-right: 0px;
 
-  max-width: 350px;
   min-width: 0;
 
   overflow: hidden;
@@ -690,10 +601,12 @@ body
 #hour
 {
   background-color: violet;
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat';
   font-weight: 500;
-  font-size: 17px;
+  font-size: 17px; */
   color: #192838;
+
+  margin: 0px;
 
   /* margin-left: 16px; */
 }
@@ -701,21 +614,24 @@ body
 #minutes
 {
   background-color: lightblue;
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat';
   font-weight: 500;
-  font-size: 17px;
+  font-size: 17px; */
   color: #192838;
 
   /* margin-right: 20px; */
+
+  margin: 0px;
 }
 
 #colon
 {
   background-color: lightcoral;
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat';
   font-weight: 500;
-  font-size: 17px;
-  color: #192838;
+  font-size: 17px; */
+  /* color: #192838; */
+  margin: 0px;
 }
 
 #dateC
@@ -731,42 +647,55 @@ body
 #day
 {
   background-color: limegreen;
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat';
   font-weight: 500;
   font-size: 17px;
-  color: #192838;
+  color: #192838; */
+
+  margin: 0px;
 }
 
 .dot
 {
   background-color: lightsalmon;
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat';
   font-weight: 500;
   font-size: 17px;
-  color: #192838;
+  color: #192838; */
 
   /* margin-right: 6px; */
   /* margin-left: 2px; */
+
+  /* margin-right: clamp(0px, calc(0.444vw - 1.395px), 5px); */
+
+  margin: 0px;
+
+  margin-right: clamp(1px, calc(1vw - 10px), 5px);
+
 }
 
 #month
 {
   background-color: lightseagreen;
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat';
   font-weight: 500;
   font-size: 17px;
-  color: #192838;
+  color: #192838; */
+
+  margin: 0px;
 }
 
 #year
 {
   background-color: lightsteelblue;
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat';
   font-weight: 500;
   font-size: 17px;
-  color: #192838;
+  color: #192838; */
 
   /* margin-right: 16px; */
+
+  margin: 0px;
 }
 
 /* #codacoC
@@ -793,7 +722,6 @@ body
   height: auto;
 
   background-color: red;
-
 }
 
 
@@ -3583,3 +3511,4 @@ body
   overflow: hidden;
   text-overflow: ellipsis;
 }
+

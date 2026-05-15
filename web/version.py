@@ -1,9 +1,9 @@
-__version__ = "1.0.67"
+__version__ = "1.0.72"
 
-# Probíhající úprava informationBar #2
+# Ukončování slov ve jménu ...
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    14.5.2026
+# Datum:    15.5.2026
 
