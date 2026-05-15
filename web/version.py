@@ -1,6 +1,6 @@
-__version__ = "1.0.73"
+__version__ = "1.0.79"
 
-# Left-menu ikony nahrazeny
+# .dropdownImg
 
 # Jedná se o tuto produkční verzi č. ----
 
