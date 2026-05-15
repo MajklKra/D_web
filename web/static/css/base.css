@@ -423,7 +423,9 @@ body
   font-weight: 600;
   color: #192838;
   /* font-size: 17px; */
-  font-size: clamp(9px, calc(9px + 7 * ((100vw - 992px) / 929)),17px);
+  /* font-size: clamp(9px, calc(9px + 8 * ((100vw - 992px) / 928)), 17px); */
+
+  font-size: clamp(9px, calc(9px + 9 * ((100vw - 992px) / 928)), 18px);
 
 }
 
@@ -454,7 +456,8 @@ body
   background-color: gold;
 
   padding-right: clamp(10px, calc(10px + 10 * ((100vw - 992px) / 928)), 20px);
-  padding-left: clamp(7px, calc(7px + 8 * ((100vw - 992px) / 928)), 14px);
+  /* padding-left: clamp(7px, calc(7px + 8 * ((100vw - 992px) / 928)), 14px); */
+ padding-left: clamp(7px, calc(7px + 8 * ((100vw - 992px) / 928)), 16px);
 
 }
 
@@ -541,7 +544,6 @@ body
 
 #personImg
 {
-
   /* width: 22px;
   height: 22px; */
 
@@ -550,9 +552,8 @@ body
   /* margin-right: 23px;
   margin-left: 20px; */
 
-  width: clamp(7px, calc(7px + 8 * ((100vw - 992px) / 408)), 19px);
+  width: clamp(10px, calc(10px + 8 * ((100vw - 992px) / 408)), 19px);
   margin-left: clamp(12px, 1vw, 20px);
-
 }
 
 #userName
