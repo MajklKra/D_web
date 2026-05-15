@@ -1,6 +1,6 @@
-__version__ = "1.0.72"
+__version__ = "1.0.73"
 
-# Ukončování slov ve jménu ...
+# Left-menu ikony nahrazeny
 
 # Jedná se o tuto produkční verzi č. ----
 
