@@ -1,9 +1,9 @@
-__version__ = "1.0.79"
+__version__ = "1.0.83"
 
-# .dropdownImg
+# První navržení responsivních pododrážek
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    15.5.2026
+# Datum:    18.5.2026
 
