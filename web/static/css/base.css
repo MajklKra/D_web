@@ -28,6 +28,13 @@
 
 @font-face
 {
+  font-family: 'Montserrat';
+  src: url('/static/fonts/Montserrat/Montserrat-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+}
+
+@font-face
+{
   font-family: 'Chewy';
   src: url('/static/fonts/Chewy/Chewy-Regular.ttf') format('truetype');
   font-weight: normal;
@@ -98,6 +105,8 @@ body
   flex-direction: row;
   justify-content: flex-end;
   align-items: start;
+
+  /* background-color: azure; */
 
 }
 
@@ -237,6 +246,13 @@ body
     height: calc(100% - 45px);
   }
 
+  .row:hover
+  {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+
 }
 
 /* počítačová obrazovka */
@@ -326,6 +342,11 @@ body
     height: calc(100% - 59px);
   }
 
+  .row:hover
+  {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
 
 }
 
@@ -431,6 +452,16 @@ body
   }
 
 
+.row:hover
+{
+
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+}
+
+
+
 
 }
 
@@ -442,8 +473,6 @@ body
   height: 100%;
 
   /* background-color: goldenrod !important; */
-
-  position: relative;
 }
 
 #leftMenu
@@ -451,7 +480,7 @@ body
   /* width: 396px; */
 
   /* width: 20.6%; */
-  width: min(20.6%, 390px);
+  width: min(20.6%, 396px);
 
   /* height: calc(100% - 83px); */
 
@@ -784,7 +813,7 @@ body
   /* background-color: red; */
 }
 
-#srow5:hover
+/* #srow5:hover
 {
   background-color: #357fab;
 
@@ -800,7 +829,7 @@ body
 {
     color: white;
     fill: white;
-}
+} */
 
 /* Experiments with unknown results 12.5.2026 */
 
@@ -873,6 +902,7 @@ body
   /* color: red; */
 
   color: #59646f !important;
+
 }
 
 .dropdownImg
@@ -1117,6 +1147,8 @@ body
   /* background-color: gold !important; */
   border: none;
   outline: none;
+
+  background-color: transparent;
 }
 
 /* Experimenty 18.5.2026 */
@@ -1166,4 +1198,308 @@ body
 #dropdownBtn8
 {
   visibility: hidden;
+}
+
+
+.row:hover
+{
+  background-color: #357fab;
+
+  /*
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px; */
+
+  color: white !important;
+
+  cursor: pointer;
+}
+
+.row:hover *
+{
+    color: white;
+    fill: white;
+}
+
+#mainC
+{
+  display: flex;
+  flex-direction: row;
+
+  /* background-color: yellow; */
+
+  width: 100%;
+  height: 100%;
+}
+
+#contentC
+{
+  /* width: 100%;
+  height: 100%; */
+
+  /* background-color: red; */
+
+  /* background-color: white; */
+
+  flex:1;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: start;
+  align-items: start;
+
+}
+
+
+#welcomeC
+{
+  width: 350px;
+  height: auto;
+
+  /* background-color: black; */
+  font-family: 'Montserrat';
+
+  margin-top: 162px;
+  margin-left: 390px;
+
+}
+
+#welcomeC-hourC
+{
+  /* background-color: yellow; */
+
+  height: 141px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 129px;
+
+  font-weight: 700;
+  color: #7ca0c2;
+
+  /* margin-bottom: 25px; */
+}
+
+#welcomeC-dateC
+{
+  /* background-color: yellowgreen; */
+
+  background-color: white;
+
+  height: 33px;
+  width: 100%;
+
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 16px;
+  color: #357fab;
+  font-weight: 600;
+
+  padding-left: 23px;
+  padding-right: 23px;
+}
+
+#welcomeC-welcomeC
+{
+  /* background-color: red; */
+
+  /* height: 113px; */
+
+  height: 104px;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+
+  color: #357fab;
+
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-top: 15px;
+}
+
+#welcomeC-dashboardC
+{
+  /* background-color: orange; */
+
+  background-color: white;
+
+  height: 153px;
+  width: 100%;
+
+  padding: 23px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 10px;
+}
+
+#thermometer
+{
+  width: 26px;
+  height: 26px;
+
+  /* background-color: green; */
+}
+
+#weather
+{
+  width: 28px;
+  height: 28px;
+}
+
+#weather-wrap
+{
+  width: auto;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: red !important; */
+}
+
+#date-wrap
+{
+  width: auto;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  /*  background-color: blue !important; */
+}
+
+#temperature
+{
+  margin: 0px;
+
+  margin-left: 2px;
+  margin-right: 13px;
+}
+
+#w_day, #w_month, #w_year, .w_dot
+{
+  margin: 0px;
+}
+
+.w_dot
+{
+  margin-right: 7px;
+}
+
+#w_name
+{
+  margin: 0px;
+
+  font-size: 25px;
+  font-weight: 800;
+
+  margin-bottom: 2px;
+}
+
+#w_welcome
+{
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 600;
+
+  line-height: 1.55;
+}
+
+#dashboard-icon
+{
+  width: 12px;
+  height: 12px;
+}
+
+#WD-dashboard
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  /* background-color: yellow; */
+
+  width: 100%;
+  height: auto;
+}
+
+#dashboard-icon-desc
+{
+  margin: 0px;
+  color: #80808d;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  margin-left: 8px;
+}
+
+#WD-instruction
+{
+  margin: 0px;
+  color: #80808d;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  /* background-color: red; */
+}
+
+#WD-buttonC
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+
+  /* background-color: chartreuse; */
+
+  width: 100%;
+  height: auto;
+
+  /* margin-top: 28px; */
+}
+
+#WD-btn
+{
+  background-color: #357fab;
+  font-size: 14px;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  border: none;
+  outline: none;
+
+  border-radius: 5px;
+
+  width: 70px;
+  height: 21px;
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vrstva_3" data-name="Vrstva 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.64 44.64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #80808d;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="17.76" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
+  <rect class="cls-1" x="24.08" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
+  <rect class="cls-1" x="17.76" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
+  <rect class="cls-1" x="24.08" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
+</svg>

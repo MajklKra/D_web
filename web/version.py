@@ -1,9 +1,9 @@
-__version__ = "1.0.84"
+__version__ = "1.0.86"
 
-# První zkouška bez ladících pozadí
+# První návrh uvítacího boxu
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    18.5.2026
+# Datum:    19.5.2026
 

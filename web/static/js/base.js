@@ -45,6 +45,22 @@ function aktualizovatDatumCas()
   hoursP.textContent = hodiny;
   minutesP.textContent = minuty;
 
+  /* Experimenty 18.5.2026 */
+
+  const w_day = document.getElementById('w_day');
+  const w_month = document.getElementById('w_month');
+  const w_year = document.getElementById('w_year');
+
+  w_day.textContent = den;
+  w_month.textContent = mesic;
+  w_year.textContent = rok;
+
+  const w_hour = document.getElementById('w_hour');
+  const w_minutes = document.getElementById('w_minutes');
+
+  w_hour.textContent = hodiny;
+  w_minutes.textContent = minuty;
+
 }
 
 // Inicializace zobrazení data a času při načtení stránky
