@@ -174,7 +174,7 @@ body
 
   #navBar
   {
-    /* background-color: green !important; */
+    background-color: green !important;
     height: 45px;
     padding-top: 11px;
   }
@@ -252,6 +252,142 @@ body
     border-bottom-right-radius: 10px;
   }
 
+  #welcomeC-hourC
+  {
+    /* font-size: 70px; */
+
+    font-size: 72px;
+
+    height: auto;
+
+    /* margin-bottom: 8px; */
+
+    /* margin-bottom: 3px; */
+
+    margin-bottom: clamp(3px, calc(3px + (8 - 3) * ((100vw - 992px) / (1199 - 992))), 8px);
+  }
+
+  #welcomeC-dateC
+  {
+    background-color: white;
+    /* height: 20px; */
+
+    height: clamp(17px, calc(17px + (20 - 17) * ((100vw - 992px) / (1199 - 992))), 20px);
+
+    border-radius: 5px;
+
+    /* font-size: 12px; */
+    /* font-size: 9px; */
+
+    font-size: clamp(9px, calc(9px + (12 - 9) * ((100vw - 992px) / (1190 - 992))), 12px);
+
+    /* padding-left: 23px;
+    padding-right: 23px; */
+
+    /*
+    padding-left: 8px;
+    padding-right: 10px; */
+
+    /* padding-left: 7px; */
+    /* padding-right: 8px; */
+
+
+    /* padding-left: clamp(7px, calc(7px + (8 - 7) * ((100vw - 992px) / (1199 - 992))), 8px);
+    padding-right: clamp(8px, calc(8px + (10 - 8) * ((100vw - 992px) / (1199 - 992))), 10px); */
+
+  }
+
+  #thermometer
+  {
+    /* width:  15px; */
+    /* height: 15px; */
+
+    /* width:    13px;
+    height:   13px; */
+
+    width: clamp(13px, calc(13px + (15 - 13) * ((100vw - 992px) / (1199 - 992))), 15px);
+    height: clamp(13px, calc(13px + (15 - 13) * ((100vw - 992px) / (1199 - 992))), 15px);
+
+    /* background-color: orange; */
+  }
+
+
+  #weather
+  {
+    /* width: 18px;
+    height: 18px; */
+
+    /*
+    width: 13px;
+    height: 13px; */
+
+    width: clamp(13px, calc(13px + (18 - 13) * ((100vw - 992px) / (1199 - 992))), 18px);
+    height: clamp(13px, calc(13px + (18 - 13) * ((100vw - 992px) / (1199 - 992))), 18px);
+
+    /* background-color: black; */
+
+  }
+
+  #temperature
+  {
+    margin: 0px;
+
+    /*
+    margin-left: 1px;
+    margin-right: 7px; */
+
+
+    margin-left: 1px;
+
+    /* margin-right: 6px; */
+
+    margin-right: clamp(6px, calc(6px + (7 - 6) * ((100vw - 992px) / (1199 - 992))), 7px);
+
+    /* background-color: yellow; */
+  }
+
+  #w_name
+  {
+    /* font-size:      16px; */
+
+    /* font-size: 13px; */
+
+    font-size: clamp(13px, calc(13px + 3 * ((100vw - 992px) / 207)), 16px);
+
+    margin-bottom:  2px;
+  }
+
+  #w_welcome
+  {
+    font-size:      8px;
+  }
+
+  #welcomeC-welcomeC
+  {
+    /* padding-top: 12px; */
+
+    /* padding-top: 8px; */
+
+    padding-top: clamp(8px, calc(8px + 4 * ((100vw - 992px) / 207)), 12px);;
+
+    /* padding-bottom: 12px; */
+
+    /* padding-bottom: 9px; */
+
+    padding-bottom: clamp(9px, calc(9px + 3 * ((100vw - 992px) / 207)), 12px);
+
+  }
+
+  .w_dot
+  {
+    /* margin-right: 3px !important; */
+
+    /* margin-right: 2px !important; */
+
+    margin-right: clamp(2px, calc(2px + 1 * ((100vw - 992px) / 207)), 3px) !important;
+
+  }
+
 
 }
 
@@ -266,7 +402,7 @@ body
 
   #navBar
   {
-    /* background-color: blue !important; */
+    background-color: blue !important;
     height: 59px;
     padding-top: 15px;
   }
@@ -348,36 +484,243 @@ body
     border-bottom-right-radius: 5px;
   }
 
+  #welcomeC-hourC
+  {
+    /* font-size: 96px; */
+
+    font-size: clamp( 70px, calc(70px + (96 - 70) * ((100vw - 1200px) / (1300 - 1200))), 96px);
+
+    height: auto;
+
+    margin-bottom: 5px;
+  }
+
+  #welcomeC-dateC
+  {
+    background-color: white;
+    height: 24px;
+    border-radius: 5px;
+    font-size: 13px;
+    /* padding-left: 10px;
+    padding-right: 12px; */
+  }
+
+  #thermometer
+  {
+    width:  18px;
+    height: 18px;
+
+    /* background-color: green; */
+  }
+
+  #weather
+  {
+    width: 20px;
+    height: 20px;
+
+    /* background-color: black; */
+  }
+
+  #temperature
+  {
+    margin: 0px;
+
+    margin-left: 2px;
+    margin-right: 10px;
+
+    /* background-color: yellow; */
+  }
+
+  #w_name
+  {
+    font-size:      20px;
+    margin-bottom:  2px;
+  }
+
+  #w_welcome
+  {
+    font-size:      12px;
+  }
+
+  #welcomeC-welcomeC
+  {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .w_dot
+  {
+    margin-right: 3px !important;
+  }
+
 }
 
 /* počítačová obrazovka */
-@media (min-width: 1400px)
+@media (min-width: 1400px) and (max-width: 1920px)
 {
-
-  /*
-  body
-  {
-    background: linear-gradient(
-      to bottom,
-      rgb(234,237,239) 0%,
-      rgb(234,237,239) 10%,
-      rgb(236,238,240) 20%,
-      rgb(238,239,242) 30%,
-      rgb(240,241,243) 40%,
-      rgb(242,243,245) 50%,
-      rgb(245,245,247) 60%,
-      rgb(247,248,249) 70%,
-      rgb(250,250,251) 80%,
-      rgb(252,252,253) 90%,
-      rgb(255,255,255) 100%
-    );
-  }
-
-  */
 
   #navBar
   {
-    /* background-color: violet !important; */
+    background-color: violet !important;
+    height: 83px;
+    padding-top: 23px;
+  }
+
+  #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
+  {
+    height: 44px;
+    margin-bottom: 6px;
+  }
+
+  #codacoC
+  {
+    /* background-color: green; */
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    padding-left: 24px;
+    padding-top:  16px;
+
+    width: auto;
+    height: auto;
+  }
+
+  #userSurname
+  {
+    /* font-size: 17px; */
+
+    margin-left: 5px;   /* Dodělat jinde */
+
+    padding-left: 0px;
+    padding-right: 0px;
+
+    max-width: 350px;
+
+  }
+
+  #userName
+  {
+
+    max-width: 250px;
+  }
+
+  #dateC
+  {
+    margin-left: 5px !important;
+  }
+
+  #navInformation
+  {
+    max-width: 960px;
+  }
+
+  .row-menu
+  {
+    /* font-size: 16px; */
+    /* font-size: calc(10px + (16 - 10) * ((100vw - 1400px) / (1920 - 1400))); */
+
+    font-size: clamp(10px, calc(10px + (16 - 10) * ((100vw - 1400px) / (1920 - 1400))), 16px);
+  }
+
+  /* #srow1-menu-item1, #srow1-menu-item2 */
+  .row-menu-item
+  {
+      margin-bottom: 9px !important;
+  }
+
+  #leftMenu
+  {
+    height: calc(100% - 83px);
+  }
+
+  .row:hover
+  {
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+  }
+
+  #welcomeC-hourC
+  {
+    /* font-size: 129px; */
+
+    font-size: clamp( 96px, calc(96px + (129 - 96) * ((100vw - 1400px) / (1920 - 1400))), 129px);
+
+    height: auto;
+
+    margin-bottom: 8px;
+  }
+
+  #welcomeC-dateC
+  {
+    background-color: white;
+    height: 33px;
+    border-radius: 10px;
+    font-size: 16px;
+    /* padding-left: 23px;
+    padding-right: 23px; */
+  }
+
+  #thermometer
+  {
+    width: 26px;
+    height: 26px;
+
+    /* background-color: green; */
+  }
+
+  #weather
+  {
+    width: 27px;
+    height: 27px;
+
+    /* background-color: black; */
+  }
+
+
+  #temperature
+  {
+    margin: 0px;
+
+    margin-left: 2px;
+    margin-right: 13px;
+
+    /* background-color: yellow; */
+  }
+
+  #welcomeC-welcomeC
+  {
+    padding-top: 15px;
+    padding-bottom: 16px;
+  }
+
+  #w_name
+  {
+    font-size: 25px;
+    margin-bottom: 2px;
+  }
+
+  #w_welcome
+  {
+    font-size: 18px;
+  }
+
+  .w_dot
+  {
+    margin-right: 6px !important;
+  }
+
+}
+
+@media (min-width: 1921px)
+{
+
+  #navBar
+  {
+    background-color: violet !important;
     height: 83px;
     padding-top: 23px;
   }
@@ -452,16 +795,19 @@ body
   }
 
 
-.row:hover
-{
+  .row:hover
+  {
 
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 
-}
+  }
 
-
-
+  #welcomeC-hourC
+  {
+    font-size: 129px;
+    height: 141px;
+  }
 
 }
 
@@ -1236,7 +1582,7 @@ body
   /* width: 100%;
   height: 100%; */
 
-  /* background-color: red; */
+  background-color: red;
 
   /* background-color: white; */
 
@@ -1253,22 +1599,35 @@ body
 
 #welcomeC
 {
-  width: 350px;
-  height: auto;
+  max-width: 350px;
 
-  /* background-color: black; */
+  width: 23%;
+
+  /* height: auto; */
+
+  /* height: 46%; */
+
+  background-color: black;
   font-family: 'Montserrat';
 
-  margin-top: 162px;
-  margin-left: 390px;
+  margin-top: 11%;
+
+  /* margin-top: 162px; */
+
+  /* margin-left: 390px; */
+
+  margin-left: 25.5%;
+
+  overflow: hidden;
 
 }
 
 #welcomeC-hourC
 {
-  /* background-color: yellow; */
+  background-color: yellow;
 
-  height: 141px;
+  /* height: 141px; */
+
   width: 100%;
 
   display: flex;
@@ -1276,7 +1635,7 @@ body
   justify-content: center;
   align-items: center;
 
-  font-size: 129px;
+  /* font-size: 129px; */
 
   font-weight: 700;
   color: #7ca0c2;
@@ -1286,26 +1645,29 @@ body
 
 #welcomeC-dateC
 {
-  /* background-color: yellowgreen; */
-
   background-color: white;
 
-  height: 33px;
+  /* height: 33px;  */
+
   width: 100%;
 
-  border-radius: 10px;
+  /*border-radius: 10px; */
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  font-size: 16px;
+  /* font-size: 16px; */
   color: #357fab;
   font-weight: 600;
 
-  padding-left: 23px;
-  padding-right: 23px;
+  /* padding-left: 23px;
+  padding-right: 23px; */
+
+  padding-left: 6.5%;
+  padding-right: 6.5%;
+
 }
 
 #welcomeC-welcomeC
@@ -1314,9 +1676,10 @@ body
 
   /* height: 113px; */
 
-  height: 104px;
+  /* height: 104px; */
 
   width: 100%;
+  height: auto;
 
   display: flex;
   flex-direction: column;
@@ -1325,9 +1688,17 @@ body
 
   color: #357fab;
 
+   /*
   padding-left: 23px;
-  padding-right: 23px;
-  padding-top: 15px;
+  padding-right: 23px; */
+
+  padding-left: 6.5%;
+  padding-right: 6.5%;
+
+  /* padding-left: 5%;
+  padding-right: 5%; */
+
+  /* padding-top: 15px; */
 }
 
 #welcomeC-dashboardC
@@ -1337,6 +1708,7 @@ body
   background-color: white;
 
   height: 153px;
+
   width: 100%;
 
   padding: 23px;
@@ -1349,19 +1721,19 @@ body
   border-radius: 10px;
 }
 
-#thermometer
+/* #thermometer
 {
   width: 26px;
   height: 26px;
 
-  /* background-color: green; */
-}
+  /* background-color: green;
+} */
 
-#weather
+/* #weather
 {
   width: 28px;
   height: 28px;
-}
+} */
 
 #weather-wrap
 {
@@ -1388,42 +1760,42 @@ body
 
   /*  background-color: blue !important; */
 }
-
+/*
 #temperature
 {
   margin: 0px;
 
   margin-left: 2px;
   margin-right: 13px;
-}
+} */
 
 #w_day, #w_month, #w_year, .w_dot
 {
   margin: 0px;
 }
 
-.w_dot
+/* .w_dot
 {
   margin-right: 7px;
-}
+} */
 
 #w_name
 {
   margin: 0px;
 
-  font-size: 25px;
+  /* font-size: 25px; */
   font-weight: 800;
 
-  margin-bottom: 2px;
+  /* margin-bottom: 2px; */
 }
 
 #w_welcome
 {
   margin: 0px;
-  font-size: 14px;
+  /* font-size: 14px; */
   font-weight: 600;
 
-  line-height: 1.55;
+  /* line-height: 1.55; */
 }
 
 #dashboard-icon
@@ -1502,4 +1874,28 @@ body
 
   width: 70px;
   height: 21px;
+
+  cursor: pointer;
+}
+
+
+#w_hour
+{
+  margin: 0px;
+  padding: 0px;
+  line-height:1;
+}
+
+#w_colon
+{
+  margin: 0px;
+  padding: 0px;
+  line-height:1;
+}
+
+#w_minutes
+{
+  margin: 0px;
+  padding: 0px;
+  line-height:1;
 }

@@ -10,6 +10,8 @@ from ...version import __version__
 @admin_clients_bp.route('/home')
 def home():
 
+    print(url_for('admin_clients.static', filename='reference.png'))
+
     salutation = session.get('e_name')
 
     salutation = vokativ(salutation).capitalize()

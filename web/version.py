@@ -1,9 +1,9 @@
-__version__ = "1.0.86"
+__version__ = "1.0.97"
 
-# První návrh uvítacího boxu
+# #welcomeC-welcomeC - completed
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    19.5.2026
+# Datum:    20.5.2026
 
