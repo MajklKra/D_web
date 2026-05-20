@@ -1,6 +1,6 @@
-__version__ = "1.0.97"
+__version__ = "1.1.0"
 
-# #welcomeC-welcomeC - completed
+# #welcomeC - first draft
 
 # Jedná se o tuto produkční verzi č. ----
 

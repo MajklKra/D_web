@@ -388,6 +388,97 @@ body
 
   }
 
+  #welcomeC-dashboardC
+  {
+    background-color: white;
+
+    height: auto;
+
+    width: 100%;
+
+    border-radius: 10px;
+  }
+
+  #WD-dashboard
+  {
+      /* margin-top: 13px; */
+
+      /* margin-top: 11px; */
+
+      margin-top: calc(11px + 2 * ((100vw - 992px) / 207));
+
+      /* margin-bottom: 8px; */
+
+      /* margin-bottom: 6px; */
+
+      margin-bottom: calc(6px + 2 * ((100vw - 992px) / 207));
+  }
+
+  #WD-instruction
+  {
+    /* font-size: 10px; */
+
+    /* font-size: 8px; */
+
+    font-size: calc(8px + 2 * ((100vw - 992px) / 207));
+
+    margin-bottom: 14px !important;
+  }
+
+  #WD-buttonC
+  {
+    /* margin-bottom: 15px; */
+
+    /* margin-bottom: 10px; */
+
+    margin-bottom: calc(10px + 5 * ((100vw - 992px) / 207));
+
+  }
+
+  #dashboard-icon
+  {
+    /*
+    width:  8px;
+    height: 8px; */
+
+    /* width: 6px;
+    height: 6px; */
+
+    width: calc(6px + 2 * ((100vw - 992px) / 207)) !important;
+
+  }
+
+  #dashboard-icon-desc
+  {
+    font-size: 8px;
+
+    /* margin-left: 6px !important; */
+
+    /* margin-left: 3px !important; */
+
+    margin-left: calc(3px + 3 * ((100vw - 992px) / 207)) !important;
+
+  }
+
+  #WD-btn
+  {
+    /* font-size: 8px; */
+
+    /* font-size: 6px; */
+
+    font-size: calc(6px + 2 * ((100vw - 991px) / 208));
+
+    border-radius: 5px;
+    /* width: 40px; */
+
+    /* width: 31px; */
+
+    width: calc(31px + 9 * ((100vw - 992px) / 207));
+
+    height: 13px;
+
+    box-sizing: border-box;
+  }
 
 }
 
@@ -553,6 +644,54 @@ body
     margin-right: 3px !important;
   }
 
+  #welcomeC-dashboardC
+  {
+    background-color: white;
+
+    height: auto;
+
+    width: 100%;
+
+    border-radius: 10px;
+  }
+
+  #WD-dashboard
+  {
+      margin-top: 16px;
+      margin-bottom: 10px;
+  }
+
+  #WD-instruction
+  {
+    font-size: 10px;
+    margin-bottom: 17px !important;
+  }
+
+  #WD-buttonC
+  {
+    margin-bottom: 15px;
+  }
+
+  #dashboard-icon
+  {
+    width: 9px;
+    height: 9px;
+  }
+
+  #dashboard-icon-desc
+  {
+    font-size: 10px;
+    margin-left: 6px !important;
+  }
+
+  #WD-btn
+  {
+    font-size: 11px;
+    border-radius: 5px;
+    width: 51px;
+    height: 15px;
+  }
+
 }
 
 /* počítačová obrazovka */
@@ -711,6 +850,56 @@ body
   .w_dot
   {
     margin-right: 6px !important;
+  }
+
+  #welcomeC-dashboardC
+  {
+    background-color: white;
+
+    height: auto;
+
+    width: 100%;
+
+    border-radius: 10px;
+  }
+
+  #WD-dashboard
+  {
+      margin-top: 22px;
+      margin-bottom: 15px;
+  }
+
+  #WD-instruction
+  {
+    font-size: 14px;
+
+    margin-bottom: 22px !important;
+  }
+
+  #WD-buttonC
+  {
+    margin-bottom: 20px;
+  }
+
+  #dashboard-icon
+  {
+    width: 12px;
+    height: 12px;
+  }
+
+  #dashboard-icon-desc
+  {
+    font-size: 15px;
+    margin-left: 8px !important;
+  }
+
+  #WD-btn
+  {
+
+    font-size: 14px;
+    border-radius: 5px;
+    width: 70px;
+    height: 21px;
   }
 
 }
@@ -1707,18 +1896,23 @@ body
 
   background-color: white;
 
-  height: 153px;
+  /* height: 153px; */
+
+  height: auto;
 
   width: 100%;
 
-  padding: 23px;
+  /* padding: 23px; */
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  border-radius: 10px;
+  /*border-radius: 10px; */
+
+  padding-left: 6.5%;
+  padding-right: 6.5%;
 }
 
 /* #thermometer
@@ -1798,11 +1992,11 @@ body
   /* line-height: 1.55; */
 }
 
-#dashboard-icon
+/* #dashboard-icon
 {
   width: 12px;
   height: 12px;
-}
+} */
 
 #WD-dashboard
 {
@@ -1822,10 +2016,10 @@ body
   margin: 0px;
   color: #80808d;
 
-  font-size: 15px;
+  /* font-size: 15px; */
   font-weight: 700;
 
-  margin-left: 8px;
+  /* margin-left: 8px; */
 }
 
 #WD-instruction
@@ -1833,7 +2027,7 @@ body
   margin: 0px;
   color: #80808d;
 
-  font-size: 14px;
+  /* font-size: 14px; */
   font-weight: 500;
 
   /* background-color: red; */
@@ -1857,7 +2051,7 @@ body
 #WD-btn
 {
   background-color: #357fab;
-  font-size: 14px;
+  /* font-size: 14px; */
   font-weight: 600;
 
   display: flex;
@@ -1870,14 +2064,14 @@ body
   border: none;
   outline: none;
 
-  border-radius: 5px;
+  /* border-radius: 5px; */
 
+  /*
   width: 70px;
-  height: 21px;
+  height: 21px; */
 
   cursor: pointer;
 }
-
 
 #w_hour
 {
