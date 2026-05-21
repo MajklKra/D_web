@@ -171,6 +171,8 @@ body
   {
     height: 45px;
     padding-top: 11px;
+
+    /* background-color: coral; */
   }
 
   #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -480,16 +482,13 @@ body
 @media (min-width: 1200px) and (max-width: 1399px)
 {
 
-  body
-  {
-
-  }
-
   #navBar
   {
 
     height: 59px;
     padding-top: 15px;
+
+    /* background-color: #7ca0c2; */
   }
 
   #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -679,6 +678,9 @@ body
 
     height: 83px;
     padding-top: 23px;
+
+    /* background-color: yellow; */
+
   }
 
   #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -776,7 +778,7 @@ body
 
   #thermometer
   {
-    width: 26px;
+    width:  26px;
     height: 26px;
 
     /* background-color: green; */
@@ -784,12 +786,11 @@ body
 
   #weather
   {
-    width: 27px;
+    width:  27px;
     height: 27px;
 
     /* background-color: black; */
   }
-
 
   #temperature
   {
@@ -865,11 +866,16 @@ body
 
   #WD-btn
   {
-
     font-size: 14px;
     border-radius: 7px;
     width: 70px;
     height: 21px;
+  }
+
+
+  .description
+  {
+    font-size: 18px;
   }
 
 }
@@ -881,6 +887,8 @@ body
   {
     height: 83px;
     padding-top: 23px;
+
+    background-color: orange;
   }
 
   #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -1063,6 +1071,11 @@ body
     border-radius: 5px;
     width: 70px;
     height: 21px;
+  }
+
+  .description
+  {
+    font-size: 18px;
   }
 
 }
@@ -1341,7 +1354,9 @@ body
   font-size: 9px;
 
   padding-left: 22px;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
+
+  /* background-color: cornflowerblue; */
 }
 
 #company
@@ -1357,14 +1372,18 @@ body
   color: #59646f;
   font-size: 9px;
 
-  padding-bottom: 18px;
+  padding-bottom: 16px;
   padding-left: 22px;
+
+  /* background-color: darksalmon; */
 }
 
 .spacer
 {
-  height: 34%;
+  height: 30%;
   width: 100%;
+
+  /* background-color: orange; */
 }
 
 /* Experimental development and research 13. 5. 2026 */
@@ -1385,7 +1404,10 @@ body
 .dropdownImg
 {
   height: auto;
-  width: clamp(10px, calc(10px + (20 - 10) * ((100vw - 992px) / (1981 - 992))), 20px);;
+  /* width: clamp(10px, calc(10px + (20 - 10) * ((100vw - 992px) / (1981 - 992))), 20px); */
+
+  width: 16px;
+
   color: #59646f;
   pointer-events: none;
   transition: transform 0.2s ease;
@@ -1492,7 +1514,7 @@ body
 {
   width: 94%;
 
-  /* background-color: red; */
+  /* background-color: yellowgreen; */
 
   display: flex;
   flex-direction: row;
@@ -1507,8 +1529,7 @@ body
 {
   width: 15.5%;
 
-  /* background-color: green; */
-  color: red;
+  /* background-color: lightblue; */
 
   height: 100%;
 
@@ -1522,8 +1543,9 @@ body
 .c2
 {
   width: 65.9%;
-  /* background-color: orange; */
-  color: red;
+
+  /* background-color: lightgreen; */
+
   text-align: center;
 
   height: 100%;
@@ -1539,7 +1561,8 @@ body
 {
   width: 14.7%;
 
-  color: red;
+  /* background-color: lightcoral; */
+
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -1552,7 +1575,6 @@ body
 
 .description
 {
-
   margin: 0;
 
   margin-left: 14.2%;
@@ -1560,7 +1582,7 @@ body
   font-family: 'Montserrat';
   font-weight: 700;
 
-  font-size: clamp(10px, calc(10px + (100vw - 1399px) * 0.020325), 19px);
+  /* font-size: clamp(10px, calc(10px + (100vw - 1399px) * 0.020325), 19px); */
 
   color: #59646f;
   display:flex;
@@ -1568,6 +1590,8 @@ body
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  /* background-color: cadetblue; */
 
 }
 
@@ -1579,10 +1603,9 @@ body
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
-
   padding: 0px;
+
+  /* background-color: skyblue; */
 }
 
 .sBtn
@@ -1600,6 +1623,8 @@ body
   outline: none;
 
   background-color: transparent;
+
+  /* background-color: lightcyan; */
 }
 
 /* Experimenty 18.5.2026 */

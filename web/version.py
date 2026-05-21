@@ -1,6 +1,6 @@
-__version__ = "1.1.5"
+__version__ = "1.1.6"
 
-# Fungující logout
+# Upravené menu pro do 1920px
 
 # Jedná se o tuto produkční verzi č. ----
 

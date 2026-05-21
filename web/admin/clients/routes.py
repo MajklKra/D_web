@@ -7,16 +7,26 @@ from .blueprints import admin_clients_bp
 from vokativ import vokativ
 from ...version import __version__
 
+from  web.share.s_print import s_print
+
 
 @admin_clients_bp.route('/home')
 def home():
 
-    salutation = session.get('e_name')
+    s_print(f"URL: {request.url}", "green",0,0)
 
+    salutation = session.get('e_name')
     salutation = vokativ(salutation).capitalize()
 
+    s_print(salutation, "white",0,0)
+
     name = session.get('e_name')
+
+    s_print(name, "white",0,0)
+
     surname = session.get('e_surname')
+
+    s_print(surname, "white",0,1)
 
     # temp = round(weather())
 
@@ -26,7 +36,8 @@ def home():
 @admin_clients_bp.route('/logout')
 def logout():
 
-    print(" 👽 Hello stranger you have sucessfully entered the /logout function so be warmly welcome ! ")
+    s_print(f"URL: {request.url}", "green",0,1)
+    s_print("👽 Hello stranger you have sucessfully entered the /logout function so be warmly welcome ! ", "white",0,0)
 
     session.clear()
 
@@ -38,7 +49,8 @@ def weather():
 
     # This part of app gets weather data from OpenWeather API
 
-    print("Mate, welcome to the OpenWeather API forecast.")
+    s_print(f"URL: {request.url}", "green",0,1)
+    s_print("Mate, welcome to the OpenWeather API forecast.", "white",0,0)
 
     city = "Valasske Mezirici"
     api_key = "859db4eec845ba1f4b14778e59ef1fa6"
@@ -48,9 +60,14 @@ def weather():
         f"?q={city}&appid={api_key}&units=metric&lang=cz"
     )
 
+    s_print(f"city: {city}", "white",0,0)
+
     response = requests.get(url)
 
     if response.status_code != 200:
+
+        s_print(f" error: {response.status_code}", "red",0,0)
+
         return jsonify(response.json()), response.status_code
 
     data = response.json()
@@ -63,9 +80,7 @@ def weather():
 
     temp =  data["main"]["temp"]
 
-    # return jsonify(weather_data)
-
-    # return temp
+    s_print(f"actual temperature: {temp}", "white",0,1)
 
     return jsonify({
         "temp": temp
