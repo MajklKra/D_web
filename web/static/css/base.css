@@ -167,14 +167,8 @@ body
 @media (min-width: 992px) and (max-width: 1199px)
 {
 
-  body
-  {
-    /* background-color: lightgreen !important; */
-  }
-
   #navBar
   {
-    background-color: green !important;
     height: 45px;
     padding-top: 11px;
   }
@@ -354,7 +348,7 @@ body
 
     font-size: clamp(13px, calc(13px + 3 * ((100vw - 992px) / 207)), 16px);
 
-    margin-bottom:  2px;
+    margin-bottom:  2px !important;
   }
 
   #w_welcome
@@ -488,12 +482,12 @@ body
 
   body
   {
-    /* background-color: lightblue !important; */
+
   }
 
   #navBar
   {
-    background-color: blue !important;
+
     height: 59px;
     padding-top: 15px;
   }
@@ -504,18 +498,9 @@ body
     margin-bottom: 1px;
   }
 
-  #svg1
-  {
-    /* width: 100px; */
-    /* height: auto; */
-
-    /* background-color: black; */
-  }
 
   #codacoC
   {
-    /* background-color: pink; */
-
     position: absolute;
     left: 0;
     top: 0;
@@ -543,22 +528,13 @@ body
     max-width: 700px;
   }
 
-  /* #srow1-menu */
-
   .row-menu
   {
-
-    /* Font size 12px az 16px*/
-
-    /* font-size: 12px; */
-
-    /* font-size: calc(12px + (16 - 12) * ((100vw - 1200px) / (1399 - 1200))); */
 
     font-size: 10px;
 
   }
 
-  /* #srow1-menu-item1, #srow1-menu-item2 */
   .row-menu-item
   {
       margin-bottom: 7px !important;
@@ -625,7 +601,7 @@ body
   #w_name
   {
     font-size:      20px;
-    margin-bottom:  2px;
+    margin-bottom:  2px !important;
   }
 
   #w_welcome
@@ -700,7 +676,7 @@ body
 
   #navBar
   {
-    background-color: violet !important;
+
     height: 83px;
     padding-top: 23px;
   }
@@ -713,7 +689,6 @@ body
 
   #codacoC
   {
-    /* background-color: green; */
 
     position: absolute;
     left: 0;
@@ -728,7 +703,6 @@ body
 
   #userSurname
   {
-    /* font-size: 17px; */
 
     margin-left: 5px;   /* Dodělat jinde */
 
@@ -757,9 +731,6 @@ body
 
   .row-menu
   {
-    /* font-size: 16px; */
-    /* font-size: calc(10px + (16 - 10) * ((100vw - 1400px) / (1920 - 1400))); */
-
     font-size: clamp(10px, calc(10px + (16 - 10) * ((100vw - 1400px) / (1920 - 1400))), 16px);
   }
 
@@ -839,12 +810,12 @@ body
   #w_name
   {
     font-size: 25px;
-    margin-bottom: 2px;
+    margin-bottom: 3px !important;
   }
 
   #w_welcome
   {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .w_dot
@@ -860,7 +831,7 @@ body
 
     width: 100%;
 
-    border-radius: 10px;
+    border-radius: 20px;
   }
 
   #WD-dashboard
@@ -872,7 +843,6 @@ body
   #WD-instruction
   {
     font-size: 14px;
-
     margin-bottom: 22px !important;
   }
 
@@ -897,7 +867,7 @@ body
   {
 
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 7px;
     width: 70px;
     height: 21px;
   }
@@ -909,7 +879,6 @@ body
 
   #navBar
   {
-    background-color: violet !important;
     height: 83px;
     padding-top: 23px;
   }
@@ -922,7 +891,6 @@ body
 
   #codacoC
   {
-    /* background-color: green; */
 
     position: absolute;
     left: 0;
@@ -937,7 +905,6 @@ body
 
   #userSurname
   {
-    /* font-size: 17px; */
 
     margin-left: 5px;   /* Dodělat jinde */
 
@@ -966,13 +933,9 @@ body
 
   .row-menu
   {
-    /* font-size: 16px; */
-    /* font-size: calc(10px + (16 - 10) * ((100vw - 1400px) / (1920 - 1400))); */
-
     font-size: clamp(10px, calc(10px + (16 - 10) * ((100vw - 1400px) / (1920 - 1400))), 16px);
   }
 
-  /* #srow1-menu-item1, #srow1-menu-item2 */
   .row-menu-item
   {
       margin-bottom: 9px !important;
@@ -982,7 +945,6 @@ body
   {
     height: calc(100% - 83px);
   }
-
 
   .row:hover
   {
@@ -994,8 +956,113 @@ body
 
   #welcomeC-hourC
   {
-    font-size: 129px;
-    height: 141px;
+    /* font-size: 129px; */
+
+    font-size: clamp( 96px, calc(96px + (129 - 96) * ((100vw - 1400px) / (1920 - 1400))), 129px);
+
+    height: auto;
+
+    margin-bottom: 8px;
+  }
+
+  #welcomeC-dateC
+  {
+    background-color: white;
+    height: 33px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+  #thermometer
+  {
+    width: 26px;
+    height: 26px;
+  }
+
+  #weather
+  {
+    width: 27px;
+    height: 27px;
+  }
+
+
+  #temperature
+  {
+    margin: 0px;
+
+    margin-left: 2px;
+    margin-right: 13px;
+
+  }
+
+  #welcomeC-welcomeC
+  {
+    padding-top: 15px;
+    padding-bottom: 16px;
+  }
+
+  #w_name
+  {
+    font-size: 25px;
+    margin-bottom: 3px !important;
+  }
+
+  #w_welcome
+  {
+    font-size: 14px;
+  }
+
+  .w_dot
+  {
+    margin-right: 6px !important;
+  }
+
+  #welcomeC-dashboardC
+  {
+    background-color: white;
+
+    height: auto;
+
+    width: 100%;
+
+    border-radius: 10px;
+  }
+
+  #WD-dashboard
+  {
+      margin-top: 22px;
+      margin-bottom: 15px;
+  }
+
+  #WD-instruction
+  {
+    font-size: 14px;
+    margin-bottom: 22px !important;
+  }
+
+  #WD-buttonC
+  {
+    margin-bottom: 20px;
+  }
+
+  #dashboard-icon
+  {
+    width: 12px;
+    height: 12px;
+  }
+
+  #dashboard-icon-desc
+  {
+    font-size: 15px;
+    margin-left: 8px !important;
+  }
+
+  #WD-btn
+  {
+    font-size: 14px;
+    border-radius: 5px;
+    width: 70px;
+    height: 21px;
   }
 
 }
@@ -1007,21 +1074,14 @@ body
   width: 100%;
   height: 100%;
 
-  /* background-color: goldenrod !important; */
 }
 
 #leftMenu
 {
-  /* width: 396px; */
 
-  /* width: 20.6%; */
   width: min(20.6%, 396px);
 
-  /* height: calc(100% - 83px); */
-
   min-height: 862px;
-
-  /* background-color: yellowgreen !important; */
 
   overflow: auto;
 
@@ -1040,14 +1100,7 @@ body
 {
 
   width: auto;
-  /* height: 28px; */
-
-  /* max-width: 50%; */
-  /* max-width: 960px; */
-
   height: auto;
-
-  /* background-color: red; */
 
   display: flex;
   flex-direction: row;
@@ -1058,8 +1111,6 @@ body
   font-family: 'Montserrat';
   font-weight: 600;
   color: #59646f;
-  /* font-size: 17px; */
-  /* font-size: clamp(9px, calc(9px + 8 * ((100vw - 992px) / 928)), 17px); */
 
   font-size: clamp(9px, calc(9px + 9 * ((100vw - 992px) / 928)), 18px);
 
@@ -1069,11 +1120,7 @@ body
 {
   width: auto;
 
-  /* height: 28px; */
-
   height: clamp(15px, calc(15px + 13 * ((100vw - 998px) / 922)), 28px);
-
-  /* background-color: palegreen; */
 
   padding-right: clamp(9px, calc(9px + 11 * ((100vw - 992px) / 928)), 17px);
 
@@ -1081,18 +1128,11 @@ body
 
 #hourC
 {
-  /* width: 25%; */
 
   width: auto;
 
-  /* height: 28px; */
-
   height: clamp(15px, calc(15px + 13 * ((100vw - 998px) / 922)), 28px);
-
-  /* background-color: gold; */
-
   padding-right: clamp(10px, calc(10px + 10 * ((100vw - 992px) / 928)), 20px);
-  /* padding-left: clamp(7px, calc(7px + 8 * ((100vw - 992px) / 928)), 14px); */
   padding-left: clamp(7px, calc(7px + 8 * ((100vw - 992px) / 928)), 16px);
 
 }
@@ -1100,11 +1140,8 @@ body
 #nameC
 {
   width: auto;
-  /* height: 28px; */
 
   height: clamp(15px, calc(15px + 13 * ((100vw - 998px) / 922)), 28px);
-
-  /* background-color: lightcoral; */
 
   display: flex;
   flex-direction: row;
@@ -1123,11 +1160,8 @@ body
 #exitC
 {
   width: auto;
-  /* height: 28px; */
 
   height: clamp(15px, calc(15px + 13 * ((100vw - 998px) / 922)), 28px);
-
-  /* background-color: lightgray; */
 
   border-left: 2px solid rgba(180,184,196,1);
   box-sizing: border-box;
@@ -1145,24 +1179,17 @@ body
 
 #exitImg
 {
-  /* width: 31px; */
+
   width: clamp(16px, calc(16px + 15 * ((100vw - 992px) / 408)), 31px);
 
-  /* height: 31px; */
   height: auto;
-
-  /* background-color: transparent; */
 
   color: #59646f;
 }
 
 #exitBtn
 {
-  /* position: absolute;
-  top: -8px;
-  right: 14px; */
 
-  /* background-color: transparent; */
   outline: none;
   border: none;
 
@@ -1171,9 +1198,6 @@ body
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* margin-left: 26px;
-  margin-right: 27px; */
 
   width: auto;
   height: auto;
@@ -1184,13 +1208,6 @@ body
 
 #personImg
 {
-  /* width: 22px;
-  height: 22px; */
-
-  /* background-color: red; */
-
-  /* margin-right: 23px;
-  margin-left: 20px; */
 
   width: clamp(10px, calc(10px + 8 * ((100vw - 992px) / 408)), 19px);
   margin-left: clamp(12px, 1vw, 20px);
@@ -1200,7 +1217,6 @@ body
 
 #userName
 {
-  /* background-color: yellow; */
 
   padding-left: 0px;
   padding-right: 0px;
@@ -1215,7 +1231,6 @@ body
 
 #userSurname
 {
-  /* background-color: cyan; */
 
   padding-left: 0px;
   padding-right: 0px;
@@ -1231,7 +1246,6 @@ body
 
 #hourC
 {
-  /* background-color: gold; */
 
   display: flex;
   flex-direction: row;
@@ -1260,7 +1274,6 @@ body
 
 #dateC
 {
-  /* background-color: green; */
 
   display: flex;
   flex-direction: row;
@@ -1270,27 +1283,11 @@ body
 
 #day
 {
-  /* background-color: limegreen; */
-  /* font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 17px;
-  color: #192838; */
-
   margin: 0px;
 }
 
 .dot
 {
-  /* background-color: lightsalmon; */
-  /* font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 17px;
-  color: #192838; */
-
-  /* margin-right: 6px; */
-  /* margin-left: 2px; */
-
-  /* margin-right: clamp(0px, calc(0.444vw - 1.395px), 5px); */
 
   margin: 0px;
 
@@ -1300,44 +1297,13 @@ body
 
 #month
 {
-  /* background-color: lightseagreen; */
-  /* font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 17px;
-  color: #192838; */
-
   margin: 0px;
 }
 
 #year
 {
-  /* background-color: lightsteelblue; */
-  /* font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 17px;
-  color: #192838; */
-
-  /* margin-right: 16px; */
-
   margin: 0px;
 }
-
-/* #codacoC
-{
-
-  /* background-color: green;
-
-  position: absolute;
-  left: 0;
-  top: 0;
-
-  padding-left: 24px;
-  padding-top:  16px;
-
-  width: auto;
-  height: auto;
-}
-*/
 
 #svg1
 {
@@ -1345,26 +1311,9 @@ body
   width: clamp(71px, calc(71px + (138 - 71) * ((100vw - 992px) / (1920 - 992))), 138px);
   height: auto;
 
-  /* background-color: red; */
 }
 
-/* #srow5:hover
-{
-  background-color: #357fab;
 
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-
-  color: white !important;
-
-  cursor: pointer;
-}
-
-#srow5:hover *
-{
-    color: white;
-    fill: white;
-} */
 
 /* Experiments with unknown results 12.5.2026 */
 
@@ -1372,7 +1321,6 @@ body
 {
     width: 100%;
     height: auto;
-    /* background-color: aquamarine; */
 
     position: absolute;
     left: 0;
@@ -1381,7 +1329,6 @@ body
 
 #version
 {
-  /* background-color: orange; */
   width: auto;
   height: auto;
 
@@ -1399,7 +1346,6 @@ body
 
 #company
 {
-  /* background-color: aquamarine; */
   width: auto;
   height: auto;
 
@@ -1419,14 +1365,12 @@ body
 {
   height: 34%;
   width: 100%;
-  /* background-color: darkgoldenrod; */
 }
 
 /* Experimental development and research 13. 5. 2026 */
 
 #StructureImg
 {
-  /* width: clamp(15px, calc(22px + (100vw - 1399px) * 0.012195), 36px); */
 
   width: 100%;
 
@@ -1434,45 +1378,27 @@ body
 
   display: block;
 
-  /* color: red; */
-
   color: #59646f !important;
 
 }
 
 .dropdownImg
 {
-  /* height: 13px; */
-
   height: auto;
-  /* width: 20px; */
-
-  /* width: 10px; */
-
   width: clamp(10px, calc(10px + (20 - 10) * ((100vw - 992px) / (1981 - 992))), 20px);;
-
   color: #59646f;
   pointer-events: none;
   transition: transform 0.2s ease;
-
-  /* background-color: red !important; */
 }
 
 #employeeImg
 {
-  /*
-  width: 24px;
-  height: auto;
-
-  background-color: lightskyblue; */
 
   width: 75%;
 
   height: auto;
 
   display: block;
-
-  /* color: red; */
 
   color: #59646f;
 }
@@ -1492,9 +1418,6 @@ body
 
 #relationsImg
 {
-  /*
-  width: 32px;
-  height: auto; */
 
   width: 96%;
 
@@ -1502,14 +1425,12 @@ body
 
   display: block;
 
-  /* color: red; */
-
   color: #59646f;
 }
 
 #clientsImg
 {
-  /* width: 28px; */
+
   color: #59646f;
 
   width: 88%;
@@ -1518,9 +1439,6 @@ body
 
   display: block;
 
-  /* color: red; */
-
-  /* background-color: darkcyan; */
 }
 
 #integrationsImg
@@ -1620,7 +1538,7 @@ body
 .c3
 {
   width: 14.7%;
-  /* background-color:#357fab; */
+
   color: red;
   height: 100%;
   display: flex;
@@ -1634,7 +1552,7 @@ body
 
 .description
 {
-  /* background-color: pink; */
+
   margin: 0;
 
   margin-left: 14.2%;
@@ -1662,7 +1580,7 @@ body
   justify-content: center;
   align-items: center;
 
-  /* background-color: black; */
+
 
   padding: 0px;
 }
@@ -1677,9 +1595,7 @@ body
   flex-direction: column;
 
   justify-content: center;
-  /* align-self: center; */
 
-  /* background-color: gold !important; */
   border: none;
   outline: none;
 
@@ -1692,7 +1608,6 @@ body
 {
   width: 100%;
   height: auto;
-  /* background-color: brown; */
   margin-top: 7px;
   display: flex;
   flex-direction: column;
@@ -1711,7 +1626,6 @@ body
 {
   width: 100%;
   height: auto;
-  /* background-color: pink; */
   padding: 0px;
   margin: 0px;
 }
@@ -1720,7 +1634,6 @@ body
 {
   width: 100%;
   height: auto;
-  /* background-color: pink; */
   padding: 0px;
   margin: 0px;
 }
@@ -1735,14 +1648,9 @@ body
   visibility: hidden;
 }
 
-
 .row:hover
 {
   background-color: #357fab;
-
-  /*
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px; */
 
   color: white !important;
 
@@ -1760,20 +1668,12 @@ body
   display: flex;
   flex-direction: row;
 
-  /* background-color: yellow; */
-
   width: 100%;
   height: 100%;
 }
 
 #contentC
 {
-  /* width: 100%;
-  height: 100%; */
-
-  background-color: red;
-
-  /* background-color: white; */
 
   flex:1;
 
@@ -1785,37 +1685,24 @@ body
 
 }
 
-
 #welcomeC
 {
   max-width: 350px;
 
   width: 23%;
 
-  /* height: auto; */
-
-  /* height: 46%; */
-
-  background-color: black;
   font-family: 'Montserrat';
 
   margin-top: 11%;
 
-  /* margin-top: 162px; */
-
-  /* margin-left: 390px; */
-
   margin-left: 25.5%;
 
-  overflow: hidden;
+  overflow: visible;
 
 }
 
 #welcomeC-hourC
 {
-  background-color: yellow;
-
-  /* height: 141px; */
 
   width: 100%;
 
@@ -1824,110 +1711,61 @@ body
   justify-content: center;
   align-items: center;
 
-  /* font-size: 129px; */
-
   font-weight: 700;
   color: #7ca0c2;
 
-  /* margin-bottom: 25px; */
+  overflow: visible !important;
 }
 
 #welcomeC-dateC
 {
   background-color: white;
 
-  /* height: 33px;  */
-
   width: 100%;
-
-  /*border-radius: 10px; */
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  /* font-size: 16px; */
   color: #357fab;
   font-weight: 600;
 
-  /* padding-left: 23px;
-  padding-right: 23px; */
-
-  padding-left: 6.5%;
-  padding-right: 6.5%;
+  padding-left: 6.8%;
+  padding-right: 6.2%;
 
 }
 
 #welcomeC-welcomeC
 {
-  /* background-color: red; */
-
-  /* height: 113px; */
-
-  /* height: 104px; */
 
   width: 100%;
   height: auto;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-
   color: #357fab;
 
-   /*
-  padding-left: 23px;
-  padding-right: 23px; */
+  padding-left: 3.4%;
 
-  padding-left: 6.5%;
-  padding-right: 6.5%;
-
-  /* padding-left: 5%;
-  padding-right: 5%; */
-
-  /* padding-top: 15px; */
 }
 
 #welcomeC-dashboardC
 {
-  /* background-color: orange; */
 
   background-color: white;
-
-  /* height: 153px; */
 
   height: auto;
 
   width: 100%;
-
-  /* padding: 23px; */
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  /*border-radius: 10px; */
-
   padding-left: 6.5%;
   padding-right: 6.5%;
+
 }
-
-/* #thermometer
-{
-  width: 26px;
-  height: 26px;
-
-  /* background-color: green;
-} */
-
-/* #weather
-{
-  width: 28px;
-  height: 28px;
-} */
 
 #weather-wrap
 {
@@ -1939,7 +1777,6 @@ body
   justify-content: center;
   align-items: center;
 
-  /* background-color: red !important; */
 }
 
 #date-wrap
@@ -1952,35 +1789,17 @@ body
   justify-content: center;
   align-items: center;
 
-  /*  background-color: blue !important; */
 }
-/*
-#temperature
-{
-  margin: 0px;
-
-  margin-left: 2px;
-  margin-right: 13px;
-} */
 
 #w_day, #w_month, #w_year, .w_dot
 {
   margin: 0px;
 }
 
-/* .w_dot
-{
-  margin-right: 7px;
-} */
-
 #w_name
 {
   margin: 0px;
-
-  /* font-size: 25px; */
   font-weight: 800;
-
-  /* margin-bottom: 2px; */
 }
 
 #w_welcome
@@ -1989,14 +1808,9 @@ body
   /* font-size: 14px; */
   font-weight: 600;
 
-  /* line-height: 1.55; */
-}
+  line-height: 1.55;
 
-/* #dashboard-icon
-{
-  width: 12px;
-  height: 12px;
-} */
+}
 
 #WD-dashboard
 {
@@ -2004,8 +1818,6 @@ body
   flex-direction: row;
   justify-content: start;
   align-items: center;
-
-  /* background-color: yellow; */
 
   width: 100%;
   height: auto;
@@ -2016,10 +1828,8 @@ body
   margin: 0px;
   color: #80808d;
 
-  /* font-size: 15px; */
   font-weight: 700;
 
-  /* margin-left: 8px; */
 }
 
 #WD-instruction
@@ -2027,10 +1837,7 @@ body
   margin: 0px;
   color: #80808d;
 
-  /* font-size: 14px; */
   font-weight: 500;
-
-  /* background-color: red; */
 }
 
 #WD-buttonC
@@ -2040,12 +1847,8 @@ body
   justify-content: end;
   align-items: center;
 
-  /* background-color: chartreuse; */
-
   width: 100%;
   height: auto;
-
-  /* margin-top: 28px; */
 }
 
 #WD-btn
