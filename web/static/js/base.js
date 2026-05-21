@@ -61,6 +61,10 @@ function aktualizovatDatumCas()
   w_hour.textContent = hodiny;
   w_minutes.textContent = minuty;
 
+  /* Aktualizace teploty */
+
+  aktualizovatTeplotu();
+
 }
 
 // Inicializace zobrazení data a času při načtení stránky
@@ -68,7 +72,6 @@ aktualizovatDatumCas();
 
 // Aktualizace každou minutu (60000 milisekund)
 setInterval(aktualizovatDatumCas, 60000);
-
 
 function updateSize()
 {
@@ -97,4 +100,41 @@ requestAnimationFrame(() =>
 window.addEventListener("resize", updateSize);
 // bonus: emulace často mění visualViewport
 window.visualViewport?.addEventListener("resize", updateSize);
+
+
+/* Experimenty 21. 5. 2026 */
+
+async function aktualizovatTeplotu()
+{
+  try
+  {
+    const response = await fetch('/administration/clients/weather');
+    const data = await response.json();
+
+    console.log('Aktualizovaná teplota:', data.temp);
+
+    const teplota = document.getElementById('temperature');
+
+    if (teplota)
+    {
+
+      teplota.textContent = Math.round(data.temp) + " °C";
+    }
+
+  }
+  catch(error)
+  {
+    console.error('Chyba počasí:', error);
+  }
+}
+
+
+
+document.getElementById("logoutBtn").addEventListener("click", () =>
+{
+    const url = document.getElementById("logoutBtn").dataset.logoutUrl;
+    window.location.href = url;
+});
+
+
 

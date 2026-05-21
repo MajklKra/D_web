@@ -1,6 +1,6 @@
-__version__ = "1.1.2"
+__version__ = "1.1.5"
 
-# #welcomeC - third draft
+# Fungující logout
 
 # Jedná se o tuto produkční verzi č. ----
 
