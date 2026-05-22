@@ -154,16 +154,51 @@ body
   }
 }
 
+/* Work */
 /* tablet*/
 @media (min-width: 768px) and (max-width: 991px)
 {
-  body
-  {
-    display: none
-  }
+    body
+    {
+      /* display: none */
+    }
+
+    #navBar
+    {
+      height: 42px;
+      padding-top: 11px;
+
+      background-color: brown;
+    }
+
+    #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
+    {
+      height: 22px;
+      margin-bottom: 4px;
+    }
+
+    .wrap
+    {
+      width: 16px;
+    }
+
+    .description
+    {
+      font-size: 9px;
+    }
+
+    .dropdownImg
+    {
+      width: 8px;
+    }
+
+    .spacer
+    {
+      height: 32%;
+    }
+
 }
 
-/* Work */
 
 /* počítačová obrazovka */
 @media (min-width: 992px) and (max-width: 1199px)
@@ -500,7 +535,6 @@ body
 
 }
 
-
 /* počítačová obrazovka */
 @media (min-width: 1200px) and (max-width: 1399px)
 {
@@ -714,7 +748,6 @@ body
   }
 
 }
-
 
 /* počítačová obrazovka */
 @media (min-width: 1400px) and (max-width: 1920px)
@@ -1139,6 +1172,26 @@ body
     font-size: 18px;
   }
 
+  .description
+  {
+    font-size: 18px;
+  }
+
+  .wrap
+  {
+    width: 32px;
+  }
+
+  .dropdownImg
+  {
+    width: 16px;
+  }
+
+  .spacer
+  {
+    height: 29%;
+  }
+
 }
 
 /* Experimental research and development 5.5.2026 */
@@ -1147,7 +1200,6 @@ body
 {
   width: 100%;
   height: 100%;
-
 }
 
 #leftMenu
@@ -1653,7 +1705,6 @@ body
   text-overflow: ellipsis;
 
   background-color: cadetblue;
-
 }
 
 .wrap
