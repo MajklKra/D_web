@@ -1,6 +1,6 @@
-__version__ = "1.1.8"
+__version__ = "1.1.9"
 
-# Upravené menu do 1399px
+# Upravené menu do 992px
 
 # Jedná se o tuto produkční verzi č. ----
 
