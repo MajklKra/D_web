@@ -1,6 +1,6 @@
-__version__ = "1.1.12"
+__version__ = "1.1.14"
 
-# Left-menu made responsive
+# .row-menu made responsive
 
 # Jedná se o tuto produkční verzi č. ----
 
