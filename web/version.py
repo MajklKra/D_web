@@ -1,11 +1,11 @@
-__version__ = "1.1.14"
+__version__ = "1.1.16"
 
-# .row-menu made responsive
+# otevírání řádku a menu - dále otáčení šipky
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    22.5.2026
+# Datum:    25.5.2026
 
 # Verze pro prezentaci
 

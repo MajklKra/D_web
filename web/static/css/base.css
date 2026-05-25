@@ -216,7 +216,7 @@ body
     /* padding-top: 11px; */
     padding-top: 11px;
 
-    background-color: coral;
+    /* background-color: coral; */
   }
 
   #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -583,7 +583,7 @@ body
 
     padding-top: clamp(11px,calc(11px + ((100vw - 1200px) * 0.0201005)),15px);
 
-    background-color: #7ca0c2;
+    /* background-color: #7ca0c2; */
   }
 
   #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -830,7 +830,7 @@ body
     /* padding-top: 15px;
     padding-top: 23px; */
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
     padding-top: clamp(15px,calc(15px + ((100vw - 1400px) * 0.0153846)),23px);
 
@@ -1087,7 +1087,7 @@ body
     height: 83px;
     padding-top: 23px;
 
-    background-color: orange;
+    /* background-color: orange; */
   }
 
   #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -1601,7 +1601,7 @@ body
   /* height: 29%; */
   width: 100%;
 
-  background-color: orange;
+  /* background-color: orange; */
 }
 
 /* Experimental development and research 13. 5. 2026 */
@@ -1732,7 +1732,7 @@ body
 {
   width: 94%;
 
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 
   display: flex;
   flex-direction: row;
@@ -1747,7 +1747,7 @@ body
 {
   width: 15.5%;
 
-  background-color: lightblue;
+  /* background-color: lightblue; */
 
   height: 100%;
 
@@ -1762,7 +1762,7 @@ body
 {
   width: 65.9%;
 
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
 
   text-align: center;
 
@@ -1779,7 +1779,7 @@ body
 {
   width: 14.7%;
 
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 
   height: 100%;
   display: flex;
@@ -1809,7 +1809,7 @@ body
   overflow: hidden;
   text-overflow: ellipsis;
 
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
 }
 
 .wrap
@@ -1822,7 +1822,7 @@ body
   align-items: center;
   padding: 0px;
 
-  background-color: skyblue;
+  /* background-color: skyblue; */
 }
 
 .sBtn
@@ -1841,7 +1841,7 @@ body
 
   background-color: transparent;
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 }
 
 /* Experimenty 18.5.2026 */
@@ -1866,9 +1866,9 @@ body
   color: #59646f;
   padding-left: 27.7%;
 
-  /* display: none; */
+  display: none;
 
-  background-color: pink;
+  /* background-color: pink; */
 
 }
 
@@ -1879,8 +1879,17 @@ body
   padding: 0px;
   margin: 0px;
 
-  background-color: black;
+  /* background-color: black; */
+
+  cursor: pointer;
 }
+
+.row-menu-item:hover
+{
+  color: rgba(68,120,167,255);
+}
+
+
 
 .row-menu-item-bottom
 {
@@ -1889,8 +1898,17 @@ body
   padding: 0px;
   margin: 0px;
 
-  background-color: brown;
+  /* background-color: brown; */
+
+  cursor: pointer;
 }
+
+.row-menu-item-bottom:hover
+{
+  color: rgba(68,120,167,255);
+}
+
+
 
 #dropdownBtn7
 {
@@ -2148,4 +2166,16 @@ body
   margin: 0px;
   padding: 0px;
   line-height:1;
+}
+
+/* 25.5.2026 Další experimenty */
+
+.row-menu.is-open
+{
+  display: flex;
+}
+
+.dropdownImg.is-open
+{
+  transform: rotate(180deg);
 }
