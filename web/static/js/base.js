@@ -137,24 +137,8 @@ document.getElementById("logoutBtn").addEventListener("click", () =>
 });
 
 
-/* Otevírání menu a otáčení šipky */
-
-// document.querySelectorAll(".row").forEach((row) =>
-// {
-//   const menu = row.nextElementSibling;
-
-//   if (!menu || !menu.classList.contains("row-menu")) return;
-
-//   const arrow = row.querySelector(".dropdownImg");
-
-//   row.addEventListener("click", () => {
-//     menu.classList.toggle("is-open");
-//     arrow?.classList.toggle("is-open");
-//   });
-// });
-
-
-document.querySelectorAll(".row").forEach((row) => {
+document.querySelectorAll(".row").forEach((row) =>
+{
 
   const menu = row.nextElementSibling;
 
@@ -162,22 +146,26 @@ document.querySelectorAll(".row").forEach((row) => {
 
   const arrow = row.querySelector(".dropdownImg");
 
-  row.addEventListener("click", () => {
+  row.addEventListener("click", () =>
+  {
 
     const isOpen = menu.classList.contains("is-open");
 
     // zavřít všechna menu
-    document.querySelectorAll(".row-menu").forEach((m) => {
+    document.querySelectorAll(".row-menu").forEach((m) =>
+    {
       m.classList.remove("is-open");
     });
 
     // reset všech šipek
-    document.querySelectorAll(".dropdownImg").forEach((img) => {
+    document.querySelectorAll(".dropdownImg").forEach((img) =>
+    {
       img.classList.remove("is-open");
     });
 
     // pokud nebylo otevřené -> otevřít
-    if (!isOpen) {
+    if (!isOpen)
+    {
       menu.classList.add("is-open");
       arrow?.classList.add("is-open");
     }

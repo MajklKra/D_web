@@ -1437,6 +1437,11 @@ body
   padding-bottom: 1px;
 }
 
+#logoutBtn:hover *
+{
+    color: #ED1C24;
+}
+
 #personImg
 {
 
@@ -1842,6 +1847,8 @@ body
   background-color: transparent;
 
   /* background-color: lightcyan; */
+
+  cursor: pointer;
 }
 
 /* Experimenty 18.5.2026 */

@@ -1,11 +1,11 @@
-__version__ = "1.1.16"
+__version__ = "1.1.17"
 
-# otevírání řádku a menu - dále otáčení šipky
+# LogoutBtn:hover
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
 # Datum:    25.5.2026
 
-# Verze pro prezentaci
+
 
