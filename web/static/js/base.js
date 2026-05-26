@@ -151,6 +151,7 @@ else
 
     const ACTIVE_NAV_KEY = "activeSideNavHref";
     const ACTIVE_NAV_CLASS = "nav-active";
+    const ACTIVE_SUBNAV_CLASS = "subnav-active";
 
     /* const SIDE_NAV_LINK_SELECTOR = "#side-nav a.row1[hx-push-url]";  */
 
@@ -370,11 +371,22 @@ else
     //         .forEach(a => a.classList.remove("nav-active"));
     // }
 
+    // function clearAllActiveSideNav()
+    // {
+    //     document
+    //         .querySelectorAll("#leftMenu .nav-active")
+    //         .forEach(el => el.classList.remove("nav-active"));
+    // }
+
     function clearAllActiveSideNav()
     {
         document
-            .querySelectorAll("#leftMenu .nav-active")
-            .forEach(el => el.classList.remove("nav-active"));
+            .querySelectorAll("#leftMenu .nav-active, #leftMenu .subnav-active")
+            .forEach(el =>
+            {
+                el.classList.remove("nav-active");
+                el.classList.remove("subnav-active");
+            });
     }
 
     function getActiveTargetFromLink(a)
@@ -453,6 +465,16 @@ else
 
         // if (matched) matched.classList.add(ACTIVE_NAV_CLASS);
 
+        // if (matched)
+        // {
+        //     const target = getActiveTargetFromLink(matched);
+
+        //     if (target)
+        //     {
+        //         target.classList.add(ACTIVE_NAV_CLASS);
+        //     }
+        // }
+
         if (matched)
         {
             const target = getActiveTargetFromLink(matched);
@@ -460,6 +482,11 @@ else
             if (target)
             {
                 target.classList.add(ACTIVE_NAV_CLASS);
+            }
+
+            if (matched.classList.contains("row-menu-item") || matched.classList.contains("row-menu-item-bottom"))
+            {
+                matched.classList.add(ACTIVE_SUBNAV_CLASS);
             }
         }
     }
@@ -514,9 +541,14 @@ else
 
         // pokud kliknu na hlavní odkaz, například Klienti / Zaměstnanci,
         // zavřu všechny otevřené sekce
-        if (a.classList.contains("row"))
+        // if (a.classList.contains("row"))
+        // {
+        //     closeAllSidebarSections();
+        // }
+
+        if (a.classList.contains("row-menu-item") || a.classList.contains("row-menu-item-bottom"))
         {
-            closeAllSidebarSections();
+            a.classList.add(ACTIVE_SUBNAV_CLASS);
         }
 
     });
