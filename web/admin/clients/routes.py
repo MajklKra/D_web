@@ -49,7 +49,7 @@ def weather():
 
     # This part of app gets weather data from OpenWeather API
 
-    s_print(f"URL: {request.url}", "green",0,1)
+    s_print(f"URL: {request.url}", "green",0,0)
     s_print("Mate, welcome to the OpenWeatherMap forecast.", "white",0,0)
 
     city = "Valasske Mezirici"

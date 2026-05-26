@@ -643,8 +643,8 @@ body
 
   .row:hover
   {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   #welcomeC-hourC
@@ -1922,8 +1922,6 @@ body
   color: rgba(68,120,167,255);
 }
 
-
-
 #dropdownBtn7
 {
   visibility: hidden;
@@ -1934,16 +1932,20 @@ body
   visibility: hidden;
 }
 
-.row:hover
+/* .row:hover
 {
-  /* background-color: #357fab;
-
-  color: white !important; */
-
   background-color: rgba(192,211,223,1);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+} */
 
-  /* cursor: pointer; */
+.row:not(.nav-active):hover
+{
+  background-color: rgba(192,211,223,1);
+  /* border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px; */
 }
+
 
 /* .row:hover *
 {
@@ -2216,14 +2218,14 @@ body
     fill: white;
 }
 
-.sidebar-active
+/* .sidebar-active
 {
   background-color: red;
-}
+} */
 
 .subnav-active
 {
     color: #357fab !important;
-    font-weight: 800;
+    /* font-weight: 800; */
 }
 

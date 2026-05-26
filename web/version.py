@@ -1,6 +1,6 @@
-__version__ = "1.1.21"
+__version__ = "1.1.22"
 
-# Výběr položky z pod-menu
+# Zamezení překrytí .row:hover a active nav-class
 
 # Jedná se o tuto produkční verzi č. ----
 
