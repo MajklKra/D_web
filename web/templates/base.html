@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CCS</title>
+
+        <title>{% block title %} CCS {% endblock %}</title>
 
         <!-- CSS styles -->
 
@@ -13,6 +14,23 @@
         <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
         <link rel="manifest" href="{{ url_for('static', filename='icons/site.webmanifest') }}">
+
+
+        <!-- CSS  -->
+
+        <!-- Klients .css -->
+
+        <link rel="stylesheet" href="{{ url_for('admin_clients.static', filename='css/clients.css') }}">
+
+        <!-- Employees .css -->
+
+        <link rel="stylesheet" href="{{ url_for('admin_employees.static', filename='css/employees.css') }}">
+
+        <!-- Equipment .css -->
+
+        <link rel="stylesheet" href="{{ url_for('equip.static', filename='css/equipment.css') }}">
+
+         {% block styles %}{% endblock %}
 
     </head>
     <body>
@@ -163,8 +181,6 @@
 
                         <div id="srow1-c3" class="c3">
 
-                        <!-- <svg id="dropdownImg" viewBox="0 0 24 24"> -->
-
                             <button id="dropdownBtn" class="sBtn">
 
                                     <svg fill="currentcolor" id="dropdownImg1" class="dropdownImg" viewBox="0 0 451.847 451.847">
@@ -190,7 +206,10 @@
 
                     </div>
 
-                    <div id="srow2" class="row">
+                     <a href="{{ url_for('admin_employees.employees') }}" hx-get="{{ url_for('admin_employees.employees') }}" hx-target="#contentC" hx-push-url="true" hx-swap="innerHTML transition:true"
+                    id="srow2" class="row" style="text-decoration: none;" data-key="employees">
+
+                    <!-- <div id="srow2" class="row"> -->
 
                             <div id="srow2-c1" class="c1">
 
@@ -215,26 +234,28 @@
                             </div>
 
                             <div id="srow2-c2" class="c2">
-                            <p id="e_description" class="description"> Zaměstnanci </p>
+                               <p id="e_description" class="description"> Zaměstnanci </p>
                             </div>
 
                             <div id="srow2-c3" class="c3">
 
-                            <button id="dropdownBtn7" class="sBtn">
-                                <svg id="dropdownImg2" class="dropdownImg" viewBox="5 7 14 9">
+                                <button id="dropdownBtn7" class="sBtn">
+                                    <svg id="dropdownImg2" class="dropdownImg" viewBox="5 7 14 9">
 
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
-                                            fill="currentcolor"/>
-                                </svg>
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                                fill="currentcolor"/>
+                                    </svg>
 
-                            </button>
+                                </button>
 
-                            <div class="spacer"></div>
+                                <div class="spacer"></div>
 
                             </div>
 
-                    </div>
+                        <!-- </div> -->
+                    </a>
+
 
                     <div id="srow3" class="row">
 
@@ -255,50 +276,58 @@
                                     <path class="e-cls-1" d="M15.39,28.16c-1.51,0-2.74-1.23-2.74-2.74v-10.42c0-1.51,1.23-2.74,2.74-2.74h17.14c1.51,0,2.74,1.23,2.74,2.74v10.42c0,1.51-1.23,2.74-2.74,2.74h-9.31s-7.83,0-7.83,0ZM15.78,15.03c-.13,0-.25.05-.34.14-.09.09-.15.21-.15.34v9.38c0,.27.22.49.49.49h16.36c.13,0,.25-.05.34-.14.09-.09.15-.21.15-.34v-9.38c0-.27-.22-.49-.49-.49H15.78Z"/>
                                     <path class="e-cls-1" d="M17,31.15c.38-.35,1.22-.64,1.75-.49l3.23.91c.35.1.87.78.86,1.11l-.05,3.67c0,.43-.97.84-1.52.81-9.16-.56-16.57-7.89-17.18-17.06-.03-.45.25-1.57.69-1.6,1.81-.11,4.53-.56,4.94.9l.85,3.04c.21.74-.16,1.48-.66,2.02l-.52.55c-.58.61-.65,1.54-.17,2.23,1.31,1.87,2.87,3.43,4.78,4.78.68.49,1.62.42,2.23-.15l.77-.72Z"/>
                                 </svg>
+
                             </div>
 
                             </div>
 
                             <div id="srow3-c2" class="c2">
-                            <p id="eq_Description" class="description" > Zařízení </p>
+                                <p id="eq_Description" class="description" > Zařízení </p>
                             </div>
 
-                        <div id="srow3-c3" class="c3">
+                            <div id="srow3-c3" class="c3">
 
-                            <button id="dropdownBtn2" class="sBtn">
+                                <button id="dropdownBtn2" class="sBtn">
 
-                                    <!-- <svg id="dropdownImg3" viewBox="5 7 14 9" class="dropdownImg" >
+                                        <!-- <svg id="dropdownImg3" viewBox="5 7 14 9" class="dropdownImg" >
 
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
-                                                fill="currentColor"/>
-                                    </svg> -->
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                                    fill="currentColor"/>
+                                        </svg> -->
 
-                                    <!-- <svg id="dropdownImg3" fill="currentcolor" class="dropdownImg" viewBox="0 0 330 330" >
-                                        <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
-                                            c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
-                                            s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/>
-                                    </svg> -->
+                                        <!-- <svg id="dropdownImg3" fill="currentcolor" class="dropdownImg" viewBox="0 0 330 330" >
+                                            <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
+                                                c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
+                                                s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/>
+                                        </svg> -->
 
-                                    <svg fill="currentcolor" id="dropdownImg3" class="dropdownImg" viewBox="0 0 451.847 451.847">
-                                        <g>
-                                            <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
-                                                c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
-                                                c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
-                                        </g>
-                                    </svg>
+                                        <svg fill="currentcolor" id="dropdownImg3" class="dropdownImg" viewBox="0 0 451.847 451.847">
+                                            <g>
+                                                <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                                                    c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                                                    c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
+                                            </g>
+                                        </svg>
 
-                            </button>
+                                </button>
 
-                            <div class="spacer"></div>
+                                <div class="spacer"></div>
 
-                        </div>
+                            </div>
 
                     </div>
 
                     <div id="srow3-menu" class="row-menu">
 
-                        <p id="srow3-menu-item1" class="row-menu-item">Diagnostika</p>
+                        <!-- <a href="{{ url_for('equip.diagnostics') }}" hx-get="{{ url_for('equip.diagnostics') }}" hx-target="#contentC" hx-push-url="true" hx-swap="innerHTML transition:true"
+                           id="srow3-menu-item1" class="row-menu-item" data-key="diagnostics"> Diagnostika </a> -->
+
+                        <a href="{{ url_for('equip.diagnostics') }}" hx-get="{{ url_for('equip.diagnostics') }}" hx-target="#contentC" hx-push-url="true" hx-swap="innerHTML transition:true" id="srow3-menu-item1"
+                        class="row-menu-item" data-active-row="srow3"> Diagnostika </a>
+
+                        <!-- <p id="srow3-menu-item1" class="row-menu-item">Diagnostika</p> -->
+
                         <p id="srow3-menu-item2" class="row-menu-item">Správce firmware</p>
                         <p id="srow3-menu-item3" class="row-menu-item">Dveřní zámky</p>
                         <p id="srow3-menu-item4" class="row-menu-item-bottom">Kamery</p>
@@ -336,25 +365,12 @@
                             </div>
 
                             <div id="srow4-c2" class="c2">
-                            <p id="rDescription" class="description"> Vazby zařízení </p>
+                                <p id="rDescription" class="description"> Vazby zařízení </p>
                             </div>
 
                         <div id="srow4-c3" class="c3">
 
                             <button id="dropdownBtn3" class="sBtn">
-
-                                    <!-- <svg id="dropdownImg4" viewBox="5 7 14 9" class="dropdownImg" >
-
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
-                                                fill="currentColor"/>
-                                    </svg> -->
-
-                                    <!-- <svg id="dropdownImg4" fill="currentcolor" class="dropdownImg" viewBox="0 0 330 330" >
-                                        <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
-                                            c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
-                                            s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/>
-                                    </svg> -->
 
                                     <svg fill="currentcolor" id="dropdownImg4" class="dropdownImg" viewBox="0 0 451.847 451.847">
                                         <g>
@@ -383,124 +399,93 @@
 
                     </div>
 
-                    <div id="srow5" class="row">
+                    <a href="{{ url_for('admin_clients.clients') }}" hx-get="{{ url_for('admin_clients.clients') }}" hx-target="#contentC" hx-push-url="true" hx-swap="innerHTML transition:true"
+                    id="srow5" class="row" style="text-decoration: none;" data-key="clients">
+
+                    <!-- <div id="srow5" class="row"> -->
 
                             <div id="srow5-c1" class="c1">
 
-                            <div id="clients-wrap" class="wrap">
+                                <div id="clients-wrap" class="wrap">
 
-                                    <!-- <svg id="clientsImg" viewBox="0 0 44.64 44.64"> -->
-                                    <svg id="clientsImg"  viewBox="8 12 28 18">
-                                        <defs>
-                                            <style>
-                                            .c-cls-1 {
-                                                fill: currentColor;
-                                            }
+                                        <svg id="clientsImg"  viewBox="8 12 28 18">
+                                            <defs>
+                                                <style>
+                                                .c-cls-1 {
+                                                    fill: currentColor;
+                                                }
+                                                </style>
+                                            </defs>
+                                            <g class="c-cls-2">
+                                                <path class="c-cls-1" d="M22.65,21.87c1.73,0,3.14-1.4,3.14-3.14s-1.4-3.14-3.14-3.14-3.14,1.4-3.14,3.14,1.4,3.14,3.14,3.14Z"/>
+                                                <path class="c-cls-1" d="M22.65,22.54c-3.15,0-5.79,3.03-6.48,5.96-.18.78.39,1.53,1.19,1.53h10.57c.8,0,1.38-.75,1.19-1.53-.69-2.94-3.33-5.96-6.48-5.96Z"/>
+                                                <path class="c-cls-1" d="M29.87,20.08c1.49,0,2.69-1.2,2.69-2.69s-1.2-2.69-2.69-2.69-2.69,1.2-2.69,2.69,1.2,2.69,2.69,2.69Z"/>
+                                                <path class="c-cls-1" d="M15.56,20.08c1.49,0,2.69-1.2,2.69-2.69s-1.2-2.69-2.69-2.69-2.69,1.2-2.69,2.69,1.2,2.69,2.69,2.69Z"/>
+                                                <path class="c-cls-1" d="M35.43,25.77c-.59-2.52-2.86-5.12-5.56-5.12-1.31,0-2.52.61-3.48,1.53,1.78,1.14,3.16,2.98,3.88,4.9h4.14c.69,0,1.18-.65,1.02-1.32Z"/>
+                                                <path class="c-cls-1" d="M18.99,22.14c-.96-.89-2.14-1.49-3.43-1.49-2.7,0-4.97,2.6-5.56,5.12-.16.67.34,1.32,1.02,1.32h4.02c.72-1.95,2.13-3.81,3.95-4.95Z"/>
+                                            </g>
+                                        </svg>
 
-                                            <!-- .c-cls-2 {
-                                                opacity: .7;
-                                            } -->
-                                            </style>
-                                        </defs>
-                                        <g class="c-cls-2">
-                                            <path class="c-cls-1" d="M22.65,21.87c1.73,0,3.14-1.4,3.14-3.14s-1.4-3.14-3.14-3.14-3.14,1.4-3.14,3.14,1.4,3.14,3.14,3.14Z"/>
-                                            <path class="c-cls-1" d="M22.65,22.54c-3.15,0-5.79,3.03-6.48,5.96-.18.78.39,1.53,1.19,1.53h10.57c.8,0,1.38-.75,1.19-1.53-.69-2.94-3.33-5.96-6.48-5.96Z"/>
-                                            <path class="c-cls-1" d="M29.87,20.08c1.49,0,2.69-1.2,2.69-2.69s-1.2-2.69-2.69-2.69-2.69,1.2-2.69,2.69,1.2,2.69,2.69,2.69Z"/>
-                                            <path class="c-cls-1" d="M15.56,20.08c1.49,0,2.69-1.2,2.69-2.69s-1.2-2.69-2.69-2.69-2.69,1.2-2.69,2.69,1.2,2.69,2.69,2.69Z"/>
-                                            <path class="c-cls-1" d="M35.43,25.77c-.59-2.52-2.86-5.12-5.56-5.12-1.31,0-2.52.61-3.48,1.53,1.78,1.14,3.16,2.98,3.88,4.9h4.14c.69,0,1.18-.65,1.02-1.32Z"/>
-                                            <path class="c-cls-1" d="M18.99,22.14c-.96-.89-2.14-1.49-3.43-1.49-2.7,0-4.97,2.6-5.56,5.12-.16.67.34,1.32,1.02,1.32h4.02c.72-1.95,2.13-3.81,3.95-4.95Z"/>
-                                        </g>
-                                    </svg>
-
-                            </div>
+                                </div>
 
                             </div>
 
                             <div id="srow5-c2" class="c2">
-                            <p id="cDescription" class="description"> Klienti </p>
+                                <p id="cDescription" class="description"> Klienti </p>
                             </div>
 
                             <div id="srow2-c3" class="c3">
 
-                            <button id="dropdownBtn8" class="sBtn">
-                                <!-- <svg id="dropdownImg5" viewBox="5 7 14 9" class="dropdownImg" >
+                                <button id="dropdownBtn8" class="sBtn">
 
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
-                                            fill="currentcolor"/>
-                                </svg> -->
+                                    <svg fill="currentcolor" id="dropdownImg5" class="dropdownImg" viewBox="0 0 451.847 451.847">
+                                            <g>
+                                                <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                                                    c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                                                    c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
+                                            </g>
+                                    </svg>
 
-                                <!-- <svg id="dropdownImg5" fill="currentcolor" class="dropdownImg" viewBox="0 0 330 330" >
-                                        <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
-                                            c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
-                                            s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/>
-                                </svg> -->
+                                </button>
 
-
-                                <svg fill="currentcolor" id="dropdownImg5" class="dropdownImg" viewBox="0 0 451.847 451.847">
-                                        <g>
-                                            <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
-                                                c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
-                                                c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
-                                        </g>
-                                </svg>
-
-                            </button>
-
-                            <div class="spacer"></div>
+                                <div class="spacer"></div>
 
                             </div>
 
-                    </div>
+                    <!-- </div> -->
+
+                    </a>
 
                     <div id="srow6" class="row">
 
                             <div id="srow6-c1" class="c1">
 
-                            <div id="integrations-wrap" class="wrap">
+                                <div id="integrations-wrap" class="wrap">
 
-                                    <!-- <svg id="integrationsImg"viewBox="0 0 24 24">
-                                        <path fill="none" stroke="currentcolor" stroke-width="2" d="M5,21 L23,21 L23,9 L5,9 M19,15 L1,15 L1,3 L19,3"/>
-                                    </svg> -->
+                                        <svg id="integrationsImg" viewBox="8 10 28 24">
+                                            <defs>
+                                                <style>
+                                                .i-cls-1
+                                                {
+                                                    fill: currentColor;
+                                                }
+                                                </style>
+                                            </defs>
+                                            <path class="i-cls-1" d="M25.46,27.85c0,.54.59.88,1.06.61l1.95-1.11,1.94-1.13c.47-.27.47-.95,0-1.22l-1.94-1.13-1.95-1.11c-.47-.27-1.05.07-1.06.61v1.19h-13.56v-9.82h17.74c.61,0,1.11-.5,1.11-1.11s-.5-1.11-1.11-1.11H10.79c-.61,0-1.11.5-1.11,1.11v12.04c0,.61.5,1.11,1.11,1.11h14.67v1.07Z"/>
+                                            <path class="i-cls-1" d="M19.23,17.36c0-.54-.59-.88-1.06-.61l-1.95,1.11-1.94,1.13c-.47.27-.47.95,0,1.22l1.94,1.13,1.95,1.11c.47.27,1.05-.07,1.06-.61v-1.19h13.56v9.82H15.05c-.61,0-1.11.5-1.11,1.11s.5,1.11,1.11,1.11h18.85c.61,0,1.11-.5,1.11-1.11v-12.04c0-.61-.5-1.11-1.11-1.11h-14.67v-1.07Z"/>
+                                        </svg>
 
-                                    <!-- <svg id="integrationsImg" viewBox="0 0 44.64 44.64"> -->
-                                    <svg id="integrationsImg" viewBox="8 10 28 24">
-                                        <defs>
-                                            <style>
-                                            .i-cls-1
-                                            {
-                                                fill: currentColor;
-                                            }
-                                            </style>
-                                        </defs>
-                                        <path class="i-cls-1" d="M25.46,27.85c0,.54.59.88,1.06.61l1.95-1.11,1.94-1.13c.47-.27.47-.95,0-1.22l-1.94-1.13-1.95-1.11c-.47-.27-1.05.07-1.06.61v1.19h-13.56v-9.82h17.74c.61,0,1.11-.5,1.11-1.11s-.5-1.11-1.11-1.11H10.79c-.61,0-1.11.5-1.11,1.11v12.04c0,.61.5,1.11,1.11,1.11h14.67v1.07Z"/>
-                                        <path class="i-cls-1" d="M19.23,17.36c0-.54-.59-.88-1.06-.61l-1.95,1.11-1.94,1.13c-.47.27-.47.95,0,1.22l1.94,1.13,1.95,1.11c.47.27,1.05-.07,1.06-.61v-1.19h13.56v9.82H15.05c-.61,0-1.11.5-1.11,1.11s.5,1.11,1.11,1.11h18.85c.61,0,1.11-.5,1.11-1.11v-12.04c0-.61-.5-1.11-1.11-1.11h-14.67v-1.07Z"/>
-                                    </svg>
-
-                            </div>
+                                </div>
 
                             </div>
 
                             <div id="srow6-c2" class="c2">
-                            <p id="iDescription" class="description"> Integrace</p>
+                                <p id="iDescription" class="description"> Integrace</p>
                             </div>
 
                             <div id="srow6-c3" class="c3">
 
                             <button id="dropdownBtn4" class="sBtn">
-
-                                    <!-- <svg id="dropdownImg6" viewBox="5 7 14 9" class="dropdownImg" >
-
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
-                                                fill="currentColor"/>
-                                    </svg> -->
-
-                                    <!-- <svg id="dropdownImg6" fill="currentcolor" class="dropdownImg" viewBox="0 0 330 330" >
-                                        <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
-                                            c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
-                                            s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/>
-                                    </svg> -->
 
                                     <svg fill="currentcolor" id="dropdownImg6" class="dropdownImg" viewBox="0 0 451.847 451.847">
                                         <g>
@@ -532,7 +517,6 @@
 
                             <div id="media-wrap" class="wrap">
 
-                                    <!-- <svg id="media-wrap" viewBox="0 0 44.64 44.64"> -->
                                     <svg id="mediaImg" viewBox="9 11 26 22">
                                         <defs>
                                             <style>
@@ -550,25 +534,12 @@
                             </div>
 
                             <div id="srow7-c2" class="c2">
-                            <p id="mDescription" class="description"> Multimedia</p>
+                                <p id="mDescription" class="description"> Multimedia</p>
                             </div>
 
                             <div id="srow7-c3" class="c3">
 
                             <button id="dropdownBtn5" class="sBtn">
-
-                                    <!-- <svg id="dropdownImg7" viewBox="5 7 14 9" class="dropdownImg" >
-
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
-                                                fill="currentColor"/>
-                                    </svg> -->
-
-                                    <!-- <svg id="dropdownImg7" fill="currentcolor" class="dropdownImg" viewBox="0 0 330 330" >
-                                        <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
-                                            c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
-                                            s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/>
-                                    </svg> -->
 
                                     <svg fill="currentcolor" id="dropdownImg7" class="dropdownImg" viewBox="0 0 451.847 451.847">
                                         <g>
@@ -599,7 +570,6 @@
 
                             <div id="settings-wrap" class="wrap">
 
-                                <!-- <svg id="settingsImg" viewBox="0 0 44.64 44.64"> -->
                                 <svg id="settingsImg" viewBox="8 8 28 28">
                                     <defs>
                                         <style>
@@ -623,19 +593,6 @@
                         <div id="srow8-c3" class="c3">
 
                             <button id="dropdownBtn6" class="sBtn">
-
-                                    <!-- <svg id="dropdownImg8" viewBox="5 7 14 9" class="dropdownImg" >
-
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
-                                                fill="currentColor"/>
-                                    </svg> -->
-
-                                    <!-- <svg id="dropdownImg8" fill="currentcolor" class="dropdownImg" viewBox="0 0 330 330" >
-                                        <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
-                                            c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
-                                            s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/>
-                                    </svg> -->
 
                                     <svg fill="currentcolor" id="dropdownImg8" class="dropdownImg" viewBox="0 0 451.847 451.847">
                                         <g>
@@ -669,100 +626,105 @@
 
                 </aside>
 
-                <section id="contentC">
+                <section id="contentC" hx-history-elt>
 
-                    <div id="welcomeC" style="display: none;">
+                     {% block content %} {% endblock %}
 
-                        <div id="welcomeC-hourC">
 
-                             <p id="w_hour">12</p>
-                             <p id="w_colon">:</p>
-                             <p id="w_minutes">00</p>
+                    {% block welcomeC %}
+                        <div id="welcomeC" style="display: none;">
 
-                        </div>
-                        <div id="welcomeC-dateC">
+                            <div id="welcomeC-hourC">
 
-                            <div id="date-wrap">
-                                <p id="w_day">24</p>
-                                <p class = "w_dot">.</p>
-                                <p id="w_month">3</p>
-                                <p class = "w_dot">.</p>
-                                <p id="w_year">2026</p>
+                                <p id="w_hour">12</p>
+                                <p id="w_colon">:</p>
+                                <p id="w_minutes">00</p>
+
                             </div>
+                            <div id="welcomeC-dateC">
 
-                            <div id="weather-wrap">
-                                <!-- <svg id="thermometer" viewBox="0 0 44.64 44.64"> -->
-                                    <svg id="thermometer" viewBox="14 10 14 24">
+                                <div id="date-wrap">
+                                    <p id="w_day">24</p>
+                                    <p class = "w_dot">.</p>
+                                    <p id="w_month">3</p>
+                                    <p class = "w_dot">.</p>
+                                    <p id="w_year">2026</p>
+                                </div>
+
+                                <div id="weather-wrap">
+                                    <!-- <svg id="thermometer" viewBox="0 0 44.64 44.64"> -->
+                                        <svg id="thermometer" viewBox="14 10 14 24">
+                                            <defs>
+                                                <style>
+                                                .t-cls-1 {
+                                                    fill: #367eab;
+                                                }
+                                                </style>
+                                            </defs>
+                                        <path class="t-cls-1" d="M23.72,23v-8.92c0-1.67-1.36-3.03-3.03-3.03s-3.03,1.36-3.03,3.03v8.92c-1.61,1.01-2.67,2.79-2.67,4.82,0,1.58.64,3.01,1.68,4.04h0s0,0,0,0c1.03,1.01,2.44,1.65,4.01,1.65s2.98-.63,4.01-1.65c1.04-1.04,1.69-2.47,1.69-4.05,0-2.03-1.06-3.82-2.67-4.82ZM17.67,25.56c.46-.61,1.12-1.08,1.86-1.32v-10.16c0-.64.53-1.17,1.17-1.17s1.17.53,1.17,1.17v10.16c.75.24,1.39.71,1.86,1.32.48.63.76,1.42.76,2.27h-7.58c0-.85.28-1.64.76-2.27Z"/>
+                                    </svg>
+
+                                    <p id="temperature">{{temp}}</p>
+
+                                    <!-- <svg id="weather" viewBox="0 0 44.64 44.64"> -->
+                                    <svg id="weather" viewBox="9 12 27 24">
                                         <defs>
                                             <style>
-                                            .t-cls-1 {
+                                            .w-cls-1 {
                                                 fill: #367eab;
                                             }
                                             </style>
                                         </defs>
-                                    <path class="t-cls-1" d="M23.72,23v-8.92c0-1.67-1.36-3.03-3.03-3.03s-3.03,1.36-3.03,3.03v8.92c-1.61,1.01-2.67,2.79-2.67,4.82,0,1.58.64,3.01,1.68,4.04h0s0,0,0,0c1.03,1.01,2.44,1.65,4.01,1.65s2.98-.63,4.01-1.65c1.04-1.04,1.69-2.47,1.69-4.05,0-2.03-1.06-3.82-2.67-4.82ZM17.67,25.56c.46-.61,1.12-1.08,1.86-1.32v-10.16c0-.64.53-1.17,1.17-1.17s1.17.53,1.17,1.17v10.16c.75.24,1.39.71,1.86,1.32.48.63.76,1.42.76,2.27h-7.58c0-.85.28-1.64.76-2.27Z"/>
-                                </svg>
-
-                                <p id="temperature">{{temp}}</p>
-
-                                <!-- <svg id="weather" viewBox="0 0 44.64 44.64"> -->
-                                <svg id="weather" viewBox="9 12 27 24">
-                                    <defs>
-                                        <style>
-                                        .w-cls-1 {
-                                            fill: #367eab;
-                                        }
-                                        </style>
-                                    </defs>
-                                    <g>
-                                        <path class="w-cls-1" d="M15.17,35.27c-.14,0-.28-.04-.4-.14-.28-.22-.33-.61-.11-.89l4.1-5.06c.22-.27.63-.32.91-.1.28.22.33.61.11.89l-4.1,5.06c-.13.16-.32.24-.51.24Z"/>
-                                        <path class="w-cls-1" d="M11.9,32.39c-.14,0-.28-.04-.4-.13-.28-.22-.33-.61-.11-.89l1.76-2.19c.22-.27.63-.32.91-.11.28.22.33.61.11.89l-1.76,2.19c-.13.16-.32.24-.51.24Z"/>
-                                        <path class="w-cls-1" d="M20.94,35.27c-.14,0-.27-.04-.39-.13-.28-.21-.34-.61-.12-.88l3.92-5.06c.22-.28.62-.33.9-.12.28.21.34.61.12.88l-3.92,5.06c-.13.16-.32.25-.51.25Z"/>
-                                        <path class="w-cls-1" d="M28.23,33.22c-.13,0-.26-.04-.38-.12-.29-.2-.35-.6-.14-.88l2.23-3.01c.21-.28.61-.35.9-.14.29.2.35.6.14.88l-2.23,3.01c-.13.17-.32.26-.52.26Z"/>
-                                    </g>
-                                    <path class="w-cls-1" d="M31.16,15.36c-.97-.17-1.93-.09-2.8.2-1.18-1.94-3.33-3.24-5.8-3.24-3.06,0-5.65,2-6.47,4.73-.52-.19-1.08-.29-1.66-.29-2.67,0-4.84,2.12-4.84,4.73s2.17,4.73,4.84,4.73h15.73c2.65,0,5.01-1.85,5.51-4.5.55-2.98-1.46-5.83-4.5-6.37Z"/>
-                                </svg>
-                            </div>
-
-                        </div>
-                        <div id="welcomeC-welcomeC">
-                            <p id="w_name">Ahoj {{salutation}},</p>
-                            <p id="w_welcome"> vítej na stránkách informačního systému Codaco Electronic s.r.o. </p>
-                        </div>
-                        <div id="welcomeC-dashboardC">
-
-                            <div id="WD-dashboard">
-
-                                <!-- <svg id="dashboard-icon" viewBox="0 0 44.64 44.64"> -->
-                                <svg id="dashboard-icon" viewBox="17 16 12 12">
-                                    <defs>
-                                        <style>
-                                        .d-cls-1 {
-                                            fill: #80808d;
-                                        }
-                                        </style>
-                                    </defs>
-                                    <rect class="d-cls-1" x="17.76" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
-                                    <rect class="d-cls-1" x="24.08" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
-                                    <rect class="d-cls-1" x="17.76" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
-                                    <rect class="d-cls-1" x="24.08" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
-                                </svg>
-
-                                <p id="dashboard-icon-desc">Dashboard</p>
+                                        <g>
+                                            <path class="w-cls-1" d="M15.17,35.27c-.14,0-.28-.04-.4-.14-.28-.22-.33-.61-.11-.89l4.1-5.06c.22-.27.63-.32.91-.1.28.22.33.61.11.89l-4.1,5.06c-.13.16-.32.24-.51.24Z"/>
+                                            <path class="w-cls-1" d="M11.9,32.39c-.14,0-.28-.04-.4-.13-.28-.22-.33-.61-.11-.89l1.76-2.19c.22-.27.63-.32.91-.11.28.22.33.61.11.89l-1.76,2.19c-.13.16-.32.24-.51.24Z"/>
+                                            <path class="w-cls-1" d="M20.94,35.27c-.14,0-.27-.04-.39-.13-.28-.21-.34-.61-.12-.88l3.92-5.06c.22-.28.62-.33.9-.12.28.21.34.61.12.88l-3.92,5.06c-.13.16-.32.25-.51.25Z"/>
+                                            <path class="w-cls-1" d="M28.23,33.22c-.13,0-.26-.04-.38-.12-.29-.2-.35-.6-.14-.88l2.23-3.01c.21-.28.61-.35.9-.14.29.2.35.6.14.88l-2.23,3.01c-.13.17-.32.26-.52.26Z"/>
+                                        </g>
+                                        <path class="w-cls-1" d="M31.16,15.36c-.97-.17-1.93-.09-2.8.2-1.18-1.94-3.33-3.24-5.8-3.24-3.06,0-5.65,2-6.47,4.73-.52-.19-1.08-.29-1.66-.29-2.67,0-4.84,2.12-4.84,4.73s2.17,4.73,4.84,4.73h15.73c2.65,0,5.01-1.85,5.51-4.5.55-2.98-1.46-5.83-4.5-6.37Z"/>
+                                    </svg>
+                                </div>
 
                             </div>
+                            <div id="welcomeC-welcomeC">
+                                <p id="w_name">Ahoj {{salutation}},</p>
+                                <p id="w_welcome"> vítej na stránkách informačního systému Codaco Electronic s.r.o. </p>
+                            </div>
+                            <div id="welcomeC-dashboardC">
 
-                            <p id="WD-instruction">Vytvoř si vlastní dashboard a sleduj denní souhrn toho, co je pro tebe důležité.</p>
+                                <div id="WD-dashboard">
 
-                            <div id="WD-buttonC">
+                                    <!-- <svg id="dashboard-icon" viewBox="0 0 44.64 44.64"> -->
+                                    <svg id="dashboard-icon" viewBox="17 16 12 12">
+                                        <defs>
+                                            <style>
+                                            .d-cls-1 {
+                                                fill: #80808d;
+                                            }
+                                            </style>
+                                        </defs>
+                                        <rect class="d-cls-1" x="17.76" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
+                                        <rect class="d-cls-1" x="24.08" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
+                                        <rect class="d-cls-1" x="17.76" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
+                                        <rect class="d-cls-1" x="24.08" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
+                                    </svg>
 
-                                <button id="WD-btn">Vytvořit</button>
+                                    <p id="dashboard-icon-desc">Dashboard</p>
+
+                                </div>
+
+                                <p id="WD-instruction">Vytvoř si vlastní dashboard a sleduj denní souhrn toho, co je pro tebe důležité.</p>
+
+                                <div id="WD-buttonC">
+
+                                    <button id="WD-btn">Vytvořit</button>
+
+                                </div>
 
                             </div>
 
                         </div>
-
-                    </div>
+                    {% endblock %}
 
                 </section>
 
@@ -923,6 +885,11 @@
         <!-- JS scripts  -->
 
         <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
+
+        <script src="{{ url_for('static', filename='js/htmx.min.js') }}"></script>
+
+        {% block scripts %}{% endblock %}
+
 
     </body>
 </html>

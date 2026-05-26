@@ -5,6 +5,10 @@ from config import Config, setup_logging
 from .version import __version__
 from .auth.blueprints import auth_bp
 from .admin.clients.blueprints import admin_clients_bp
+from .admin.employees.blueprints import admin_employees_bp
+
+from .equipment.blueprints import equipment_bp
+
 from  web.share.s_print import s_print
 
 def create_app():
@@ -31,8 +35,15 @@ def create_app():
 
     app.register_blueprint(auth_bp)
     s_print('bluprint registration -> auth_bp', "green",0,0)
+
     app.register_blueprint(admin_clients_bp)
     s_print('bluprint registration -> admin_clients_bp', "green",0,0)
+
+    app.register_blueprint(admin_employees_bp)
+    s_print('bluprint registration -> admin_employees_bp', "green",0,0)
+
+    app.register_blueprint(equipment_bp)
+    s_print('bluprint registration -> equipment_bp', "green",0,0)
 
     for rule in app.url_map.iter_rules():
         # print(rule, "->", rule.endpoint)

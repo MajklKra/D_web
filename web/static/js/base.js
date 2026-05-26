@@ -137,41 +137,392 @@ document.getElementById("logoutBtn").addEventListener("click", () =>
 });
 
 
-document.querySelectorAll(".row").forEach((row) =>
+/* Dnešní experimenty 26.5.2026 */
+
+if (window.__baseLoaded)
 {
+  console.warn("base.js už běžel – přeskočeno");
+}
+else
+{
+    console.log(" 🚩 Menu část větve dosažena. ")
 
-  const menu = row.nextElementSibling;
+    window.__baseLoaded = true;
 
-  if (!menu || !menu.classList.contains("row-menu")) return;
+    const ACTIVE_NAV_KEY = "activeSideNavHref";
+    const ACTIVE_NAV_CLASS = "nav-active";
 
-  const arrow = row.querySelector(".dropdownImg");
+    /* const SIDE_NAV_LINK_SELECTOR = "#side-nav a.row1[hx-push-url]";  */
 
-  row.addEventListener("click", () =>
-  {
+    /* const SIDE_NAV_LINK_SELECTOR = "#leftMenu a.row[hx-push-url]"; */
 
-    const isOpen = menu.classList.contains("is-open");
+    const SIDE_NAV_LINK_SELECTOR = "#leftMenu a[hx-push-url]";
 
-    // zavřít všechna menu
-    document.querySelectorAll(".row-menu").forEach((m) =>
+    // ✅ sem dej zbytek kódu z base.js (funkce, listenery, init…)
+
+    function initSidebar(root = document)
     {
-      m.classList.remove("is-open");
-    });
 
-    // reset všech šipek
-    document.querySelectorAll(".dropdownImg").forEach((img) =>
-    {
-      img.classList.remove("is-open");
-    });
+        const allSections = [];
+        window._sidebarSections = allSections;
 
-    // pokud nebylo otevřené -> otevřít
-    if (!isOpen)
-    {
-      menu.classList.add("is-open");
-      arrow?.classList.add("is-open");
+        if (window.sidebarInitialized)
+        {
+            // console.log('🔧 initSidebar – už inicializováno, přeskočeno');
+            return;
+        }
+
+        // Obecný helper pro jednu sekci
+        function setupSection(config)
+        {
+            const btn = document.getElementById(config.btnId);
+            const img = document.getElementById(config.imgId);
+
+            const img2 = document.getElementById(config.img2Id);
+            const h1 = document.getElementById(config.h1Id);
+
+            if (!btn || !img) {
+                console.log('🔧 initSidebar – nenašel jsem', config.btnId, config.imgId, config.img2Id, config.h1Id);
+                return;
+            }
+
+            // najdeme všechny řádky v sekci
+            const rows = config.rowIds
+                .map(id => document.getElementById(id))
+                .filter(row => row !== null);
+
+
+            // je sekce aktuálně otevřená? (aspoň jeden řádek není display:none)
+            const isOpenNow = rows.some(row =>
+                getComputedStyle(row).display !== "none"
+            );
+
+            let rotated = isOpenNow;
+
+            // srovnáme šipku podle aktuálního stavu
+            img.style.transform  = rotated ? "rotate(180deg)" : "rotate(0deg)";
+            img.style.transition = "transform 0.3s";
+
+            // img.classList.toggle("sidebar-active", rotated);
+            // img2.classList.toggle("sidebar-active", rotated);
+            // h1.classList.toggle("sidebar-active", rotated);
+
+            // ─────────────────────
+            //  REGISTRACE SEKCE
+            // ─────────────────────
+
+            allSections.push
+            ({
+                id: config.btnId,
+                close()
+                {
+                    console.log("⛔ Zavírám sekci:", config.btnId);
+                    rotated = false;
+                    img.style.transform = "rotate(0deg)";
+                    img.style.transition = "transform 0.3s";
+                    rows.forEach(row => row.style.display = "none");
+
+                    // img.classList.remove("sidebar-active", rotated);
+                    // img2.classList.remove("sidebar-active", rotated);
+                    // h1.classList.remove("sidebar-active", rotated);
+
+                    // applyMargins();
+                }
+            });
+
+            btn.addEventListener("click", function ()
+            {
+                    console.log("Klik na", config.btnId);
+
+                    const willOpen = !rotated;
+
+                    // zavřít všechny ostatní sekce
+                    allSections.forEach(section => {
+                        if (section.id !== config.btnId) {
+                            section.close();
+                        }
+                    });
+
+                    // toggle aktuální
+                    rotated = willOpen;
+                    img.style.transform = rotated ? "rotate(180deg)" : "rotate(0deg)";
+                    // rows.forEach(row => row.style.display = rotated ? "flex" : "none");
+
+                    rows.forEach(row =>row.style.display = rotated ? "block" : "none");
+
+                    // obarveni sekce
+                    /* btn.classList.toggle("sidebar-active", rotated); */
+
+                    // img.classList.toggle("sidebar-active", rotated);
+                    // img2.classList.toggle("sidebar-active", rotated);
+                    // h1.classList.toggle("sidebar-active", rotated);
+
+                    // applyMargins();
+                });
+            }
+
+        // ─────────────────────
+        //  KONKRÉTNÍ SEKCE
+        // ─────────────────────
+
+        // srow1
+        setupSection
+        ({
+            btnId: "dropdownBtn",
+            imgId: "dropdownImg1",
+            rowIds: ["srow1-menu"],
+            img2Id: "StructureImg", // hlavní obrázek
+            h1Id: "strucDecs" // nadpis
+        });
+
+        // srow2
+        setupSection({
+            btnId: "dropdownBtn7",
+            imgId: "dropdownImg2",
+            rowIds: [""],
+            img2Id: "employeeImg", // hlavní obrázek
+            h1Id: "e_description" // nadpis
+        });
+
+        // 3) srow3
+        setupSection({
+            btnId: "dropdownBtn2",
+            imgId: "dropdownImg3",
+            rowIds: ["srow3-menu"],
+            img2Id: "equipmentImg", // hlavní obrázek
+            h1Id: "eq_Description" // nadpis
+        });
+
+        // srow4
+        setupSection({
+            btnId: "dropdownBtn3",
+            imgId: "dropdownImg4",
+            rowIds: ["srow4-menu"],
+            img2Id: "relationsImg", // hlavní obrázek
+            h1Id: "rDescription" // nadpis
+        });
+
+        // srow6
+        setupSection({
+            btnId: "dropdownBtn4",
+            imgId: "dropdownImg6",
+            rowIds: ["srow6-menu"],
+            img2Id: "integrationsImg", // hlavní obrázek
+            h1Id: "iDescription" // nadpis
+        });
+
+        // srow7
+        setupSection({
+            btnId: "dropdownBtn5",
+            imgId: "dropdownImg7",
+            rowIds: ["srow7-menu"],
+            img2Id: "mediaImg", // hlavní obrázek
+            h1Id: "mDescription" // nadpis
+        });
+
+        // srow8
+        setupSection({
+            btnId: "dropdownBtn6",
+            imgId: "dropdownImg8",
+            rowIds: ["srow8-menu"],
+            img2Id: "settingsImg", // hlavní obrázek
+            h1Id: "tDescription" // nadpis
+        });
+
+        window.sidebarInitialized = true;
     }
 
-  });
+    function closeAllSidebarSections()
+    {
+        if (!Array.isArray(window._sidebarSections)) return;
+        window._sidebarSections.forEach(s => s?.close && s.close());
+    }
 
-});
+    // 1) první načtení celé stránky
+    document.addEventListener("DOMContentLoaded", function ()
+    {
+        // console.log('🌱 DOMContentLoaded – inicializace sidebaru');
+        initSidebar();
+    });
+
+    // 2) HTMX – když něco doswapuje
+    document.body.addEventListener("htmx:load", function (evt)
+    {
+        // console.log("⚡ htmx:load – něco bylo právě doswapováno", evt.target);
+        initSidebar();  // sidebar je mimo #contentC, stačí jednou
+    });
+
+    // 3) návrat z historie (tlačítko zpět/vpřed)
+
+    document.body.addEventListener("htmx:historyRestore", function (evt)
+    {
+        // console.log("⏪ htmx:historyRestore – návrat z historie", evt.target);
+
+        // správně resetujeme příznak na window:
+        window.sidebarInitialized = false;
+        initSidebar();
+    });
+
+    // function clearAllActiveSideNav()
+    // {
+    //     document
+    //         .querySelectorAll("#leftMenu a.row.nav-active")
+    //         .forEach(a => a.classList.remove("nav-active"));
+    // }
+
+    function clearAllActiveSideNav()
+    {
+        document
+            .querySelectorAll("#leftMenu .nav-active")
+            .forEach(el => el.classList.remove("nav-active"));
+    }
+
+    function getActiveTargetFromLink(a)
+    {
+        const activeRowId = a.dataset.activeRow;
+
+        if (activeRowId)
+        {
+            return document.getElementById(activeRowId);
+        }
+
+        if (a.classList.contains("row"))
+        {
+            return a;
+        }
+
+        return null;
+    }
+
+    function markActiveSideNavByUrl()
+    {
+
+        const links = document.querySelectorAll(SIDE_NAV_LINK_SELECTOR);
+
+        if (!links.length) return;
+
+        clearAllActiveSideNav();
+
+        const currentPath = window.location.pathname;
+
+        // ✅ HOME pravidlo: na home nikdy nic neobarvuj + smaž uložený stav
+        if (currentPath === "/administration/clients/home")
+        {
+
+            sessionStorage.removeItem(ACTIVE_NAV_KEY);
+            clearAllActiveSideNav();
+
+            // ✅ zavři všechny sekce (platí i při zpět/vpřed)
+            closeAllSidebarSections();
+
+            return;
+        }
+
+        let matched = null;
+
+        // 1) primárně podle URL
+        links.forEach(a => {
+            const href = a.getAttribute("href");
+
+            // console.log('📌 Aktuální href je: ' + href);
+
+            if (!href) return;
+
+            const aPath = new URL(href, window.location.origin).pathname;
+
+            // console.log('🔗 Aktuální ULR je: ' + aPath);
+
+            if (aPath === currentPath) matched = a;
+
+            // console.log('🔗 Nastavená ULR je: ' + matched);
+
+        });
+
+        // 2) fallback jen když NEJSI na home
+        if (!matched) {
+            const saved = sessionStorage.getItem(ACTIVE_NAV_KEY);
+            // console.log("save is: " + saved)
+            if (saved) {
+            const savedPath = new URL(saved, window.location.origin).pathname;
+            links.forEach(a => {
+                const aPath = new URL(a.getAttribute("href"), window.location.origin).pathname;
+                if (aPath === savedPath) matched = a;
+            });
+            }
+        }
+
+        // if (matched) matched.classList.add(ACTIVE_NAV_CLASS);
+
+        if (matched)
+        {
+            const target = getActiveTargetFromLink(matched);
+
+            if (target)
+            {
+                target.classList.add(ACTIVE_NAV_CLASS);
+            }
+        }
+    }
 
 
+    document.addEventListener("click", e =>
+    {
+
+        const a = e.target.closest(SIDE_NAV_LINK_SELECTOR);
+
+        //   console.log("🔗 Aktuální kliknutá ULR je: " + a);
+
+        if (!a) return;
+
+        const href = a.getAttribute("href");
+
+        //   console.log("📌 Aktuální kliknutá reference je: " + href);
+
+        if (!href) return;
+
+        const path = new URL(href, window.location.origin).pathname;
+
+        //   console.log("📌 Aktuální kliknutá path je: " + path);
+
+        if (path === "/administration/clients/home") {
+            sessionStorage.removeItem(ACTIVE_NAV_KEY);
+            clearAllActiveSideNav();
+            return;
+        }
+
+        sessionStorage.setItem(ACTIVE_NAV_KEY, href);
+
+
+        // clearAllActiveSideNav();
+
+        // const target = getActiveTargetFromLink(a);
+
+        // if (target)
+        // {
+        //     target.classList.add(ACTIVE_NAV_CLASS);
+        // }
+
+
+        clearAllActiveSideNav();
+
+        const target = getActiveTargetFromLink(a);
+
+        if (target)
+        {
+            target.classList.add(ACTIVE_NAV_CLASS);
+        }
+
+        // pokud kliknu na hlavní odkaz, například Klienti / Zaměstnanci,
+        // zavřu všechny otevřené sekce
+        if (a.classList.contains("row"))
+        {
+            closeAllSidebarSections();
+        }
+
+    });
+
+
+    document.addEventListener("DOMContentLoaded", markActiveSideNavByUrl);
+    document.body.addEventListener("htmx:load", markActiveSideNavByUrl);
+    document.body.addEventListener("htmx:historyRestore", markActiveSideNavByUrl);
+}

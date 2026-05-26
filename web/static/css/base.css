@@ -1889,6 +1889,13 @@ body
   /* background-color: black; */
 
   cursor: pointer;
+
+  /* Zkouška */
+
+  color: inherit;
+  text-decoration: none;
+  display: block;
+
 }
 
 .row-menu-item:hover
@@ -1929,18 +1936,20 @@ body
 
 .row:hover
 {
-  background-color: #357fab;
+  /* background-color: #357fab;
 
-  color: white !important;
+  color: white !important; */
 
-  cursor: pointer;
+  background-color: rgba(192,211,223,1);
+
+  /* cursor: pointer; */
 }
 
-.row:hover *
+/* .row:hover *
 {
     color: white;
     fill: white;
-}
+} */
 
 #mainC
 {
@@ -2175,7 +2184,7 @@ body
   line-height:1;
 }
 
-/* 25.5.2026 Další experimenty */
+/* 25.5.2026 Další experimenty - aktivní odkazy v bočním menu */
 
 .row-menu.is-open
 {
@@ -2186,3 +2195,29 @@ body
 {
   transform: rotate(180deg);
 }
+
+
+/* Experimenty 26.5.2026 */
+
+.nav-active
+{
+  background-color: #357fab;
+  color: white;
+
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  cursor: pointer;
+}
+
+.nav-active *
+{
+    color: white;
+    fill: white;
+}
+
+.sidebar-active
+{
+  background-color: red;
+}
+

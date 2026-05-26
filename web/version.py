@@ -1,11 +1,11 @@
-__version__ = "1.1.17"
+__version__ = "1.1.21"
 
-# LogoutBtn:hover
+# Výběr položky z pod-menu
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    25.5.2026
+# Datum:    26.5.2026
 
 
 
