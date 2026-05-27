@@ -2412,7 +2412,11 @@ body
 #DBC-row3-occupC
 {
   height: 100%;
-  width: 720px;
+
+  /* width: 720px; */
+
+  width: 47.2%;
+
   background-color:brown;
   border-radius: 10px;
 
@@ -2448,7 +2452,9 @@ body
 #DBC-row3-lastC-capC4
 {
   width: 100%;
-  height: 220px;
+  /* height: 220px; */
+
+  height: 11.45vw;
 
   background-color: darkmagenta;
   border-radius: 10px;
@@ -2457,7 +2463,9 @@ body
 #DBC-row3-lastC-doc
 {
   width: 100%;
-  height: 220px;
+  /* height: 220px; */
+
+  height: 11.45vw;
 
   background-color: steelblue;
   border-radius: 10px;

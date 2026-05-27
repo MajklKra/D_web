@@ -1,6 +1,6 @@
-__version__ = "1.1.30"
+__version__ = "1.1.31"
 
-# DashboardC - marginy nastaveny
+# DashboardC - responsive
 
 # Jedná se o tuto produkční verzi č. ----
 
