@@ -74,6 +74,23 @@ function aktualizovatDatumCas()
     w_minutes.textContent = minuty;
   }
 
+
+   /* Aktualizace DasboardC - dateC*/
+
+    // <p id="DBC-row1-dateC-timeC-hour">14</p>
+    // <p id="DBC-row1-dateC-timeC-colon">:</p>
+    // <p id="DBC-row1-dateC-timeC-minutes">20</p>
+
+
+    const d_hour = document.getElementById('DBC-row1-dateC-timeC-hour');
+    const d_minutes = document.getElementById('DBC-row1-dateC-timeC-minutes');
+
+    if (d_hour && d_minutes)
+    {
+        d_hour.textContent = hodiny;
+        d_minutes.textContent = minuty;
+    }
+
   /* Aktualizace teploty */
 
   aktualizovatTeplotu();
@@ -127,11 +144,18 @@ async function aktualizovatTeplotu()
     console.log('Aktualizovaná teplota:', data.temp);
 
     const teplota = document.getElementById('temperature');
+    const teplota2 = document.getElementById('DBC-row1-dateC-weatherC-weatherC-temperature');
 
     if (teplota)
     {
 
       teplota.textContent = Math.round(data.temp) + " °C";
+    }
+
+    if (teplota2)
+    {
+
+      teplota2.textContent = Math.round(data.temp) + " °C";
     }
 
   }

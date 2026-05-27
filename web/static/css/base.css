@@ -2307,13 +2307,15 @@ body
 
   width: 22.8%;
 
-  background-color: blue;
+  /* background-color: blue; */
   border-radius: 10px;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  background-color: #357fab;
 }
 
 #DBC-row1-welcomeC
@@ -2479,7 +2481,8 @@ body
 
   width:     55%;
   height:   100%;
-  background-color: yellow;
+
+  /* background-color: #357fab; */
 
   display:          flex;
   flex-direction:   row;
@@ -2500,7 +2503,8 @@ body
 {
   width: 45%;
   height: 100%;
-  background-color: yellowgreen;
+
+  /* background-color: yellowgreen; */
 
   display: flex;
   flex-direction: column;
@@ -2516,7 +2520,7 @@ body
   width: 100%;
   height: 50%;
 
-  background-color: black;
+  /* background-color: black; */
 
   font-size:    16px;
   font-weight:  600;
@@ -2539,7 +2543,7 @@ body
   width: 100%;
   height: 50%;
 
-  background-color: brown;
+  /* background-color: brown; */
 
   display: flex;
   flex-direction: row;
@@ -2551,7 +2555,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-weatherWrap
 {
 
-  background-color: orange;
+  /* background-color: orange; */
 
   height: 100%;
   width: 100%;
@@ -2570,7 +2574,9 @@ body
   width: 13px;
   height: auto;
 
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
+
+  color:        #ced8ce;
 
   margin-bottom: 28px;
 }
@@ -2578,7 +2584,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-temperature
 {
 
-  background-color: brown;
+  /* background-color: brown; */
 
   font-size:    16px;
   font-weight:  600;
@@ -2607,7 +2613,7 @@ body
 #DBC-row1-dateC-timeC-hour
 {
   height: 100%;
-  background-color: coral;
+  /* background-color: coral; */
 
   margin: 0px;
   padding: 0px;
@@ -2616,7 +2622,7 @@ body
 #DBC-row1-dateC-timeC-colon
 {
   height: 100%;
-  background-color: yellow;
+  /* background-color: yellow; */
   margin: 0px;
   padding: 0px;
 }
@@ -2624,7 +2630,7 @@ body
 #DBC-row1-dateC-timeC-minutes
 {
   height: 100%;
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
   margin: 0px;
   padding: 0px;
 

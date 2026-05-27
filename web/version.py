@@ -1,6 +1,6 @@
-__version__ = "1.1.32"
+__version__ = "1.1.33"
 
-# DBC-row1-dateC vytvořen
+# DBC-row1-dateC aktualizace času a teploty
 
 # Jedná se o tuto produkční verzi č. ----
 
