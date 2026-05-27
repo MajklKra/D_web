@@ -1,6 +1,6 @@
-__version__ = "1.1.31"
+__version__ = "1.1.32"
 
-# DashboardC - responsive
+# DBC-row1-dateC vytvořen
 
 # Jedná se o tuto produkční verzi č. ----
 
