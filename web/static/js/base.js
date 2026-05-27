@@ -51,15 +51,28 @@ function aktualizovatDatumCas()
   const w_month = document.getElementById('w_month');
   const w_year = document.getElementById('w_year');
 
-  w_day.textContent = den;
-  w_month.textContent = mesic;
-  w_year.textContent = rok;
+//   w_day.textContent = den;
+//   w_month.textContent = mesic;
+//   w_year.textContent = rok;
+
+  if (w_day && w_month && w_year)
+  {
+    w_day.textContent = den;
+    w_month.textContent = mesic;
+    w_year.textContent = rok;
+  }
 
   const w_hour = document.getElementById('w_hour');
   const w_minutes = document.getElementById('w_minutes');
 
-  w_hour.textContent = hodiny;
-  w_minutes.textContent = minuty;
+//   w_hour.textContent = hodiny;
+//   w_minutes.textContent = minuty;
+
+  if (w_hour && w_minutes)
+  {
+    w_hour.textContent = hodiny;
+    w_minutes.textContent = minuty;
+  }
 
   /* Aktualizace teploty */
 

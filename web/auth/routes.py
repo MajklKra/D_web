@@ -1,11 +1,14 @@
 
 import bcrypt
+import sqlite3
+
+
 from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for, flash, current_app
 from pathlib import Path
 
 from .forms import LoginForm
 from .blueprints import auth_bp
-from web.share.db import db_connection
+from  web.share.db import db_connection, sqliteDB
 from  web.share.s_print import s_print
 
 
@@ -131,6 +134,10 @@ def login():
 
         user_logIn(employee_id)
 
+        # Volání databáze SQlite
+
+        # first_login = sqliteDB(employee_id)
+
         return redirect(url_for("admin_clients.home"))
 
     return render_template("loginForm.html", form=form, focus_field=focus_field)
@@ -166,7 +173,11 @@ def user_logIn(employee_id):
         s_print('Neplatné employee_id !', "white", 0, 0)
         return "Neplatné employee_id", 400
 
+
     if employee_id > 0:
+
+        first_login = sqliteDB(employee_id)
+        session["first_login"] = first_login
 
         session["e_id"] = employee_id
 
@@ -233,6 +244,9 @@ def user_logIn(employee_id):
         s_print('No employee details - Admin access.',"white",1,0)
 
         session["e_id"] = 0
+
+        first_login = sqliteDB(0)
+        session["first_login"] = first_login
 
         session["e_surname"] = ""
         session["e_name"] = "Admin"

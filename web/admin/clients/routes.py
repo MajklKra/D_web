@@ -30,7 +30,9 @@ def home():
 
     # temp = round(weather())
 
-    return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__)
+    first_login = session.get("first_login")
+
+    return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login)
 
 
 @admin_clients_bp.route('/logout')

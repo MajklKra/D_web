@@ -628,102 +628,148 @@
 
                 <section id="contentC" hx-history-elt>
 
-                     {% block content %} {% endblock %}
-
+                    {% block content %} {% endblock %}
 
                     {% block welcomeC %}
-                        <div id="welcomeC" style="display: none;">
 
-                            <div id="welcomeC-hourC">
+                        {% if first_login %}
 
-                                <p id="w_hour">12</p>
-                                <p id="w_colon">:</p>
-                                <p id="w_minutes">00</p>
+                            <div id="welcomeC">
 
-                            </div>
-                            <div id="welcomeC-dateC">
+                                <div id="welcomeC-hourC">
 
-                                <div id="date-wrap">
-                                    <p id="w_day">24</p>
-                                    <p class = "w_dot">.</p>
-                                    <p id="w_month">3</p>
-                                    <p class = "w_dot">.</p>
-                                    <p id="w_year">2026</p>
+                                    <p id="w_hour">12</p>
+                                    <p id="w_colon">:</p>
+                                    <p id="w_minutes">00</p>
+
                                 </div>
+                                <div id="welcomeC-dateC">
 
-                                <div id="weather-wrap">
-                                    <!-- <svg id="thermometer" viewBox="0 0 44.64 44.64"> -->
-                                        <svg id="thermometer" viewBox="14 10 14 24">
+                                    <div id="date-wrap">
+                                        <p id="w_day">24</p>
+                                        <p class = "w_dot">.</p>
+                                        <p id="w_month">3</p>
+                                        <p class = "w_dot">.</p>
+                                        <p id="w_year">2026</p>
+                                    </div>
+
+                                    <div id="weather-wrap">
+                                            <svg id="thermometer" viewBox="14 10 14 24">
+                                                <defs>
+                                                    <style>
+                                                    .t-cls-1 {
+                                                        fill: #367eab;
+                                                    }
+                                                    </style>
+                                                </defs>
+                                            <path class="t-cls-1" d="M23.72,23v-8.92c0-1.67-1.36-3.03-3.03-3.03s-3.03,1.36-3.03,3.03v8.92c-1.61,1.01-2.67,2.79-2.67,4.82,0,1.58.64,3.01,1.68,4.04h0s0,0,0,0c1.03,1.01,2.44,1.65,4.01,1.65s2.98-.63,4.01-1.65c1.04-1.04,1.69-2.47,1.69-4.05,0-2.03-1.06-3.82-2.67-4.82ZM17.67,25.56c.46-.61,1.12-1.08,1.86-1.32v-10.16c0-.64.53-1.17,1.17-1.17s1.17.53,1.17,1.17v10.16c.75.24,1.39.71,1.86,1.32.48.63.76,1.42.76,2.27h-7.58c0-.85.28-1.64.76-2.27Z"/>
+                                        </svg>
+
+                                        <p id="temperature">{{temp}}</p>
+
+
+                                        <svg id="weather" viewBox="9 12 27 24">
                                             <defs>
                                                 <style>
-                                                .t-cls-1 {
+                                                .w-cls-1 {
                                                     fill: #367eab;
                                                 }
                                                 </style>
                                             </defs>
-                                        <path class="t-cls-1" d="M23.72,23v-8.92c0-1.67-1.36-3.03-3.03-3.03s-3.03,1.36-3.03,3.03v8.92c-1.61,1.01-2.67,2.79-2.67,4.82,0,1.58.64,3.01,1.68,4.04h0s0,0,0,0c1.03,1.01,2.44,1.65,4.01,1.65s2.98-.63,4.01-1.65c1.04-1.04,1.69-2.47,1.69-4.05,0-2.03-1.06-3.82-2.67-4.82ZM17.67,25.56c.46-.61,1.12-1.08,1.86-1.32v-10.16c0-.64.53-1.17,1.17-1.17s1.17.53,1.17,1.17v10.16c.75.24,1.39.71,1.86,1.32.48.63.76,1.42.76,2.27h-7.58c0-.85.28-1.64.76-2.27Z"/>
-                                    </svg>
-
-                                    <p id="temperature">{{temp}}</p>
-
-                                    <!-- <svg id="weather" viewBox="0 0 44.64 44.64"> -->
-                                    <svg id="weather" viewBox="9 12 27 24">
-                                        <defs>
-                                            <style>
-                                            .w-cls-1 {
-                                                fill: #367eab;
-                                            }
-                                            </style>
-                                        </defs>
-                                        <g>
-                                            <path class="w-cls-1" d="M15.17,35.27c-.14,0-.28-.04-.4-.14-.28-.22-.33-.61-.11-.89l4.1-5.06c.22-.27.63-.32.91-.1.28.22.33.61.11.89l-4.1,5.06c-.13.16-.32.24-.51.24Z"/>
-                                            <path class="w-cls-1" d="M11.9,32.39c-.14,0-.28-.04-.4-.13-.28-.22-.33-.61-.11-.89l1.76-2.19c.22-.27.63-.32.91-.11.28.22.33.61.11.89l-1.76,2.19c-.13.16-.32.24-.51.24Z"/>
-                                            <path class="w-cls-1" d="M20.94,35.27c-.14,0-.27-.04-.39-.13-.28-.21-.34-.61-.12-.88l3.92-5.06c.22-.28.62-.33.9-.12.28.21.34.61.12.88l-3.92,5.06c-.13.16-.32.25-.51.25Z"/>
-                                            <path class="w-cls-1" d="M28.23,33.22c-.13,0-.26-.04-.38-.12-.29-.2-.35-.6-.14-.88l2.23-3.01c.21-.28.61-.35.9-.14.29.2.35.6.14.88l-2.23,3.01c-.13.17-.32.26-.52.26Z"/>
-                                        </g>
-                                        <path class="w-cls-1" d="M31.16,15.36c-.97-.17-1.93-.09-2.8.2-1.18-1.94-3.33-3.24-5.8-3.24-3.06,0-5.65,2-6.47,4.73-.52-.19-1.08-.29-1.66-.29-2.67,0-4.84,2.12-4.84,4.73s2.17,4.73,4.84,4.73h15.73c2.65,0,5.01-1.85,5.51-4.5.55-2.98-1.46-5.83-4.5-6.37Z"/>
-                                    </svg>
-                                </div>
-
-                            </div>
-                            <div id="welcomeC-welcomeC">
-                                <p id="w_name">Ahoj {{salutation}},</p>
-                                <p id="w_welcome"> vítej na stránkách informačního systému Codaco Electronic s.r.o. </p>
-                            </div>
-                            <div id="welcomeC-dashboardC">
-
-                                <div id="WD-dashboard">
-
-                                    <!-- <svg id="dashboard-icon" viewBox="0 0 44.64 44.64"> -->
-                                    <svg id="dashboard-icon" viewBox="17 16 12 12">
-                                        <defs>
-                                            <style>
-                                            .d-cls-1 {
-                                                fill: #80808d;
-                                            }
-                                            </style>
-                                        </defs>
-                                        <rect class="d-cls-1" x="17.76" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
-                                        <rect class="d-cls-1" x="24.08" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
-                                        <rect class="d-cls-1" x="17.76" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
-                                        <rect class="d-cls-1" x="24.08" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
-                                    </svg>
-
-                                    <p id="dashboard-icon-desc">Dashboard</p>
+                                            <g>
+                                                <path class="w-cls-1" d="M15.17,35.27c-.14,0-.28-.04-.4-.14-.28-.22-.33-.61-.11-.89l4.1-5.06c.22-.27.63-.32.91-.1.28.22.33.61.11.89l-4.1,5.06c-.13.16-.32.24-.51.24Z"/>
+                                                <path class="w-cls-1" d="M11.9,32.39c-.14,0-.28-.04-.4-.13-.28-.22-.33-.61-.11-.89l1.76-2.19c.22-.27.63-.32.91-.11.28.22.33.61.11.89l-1.76,2.19c-.13.16-.32.24-.51.24Z"/>
+                                                <path class="w-cls-1" d="M20.94,35.27c-.14,0-.27-.04-.39-.13-.28-.21-.34-.61-.12-.88l3.92-5.06c.22-.28.62-.33.9-.12.28.21.34.61.12.88l-3.92,5.06c-.13.16-.32.25-.51.25Z"/>
+                                                <path class="w-cls-1" d="M28.23,33.22c-.13,0-.26-.04-.38-.12-.29-.2-.35-.6-.14-.88l2.23-3.01c.21-.28.61-.35.9-.14.29.2.35.6.14.88l-2.23,3.01c-.13.17-.32.26-.52.26Z"/>
+                                            </g>
+                                            <path class="w-cls-1" d="M31.16,15.36c-.97-.17-1.93-.09-2.8.2-1.18-1.94-3.33-3.24-5.8-3.24-3.06,0-5.65,2-6.47,4.73-.52-.19-1.08-.29-1.66-.29-2.67,0-4.84,2.12-4.84,4.73s2.17,4.73,4.84,4.73h15.73c2.65,0,5.01-1.85,5.51-4.5.55-2.98-1.46-5.83-4.5-6.37Z"/>
+                                        </svg>
+                                    </div>
 
                                 </div>
+                                <div id="welcomeC-welcomeC">
+                                    <p id="w_name">Ahoj {{salutation}},</p>
+                                    <p id="w_welcome"> vítej na stránkách informačního systému Codaco Electronic s.r.o. </p>
+                                </div>
+                                <div id="welcomeC-dashboardC">
 
-                                <p id="WD-instruction">Vytvoř si vlastní dashboard a sleduj denní souhrn toho, co je pro tebe důležité.</p>
+                                    <div id="WD-dashboard">
 
-                                <div id="WD-buttonC">
+                                        <svg id="dashboard-icon" viewBox="17 16 12 12">
+                                            <defs>
+                                                <style>
+                                                .d-cls-1 {
+                                                    fill: #80808d;
+                                                }
+                                                </style>
+                                            </defs>
+                                            <rect class="d-cls-1" x="17.76" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
+                                            <rect class="d-cls-1" x="24.08" y="16.69" width="4.68" height="4.68" rx=".74" ry=".74"/>
+                                            <rect class="d-cls-1" x="17.76" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
+                                            <rect class="d-cls-1" x="24.08" y="22.81" width="4.68" height="4.68" rx=".74" ry=".74"/>
+                                        </svg>
 
-                                    <button id="WD-btn">Vytvořit</button>
+                                        <p id="dashboard-icon-desc">Dashboard</p>
+
+                                    </div>
+
+                                    <p id="WD-instruction">Vytvoř si vlastní dashboard a sleduj denní souhrn toho, co je pro tebe důležité.</p>
+
+                                    <div id="WD-buttonC">
+
+                                        <button id="WD-btn">Vytvořit</button>
+
+                                    </div>
 
                                 </div>
 
                             </div>
 
-                        </div>
+                        {% else %}
+
+                            <section id="dashboardC">
+
+                                  <div id=DBC-row1>
+
+                                    <div id="DBC-row1-dateC"></div>
+
+                                    <div id="DBC-row1-welcomeC"></div>
+
+                                    <div id="DBC-row1-capC"></div>
+
+                                  </div>
+                                  <div id=DBC-row2>
+
+                                    <div id="DBC-row2-patientC"></div>
+
+                                    <div id="DBC-row2-bedC"></div>
+
+                                    <div id="DBC-row2-capC2"></div>
+
+                                    <div id="DBC-row2-capC3"></div>
+
+
+                                  </div>
+                                  <div id=DBC-row3>
+
+                                    <div id="DBC-row3-employeesC"></div>
+
+                                    <div id="DBC-row3-occupC"></div>
+
+                                    <div id="DBC-row3-lastC">
+
+                                        <div id="DBC-row3-lastC-capC4"> </div>
+
+                                        <div id="DBC-row3-lastC-doc"> </div>
+
+                                    </div>
+
+                                  </div>
+
+                            </section>
+
+                        {% endif %}
+
                     {% endblock %}
 
                 </section>
