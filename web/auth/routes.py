@@ -2,7 +2,6 @@
 import bcrypt
 import sqlite3
 
-
 from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for, flash, current_app
 from pathlib import Path
 
@@ -133,10 +132,6 @@ def login():
            employee_id = 0
 
         user_logIn(employee_id)
-
-        # Volání databáze SQlite
-
-        # first_login = sqliteDB(employee_id)
 
         return redirect(url_for("admin_clients.home"))
 

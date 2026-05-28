@@ -94,6 +94,7 @@ function aktualizovatDatumCas()
   /* Aktualizace teploty */
 
   aktualizovatTeplotu();
+  updateName();
 
 }
 
@@ -526,4 +527,30 @@ else
     document.addEventListener("DOMContentLoaded", markActiveSideNavByUrl);
     document.body.addEventListener("htmx:load", markActiveSideNavByUrl);
     document.body.addEventListener("htmx:historyRestore", markActiveSideNavByUrl);
+}
+
+
+/* Dnešní experimenty 28.5.2026 */
+
+async function updateName()
+{
+  try
+  {
+    const response = await fetch("https://svatkyapi.cz/api/day");
+    const data = await response.json();
+
+    console.log('Dnes má svátek: :', data.name);
+
+    const name = document.getElementById('DBC-row1-dateC-weatherC-nameC-span');
+
+    if (name)
+    {
+      name.textContent = data.name;
+    }
+
+  }
+  catch(error)
+  {
+    console.error('Chyba počasí:', error);
+  }
 }

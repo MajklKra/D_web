@@ -32,6 +32,12 @@ def home():
 
     first_login = session.get("first_login")
 
+    # r = requests.get("https://svatkyapi.cz/api/day")
+
+    # data = r.json()
+
+    # print(data)
+
     return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login)
 
 
