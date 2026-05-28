@@ -800,8 +800,8 @@ document.addEventListener("DOMContentLoaded", function ()
 
                         yAxisID: "y",
 
-                        borderColor: "#6f9dce",
-                        backgroundColor: "#6f9dce",
+                        borderColor: "#357fab",
+                        backgroundColor: "#357fab",
 
                         borderWidth: 2,
 
@@ -817,7 +817,7 @@ document.addEventListener("DOMContentLoaded", function ()
                                 context.dataIndex === lastIndex
                             )
                             ? 0
-                            : 5;
+                            : 3.5;
                         },
 
                         pointHoverRadius: function(context)
@@ -829,7 +829,7 @@ document.addEventListener("DOMContentLoaded", function ()
                                 context.dataIndex === lastIndex
                             )
                             ? 0
-                            : 5;
+                            : 3.5;
                         },
 
                         pointBackgroundColor: "#3f7fb5",
@@ -847,7 +847,8 @@ document.addEventListener("DOMContentLoaded", function ()
 
                             font:
                             {
-                                size: 13,
+                                family: "Montserrat",
+                                size: 8,
                                 weight: "600"
                             },
 
@@ -942,7 +943,9 @@ document.addEventListener("DOMContentLoaded", function ()
 
                             border:
                             {
-                                display: true
+                                display: true,
+                                width: 2,
+                                color: "rgba(239,242,247,1)"
                             }
                         },
 
@@ -957,15 +960,18 @@ document.addEventListener("DOMContentLoaded", function ()
 
                             grid:
                             {
-                                color: "rgba(0,0,0,0.05)",
+                                // color: "rgba(0,0,0,0.05)",
 
+                                color: "rgba(239,242,247,1)",
                                 drawTicks: false
                             },
 
                             border:
                             {
                                 display: true,
-                                z: 10
+                                z: 10,
+                                width: 2,
+                                color: "rgba(239,242,247,1)"
                             }
                         },
 

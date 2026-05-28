@@ -41,7 +41,7 @@ def home():
     data = {
 
         "labels": ["start", "2021", "2022", "2023", "2024", "2025", "end"],
-        "values": [123, 123, 79, 163, 37, 150, 180],
+        "values": [100, 123, 79, 163, 37, 150, 150],
     }
 
     return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login, chart_data=data)

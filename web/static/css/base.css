@@ -2355,7 +2355,10 @@ body
   width: 47%;
   height: 100%;
 
-  background-color: yellow;
+  /* background-color: yellow; */
+  background-color: white;
+
+
   border-radius: 10px;
 
   display: flex;
@@ -2703,8 +2706,8 @@ body
 
 #DBC-row1-capC-descC
 {
-  background-color: aqua;
-  width:  29.3%;
+  /* background-color: aqua; */
+  width:  27%;
   height: 100%;
 
   padding-top: 14px;
@@ -2718,10 +2721,12 @@ body
 
 #DBC-row1-capC-graph
 {
-  width:  70.7%;
+  width:  73%;
   height: 100%;
 
-  background-color: coral;
+  /* background-color: coral; */
+
+  padding-right: 30px;
 }
 
 #DBC-row1-capC-descC-s1
@@ -2735,7 +2740,7 @@ body
 
   padding-left: 14px;
 
-  background-color: blue;
+  /* background-color: blue; */
 
 }
 
@@ -2751,7 +2756,7 @@ body
 
   padding-left: 14px;
 
-  background-color: green;
+  /* background-color: green; */
 
 }
 

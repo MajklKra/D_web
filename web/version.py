@@ -1,6 +1,6 @@
-__version__ = "1.1.35"
+__version__ = "1.1.36"
 
-# DBC-row1-capC první návrh
+# DBC-row1-capC prvn9 n8vrh
 
 # Jedná se o tuto produkční verzi č. ----
 
