@@ -2376,23 +2376,49 @@ body
 
   width: 22.8%;
 
-  background-color: lightblue;
-  border-radius: 10px;
-}
+  /* background-color: lightblue; */
 
+  background-color: white;
+
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  padding-left: 21px;
+  padding-top:  14px;
+
+  padding-right: 32px;
+
+}
 
 #DBC-row2-bedC
 {
+
   height: 100%;
   /* width: 347px; */
 
   width: 22.8%;
 
-  background-color:hotpink;
+  /* background-color:hotpink; */
   border-radius: 10px;
   /* margin-left: 23px; */
 
   margin-left: 1.5%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-left: 18px;
+  padding-top: 15px;
+  padding-right: 32px;
+
+  background-color: white;
+
 }
 
 #DBC-row2-capC2
@@ -2759,4 +2785,315 @@ body
   /* background-color: green; */
 
 }
+
+#DBC-row2-patientC-c1
+{
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+
+  /* background-color: red; */
+}
+
+#DBC-row2-patientC-c2
+{
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: start;
+  align-items: center;
+
+}
+
+#DBC-row2-patientC-c1-patient
+{
+  font-size: 14px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: #80808d;
+
+  /* background-color: chocolate; */
+
+  margin: 0px;
+}
+
+#DBC-row2-patientC-c2
+{
+  width: 100%;
+  height: 80%;
+
+  /* background-color: yellow; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 9px;
+
+}
+
+#DBC-row2-patientC-c2-count
+{
+
+  width: 100%;
+  height: 100%;
+
+  /* background-color: orange; */
+
+  font-size: 111px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #80808d;
+
+  margin: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+
+  padding-left: 10px;
+
+}
+
+.menu-dots
+{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    width: 20px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-dots span
+{
+    width:  5px;
+    height: 5px;
+
+    background: #6b7280;
+    border-radius: 50%;
+}
+
+
+#DBC-row2-patientC-c1-menu
+{
+  /* background-color: brown; */
+
+  background-color: transparent;
+
+  border: none;
+  outline: none;
+}
+
+#DBC-row2-bedC-r1
+{
+   width: 100%;
+   height: 20%;
+
+   /* background-color: brown; */
+
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: start;
+}
+
+#DBC-row2-bedC-r2
+{
+  width: 100%;
+  height: 80%;
+
+  /* background-color: crimson; */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#DBC-row2-bedC-r2-count
+{
+
+  width: 74%;
+  height: 100%;
+
+  /* background-color: chartreuse; */
+
+  font-size: 111px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #357fab;
+
+  padding-left: 11px;
+  padding-top: 10px;
+
+}
+
+#DBC-row2-bedC-countC-beds
+{
+  width: 26%;
+  height: 100%;
+
+  /* background-color: orange; */
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: start;
+  align-items: center;
+
+  margin-top: 30px;
+}
+
+
+#DBC-row2-bedC-countC-beds-YY
+{
+   width: 100%;
+   height: 26.5%;
+
+   /* background-color: deeppink; */
+}
+
+#DBC-row2-bedC-countC-beds-XY
+{
+  width: 100%;
+  height: 26.5%;
+
+  /* background-color: yellow; */
+
+}
+
+#DBC-row2-bedC-countC-beds-XX
+{
+  width: 100%;
+  height: 26.5%;
+  /* background-color: yellowgreen; */
+}
+
+
+#DBC-row2-bedC-countC-beds-YY-p
+{
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: black; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #6b7280;
+
+
+  height: auto;
+
+
+}
+
+#DBC-row2-bedC-countC-beds-YY-p-count
+{
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: brown; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #6b7280;
+
+  height: auto;
+
+}
+
+#DBC-row2-bedC-countC-beds-XY-p
+{
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: yellow; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #6b7280;
+
+  height: auto;
+
+}
+
+
+#DBC-row2-bedC-countC-beds-XY-p-count
+{
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: violet; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #6b7280;
+
+  height: auto;
+}
+
+#DBC-row2-bedC-countC-beds-XX-p
+{
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: orange; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #6b7280;
+
+  height: auto;
+}
+
+#DBC-row2-bedC-countC-beds-XX-p-count
+{
+
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: gray; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #6b7280;
+
+  height: auto;
+
+}
+
+#DBC-row2-bedC-r1-beds
+{
+  font-size: 14px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: #6b7280;
+  /* background-color: aqua; */
+  height: auto;
+
+  margin: 0px;
+}
+
+#DBC-row2-bedC-r1-menu
+{
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
 
