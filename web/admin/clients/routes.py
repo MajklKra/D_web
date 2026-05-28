@@ -9,7 +9,6 @@ from ...version import __version__
 
 from  web.share.s_print import s_print
 
-
 @admin_clients_bp.route('/home')
 def home():
 
@@ -32,12 +31,6 @@ def home():
 
     first_login = session.get("first_login")
 
-    # r = requests.get("https://svatkyapi.cz/api/day")
-
-    # data = r.json()
-
-    # print(data)
-
     data = {
 
         "labels": ["start", "2021", "2022", "2023", "2024", "2025", "end"],
@@ -45,7 +38,6 @@ def home():
     }
 
     return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login, chart_data=data)
-
 
 @admin_clients_bp.route('/logout')
 def logout():
@@ -56,7 +48,6 @@ def logout():
     session.clear()
 
     return redirect(url_for("auth.login"))
-
 
 @admin_clients_bp.route('/weather')
 def weather():
