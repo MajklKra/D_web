@@ -1,11 +1,11 @@
-__version__ = "1.1.34"
+__version__ = "1.1.35"
 
-# DBC-row1-dateC-weatherC-nameC aktualizováno
+# DBC-row1-welcomeC vytvořeno
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    28. 5. 2026
+# Datum:    29. 5. 2026
 
 
 

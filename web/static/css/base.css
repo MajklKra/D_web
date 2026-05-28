@@ -2329,8 +2329,21 @@ body
   width: 22.8%;
 
   height: 100%;
-  background-color: pink;
+  /* background-color: pink; */
+
+  background-color: white;
+
   border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  padding-bottom: 21px;
 }
 
 #DBC-row1-capC
@@ -2339,13 +2352,18 @@ body
   /* width: 717px; */
 
   margin-left: 1.55%;
-
   width: 47%;
-
   height: 100%;
-  background-color: yellow;
 
+  background-color: yellow;
   border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: start;
+  align-items: center;
+
 }
 
 #DBC-row2-patientC
@@ -2660,3 +2678,81 @@ body
   padding: 0px;
 
 }
+
+#DBC-row1-welcomeC-s1
+{
+  margin: 0px;
+  font-size: 25px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #357fab;
+
+  margin-bottom: 4px;
+}
+
+#DBC-row1-welcomeC-s2, #DBC-row1-welcomeC-s3
+{
+  margin: 0px;
+  font-size: 14px;
+  font-family: 'Montserrat';
+  color: #357fab;
+  font-weight: 500;
+
+  line-height: 1.4;
+}
+
+#DBC-row1-capC-descC
+{
+  background-color: aqua;
+  width:  29.3%;
+  height: 100%;
+
+  padding-top: 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: start;
+  align-items: start;
+}
+
+#DBC-row1-capC-graph
+{
+  width:  70.7%;
+  height: 100%;
+
+  background-color: coral;
+}
+
+#DBC-row1-capC-descC-s1
+{
+
+  font-size: 14px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  margin: 0px;
+  color: rgba(128,128,141,1);
+
+  padding-left: 14px;
+
+  background-color: blue;
+
+}
+
+#DBC-row1-capC-descC-s2
+{
+  margin: 0px;
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 500;
+
+  color: rgba(128,128,141,1);
+
+  padding-left: 14px;
+
+
+  background-color: green;
+
+}
+
