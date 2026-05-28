@@ -38,7 +38,13 @@ def home():
 
     # print(data)
 
-    return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login)
+    data = {
+
+        "labels": ["start", "2021", "2022", "2023", "2024", "2025", "end"],
+        "values": [123, 123, 79, 163, 37, 150, 180],
+    }
+
+    return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login, chart_data=data)
 
 
 @admin_clients_bp.route('/logout')
@@ -93,7 +99,6 @@ def weather():
     return jsonify({
         "temp": temp
     })
-
 
 
 

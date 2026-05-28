@@ -808,7 +808,7 @@
                                         </div>
 
                                         <div id="DBC-row1-capC-graph">
-
+                                            <canvas id="capacityChart"></canvas>
                                         </div>
 
                                     </div>
@@ -1005,14 +1005,28 @@
 
         </section>
 
+        <!-- Data do grafu -->
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+        <script>
+            window.chartData = {{ chart_data | tojson | safe }};
+        </script>
+
         <!-- JS scripts  -->
 
         <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
 
         <script src="{{ url_for('static', filename='js/htmx.min.js') }}"></script>
 
-        {% block scripts %}{% endblock %}
 
+        <!-- Grafy  -->
+
+
+
+        {% block scripts %}{% endblock %}
 
     </body>
 </html>

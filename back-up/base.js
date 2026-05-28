@@ -562,6 +562,79 @@ const chartData = window.chartData;
 
 const chartCanvas = document.getElementById("capacityChart");
 
+// if (chartCanvas && chartData)
+// {
+//             new Chart(chartCanvas, {
+//             type: "line",
+//             data: {
+//                 labels: chartData.labels,
+//                 datasets: [{
+//                             data: chartData.values,
+
+//                             borderColor: "#6f9dce",
+//                             borderWidth: 2,
+//                             tension: 0.45,
+//                             cubicInterpolationMode: "monotone",
+
+//                             pointRadius: function(context) {
+//                                 return context.dataIndex === 0 ? 0 : 5;
+//                             },
+
+//                             pointHoverRadius: function(context) {
+//                                 return context.dataIndex === 0 ? 0 : 5;
+//                             },
+
+//                             pointRadius: function(context) {
+//                                 const lastIndex = context.dataset.data.length - 1;
+//                                 return context.dataIndex === 0 || context.dataIndex === lastIndex ? 0 : 5;
+//                             },
+
+//                             pointHoverRadius: function(context) {
+//                                 const lastIndex = context.dataset.data.length - 1;
+//                                 return context.dataIndex === 0 || context.dataIndex === lastIndex ? 0 : 5;
+//                             },
+
+//                             pointBackgroundColor: "#3f7fb5",
+//                             pointBorderColor: "#3f7fb5",
+//                             pointBorderWidth: 0,
+
+//                             fill: false
+//                         }]
+//             },
+//             options: {
+//                 responsive: true,
+//                 maintainAspectRatio: false,
+
+//                 layout: {
+//                     padding: {
+//                         left: 15,
+//                         right: 15,
+//                         top: 15,
+//                         bottom: 5
+//                     }
+//                 },
+
+//                 plugins: {
+//                     legend: { display: false }
+//                 },
+
+//                 scales: {
+//                     x: {
+//                         offset: true,
+//                         display: false,
+//                         grid: { display: false }
+//                     },
+//                     y: {
+//                         display: false,
+//                         grid: {
+//                             color: "rgba(0,0,0,0.05)"
+//                         }
+//                     }
+//                 }
+//             }
+//         });
+// }
+
 
 // document.addEventListener("DOMContentLoaded", function ()
 // {
@@ -581,106 +654,84 @@ const chartCanvas = document.getElementById("capacityChart");
 //                 labels: chartData.labels,
 
 //                 datasets:
-//                 [
+//                 [{
+
+
+//                     data: chartData.values,
+
+//                     borderColor: "#6f9dce",
+//                     backgroundColor: "#6f9dce",
+
+//                     borderWidth: 2,
+
+//                     tension: 0.45,
+//                     cubicInterpolationMode: "monotone",
+
+//                     // Skrytí prvního a posledního bodu
+//                     pointRadius: function(context)
 //                     {
-//                         label: "Obsazenost",
-//                         data: chartData.values,
+//                         const lastIndex = context.dataset.data.length - 1;
 
-//                         yAxisID: "y",
-
-//                         borderColor: "#6f9dce",
-//                         backgroundColor: "#6f9dce",
-
-//                         borderWidth: 2,
-
-//                         tension: 0.45,
-//                         cubicInterpolationMode: "monotone",
-
-//                         pointRadius: function(context)
-//                         {
-//                             const lastIndex = context.dataset.data.length - 1;
-
-//                             return (
-//                                 context.dataIndex === 0 ||
-//                                 context.dataIndex === lastIndex
-//                             )
-//                             ? 0
-//                             : 5;
-//                         },
-
-//                         pointHoverRadius: function(context)
-//                         {
-//                             const lastIndex = context.dataset.data.length - 1;
-
-//                             return (
-//                                 context.dataIndex === 0 ||
-//                                 context.dataIndex === lastIndex
-//                             )
-//                             ? 0
-//                             : 5;
-//                         },
-
-//                         pointBackgroundColor: "#3f7fb5",
-//                         pointBorderColor: "#3f7fb5",
-//                         pointBorderWidth: 0,
-
-//                         fill: false,
-
-//                         datalabels:
-//                         {
-//                             align: "top",
-//                             anchor: "end",
-//                             color: "#7f7f8c",
-//                             offset: 6,
-
-//                             font:
-//                             {
-//                                 size: 13,
-//                                 weight: "600"
-//                             },
-
-//                             formatter: function(value, context)
-//                             {
-//                                 const lastIndex = context.dataset.data.length - 1;
-
-//                                 if (
-//                                     context.dataIndex === 0 ||
-//                                     context.dataIndex === lastIndex
-//                                 )
-//                                 {
-//                                     return null;
-//                                 }
-
-//                                 return value;
-//                             }
-//                         }
+//                         return (
+//                             context.dataIndex === 0 ||
+//                             context.dataIndex === lastIndex
+//                         )
+//                         ? 0
+//                         : 5;
 //                     },
 
+//                     pointHoverRadius: function(context)
 //                     {
-//                         label: "Kapacita",
-//                         data: chartData.values2,
+//                         const lastIndex = context.dataset.data.length - 1;
 
-//                         yAxisID: "y1",
+//                         return (
+//                             context.dataIndex === 0 ||
+//                             context.dataIndex === lastIndex
+//                         )
+//                         ? 0
+//                         : 5;
+//                     },
 
-//                         borderColor: "#d4a373",
-//                         backgroundColor: "#d4a373",
+//                     pointBackgroundColor: "#3f7fb5",
+//                     pointBorderColor: "#3f7fb5",
+//                     pointBorderWidth: 0,
 
-//                         borderWidth: 2,
+//                     fill: false,
 
-//                         tension: 0.45,
-//                         cubicInterpolationMode: "monotone",
+//                     // Hodnoty nad body
+//                     datalabels:
+//                     {
+//                         align: "top",
+//                         anchor: "end",
 
-//                         pointRadius: 0,
-//                         pointHoverRadius: 0,
+//                         color: "#7f7f8c",
 
-//                         fill: false,
+//                         offset: 6,
 
-//                         datalabels:
+//                         font:
 //                         {
-//                             display: false
+//                             size: 13,
+//                             weight: "600"
+//                         },
+
+//                         formatter: function(value, context)
+//                         {
+//                             const lastIndex =
+//                                 context.dataset.data.length - 1;
+
+//                             // Schová hodnotu u pomocných bodů
+//                             if (
+//                                 context.dataIndex === 0 ||
+//                                 context.dataIndex === lastIndex
+//                             )
+//                             {
+//                                 return null;
+//                             }
+
+//                             return value;
 //                         }
 //                     }
-//                 ]
+//                 }]
 //             },
 
 //             options:
@@ -714,65 +765,35 @@ const chartCanvas = document.getElementById("capacityChart");
 
 //                 scales:
 //                 {
-//                      x:
-//                         {
-//                             offset: false,
-
-//                             ticks:
-//                             {
-//                                 display: false
-//                             },
-
-//                             grid:
-//                             {
-//                                 display: false
-//                             },
-
-//                             border:
-//                             {
-//                                 display: true
-//                             }
-//                         },
-
-//                     y:
-//                         {
-//                             ticks:
-//                             {
-//                                 display: false,
-//                                 stepSize: 25,
-//                             },
-
-//                             grid:
-//                             {
-//                                 color: "rgba(0,0,0,0.05)",
-//                                 drawBorder: false,
-//                                 drawOnChartArea: true
-
-//                             },
-
-//                             border:
-//                             {
-//                                 display: true
-//                             }
-//                         },
-
-//                     y1:
+//                     x:
 //                     {
-//                         type: "linear",
-//                         position: "right",
+//                         offset: true,
+
 //                         display: false,
 
 //                         grid:
 //                         {
-//                             drawOnChartArea: false,
+//                             display: false
+//                         }
+//                     },
+
+//                     y:
+//                     {
+//                         display: false,
+
+//                         grid:
+//                         {
+//                             color: "rgba(0,0,0,0.05)",
 //                             drawBorder: false
 //                         }
 //                     }
+
 //                 }
 //             }
 //         });
 //     }
 // });
+
 
 
 document.addEventListener("DOMContentLoaded", function ()
@@ -947,25 +968,24 @@ document.addEventListener("DOMContentLoaded", function ()
                         },
 
                     y:
-
                         {
                             ticks:
                             {
                                 display: false,
-                                stepSize: 25
+                                stepSize: 25,
                             },
 
                             grid:
                             {
                                 color: "rgba(0,0,0,0.05)",
+                                drawBorder: false,
+                                drawOnChartArea: true
 
-                                drawTicks: false
                             },
 
                             border:
                             {
-                                display: true,
-                                z: 10
+                                display: true
                             }
                         },
 
