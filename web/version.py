@@ -1,7 +1,7 @@
 
-__version__ = "1.1.38"
+__version__ = "1.1.40"
 
-# DBC-row2-capC3 první návrh
+# DBC-row3-employeesC first draft
 
 # Jedná se o tuto produkční verzi č. ----
 

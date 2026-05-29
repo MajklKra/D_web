@@ -558,9 +558,8 @@ async function updateName()
 
 // Graf - kapacita nemocnice
 
-const chartData = window.chartData;
-
-const chartCanvas = document.getElementById("capacityChart");
+// const chartData = window.chartData;
+// const chartCanvas = document.getElementById("capacityChart");
 
 
 document.addEventListener("DOMContentLoaded", function ()
@@ -784,7 +783,9 @@ document.addEventListener("DOMContentLoaded", function ()
 
 /* Kruhový graf */
 
-const percent = 75;
+// const percent = 75;
+
+const percent = window.percent;
 
 const options = {
   series: [percent],
