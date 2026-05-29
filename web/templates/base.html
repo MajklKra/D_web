@@ -922,7 +922,67 @@
 
                                     </div>
 
-                                    <div id="DBC-row2-capC3"></div>
+                                    <div id="DBC-row2-capC3">
+
+                                        <div id="DBC-row2-capC3-row1">
+
+                                           <div id="DBC-row2-capC3-row1-c1">
+
+                                               <p id="DBC-row2-capC3-row1-c1-p1">Kapacita nemocnice</p>
+                                               <p id="DBC-row2-capC3-row1-c1-p2">Obsazenost</p>
+
+                                           </div>
+
+                                           <div id="DBC-row2-capC3-row1-c2">
+
+                                                <button id="DBC-row2-capC3-row1-c2-menu" class="menu-dots">
+
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+
+                                                </button>
+
+                                           </div>
+
+                                        </div>
+
+                                        <div id="DBC-row2-capC3-row2">
+
+                                            <div id="DBC-row2-capC3-row2-c1">
+
+                                                <div id="piechart"></div>
+
+                                            </div>
+
+                                            <div id="DBC-row2-capC3-row2-c2">
+
+                                                    <div id="DBC-row2-capC3-row2-c2-YY">
+
+                                                        <p id="DBC-row2-capC3-row2-c2-YY-p">Lůžka YY</p>
+                                                        <p id="DBC-row2-capC3-row2-c2-YY-p-count">10%</p>
+
+                                                    </div>
+
+                                                    <div id="DBC-row2-capC3-row2-c2-XY">
+
+                                                        <p id="DBC-row2-capC3-row2-c2-XY-p">Lůžka XY </p>
+                                                        <p id="DBC-row2-capC3-row2-c2-count">9%</p>
+
+                                                    </div>
+
+                                                    <div id="DBC-row2-capC3-row2-c2-XX">
+
+                                                        <p id="DBC-row2-capC3-row2-c2-XX-p">Lůžka XX</p>
+                                                        <p id="DBC-row2-capC3-row2-c2-XX-count">6%</p>
+
+                                                    </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
 
                                   </div>
 
@@ -1109,6 +1169,11 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+        <!-- Kruhový graf -->
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 
         <script>
             window.chartData = {{ chart_data | tojson | safe }};

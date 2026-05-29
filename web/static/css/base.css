@@ -2450,14 +2450,17 @@ body
 {
   height: 100%;
   /* width: 347px; */
-
   width: 22.8%;
 
-  background-color:yellowgreen;
+  /* background-color:yellowgreen; */
+
+  background-color: white;
+
   border-radius: 10px;
   /* margin-left: 23px; */
 
   margin-left: 1.5%;
+  padding: 13px 13px;
 }
 
 #DBC-row3-employeesC
@@ -3005,7 +3008,6 @@ body
 
   height: auto;
 
-
 }
 
 #DBC-row2-bedC-countC-beds-YY-p-count
@@ -3219,3 +3221,274 @@ body
   margin-right: 5px;
   margin-top: 1px;
 }
+
+
+/* DBC-row2-capC3 */
+
+#DBC-row2-capC3-row1
+{
+  width:  100%;
+  height: auto;
+
+  /* background-color:  orange; */
+
+  display:          flex;
+  flex-direction:   row;
+  justify-content:  center;
+  align-items:      start;
+}
+
+
+#DBC-row2-capC3-row1-c1
+{
+    width: 100%;
+    height: 50%;
+
+   /*  background-color: lightblue; */
+
+    margin: 0px;
+
+    font-size: 14px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: #80808d;
+}
+
+#DBC-row2-capC3-row1-c1-p1
+{
+
+    width: 100%;
+    height: 50%;
+
+    /* background-color: lightblue; */
+
+    margin: 0px;
+
+    font-size: 14px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: #80808d;
+
+}
+
+#DBC-row2-capC3-row1-c1-p2
+{
+
+  width: 100%;
+  height: 50%;
+  /* background-color: lightcoral; */
+  margin: 0px;
+
+  font-size: 11px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: #80808d;
+
+  padding-top: 1px;
+}
+
+#DBC-row2-capC3-row1-c2
+{
+
+  width:  30%;
+  height: 100%;
+  /* background-color: lightcyan; */
+
+  display:          flex;
+  flex-direction:   row;
+  justify-content:  end;
+  align-items:      start;
+
+}
+
+#DBC-row2-capC3-row1-c2-menu
+{
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+#DBC-row2-capC3-row2
+{
+  width: 100%;
+  height: 100%;
+  /* background-color: lightgoldenrodyellow; */
+
+  display:          flex;
+  flex-direction:   row;
+  justify-content:  start;
+  align-items:      start;
+}
+
+#DBC-row2-capC3-row2-c1
+{
+  width:  60%;
+  height: 100%;
+
+  /* background-color: lightgreen; */
+
+  position: relative;
+
+}
+
+#DBC-row2-capC3-row2-c2
+{
+  width:  40%;
+  height: 83%;
+
+  /* background-color: lightpink; */
+
+}
+
+#DBC-row2-capC3-row2-c2-YY
+{
+  width: 100%;
+  height: 26.5%;
+  /* background-color: lightblue; */
+}
+
+#DBC-row2-capC3-row2-c2-YY-p
+{
+
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: black; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #6b7280;
+
+
+  height: auto;
+
+  margin-top: 10px;
+
+}
+
+#DBC-row2-capC3-row2-c2-YY-p-count
+{
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: brown; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #6b7280;
+
+  height: auto;
+
+  /* background-color: blue; */
+
+}
+
+#DBC-row2-capC3-row2-c2-XY
+{
+
+  width: 100%;
+  height: 26.5%;
+
+  /* background-color: orange; */
+
+}
+
+#DBC-row2-capC3-row2-c2-XY-p
+{
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: yellow; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #6b7280;
+
+  height: auto;
+
+  /* background-color: brown; */
+}
+
+#DBC-row2-capC3-row2-c2-count
+{
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: violet; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #6b7280;
+
+  height: auto;
+
+  /* background-color: yellow; */
+}
+
+#DBC-row2-capC3-row2-c2-XX
+{
+  width: 100%;
+  height: 26.5%;
+
+  /* background-color: lightgreen; */
+}
+
+#DBC-row2-capC3-row2-c2-XX-p
+{
+
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: orange; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #6b7280;
+
+  height: auto;
+
+  /* background-color: lightgoldenrodyellow; */
+
+}
+
+#DBC-row2-capC3-row2-c2-XX-count
+{
+
+  margin: 0px;
+  width: 100%;
+  height: 50%;
+  /* background-color: gray; */
+
+  font-size: 12px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  color: #6b7280;
+
+  height: auto;
+
+}
+
+
+/* Jedná se o kruhový graf */
+
+#piechart
+{
+  /* background-color: lightgreen; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  position: absolute;
+  top: -20px;
+  left: -13px;
+}
+
+
+

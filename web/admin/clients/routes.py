@@ -37,7 +37,9 @@ def home():
         "values": [100, 123, 79, 163, 37, 150, 150],
     }
 
-    return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login, chart_data=data)
+    percent = 25
+
+    return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login, chart_data=data, percent=percent)
 
 @admin_clients_bp.route('/logout')
 def logout():

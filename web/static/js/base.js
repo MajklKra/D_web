@@ -780,3 +780,52 @@ document.addEventListener("DOMContentLoaded", function ()
         });
     }
 });
+
+
+/* Kruhový graf */
+
+const percent = 75;
+
+const options = {
+  series: [percent],
+  chart: {
+    type: 'radialBar',
+    width: 220,
+    sparkline: {
+      enabled: true
+    },
+    offsetX: 0,
+    offsetY: 0
+  },
+  colors: ['#2F80B7'],
+  plotOptions: {
+    radialBar: {
+      hollow: {
+        size: '45%'
+      },
+      track: {
+        background: '#EEF1F6'
+      },
+      dataLabels: {
+        name: {
+          show: false
+        },
+        value: {
+          show: true,
+          fontSize: '26px',
+          fontWeight: 700,
+          color: '#2D3B4D',
+          offsetY: 8,
+          formatter: function ()
+          {
+            return percent + '%';
+          }
+        }
+      }
+    }
+  }
+};
+
+new ApexCharts(document.querySelector("#piechart"), options).render();
+
+
