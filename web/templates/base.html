@@ -1193,7 +1193,51 @@
 
                                     </div>
 
-                                    <div id="DBC-row3-occupC"></div>
+                                    <div id="DBC-row3-occupC">
+
+                                        <div id="DBC-row3-occupC-c1">
+
+                                            <p id="DBC-row3-occupC-c1-p1"> Obsazenost lůžek </p>
+                                            <p id="DBC-row3-occupC-c1-p2"> Aktuálně</p>
+                                            <p id="DBC-row3-occupC-c1-p3"> Oddělení</p>
+                                            <!-- <input id="informationPanel" type="text" value="Jednotka intenzivní péče"> -->
+
+                                            <span id="informationPanel">Jednotka intenzivní péče</span>
+
+                                            <p id="DBC-row3-occupC-c1-p4"> Následuje</p>
+                                            <!-- <input id="informationPanel2" type="text" value="Neurologie"> -->
+                                            <span id="informationPanel2">Neurologie</span>
+                                            <p id="DBC-row3-occupC-c1-p5"> Použijte rychle vyhledávání</p>
+
+                                            <div id="search-box">
+                                                <span id="search-icon">
+                                                    <!-- <svg id="magnifierImg" viewBox="0 0 23.9 23.9"> -->
+                                                    <svg id="magnifierImg"  viewBox="4.5 4.5 16 16">
+                                                        <defs>
+                                                            <style>
+                                                            .m_cls-1 {
+                                                                fill: #367eab;
+                                                                opacity: .71;
+                                                            }
+                                                            </style>
+                                                        </defs>
+                                                        <path class="m_cls-1" d="M10.67,5.09c3.03,0,5.5,2.47,5.5,5.5,0,1.2-.39,2.3-1.04,3.21l4.46,4.32c.39.38.4,1,.02,1.39-.19.2-.45.3-.71.3s-.5-.09-.69-.28l-4.47-4.33s-.01-.02-.02-.03c-.87.59-1.92.93-3.05.93-3.03,0-5.5-2.47-5.5-5.5s2.47-5.5,5.5-5.5ZM10.67,14.61c2.22,0,4.02-1.8,4.02-4.02s-1.8-4.02-4.02-4.02-4.02,1.8-4.02,4.02,1.8,4.02,4.02,4.02Z"/>
+                                                    </svg>
+                                                </span>
+                                                <input
+                                                    type="text"
+                                                    id="searchInput"
+                                                    name="q"
+                                                    placeholder="Vyhledat oddělení"
+                                                    value="{{ request.args.get('q', '') }}"
+                                                >
+                                            </div>
+
+                                        </div>
+
+                                        <div id="DBC-row3-occupC-c2"></div>
+
+                                    </div>
 
                                     <div id="DBC-row3-lastC">
 

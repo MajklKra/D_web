@@ -1,12 +1,12 @@
 
-__version__ = "1.1.40"
+__version__ = "1.1.41"
 
-# DBC-row3-employeesC first draft
+# DBC-row3-occupC first draft
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    29. 5. 2026
+# Datum:    1. 6. 2026
 
 
 

@@ -830,3 +830,7 @@ const options = {
 new ApexCharts(document.querySelector("#piechart"), options).render();
 
 
+/* šířka inputu */
+
+const input = document.getElementById('informationPanel');
+input.style.width = input.value.length + 'ch';
