@@ -898,11 +898,19 @@ document.addEventListener("DOMContentLoaded", function ()
      /* Doplněk */
 
     function updateThumb() {
-        if (content.scrollHeight <= content.clientHeight) {
-            thumb.style.height = "31px";
-            thumb.style.top = "0px";
+        // if (content.scrollHeight <= content.clientHeight) {
+        //     thumb.style.height = "31px";
+        //     thumb.style.top = "0px";
+        //     return;
+        // }
+
+        if (content.scrollHeight <= content.clientHeight)
+        {
+            track.style.visibility = "hidden";
             return;
         }
+
+        track.style.visibility = "visible";
 
         // const visibleRatio = content.clientHeight / content.scrollHeight;
         // const thumbHeight = Math.max(track.clientHeight * visibleRatio, 31);
