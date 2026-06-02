@@ -532,26 +532,56 @@ else
 
 /* Dnešní experimenty 28.5.2026 */
 
+// async function updateName()
+// {
+//   try
+//   {
+//     const response = await fetch("https://svatkyapi.cz/api/day");
+//     const data = await response.json();
+
+//     console.log('Dnes má svátek: :', data.name);
+
+//     const name = document.getElementById('DBC-row1-dateC-weatherC-nameC-span');
+
+//     if (name)
+//     {
+//       name.textContent = data.name;
+//     }
+
+//   }
+//   catch(error)
+//   {
+//     console.error('Chyba počasí:', error);
+//   }
+// }
+
+
 async function updateName()
 {
   try
   {
-    const response = await fetch("https://svatkyapi.cz/api/day");
+    const today = new Date();
+
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+
+    const date = `${yyyy}-${mm}-${dd}`;
+
+    const response = await fetch(`https://svatkyapi.cz/api/day/${date}`);
     const data = await response.json();
 
-    console.log('Dnes má svátek: :', data.name);
+    console.log('Datum:', date);
+    console.log('Dnes má svátek:', data.name);
 
     const name = document.getElementById('DBC-row1-dateC-weatherC-nameC-span');
 
-    if (name)
-    {
+    if (name) {
       name.textContent = data.name;
     }
 
-  }
-  catch(error)
-  {
-    console.error('Chyba počasí:', error);
+  } catch (error) {
+    console.error('Chyba svátku:', error);
   }
 }
 
@@ -830,7 +860,3 @@ const options = {
 new ApexCharts(document.querySelector("#piechart"), options).render();
 
 
-/* šířka inputu */
-
-const input = document.getElementById('informationPanel');
-input.style.width = input.value.length + 'ch';

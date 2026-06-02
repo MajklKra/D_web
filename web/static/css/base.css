@@ -3771,6 +3771,12 @@ body
   width: 51%;
   height: 100%;
   background-color: yellowgreen;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 #DBC-row3-occupC-c1-p1
@@ -3940,4 +3946,41 @@ body
   font-family:  'Montserrat';
   font-weight:  500;
   color: #367eab;
+}
+
+
+#DBC-row3-occupC-c2-empC
+{
+   height: 370px;
+   width: 327px;
+
+   background-color: white;
+
+   border-radius: 10px;
+
+   border: 1px solid rgba(214,222,236,1);
+
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+
+   overflow: hidden;
+
+   overflow-y: scroll;
+}
+
+
+#DBC-row3-occupC-c2-empC-c1
+{
+  width: 33%;
+  height: 100%;
+  background-color: red;
+}
+
+#DBC-row3-occupC-c2-empC-c2
+{
+  width: 67%;
+  height: 100%;
+  background-color: blue;
 }
