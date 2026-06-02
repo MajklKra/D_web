@@ -859,4 +859,3 @@ const options = {
 
 new ApexCharts(document.querySelector("#piechart"), options).render();
 
-

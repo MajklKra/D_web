@@ -1,12 +1,12 @@
 
-__version__ = "1.1.41"
+__version__ = "1.1.43"
 
-# DBC-row3-occupC first draft
+# DBC-row3-occupC scrollbar rendered
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil  Michal Kraninger
-# Datum:    1. 6. 2026
+# Datum:    2. 6. 2026
 
 
 
