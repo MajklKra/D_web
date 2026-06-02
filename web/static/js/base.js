@@ -859,3 +859,124 @@ const options = {
 
 new ApexCharts(document.querySelector("#piechart"), options).render();
 
+/* Scrollbar */
+
+
+document.addEventListener("DOMContentLoaded", function ()
+{
+    // const content = document.getElementById("DBC-row3-occupC-c2-empC-c2");
+
+    const contentLeft = document.getElementById("DBC-row3-occupC-c2-empC-c1");
+    const content = document.getElementById("DBC-row3-occupC-c2-empC-c2");
+
+    const track = document.getElementById("DBC-row3-occupC-c2-empC-scrollC");
+    const thumb = document.getElementById("DBC-row3-occupC-c2-empC-thumb");
+
+    if (!content || !track || !thumb) return;
+
+    /* Doplněk */
+    let syncing = false;
+
+    content.addEventListener("scroll", function () {
+        if (syncing) return;
+
+        syncing = true;
+        contentLeft.scrollTop = content.scrollTop;
+        updateThumb();
+        syncing = false;
+    });
+
+    contentLeft.addEventListener("scroll", function () {
+        if (syncing) return;
+
+        syncing = true;
+        content.scrollTop = contentLeft.scrollTop;
+        updateThumb();
+        syncing = false;
+    });
+
+     /* Doplněk */
+
+    function updateThumb() {
+        if (content.scrollHeight <= content.clientHeight) {
+            thumb.style.height = "31px";
+            thumb.style.top = "0px";
+            return;
+        }
+
+        // const visibleRatio = content.clientHeight / content.scrollHeight;
+        // const thumbHeight = Math.max(track.clientHeight * visibleRatio, 31);
+
+        const thumbHeight = 31;
+
+        thumb.style.height = thumbHeight + "px";
+
+        const maxScrollTop = content.scrollHeight - content.clientHeight;
+        const maxThumbTop = track.clientHeight - thumbHeight;
+
+        const thumbTop = (content.scrollTop / maxScrollTop) * maxThumbTop;
+
+        thumb.style.top = thumbTop + "px";
+    }
+
+    // content.addEventListener("scroll", updateThumb);
+    window.addEventListener("resize", updateThumb);
+
+    let isDragging = false;
+    let startY = 0;
+    let startTop = 0;
+
+    thumb.addEventListener("mousedown", function (e) {
+        isDragging = true;
+        startY = e.clientY;
+        startTop = parseFloat(thumb.style.top) || 0;
+
+        document.body.style.userSelect = "none";
+        e.preventDefault();
+    });
+
+    document.addEventListener("mousemove", function (e) {
+        if (!isDragging) return;
+
+        const deltaY = e.clientY - startY;
+        const thumbHeight = thumb.offsetHeight;
+        const maxThumbTop = track.clientHeight - thumbHeight;
+
+        let newTop = startTop + deltaY;
+        newTop = Math.max(0, Math.min(newTop, maxThumbTop));
+
+        thumb.style.top = newTop + "px";
+
+        const maxScrollTop = content.scrollHeight - content.clientHeight;
+
+        content.scrollTop = maxThumbTop > 0
+            ? (newTop / maxThumbTop) * maxScrollTop
+            : 0;
+    });
+
+    document.addEventListener("mouseup", function () {
+        isDragging = false;
+        document.body.style.userSelect = "";
+    });
+
+    track.addEventListener("click", function (e) {
+        if (e.target === thumb) return;
+
+        const rect = track.getBoundingClientRect();
+        const clickY = e.clientY - rect.top;
+        const thumbHeight = thumb.offsetHeight;
+        const maxThumbTop = track.clientHeight - thumbHeight;
+
+        let newTop = clickY - thumbHeight / 2;
+        newTop = Math.max(0, Math.min(newTop, maxThumbTop));
+
+        const maxScrollTop = content.scrollHeight - content.clientHeight;
+
+        content.scrollTop = maxThumbTop > 0
+            ? (newTop / maxThumbTop) * maxScrollTop
+            : 0;
+    });
+
+    updateThumb();
+});
+

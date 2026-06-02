@@ -1,7 +1,7 @@
 
-__version__ = "1.1.43"
+__version__ = "1.1.44"
 
-# DBC-row3-occupC scrollbar rendered
+# DBC-row3-occupC scrollbar created
 
 # Jedná se o tuto produkční verzi č. ----
 

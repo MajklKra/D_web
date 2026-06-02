@@ -3949,12 +3949,12 @@ body
 }
 
 
-/* #DBC-row3-occupC-c2-empC
+#DBC-row3-occupC-c2-empC
 {
    height: 370px;
    width: 327px;
 
-   /* background-color: white;
+   /* background-color: white; */
    border-radius: 10px;
    border: 1px solid rgba(214,222,236,1);
 
@@ -3968,7 +3968,6 @@ body
    overflow-y: hidden;
 }
 
-
 #DBC-row3-occupC-c2-empC-c1
 {
   width: 33%;
@@ -3981,8 +3980,7 @@ body
   width: 67%;
   height: 100%;
   background-color: blue;
-} */
-
+}
 
 /* 2.6.2026 Experimenty s scrollbarem */
 
@@ -4005,12 +4003,27 @@ body
 #DBC-row3-occupC-c2-empC-c1
 {
     width: 33%;
+
+     /* Doplněk*/
+
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+     /* Doplněk*/
+
     background-color: red;
 }
 
 #DBC-row3-occupC-c2-empC-c2
 {
     width: calc(67% - 10px);
+
+    /* Doplněk*/
+
+      height: 100%;
+
+     /* Doplněk*/
 
     overflow-y: auto;
     scrollbar-width: none;
@@ -4044,9 +4057,17 @@ body
     left: 2px;
 
     width: 8px;
+
     height: 31px;
 
     background-color: rgba(205,215,231,1);
 
     border-radius: 10px;
+
+    cursor: grab;
+}
+
+#DBC-row3-occupC-c2-empC-c1::-webkit-scrollbar
+{
+    display: none;
 }
