@@ -864,68 +864,39 @@ new ApexCharts(document.querySelector("#piechart"), options).render();
 
 document.addEventListener("DOMContentLoaded", function ()
 {
-    // const content = document.getElementById("DBC-row3-occupC-c2-empC-c2");
-
-    const contentLeft = document.getElementById("DBC-row3-occupC-c2-empC-c1");
-    const content = document.getElementById("DBC-row3-occupC-c2-empC-c2");
+    const content = document.getElementById("DBC-row3-occupC-c2-empC-c1");
 
     const track = document.getElementById("DBC-row3-occupC-c2-empC-scrollC");
     const thumb = document.getElementById("DBC-row3-occupC-c2-empC-thumb");
 
     if (!content || !track || !thumb) return;
 
-    /* Doplněk */
-    let syncing = false;
+    content.addEventListener("scroll", updateThumb);
 
-    content.addEventListener("scroll", function () {
-        if (syncing) return;
+    function updateThumb()
+    {
+        const isEmpty = content.children.length === 0;
 
-        syncing = true;
-        contentLeft.scrollTop = content.scrollTop;
-        updateThumb();
-        syncing = false;
-    });
-
-    contentLeft.addEventListener("scroll", function () {
-        if (syncing) return;
-
-        syncing = true;
-        content.scrollTop = contentLeft.scrollTop;
-        updateThumb();
-        syncing = false;
-    });
-
-     /* Doplněk */
-
-    function updateThumb() {
-        // if (content.scrollHeight <= content.clientHeight) {
-        //     thumb.style.height = "31px";
-        //     thumb.style.top = "0px";
-        //     return;
-        // }
-
-        if (content.scrollHeight <= content.clientHeight)
+        if (isEmpty || content.scrollHeight <= content.clientHeight)
         {
-            track.style.visibility = "hidden";
+            track.style.display = "none";
+            content.style.width = "100%";
             return;
         }
 
-        track.style.visibility = "visible";
-
-        // const visibleRatio = content.clientHeight / content.scrollHeight;
-        // const thumbHeight = Math.max(track.clientHeight * visibleRatio, 31);
+        track.style.display = "block";
+        content.style.width = "calc(100% - 10px)";
 
         const thumbHeight = 31;
-
         thumb.style.height = thumbHeight + "px";
 
         const maxScrollTop = content.scrollHeight - content.clientHeight;
         const maxThumbTop = track.clientHeight - thumbHeight;
 
         const thumbTop = (content.scrollTop / maxScrollTop) * maxThumbTop;
-
         thumb.style.top = thumbTop + "px";
     }
+
 
     // content.addEventListener("scroll", updateThumb);
     window.addEventListener("resize", updateThumb);
