@@ -4227,7 +4227,7 @@ body
 
   margin: 0px;
 
-  margin-bottom: 13px;
+  margin-bottom: 3px;
 }
 
 #DBC-row3-occupC-c2-empC-c1-row1-c2-span3
@@ -4385,7 +4385,7 @@ body
 
 }
 
-/* Třetí řádek */
+/* Třetí řádku */
 
 #DBC-row3-occupC-c2-empC-c1-row2-c2-p3
 {
@@ -4477,5 +4477,332 @@ body
 
 }
 
+/* Vložení třetího řádku */
 
+#DBC-row3-occupC-c2-empC-c1-row3
+{
+  width: 100%;
+  height: auto;
 
+  background-color: lightcoral;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  /* align-items: center; */
+
+  align-items: flex-start;
+
+  border-bottom: 1px solid rgba(244,245,247,1);
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c1
+{
+
+  width: 33%;
+  height: auto;
+  background-color: red;
+
+  font-size:    13px;
+  font-family:  'Montserrat';
+  font-weight:  600;
+  color: #357fab;
+
+  padding-top:  6px;
+  padding-left: 6px;
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2
+{
+
+  width: 67%;
+  height: auto;
+  background-color: green;
+
+  border-left: 1px solid rgba(244,245,247,1);
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-bedImg
+{
+  width:  18px;
+  height: auto;
+
+  background-color: red;
+
+  display: block;
+
+  margin-top: 1px;
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-p1
+{
+
+  background-color: lightcyan;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size:    13px;
+  font-family:  'Montserrat';
+  font-weight:  600;
+  color: #357fab;
+
+  /* padding-left: 10px; */
+  /* padding-top: 6px; */
+
+  margin: 0px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp1
+{
+    width: 11%;
+    background-color: red;
+
+    text-align: center;
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp2
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 6px;
+}
+
+/* Druhý řádek */
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-p2
+{
+
+  background-color: lightcyan;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size:    13px;
+  font-family:  'Montserrat';
+  font-weight:  600;
+  color: #357fab;
+
+  /* padding-left: 10px; */
+  /* padding-top: 6px; */
+
+  margin: 0px;
+
+  margin-bottom: 4px;
+
+  /* margin-top: 6px; */
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp3
+{
+    width: 11%;
+    background-color: red;
+
+    text-align: center;
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp4
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 6px;
+
+}
+
+/* Třetí řádek */
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-p3
+{
+
+  background-color: lightcyan;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size:    13px;
+  font-family:  'Montserrat';
+  font-weight:  600;
+  color: #357fab;
+
+  /* padding-left: 10px; */
+  /* padding-top: 6px; */
+
+  margin: 0px;
+
+  margin-bottom: 4px;
+
+  /* margin-top: 6px; */
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp5
+{
+    width: 11%;
+    background-color: red;
+
+    text-align: center;
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp6
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 6px;
+
+}
+
+/* čtvrtý řádek */
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-p4
+{
+
+  background-color: lightcyan;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size:    13px;
+  font-family:  'Montserrat';
+  font-weight:  600;
+  color: #357fab;
+
+  /* padding-left: 10px; */
+  /* padding-top: 6px; */
+
+  margin: 0px;
+
+  margin-bottom: 3px;
+
+  /* margin-top: 6px; */
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp7
+{
+    width: 11%;
+    background-color: red;
+
+    text-align: center;
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp8
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 6px;
+
+}
+
+/* patý řádek */
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-p5
+{
+
+  background-color: lightcyan;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size:    13px;
+  font-family:  'Montserrat';
+  font-weight:  600;
+  color: #357fab;
+
+  /* padding-left: 10px; */
+  /* padding-top: 6px; */
+
+  margin: 0px;
+
+  margin-bottom: 3px;
+
+  /* margin-top: 6px; */
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp9
+{
+    width: 11%;
+    background-color: red;
+
+    text-align: center;
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp10
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 6px;
+
+}
+
+/* šestý řádek */
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-p6
+{
+
+  background-color: lightcyan;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size:    13px;
+  font-family:  'Montserrat';
+  font-weight:  600;
+  color: #357fab;
+
+  /* padding-left: 10px; */
+  /* padding-top: 6px; */
+
+  margin: 0px;
+
+  margin-bottom: 3px;
+
+  /* margin-top: 6px; */
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp11
+{
+    width: 11%;
+    background-color: red;
+
+    text-align: center;
+}
+
+#DBC-row3-occupC-c2-empC-c1-row3-c2-sp12
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 6px;
+}
