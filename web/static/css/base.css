@@ -3646,79 +3646,6 @@ body
 
 }
 
-/* #DBC-row3-employeesC-row2-row1-img1
-{
-  width: 15px;
-  height: auto;
-
-  color: #80808d;
-
-}
-
-#DBC-row3-employeesC-row2-row1
-{
-  width: 100%;
-  height: 10%;
-
-  background-color: lightcoral;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-
-  padding-left: 30px;
-}
-
-#DBC-row3-employeesC-row2-row1-p
-{
-  background-color: lightcyan;
-
-  font-size:    19px;
-  font-family:  'Montserrat';
-  font-weight:  500;
-  color: #324351;
-
-  margin-left: 19px;
-} */
-
-/* #DBC-row3-employeesC-row2-row2
-{
-  width: 100%;
-  height: 10%;
-
-  background-color: white;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-
-  padding-left: 30px;
-}
-
-#DBC-row3-employeesC-row2-row2-img2
-{
-  width: 15px;
-  height: auto;
-
-  color: #80808d;
-
-}
-
-#DBC-row3-employeesC-row2-row2-p
-{
-  background-color: lightcyan;
-
-  font-size:    19px;
-  font-family:  'Montserrat';
-  font-weight:  500;
-  color: #324351;
-
-  margin-left: 19px;
-} */
-
-
 .DBC-row3-employeesC-employeeListItem
 {
   width: 100%;
@@ -4017,7 +3944,7 @@ body
     overflow-y: auto;
     scrollbar-width: none;
 
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 #DBC-row3-occupC-c2-empC-c2::-webkit-scrollbar
@@ -4036,6 +3963,8 @@ body
 
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+
+    border-left: 1px solid rgba(244,245,247,1);
 }
 
 #DBC-row3-occupC-c2-empC-thumb
@@ -4071,7 +4000,7 @@ body
   width: 100%;
   height: auto;
 
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 
   display: flex;
   flex-direction: row;
@@ -4088,7 +4017,7 @@ body
 
   width: 34%;
   height: auto;
-  background-color: red;
+  /* background-color: red; */
 
   font-size:    13px;
   font-family:  'Montserrat';
@@ -4105,9 +4034,9 @@ body
 
   width: 66%;
   height: auto;
-  background-color: green;
+  /* background-color: green; */
 
-  border-left: 1px solid rgba(244,245,247,1);
+  border-left: 2px solid rgba(244,245,247,1);
 
 }
 
@@ -4116,7 +4045,7 @@ body
   width:  18px;
   height: auto;
 
-  background-color: red;
+  /* background-color: red; */
 
   display: block;
 
@@ -4126,7 +4055,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row1-c2-p1
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4150,7 +4079,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row1-c2-sp1
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 }
@@ -4158,7 +4087,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row1-c2-sp2
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
@@ -4167,7 +4096,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row1-c2-p2
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4193,26 +4122,30 @@ body
 #DBC-row3-occupC-c2-empC-c1-row1-c2-sp3
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
+
+    color: #59646f;
 
 }
 
 #DBC-row3-occupC-c2-empC-c1-row1-c2-sp4
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
+
+  color: #59646f;
 
 }
 
 #DBC-row3-occupC-c2-empC-c1-row1-c2-p3
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4238,26 +4171,28 @@ body
 #DBC-row3-occupC-c2-empC-c1-row1-c2-sp5
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
+    color: #59646f;
 
 }
 
 #DBC-row3-occupC-c2-empC-c1-row1-c2-sp6
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
+  color: #59646f;
 
 }
 
 #DBC-row3-occupC-c2-empC-c1-row1-c2-p4
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4283,19 +4218,21 @@ body
 #DBC-row3-occupC-c2-empC-c1-row1-c2-sp7
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
+    color: #59646f;
 
 }
 
 #DBC-row3-occupC-c2-empC-c1-row1-c2-sp8
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
+  color: #59646f;
 
 }
 
@@ -4306,7 +4243,7 @@ body
   width: 100%;
   height: auto;
 
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 
   display: flex;
   flex-direction: row;
@@ -4323,7 +4260,7 @@ body
 
   width: 34%;
   height: auto;
-  background-color: red;
+  /* background-color: red; */
 
   font-size:    13px;
   font-family:  'Montserrat';
@@ -4340,16 +4277,16 @@ body
 
   width: 66%;
   height: auto;
-  background-color: green;
+  /* background-color: green; */
 
-  border-left: 1px solid rgba(244,245,247,1);
+  border-left: 2px solid rgba(244,245,247,1);
 
 }
 
 #DBC-row3-occupC-c2-empC-c1-row2-c2-p1
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4373,18 +4310,20 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-sp1
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
+    color: #59646f;
 }
 
 #DBC-row3-occupC-c2-empC-c1-row2-c2-sp2
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
+  color: #59646f;
 }
 
 
@@ -4393,7 +4332,7 @@ body
   width:  18px;
   height: auto;
 
-  background-color: red;
+  /* background-color: red; */
 
   display: block;
 
@@ -4405,7 +4344,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-p2
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4431,7 +4370,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-sp3
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 
@@ -4440,7 +4379,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-sp4
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
@@ -4452,7 +4391,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-p3
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4478,7 +4417,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-sp5
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 }
@@ -4486,7 +4425,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-sp6
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
@@ -4498,7 +4437,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-p4
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4524,7 +4463,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-sp7
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 }
@@ -4532,7 +4471,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2-sp8
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
@@ -4546,7 +4485,7 @@ body
   width: 100%;
   height: auto;
 
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 
   display: flex;
   flex-direction: row;
@@ -4563,7 +4502,7 @@ body
 
   width: 34%;
   height: auto;
-  background-color: red;
+  /* background-color: red; */
 
   font-size:    13px;
   font-family:  'Montserrat';
@@ -4580,9 +4519,9 @@ body
 
   width: 66%;
   height: auto;
-  background-color: green;
+  /* background-color: green; */
 
-  border-left: 1px solid rgba(244,245,247,1);
+  border-left: 2px solid rgba(244,245,247,1);
 
 }
 
@@ -4591,7 +4530,7 @@ body
   width:  18px;
   height: auto;
 
-  background-color: red;
+  /* background-color: red; */
 
   display: block;
 
@@ -4601,7 +4540,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-p1
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4625,18 +4564,23 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp1
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
+
+    color: #59646f;
 }
 
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp2
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
+
+  color: #59646f;
+
 }
 
 /* Druhý řádek */
@@ -4644,7 +4588,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-p2
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4670,7 +4614,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp3
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 
@@ -4679,7 +4623,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp4
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
@@ -4691,7 +4635,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-p3
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4717,7 +4661,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp5
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 }
@@ -4725,7 +4669,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp6
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
@@ -4737,7 +4681,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-p4
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4763,7 +4707,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp7
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 }
@@ -4771,7 +4715,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp8
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
@@ -4783,7 +4727,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-p5
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4809,18 +4753,22 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp9
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
+
+    color: #59646f;
 }
 
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp10
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
+
+  color: #59646f;
 
 }
 
@@ -4829,7 +4777,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-p6
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4855,18 +4803,22 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp11
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
+
+    color: #59646f;
 }
 
 #DBC-row3-occupC-c2-empC-c1-row3-c2-sp12
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
+
+  color: #59646f;
 }
 
 /* Vložení čtvrtého řádku */
@@ -4876,7 +4828,7 @@ body
   width: 100%;
   height: auto;
 
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 
   display: flex;
   flex-direction: row;
@@ -4893,7 +4845,7 @@ body
 
   width: 34%;
   height: auto;
-  background-color: red;
+  /* background-color: red; */
 
   font-size:    13px;
   font-family:  'Montserrat';
@@ -4910,9 +4862,9 @@ body
 
   width: 66%;
   height: auto;
-  background-color: green;
+  /* background-color: green; */
 
-  border-left: 1px solid rgba(244,245,247,1);
+  border-left: 2px solid rgba(244,245,247,1);
 
 }
 
@@ -4921,7 +4873,7 @@ body
   width:  18px;
   height: auto;
 
-  background-color: red;
+  /* background-color: red; */
 
   display: block;
 
@@ -4931,7 +4883,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-p1
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -4955,18 +4907,22 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-sp1
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
+
+    color: #59646f;
 }
 
 #DBC-row3-occupC-c2-empC-c1-row4-c2-sp2
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
+
+  color: #59646f;
 }
 
 /*Druhý řádek */
@@ -4974,7 +4930,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-p2
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -5000,7 +4956,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-sp3
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 
@@ -5009,7 +4965,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-sp4
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
@@ -5020,7 +4976,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-p3
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -5046,7 +5002,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-sp5
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 }
@@ -5054,7 +5010,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-sp6
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
@@ -5066,7 +5022,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-p4
 {
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display: flex;
   flex-direction: row;
@@ -5092,7 +5048,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-sp7
 {
     width: 11%;
-    background-color: red;
+    /* background-color: red; */
 
     text-align: center;
 }
@@ -5100,7 +5056,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2-sp8
 {
 
-  background-color: blue;
+  /* background-color: blue; */
   text-align: start;
 
   padding-left: 8px;
