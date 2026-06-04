@@ -4086,7 +4086,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row1-c1
 {
 
-  width: 33%;
+  width: 34%;
   height: auto;
   background-color: red;
 
@@ -4095,7 +4095,7 @@ body
   font-weight:  600;
   color: #357fab;
 
-  padding-top:  6px;
+  padding-top:  4px;
   padding-left: 6px;
 
 }
@@ -4103,7 +4103,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row1-c2
 {
 
-  width: 67%;
+  width: 66%;
   height: auto;
   background-color: green;
 
@@ -4111,8 +4111,21 @@ body
 
 }
 
+#DBC-row3-occupC-c2-empC-c1-row1-c2-bedImg
+{
+  width:  18px;
+  height: auto;
+
+  background-color: red;
+
+  display: block;
+
+  margin-top: 1px;
+}
+
 #DBC-row3-occupC-c2-empC-c1-row1-c2-p1
 {
+
   background-color: lightcyan;
 
   display: flex;
@@ -4125,34 +4138,36 @@ body
   font-weight:  600;
   color: #357fab;
 
-  padding-left: 10px;
+  /* padding-left: 10px; */
   /* padding-top: 6px; */
 
   margin: 0px;
+  margin-bottom: 4px;
+  margin-top: 4px;
 
-  margin-bottom: 5px;
-
-  margin-top: 6px;
 }
 
-#DBC-row3-occupC-c2-empC-c1-row1-c2-bedImg
+#DBC-row3-occupC-c2-empC-c1-row1-c2-sp1
 {
-  width:  18px;
-  height: auto;
+    width: 11%;
+    background-color: red;
 
-  margin-left: 15px;
-
-  background-color: red;
-
-  display: block;
-
-  margin-top: 1px;
+    text-align: center;
 }
 
+#DBC-row3-occupC-c2-empC-c1-row1-c2-sp2
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 8px;
+}
 
 #DBC-row3-occupC-c2-empC-c1-row1-c2-p2
 {
-  background-color: red;
+
+  background-color: lightcyan;
 
   display: flex;
   flex-direction: row;
@@ -4164,24 +4179,40 @@ body
   font-weight:  600;
   color: #357fab;
 
-  padding-left: 10px;
+  /* padding-left: 10px; */
   /* padding-top: 6px; */
 
   margin: 0px;
 
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+
+  /* margin-top: 6px; */
+
 }
 
-#DBC-row3-occupC-c2-empC-c1-row1-c2-span1
+#DBC-row3-occupC-c2-empC-c1-row1-c2-sp3
 {
-  margin-left: 14px;
+    width: 11%;
+    background-color: red;
 
-  background-color: brown;
+    text-align: center;
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row1-c2-sp4
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 8px;
+
 }
 
 #DBC-row3-occupC-c2-empC-c1-row1-c2-p3
 {
-  background-color: yellow;
+
+  background-color: lightcyan;
 
   display: flex;
   flex-direction: row;
@@ -4193,24 +4224,40 @@ body
   font-weight:  600;
   color: #357fab;
 
-  padding-left: 10px;
+  /* padding-left: 10px; */
   /* padding-top: 6px; */
 
   margin: 0px;
 
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+
+  /* margin-top: 6px; */
+
 }
 
-#DBC-row3-occupC-c2-empC-c1-row1-c2-span2
+#DBC-row3-occupC-c2-empC-c1-row1-c2-sp5
 {
-  margin-left: 14px;
+    width: 11%;
+    background-color: red;
 
-  background-color: orange;
+    text-align: center;
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row1-c2-sp6
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 8px;
+
 }
 
 #DBC-row3-occupC-c2-empC-c1-row1-c2-p4
 {
-  background-color: yellow;
+
+  background-color: lightcyan;
 
   display: flex;
   flex-direction: row;
@@ -4222,19 +4269,34 @@ body
   font-weight:  600;
   color: #357fab;
 
-  padding-left: 10px;
+  /* padding-left: 10px; */
   /* padding-top: 6px; */
 
   margin: 0px;
 
-  margin-bottom: 3px;
+  margin-bottom: 4px;
+
+  /* margin-top: 6px; */
+
 }
 
-#DBC-row3-occupC-c2-empC-c1-row1-c2-span3
+#DBC-row3-occupC-c2-empC-c1-row1-c2-sp7
 {
-  margin-left: 14px;
+    width: 11%;
+    background-color: red;
 
-  background-color: orange;
+    text-align: center;
+
+}
+
+#DBC-row3-occupC-c2-empC-c1-row1-c2-sp8
+{
+
+  background-color: blue;
+  text-align: start;
+
+  padding-left: 8px;
+
 }
 
 /* vložení druhého řádku */
@@ -4259,7 +4321,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c1
 {
 
-  width: 33%;
+  width: 34%;
   height: auto;
   background-color: red;
 
@@ -4268,7 +4330,7 @@ body
   font-weight:  600;
   color: #357fab;
 
-  padding-top:  6px;
+  padding-top:  4px;
   padding-left: 6px;
 
 }
@@ -4276,7 +4338,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row2-c2
 {
 
-  width: 67%;
+  width: 66%;
   height: auto;
   background-color: green;
 
@@ -4322,7 +4384,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 }
 
 
@@ -4381,7 +4443,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 
 }
 
@@ -4427,7 +4489,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 
 }
 
@@ -4473,7 +4535,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 
 }
 
@@ -4499,7 +4561,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c1
 {
 
-  width: 33%;
+  width: 34%;
   height: auto;
   background-color: red;
 
@@ -4508,7 +4570,7 @@ body
   font-weight:  600;
   color: #357fab;
 
-  padding-top:  6px;
+  padding-top:  4px;
   padding-left: 6px;
 
 }
@@ -4516,7 +4578,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row3-c2
 {
 
-  width: 67%;
+  width: 66%;
   height: auto;
   background-color: green;
 
@@ -4574,7 +4636,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 }
 
 /* Druhý řádek */
@@ -4620,7 +4682,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 
 }
 
@@ -4666,7 +4728,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 
 }
 
@@ -4712,7 +4774,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 
 }
 
@@ -4758,7 +4820,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 
 }
 
@@ -4804,7 +4866,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 }
 
 /* Vložení čtvrtého řádku */
@@ -4829,7 +4891,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c1
 {
 
-  width: 33%;
+  width: 34%;
   height: auto;
   background-color: red;
 
@@ -4838,7 +4900,7 @@ body
   font-weight:  600;
   color: #357fab;
 
-  padding-top:  6px;
+  padding-top:  4px;
   padding-left: 6px;
 
 }
@@ -4846,7 +4908,7 @@ body
 #DBC-row3-occupC-c2-empC-c1-row4-c2
 {
 
-  width: 67%;
+  width: 66%;
   height: auto;
   background-color: green;
 
@@ -4904,7 +4966,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 }
 
 /*Druhý řádek */
@@ -4950,7 +5012,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 }
 
 /* Třetí řádek */
@@ -4995,7 +5057,7 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 
 }
 
@@ -5041,6 +5103,6 @@ body
   background-color: blue;
   text-align: start;
 
-  padding-left: 6px;
+  padding-left: 8px;
 
 }
