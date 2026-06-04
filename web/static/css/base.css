@@ -4074,6 +4074,8 @@ body
   flex-direction: row;
   justify-content: start;
   align-items: center;
+
+  border-bottom: 1px solid rgba(244,245,247,1);
 }
 
 #DBC-row3-occupC-c2-empC-c1-row1-c1
@@ -4096,6 +4098,8 @@ body
   width: 67%;
   height: auto;
   background-color: green;
+
+  border-left: 1px solid rgba(244,245,247,1);
 
 }
 
@@ -4163,4 +4167,62 @@ body
   margin-left: 14px;
 
   background-color: brown;
+}
+
+#DBC-row3-occupC-c2-empC-c1-row1-c2-p3
+{
+  background-color: yellow;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size:    13px;
+  font-family:  'Montserrat';
+  font-weight:  600;
+  color: #357fab;
+
+  padding-left: 11px;
+  /* padding-top: 6px; */
+
+  margin: 0px;
+
+  margin-bottom: 4px;
+}
+
+#DBC-row3-occupC-c2-empC-c1-row1-c2-span2
+{
+  margin-left: 14px;
+
+  background-color: orange;
+}
+
+#DBC-row3-occupC-c2-empC-c1-row1-c2-p4
+{
+  background-color: yellow;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size:    13px;
+  font-family:  'Montserrat';
+  font-weight:  600;
+  color: #357fab;
+
+  padding-left: 11px;
+  /* padding-top: 6px; */
+
+  margin: 0px;
+
+  /* margin-bottom: 4px; */
+}
+
+#DBC-row3-occupC-c2-empC-c1-row1-c2-span3
+{
+  margin-left: 14px;
+
+  background-color: orange;
 }
