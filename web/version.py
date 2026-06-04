@@ -1,7 +1,7 @@
 
-__version__ = "1.1.51"
+__version__ = "1.1.52"
 
-# DBC-row3-occupC-c2-empC-c1 completed not responsive
+# DBC-row3-lastC-capC4 under its way
 
 # Jedná se o tuto produkční verzi č. ----
 
