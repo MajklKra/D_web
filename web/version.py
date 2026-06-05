@@ -1,7 +1,7 @@
 
-__version__ = "1.1.58"
+__version__ = "1.1.59"
 
-# Dashboard first not resposive draft
+# leftMenu - shrink prohibited
 
 # Jedná se o tuto produkční verzi č. ----
 
