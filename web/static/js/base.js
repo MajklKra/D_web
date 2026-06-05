@@ -959,3 +959,50 @@ document.addEventListener("DOMContentLoaded", function ()
     updateThumb();
 });
 
+
+
+/* Kruhový graf číslo 2 */
+
+const percent2 = window.percent2;
+
+const options2 = {
+  series: [percent2],
+  chart: {
+    type: 'radialBar',
+    width: 220,
+    sparkline: {
+      enabled: true
+    },
+    offsetX: 0,
+    offsetY: 0
+  },
+  colors: ['#2F80B7'],
+  plotOptions: {
+    radialBar: {
+      hollow: {
+        size: '45%'
+      },
+      track: {
+        background: '#EEF1F6'
+      },
+      dataLabels: {
+        name: {
+          show: false
+        },
+        value: {
+          show: true,
+          fontSize: '26px',
+          fontWeight: 700,
+          color: '#2D3B4D',
+          offsetY: 8,
+          formatter: function ()
+          {
+            return percent2 + '%';
+          }
+        }
+      }
+    }
+  }
+};
+
+new ApexCharts(document.querySelector("#piechart2"), options2).render();
