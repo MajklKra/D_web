@@ -2536,7 +2536,10 @@ body
 
   height: 11.45vw;
 
-  background-color: darkmagenta;
+  /* background-color: darkmagenta; */
+
+  background-color: white;
+
   border-radius: 10px;
 
   padding-top:  12px;
@@ -5077,7 +5080,7 @@ body
   width: 100%;
   height: 20%;
 
-  background-color: red;
+  /* background-color: red; */
 
   display: flex;
   flex-direction: row;
@@ -5090,7 +5093,7 @@ body
   width: 100%;
   height: 75%;
 
-  background-color: blue;
+  /* background-color: blue; */
 
   display: flex;
   flex-direction: row;
@@ -5105,7 +5108,7 @@ body
 {
    width: 70%;
    height: 100%;
-   background-color: green;
+   /* background-color: green; */
 
    display: flex;
    flex-direction: column;
@@ -5118,7 +5121,7 @@ body
 
   width:  30%;
   height: 100%;
-  background-color: yellow;
+  /* background-color: yellow; */
 
   display: flex;
   flex-direction: row;
@@ -5131,7 +5134,7 @@ body
 {
   margin: 0px;
 
-  background-color: pink;
+  /* background-color: pink; */
 
   font-size:    14px;
   font-family:  'Montserrat';
@@ -5143,7 +5146,7 @@ body
 {
   margin: 0px;
 
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 
   font-size:    11px;
   font-family:  'Montserrat';
@@ -5154,6 +5157,10 @@ body
 #DBC-row3-lastC-capC4-row1-c2-menu
 {
   margin-top: 1px;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 #DBC-row3-lastC-capC4-row2-chart1
@@ -5161,7 +5168,7 @@ body
   width: 50%;
   height: 100%;
 
-  background-color: lightblue;
+  /* background-color: lightblue; */
 
   position: relative;
 }
@@ -5171,7 +5178,9 @@ body
   width: 50%;
   height: 100%;
 
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
+
+  position: relative;
 }
 
 /* 5.6.2026  grafy */
@@ -5189,3 +5198,19 @@ body
   top:      -24px;
   left:     -33px;
 }
+
+#piechart3
+{
+  /* background-color: lightgreen; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  position: absolute;
+  top:      -24px;
+  left:     -35px;
+}
+
+

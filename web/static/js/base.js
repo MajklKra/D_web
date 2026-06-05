@@ -844,8 +844,9 @@ const options = {
         value: {
           show: true,
           fontSize: '26px',
-          fontWeight: 700,
-          color: '#2D3B4D',
+          fontWeight: 600,
+          fontFamily: 'Montserrat',
+          color: '#324351',
           offsetY: 8,
           formatter: function ()
           {
@@ -979,6 +980,8 @@ const options2 = {
   colors: ['#2F80B7'],
   plotOptions: {
     radialBar: {
+      startAngle: -180,
+      endAngle: 180,
       hollow: {
         size: '45%'
       },
@@ -992,8 +995,9 @@ const options2 = {
         value: {
           show: true,
           fontSize: '26px',
-          fontWeight: 700,
-          color: '#2D3B4D',
+          fontWeight: 600,
+          fontFamily: 'Montserrat',
+          color: '#324351',
           offsetY: 8,
           formatter: function ()
           {
@@ -1006,3 +1010,99 @@ const options2 = {
 };
 
 new ApexCharts(document.querySelector("#piechart2"), options2).render();
+
+
+/* Kruhový graf číslo 3 */
+
+
+// const percent3 = window.percent3;
+
+// const options3 = {
+//   series: [percent3],
+//   chart: {
+//     type: 'radialBar',
+//     width: 220,
+//     sparkline: {
+//       enabled: true
+//     },
+//     offsetX: 0,
+//     offsetY: 0
+//   },
+//   colors: ['#2F80B7'],
+//   plotOptions: {
+//     radialBar: {
+//       hollow: {
+//         size: '45%'
+//       },
+//       track: {
+//         background: '#EEF1F6'
+//       },
+//       dataLabels: {
+//         name: {
+//           show: false
+//         },
+//         value: {
+//           show: true,
+//           fontSize: '26px',
+//           fontWeight: 700,
+//           color: '#2D3B4D',
+//           offsetY: 8,
+//           formatter: function ()
+//           {
+//             return percent2 + '%';
+//           }
+//         }
+//       }
+//     }
+//   }
+// };
+
+// new ApexCharts(document.querySelector("#piechart3"), options3).render();
+
+
+const percent3 = window.percent3;
+
+const options3 = {
+  series: [percent3],
+  chart: {
+    type: 'radialBar',
+    width: 220,
+    sparkline: {
+      enabled: true
+    },
+    offsetX: 0,
+    offsetY: 0
+  },
+  colors: ['#2F80B7'],
+  plotOptions: {
+    radialBar: {
+        startAngle: -180,
+        endAngle: 180,
+      hollow: {
+        size: '45%'
+      },
+      track: {
+        background: '#EEF1F6'
+      },
+      dataLabels: {
+        name: {
+          show: false
+        },
+        value: {
+          show: true,
+          fontSize: '26px',
+          fontFamily: 'Montserrat',
+          fontWeight: 600,
+          color: '#324351',
+          offsetY: 8,
+          formatter: function ()
+          {
+            return percent2 + '%';
+          }
+        }
+      }
+    }
+  }
+};
+
+new ApexCharts(document.querySelector("#piechart3"), options3).render();

@@ -1,7 +1,7 @@
 
-__version__ = "1.1.53"
+__version__ = "1.1.56"
 
-# DBC-row3-lastC-capC4-row2-chart1 first draft
+# DBC-row3-lastC-capC4 - first version created
 
 # Jedná se o tuto produkční verzi č. ----
 
