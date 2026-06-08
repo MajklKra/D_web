@@ -1,12 +1,12 @@
 
-__version__ = "1.1.59"
+__version__ = "1.1.61"
 
-# leftMenu - shrink prohibited
+# Dashboard - margins among rows and columns
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        5.6.2026
+# Datum:        8.6.2026
 
 
 

@@ -2259,8 +2259,12 @@ body
 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: start;
   align-items: start;
+
+  /* padding-top: 20px; */
+
+  padding-top: clamp(10px, 1vw, 20px);
 
 }
 
@@ -2283,6 +2287,10 @@ body
 
   justify-content: start;
   align-items: center;
+
+  /* margin-bottom: 24px; */
+
+  margin-bottom: clamp(14px, 1.25vw, 24px);
 }
 
 #DBC-row2
@@ -2304,6 +2312,10 @@ body
 
   justify-content: start;
   align-items: center;
+
+  /* margin-bottom: 28px; */
+
+  margin-bottom: clamp(14px, 1.5vw, 28px);
 }
 
 #DBC-row3
