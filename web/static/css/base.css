@@ -2616,20 +2616,20 @@ body
   width:     55%;
   height:   100%;
 
-  /* background-color: #357fab; */
+  background-color: pink;
 
   display:          flex;
   flex-direction:   row;
   justify-content:  start;
   align-items:      center;
 
-  font-size:        59px;
+  /* font-size:        59px; */
   font-weight:      700;
   font-family:      'Montserrat';
   color:          #ced8ce;
 
-  padding-top:  19px;
-  padding-left: 24px;
+  /* padding-top:  19px;
+  padding-left: 24px; */
 
 }
 
@@ -2638,7 +2638,7 @@ body
   width: 45%;
   height: 100%;
 
-  /* background-color: yellowgreen; */
+  background-color: yellowgreen;
 
   display: flex;
   flex-direction: column;
@@ -2654,7 +2654,7 @@ body
   width: 100%;
   height: 50%;
 
-  /* background-color: black; */
+  background-color: blueviolet;
 
   /* font-size:    16px;
   font-weight:  600;
@@ -2682,7 +2682,7 @@ body
   font-family:  'Montserrat';
   color:        #ced8ce;
 
-  /* background-color: orange; */
+  background-color: orange;
 
   display: block;
 
@@ -2702,7 +2702,7 @@ body
   width: 100%;
   height: 50%;
 
-  /* background-color: brown; */
+  background-color: brown;
 
   display: flex;
   flex-direction: row;
@@ -2714,7 +2714,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-weatherWrap
 {
 
-  /* background-color: orange; */
+  background-color: orange;
 
   height: 100%;
   width: 100%;
@@ -2733,7 +2733,7 @@ body
   width: 13px;
   height: auto;
 
-  /* background-color: yellowgreen; */
+  background-color: yellowgreen;
 
   color:        #ced8ce;
 
@@ -2743,7 +2743,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-temperature
 {
 
-  /* background-color: brown; */
+  background-color: brown;
 
   font-size:    16px;
   font-weight:  600;
@@ -2772,7 +2772,7 @@ body
 #DBC-row1-dateC-timeC-hour
 {
   height: 100%;
-  /* background-color: coral; */
+  background-color: coral;
 
   margin: 0px;
   padding: 0px;
@@ -2781,7 +2781,7 @@ body
 #DBC-row1-dateC-timeC-colon
 {
   height: 100%;
-  /* background-color: yellow; */
+  background-color: yellow;
   margin: 0px;
   padding: 0px;
 }
@@ -2789,7 +2789,7 @@ body
 #DBC-row1-dateC-timeC-minutes
 {
   height: 100%;
-  /* background-color: yellowgreen; */
+  background-color: yellowgreen;
   margin: 0px;
   padding: 0px;
 
@@ -5547,12 +5547,87 @@ body
   font-size:    19px;
   font-family:  'Montserrat';
   font-weight:  500;
-  color: #324351;
+  color:      #324351;
 
   /* background-color: cadetblue; */
 
   margin: 0px;
 
   margin-left: 18px;
+}
+
+/* Experimenty 8.6.2026 */
+
+/* DateC */
+
+/* tablet*/
+@media (min-width: 768px) and (max-width: 991px)
+{
+}
+
+/* počítačová obrazovka */
+@media (min-width: 992px) and (max-width: 1199px)
+{
+
+  #DBC-row1-dateC-timeC
+  {
+    /* font-size:    29px; */
+
+    /* padding-top:  9px; */
+
+
+    padding-top: clamp(9px, calc(9px + 4 * ((100vw - 992px) / 208)), 13px);
+
+    /* padding-left: 11px; */
+
+    padding-left: clamp(11px, calc(11px + 4 * ((100vw - 992px) / 207)), 15px);
+
+    font-size: clamp(29px, calc(29px + 7 * ((100vw - 992px) / 207)), 36px);
+
+  }
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1200px) and (max-width: 1399px)
+{
+
+  #DBC-row1-dateC-timeC
+  {
+
+    /* font-size:    36px; */
+
+    font-size: clamp(36px, calc(36px + 6 * ((100vw - 1200px) / 199)), 42px);
+
+    padding-top:  13px;
+    padding-left: 15px;
+  }
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1400px) and (max-width: 1920px)
+{
+
+  #DBC-row1-dateC-timeC
+  {
+    /* font-size:    42px; */
+    /* padding-top:  13px; */
+    /* padding-left: 16px; */
+
+    padding-top: clamp(13px,calc(13px + 6 * ((100vw - 1400px) / 520)),19px);
+    padding-left: clamp(16px,calc(16px + 3 * ((100vw - 1400px) / 520)),19px);
+    font-size: clamp(42px,calc(42px + 17 * ((100vw - 1400px) / 520)),59px);
+  }
+}
+
+@media (min-width: 1921px)
+{
+
+  #DBC-row1-dateC-timeC
+  {
+    font-size:    59px;
+    padding-top:  19px;
+    padding-left: 24px;
+  }
 
 }
