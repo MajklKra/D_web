@@ -5631,3 +5631,375 @@ body
   }
 
 }
+
+/* DBC-row1-dateC-weatherC */
+
+/* 9.6.2026 */
+
+/* tablet*/
+@media (min-width: 768px) and (max-width: 991px)
+{
+
+    #DBC-row1-dateC-weatherC
+    {
+
+    }
+
+    #DBC-row1-dateC-weatherC-nameC
+    {
+
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-nameC-span
+    {
+
+    }
+
+
+    #DBC-row1-dateC-weatherC-weatherC
+    {
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-weatherWrap
+    {
+
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-thermometer
+    {
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-temperature
+    {
+
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-weather
+    {
+
+
+    }
+
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 992px) and (max-width: 1199px)
+{
+
+    #DBC-row1-dateC-weatherC
+    {
+
+    }
+
+    #DBC-row1-dateC-weatherC-nameC
+    {
+
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-nameC-span
+    {
+
+   }
+
+
+    #DBC-row1-dateC-weatherC-weatherC
+    {
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-weatherWrap
+    {
+
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-thermometer
+    {
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-temperature
+    {
+
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-weather
+    {
+
+
+    }
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1200px) and (max-width: 1399px)
+{
+
+  #DBC-row1-dateC-weatherC
+    {
+
+    }
+
+    #DBC-row1-dateC-weatherC-nameC
+    {
+
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-nameC-span
+    {
+
+   }
+
+
+    #DBC-row1-dateC-weatherC-weatherC
+    {
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-weatherWrap
+    {
+
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-thermometer
+    {
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-temperature
+    {
+
+
+
+    }
+
+    #DBC-row1-dateC-weatherC-weatherC-weather
+    {
+
+
+    }
+
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1400px) and (max-width: 1920px)
+{
+
+
+  #DBC-row1-dateC-weatherC-nameC
+  {
+    padding-top: 21px;
+    /* padding-left: 17px; */
+
+    max-width: 156px;
+    min-width: 0;
+  }
+
+  #DBC-row1-dateC-weatherC-nameC-span
+  {
+    font-size:    12px;
+    padding-left: 18px;
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-weatherWrap
+  {
+
+    padding-left: 17px;
+    background-color: red !important;
+
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-thermometer
+  {
+
+    width: 9px;
+    height: auto;
+
+    margin-bottom: 22px;
+
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-temperature
+  {
+
+    font-size:          12px;
+    margin-bottom:      34px;
+    margin-left:        6px;
+
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-weather
+  {
+
+    width:  23px;
+    height: auto;
+
+    margin-bottom: 14px;
+    margin-left: 13px;
+
+  }
+
+}
+
+@media (min-width: 1921px)
+{
+
+  #DBC-row1-dateC-weatherC
+  {
+    width: 45%;
+    height: 100%;
+
+    background-color: yellowgreen;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  #DBC-row1-dateC-weatherC-nameC
+  {
+
+    width: 100%;
+    height: 50%;
+
+    background-color: blueviolet;
+
+    /* font-size:    16px;
+    font-weight:  600;
+    font-family:  'Montserrat';
+    color:        #ced8ce; */
+
+    /* display: flex;
+    flex-direction: column;
+
+    justify-content: start;
+    align-items: start; */
+
+    padding-top: 30px;
+    /* padding-left: 17px; */
+
+    max-width: 156px;
+    min-width: 0;
+
+  }
+
+  #DBC-row1-dateC-weatherC-nameC-span
+  {
+    font-size:    16px;
+    font-weight:  600;
+    font-family:  'Montserrat';
+    color:        #ced8ce;
+
+    background-color: orange;
+
+    display: block;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    padding-left: 17px;
+
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC
+  {
+
+    width: 100%;
+    height: 50%;
+
+    background-color: brown;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-weatherWrap
+  {
+
+    background-color: orange;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    padding-left: 15.5px;
+
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-thermometer
+  {
+    width:  12px;
+    height: auto;
+
+    background-color: yellowgreen;
+
+    color:        #ced8ce;
+
+    margin-bottom: 28px;
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-temperature
+  {
+
+    background-color: brown;
+
+    font-size:    16px;
+    font-weight:  600;
+    font-family:  'Montserrat';
+    color:        #ced8ce;
+
+    margin-bottom: 44px;
+    margin-left: 6px;
+
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-weather
+  {
+
+    width:  33px;
+    height: auto;
+
+    color: #ced8ce;
+
+    margin-bottom: 20px;
+
+    margin-left: 20px;
+
+  }
+
+}
