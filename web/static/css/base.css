@@ -2656,22 +2656,13 @@ body
 
   background-color: blueviolet;
 
-  /* font-size:    16px;
-  font-weight:  600;
-  font-family:  'Montserrat';
-  color:        #ced8ce; */
-
-  /* display: flex;
-  flex-direction: column;
-
-  justify-content: start;
-  align-items: start; */
-
-  padding-top: 30px;
+  /* padding-top: 30px; */
   /* padding-left: 17px; */
 
   /* max-width: 156px; */
-  min-width: 0;
+  /* min-width: 0; */
+
+  overflow: hidden;
 
 }
 
@@ -2690,7 +2681,7 @@ body
   white-space: nowrap;
   text-overflow: ellipsis;
 
-  padding-left: 17px;
+  /* padding-left: 17px; */
 
   width: 100%;
   max-width: 100%;
@@ -2730,14 +2721,14 @@ body
 
 #DBC-row1-dateC-weatherC-weatherC-thermometer
 {
-  width: 13px;
+  /* width: 13px; */
   height: auto;
 
   background-color: yellowgreen;
 
   color:        #ced8ce;
 
-  margin-bottom: 28px;
+  /* margin-bottom: 28px; */
 }
 
 #DBC-row1-dateC-weatherC-weatherC-temperature
@@ -2745,27 +2736,27 @@ body
 
   background-color: brown;
 
-  font-size:    16px;
+  /* font-size:    16px; */
   font-weight:  600;
   font-family:  'Montserrat';
   color:        #ced8ce;
 
-  margin-bottom: 44px;
-  margin-left: 6px;
+  /* margin-bottom: 44px;
+  margin-left: 6px; */
 
 }
 
 #DBC-row1-dateC-weatherC-weatherC-weather
 {
 
-  width:  33px;
+  /* width:  33px; */
   height: auto;
 
   color: #ced8ce;
 
-  margin-bottom: 20px;
+  /* margin-bottom: 20px;
 
-  margin-left: 20px;
+  margin-left: 20px; */
 
 }
 
@@ -5790,7 +5781,6 @@ body
   {
 
     padding-left: 13px;
-    background-color: red !important;
 
   }
 
@@ -5861,19 +5851,7 @@ body
 
     background-color: blueviolet;
 
-    /* font-size:    16px;
-    font-weight:  600;
-    font-family:  'Montserrat';
-    color:        #ced8ce; */
-
-    /* display: flex;
-    flex-direction: column;
-
-    justify-content: start;
-    align-items: start; */
-
     padding-top: 30px;
-    /* padding-left: 17px; */
 
     /* max-width: 156px; */
     min-width: 0;
@@ -5973,6 +5951,12 @@ body
 
     margin-left: 20px;
 
+  }
+
+  #DBC-row1-dateC
+  {
+    max-width: 347px !important;
+    max-height: 115px !important;
   }
 
 }
