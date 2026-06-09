@@ -5751,55 +5751,58 @@ body
 @media (min-width: 1200px) and (max-width: 1399px)
 {
 
-  #DBC-row1-dateC-weatherC
-    {
+  #DBC-row1-dateC-weatherC-nameC
+  {
+    padding-top: 18px;
+    /* padding-left: 17px; */
 
-    }
+    max-width: 114px;
+    min-width: 0;
+  }
 
-    #DBC-row1-dateC-weatherC-nameC
-    {
+  #DBC-row1-dateC-weatherC-nameC-span
+  {
+    font-size:    10px;
+    padding-left: 0px;
+  }
 
+  #DBC-row1-dateC-weatherC-weatherC-weatherWrap
+  {
 
+    padding-left: 0px;
+    background-color: red !important;
 
-    }
+  }
 
-    #DBC-row1-dateC-weatherC-nameC-span
-    {
+  #DBC-row1-dateC-weatherC-weatherC-thermometer
+  {
 
-   }
+    width: 8px;
+    height: auto;
 
+    margin-bottom: 20px;
 
-    #DBC-row1-dateC-weatherC-weatherC
-    {
+  }
 
+  #DBC-row1-dateC-weatherC-weatherC-temperature
+  {
 
-    }
+    font-size:          10px;
+    margin-bottom:      28px;
+    margin-left:        6px;
 
-    #DBC-row1-dateC-weatherC-weatherC-weatherWrap
-    {
+  }
 
+  #DBC-row1-dateC-weatherC-weatherC-weather
+  {
 
+    width:  21px;
+    height: auto;
 
-    }
+    margin-bottom: 14px;
+    margin-left: 13px;
 
-    #DBC-row1-dateC-weatherC-weatherC-thermometer
-    {
-
-    }
-
-    #DBC-row1-dateC-weatherC-weatherC-temperature
-    {
-
-
-
-    }
-
-    #DBC-row1-dateC-weatherC-weatherC-weather
-    {
-
-
-    }
-
+  }
 
 }
 
@@ -5813,7 +5816,7 @@ body
     padding-top: 21px;
     /* padding-left: 17px; */
 
-    max-width: 156px;
+    max-width: 114px;
     min-width: 0;
   }
 
