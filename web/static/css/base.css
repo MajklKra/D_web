@@ -2613,10 +2613,10 @@ body
 #DBC-row1-dateC-timeC
 {
 
-  width:     55%;
+  /* width:     55%; */
   height:   100%;
 
-  background-color: pink;
+  /* background-color: pink; */
 
   display:          flex;
   flex-direction:   row;
@@ -2635,10 +2635,10 @@ body
 
 #DBC-row1-dateC-weatherC
 {
-  width: 45%;
+  /* width: 45%; */
   height: 100%;
 
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 
   display: flex;
   flex-direction: column;
@@ -2654,7 +2654,7 @@ body
   width: 100%;
   height: 50%;
 
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 
   /* padding-top: 30px; */
   /* padding-left: 17px; */
@@ -2668,12 +2668,12 @@ body
 
 #DBC-row1-dateC-weatherC-nameC-span
 {
-  font-size:    16px;
+  /* font-size:    16px; */
   font-weight:  600;
   font-family:  'Montserrat';
   color:        #ced8ce;
 
-  background-color: orange;
+  /* background-color: orange; */
 
   display: block;
 
@@ -2693,7 +2693,7 @@ body
   width: 100%;
   height: 50%;
 
-  background-color: brown;
+  /* background-color: brown; */
 
   display: flex;
   flex-direction: row;
@@ -2705,7 +2705,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-weatherWrap
 {
 
-  background-color: orange;
+  /* background-color: orange; */
 
   height: 100%;
   width: 100%;
@@ -2724,7 +2724,7 @@ body
   /* width: 13px; */
   height: auto;
 
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 
   color:        #ced8ce;
 
@@ -2734,7 +2734,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-temperature
 {
 
-  background-color: brown;
+  /* background-color: brown; */
 
   /* font-size:    16px; */
   font-weight:  600;
@@ -2763,7 +2763,7 @@ body
 #DBC-row1-dateC-timeC-hour
 {
   height: 100%;
-  background-color: coral;
+  /* background-color: coral; */
 
   margin: 0px;
   padding: 0px;
@@ -2772,7 +2772,7 @@ body
 #DBC-row1-dateC-timeC-colon
 {
   height: 100%;
-  background-color: yellow;
+  /* background-color: yellow; */
   margin: 0px;
   padding: 0px;
 }
@@ -2780,7 +2780,7 @@ body
 #DBC-row1-dateC-timeC-minutes
 {
   height: 100%;
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
   margin: 0px;
   padding: 0px;
 
@@ -5640,7 +5640,10 @@ body
 
   #DBC-row1-dateC-weatherC-nameC
   {
-    padding-top: 15px;
+    /* padding-top: 15px; */
+
+    padding-top: clamp(15px,calc(15px + 3 * ((100vw - 992px) / 207)),18px);
+
     /* padding-left: 17px; */
 
     /* max-width: 114px; */
@@ -5649,7 +5652,10 @@ body
 
   #DBC-row1-dateC-weatherC-nameC-span
   {
-    font-size:    8px;
+    /* font-size:    8px; */
+
+    font-size: clamp(8px,calc(8px + 2 * ((100vw - 992px) / 207)),10px);
+
     padding-left: 10px;
   }
 
@@ -5657,44 +5663,60 @@ body
   {
 
     padding-left: 10px;
-    background-color: red !important;
 
   }
 
   #DBC-row1-dateC-weatherC-weatherC-thermometer
   {
 
-    width: 7px;
+    /* width: 7px; */
+
+    width: clamp(7px,calc(7px + 1 * ((100vw - 992px) / 207)),8px);
+
     height: auto;
 
-    margin-bottom: 17px;
+    /* margin-bottom: 17px; */
+
+    margin-bottom: clamp(17px,calc(17px + 3 * ((100vw - 992px) / 207)),20px);
 
   }
 
   #DBC-row1-dateC-weatherC-weatherC-temperature
   {
-    font-size:          8px;
-    margin-bottom:      22px;
+    /* font-size:          8px; */
+
+    font-size: clamp(8px,calc(8px + 2 * ((100vw - 992px) / 207)),10px);
+
+    /* margin-bottom:      22px; */
+
+    margin-bottom: clamp(22px,calc(22px + 6 * ((100vw - 992px) / 207)),28px);
+
     margin-left:        6px;
   }
 
   #DBC-row1-dateC-weatherC-weatherC-weather
   {
-    width:  18px;
+    /* width:  18px; */
+
+    width: clamp(18px,calc(18px + (21 - 18) * ((100vw - 992px) / (1199 - 992))),21px);
+
     height: auto;
 
-    margin-bottom: 9px;
+    /* margin-bottom: 9px; */
+
+    margin-bottom: clamp(9px,calc(9px + (14 - 9) * ((100vw - 992px) / (1199 - 992))),14px);
+
     margin-left: 13px;
   }
 
   #DBC-row1-dateC-weatherC
   {
-    width: 65% !important;
+    width: 65%;
   }
 
   #DBC-row1-dateC-timeC
   {
-    width:     45% !important;
+    width:     45%;
     height:   100%;
   }
 }
@@ -5705,8 +5727,10 @@ body
 
   #DBC-row1-dateC-weatherC-nameC
   {
-    padding-top: 18px;
+    /* padding-top: 18px; */
     /* padding-left: 17px; */
+
+    padding-top: clamp(18px, calc(18px + 3 * ((100vw - 1200px) / 199)), 21px);
 
     /* max-width: 114px; */
     min-width: 0;
@@ -5714,33 +5738,53 @@ body
 
   #DBC-row1-dateC-weatherC-nameC-span
   {
-    font-size:    10px;
-    padding-left: 5px;
+    /* font-size:    10px; */
+
+    font-size: clamp(10px, calc(10px + 2 * ((100vw - 1200px) / 199)), 12px);
+
+    /* padding-left: 5px; */
+
+    padding-left: clamp(5px, calc(5px + 8 * ((100vw - 1200px) / 199)), 13px);
+
+
   }
 
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
   {
 
-    padding-left: 5px;
-    background-color: red !important;
+    /* padding-left: 5px; */
+
+    padding-left: clamp(5px, calc(5px + 8 * ((100vw - 1200px) / 199)), 13px);
 
   }
 
   #DBC-row1-dateC-weatherC-weatherC-thermometer
   {
 
-    width: 8px;
+    /* width: 8px; */
+
+    width: clamp(8px, calc(8px + 1 * ((100vw - 1200px) / 199)), 9px);
+
     height: auto;
 
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+
+    margin-bottom: clamp(20px, calc(20px + 2 * ((100vw - 1200px) / 199)), 22px);
 
   }
 
   #DBC-row1-dateC-weatherC-weatherC-temperature
   {
 
-    font-size:          10px;
-    margin-bottom:      28px;
+    /* font-size:          10px; */
+
+    font-size: clamp(10px, calc(10px + 2 * ((100vw - 1200px) / 199)), 12px);
+
+
+    /* margin-bottom:      28px; */
+
+    margin-bottom: clamp(28px, calc(28px + 6 * ((100vw - 1200px) / 199)), 34px);
+
     margin-left:        6px;
 
   }
@@ -5748,12 +5792,25 @@ body
   #DBC-row1-dateC-weatherC-weatherC-weather
   {
 
-    width:  21px;
+    /* width:  21px; */
+
+    width: clamp(21px, calc(21px + 2 * ((100vw - 1200px) / 199)), 23px);
+
     height: auto;
 
     margin-bottom: 14px;
     margin-left: 13px;
 
+  }
+
+  #DBC-row1-dateC-weatherC
+  {
+    width: 45%;
+  }
+
+  #DBC-row1-dateC-timeC
+  {
+    width:    55%;
   }
 
 }
@@ -5764,7 +5821,10 @@ body
 
   #DBC-row1-dateC-weatherC-nameC
   {
-    padding-top: 21px;
+    /* padding-top: 21px; */
+
+    padding-top: clamp(21px,calc(21px + 9 * ((100vw - 1400px) / 520)), 30px);
+
     /* padding-left: 17px; */
 
     /* max-width: 114px; */
@@ -5773,55 +5833,79 @@ body
 
   #DBC-row1-dateC-weatherC-nameC-span
   {
-    font-size:    12px;
-    padding-left: 13px;
+    /* font-size:    12px; */
+
+    font-size: clamp(12px, calc(12px + 4 * ((100vw - 1400px) / 520)),16px);
+
+    /* padding-left: 13px; */
+
+    padding-left: clamp(13px, calc(13px + 4 * ((100vw - 1400px) / 520)), 17px);
   }
 
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
   {
 
-    padding-left: 13px;
+    /* padding-left: 13px; */
+
+    padding-left: clamp(13px,calc(13px + 2.5 * ((100vw - 1400px) / 520)), 15.5px);
 
   }
 
   #DBC-row1-dateC-weatherC-weatherC-thermometer
   {
 
-    width: 9px;
+    /* width: 9px; */
+
+    width: clamp(9px,calc(9px + 3 * ((100vw - 1400px) / 520)),12px);
+
     height: auto;
 
-    margin-bottom: 22px;
+    /* margin-bottom: 22px; */
+
+    margin-bottom: clamp( 22px, calc(22px + 6 * ((100vw - 1400px) / 520)), 28px);
 
   }
 
   #DBC-row1-dateC-weatherC-weatherC-temperature
   {
 
-    font-size:          12px;
-    margin-bottom:      34px;
+    /* font-size:          12px; */
+
+    font-size: clamp(12px,calc(12px + 4 * ((100vw - 1400px) / 520)),16px);
+
+    /* margin-bottom:      34px; */
+
+    margin-bottom: clamp(34px,calc(34px + 10 * ((100vw - 1400px) / 520)),44px);
     margin-left:        6px;
 
   }
 
   #DBC-row1-dateC-weatherC-weatherC-weather
   {
+    /* width:  23px; */
 
-    width:  23px;
+    width: clamp(23px,calc(23px + 10 * ((100vw - 1400px) / 520)),33px);
+
     height: auto;
 
-    margin-bottom: 14px;
-    margin-left: 13px;
+    /* margin-bottom: 14px; */
+
+    margin-bottom: clamp(14px,calc(14px + (20 - 14) * ((100vw - 1400px) / (1920 - 1400))),20px);
+
+    /* margin-left: 13px; */
+
+    margin-left: clamp(13px, calc(13px + 7 * ((100vw - 1400px) / 520)), 20px);
 
   }
 
   #DBC-row1-dateC-weatherC
   {
-    width:    50% !important;
+    width:    50%;
   }
 
   #DBC-row1-dateC-timeC
   {
-    width:    50% !important;
+    width:    50%;
   }
 
 }
@@ -5833,8 +5917,6 @@ body
   {
     width: 45%;
     height: 100%;
-
-    background-color: yellowgreen;
 
     display: flex;
     flex-direction: column;
@@ -5849,8 +5931,6 @@ body
     width: 100%;
     height: 50%;
 
-    background-color: blueviolet;
-
     padding-top: 30px;
 
     /* max-width: 156px; */
@@ -5864,8 +5944,6 @@ body
     font-weight:  600;
     font-family:  'Montserrat';
     color:        #ced8ce;
-
-    background-color: orange;
 
     display: block;
 
@@ -5886,8 +5964,6 @@ body
     width: 100%;
     height: 50%;
 
-    background-color: brown;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -5897,8 +5973,6 @@ body
 
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
   {
-
-    background-color: orange;
 
     height: 100%;
     width: 100%;
@@ -5917,8 +5991,6 @@ body
     width:  12px;
     height: auto;
 
-    background-color: yellowgreen;
-
     color:        #ced8ce;
 
     margin-bottom: 28px;
@@ -5926,8 +5998,6 @@ body
 
   #DBC-row1-dateC-weatherC-weatherC-temperature
   {
-
-    background-color: brown;
 
     font-size:    16px;
     font-weight:  600;
@@ -5948,7 +6018,6 @@ body
     color: #ced8ce;
 
     margin-bottom: 20px;
-
     margin-left: 20px;
 
   }
@@ -5957,6 +6026,11 @@ body
   {
     max-width: 347px !important;
     max-height: 115px !important;
+  }
+
+  #DBC-row1-dateC-timeC
+  {
+    width:    55%;
   }
 
 }
