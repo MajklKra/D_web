@@ -2643,7 +2643,7 @@ body
   display: flex;
   flex-direction: column;
 
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
@@ -2670,7 +2670,7 @@ body
   padding-top: 30px;
   /* padding-left: 17px; */
 
-  max-width: 156px;
+  /* max-width: 156px; */
   min-width: 0;
 
 }
@@ -2724,7 +2724,7 @@ body
   justify-content: start;
   align-items: center;
 
-  padding-left: 15.5px;
+  /* padding-left: 15.5px; */
 
 }
 
@@ -5640,55 +5640,6 @@ body
 @media (min-width: 768px) and (max-width: 991px)
 {
 
-    #DBC-row1-dateC-weatherC
-    {
-
-    }
-
-    #DBC-row1-dateC-weatherC-nameC
-    {
-
-
-
-    }
-
-    #DBC-row1-dateC-weatherC-nameC-span
-    {
-
-    }
-
-
-    #DBC-row1-dateC-weatherC-weatherC
-    {
-
-
-    }
-
-    #DBC-row1-dateC-weatherC-weatherC-weatherWrap
-    {
-
-
-
-    }
-
-    #DBC-row1-dateC-weatherC-weatherC-thermometer
-    {
-
-    }
-
-    #DBC-row1-dateC-weatherC-weatherC-temperature
-    {
-
-
-
-    }
-
-    #DBC-row1-dateC-weatherC-weatherC-weather
-    {
-
-
-    }
-
 
 }
 
@@ -5696,55 +5647,65 @@ body
 @media (min-width: 992px) and (max-width: 1199px)
 {
 
-    #DBC-row1-dateC-weatherC
-    {
+  #DBC-row1-dateC-weatherC-nameC
+  {
+    padding-top: 15px;
+    /* padding-left: 17px; */
 
-    }
+    /* max-width: 114px; */
+    min-width: 0;
+  }
 
-    #DBC-row1-dateC-weatherC-nameC
-    {
+  #DBC-row1-dateC-weatherC-nameC-span
+  {
+    font-size:    8px;
+    padding-left: 10px;
+  }
 
+  #DBC-row1-dateC-weatherC-weatherC-weatherWrap
+  {
 
+    padding-left: 10px;
+    background-color: red !important;
 
-    }
+  }
 
-    #DBC-row1-dateC-weatherC-nameC-span
-    {
+  #DBC-row1-dateC-weatherC-weatherC-thermometer
+  {
 
-   }
+    width: 7px;
+    height: auto;
 
+    margin-bottom: 17px;
 
-    #DBC-row1-dateC-weatherC-weatherC
-    {
+  }
 
+  #DBC-row1-dateC-weatherC-weatherC-temperature
+  {
+    font-size:          8px;
+    margin-bottom:      22px;
+    margin-left:        6px;
+  }
 
-    }
+  #DBC-row1-dateC-weatherC-weatherC-weather
+  {
+    width:  18px;
+    height: auto;
 
-    #DBC-row1-dateC-weatherC-weatherC-weatherWrap
-    {
+    margin-bottom: 9px;
+    margin-left: 13px;
+  }
 
+  #DBC-row1-dateC-weatherC
+  {
+    width: 65% !important;
+  }
 
-
-    }
-
-    #DBC-row1-dateC-weatherC-weatherC-thermometer
-    {
-
-    }
-
-    #DBC-row1-dateC-weatherC-weatherC-temperature
-    {
-
-
-
-    }
-
-    #DBC-row1-dateC-weatherC-weatherC-weather
-    {
-
-
-    }
-
+  #DBC-row1-dateC-timeC
+  {
+    width:     45% !important;
+    height:   100%;
+  }
 }
 
 /* počítačová obrazovka */
@@ -5756,20 +5717,20 @@ body
     padding-top: 18px;
     /* padding-left: 17px; */
 
-    max-width: 114px;
+    /* max-width: 114px; */
     min-width: 0;
   }
 
   #DBC-row1-dateC-weatherC-nameC-span
   {
     font-size:    10px;
-    padding-left: 0px;
+    padding-left: 5px;
   }
 
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
   {
 
-    padding-left: 0px;
+    padding-left: 5px;
     background-color: red !important;
 
   }
@@ -5810,26 +5771,25 @@ body
 @media (min-width: 1400px) and (max-width: 1920px)
 {
 
-
   #DBC-row1-dateC-weatherC-nameC
   {
     padding-top: 21px;
     /* padding-left: 17px; */
 
-    max-width: 114px;
+    /* max-width: 114px; */
     min-width: 0;
   }
 
   #DBC-row1-dateC-weatherC-nameC-span
   {
     font-size:    12px;
-    padding-left: 18px;
+    padding-left: 13px;
   }
 
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
   {
 
-    padding-left: 17px;
+    padding-left: 13px;
     background-color: red !important;
 
   }
@@ -5864,6 +5824,16 @@ body
 
   }
 
+  #DBC-row1-dateC-weatherC
+  {
+    width:    50% !important;
+  }
+
+  #DBC-row1-dateC-timeC
+  {
+    width:    50% !important;
+  }
+
 }
 
 @media (min-width: 1921px)
@@ -5879,7 +5849,7 @@ body
     display: flex;
     flex-direction: column;
 
-    justify-content: center;
+    justify-content: start;
     align-items: center;
   }
 
@@ -5905,7 +5875,7 @@ body
     padding-top: 30px;
     /* padding-left: 17px; */
 
-    max-width: 156px;
+    /* max-width: 156px; */
     min-width: 0;
 
   }

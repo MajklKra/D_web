@@ -1,7 +1,7 @@
 
-__version__ = "1.1.66"
+__version__ = "1.1.68"
 
-# DBC-row1-dateC - 1200px - 1399px - made to be responsive
+# DBC-row1-dateC - first draft of responsivity
 
 # Jedná se o tuto produkční verzi č. ----
 
