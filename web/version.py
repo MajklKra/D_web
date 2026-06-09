@@ -1,12 +1,12 @@
 
-__version__ = "1.1.63"
+__version__ = "1.1.64"
 
-# DBC-row1-dateC-timeC - padding-top, padding-left, font-size seconda draft
+# DBC-row1-dateC-timeC - made to be responsive
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        8.6.2026
+# Datum:        9.6.2026
 
 
 
