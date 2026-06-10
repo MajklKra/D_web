@@ -1,7 +1,7 @@
 
-__version__ = "1.1.70"
+__version__ = "1.1.76"
 
-# DBC-row1-dateC-weatherC - width from 1920px more ... - created
+# DBC-row1-dateC-weatherC - first draft of responsivity
 
 # Jedná se o tuto produkční verzi č. ----
 
