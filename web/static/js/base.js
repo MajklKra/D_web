@@ -77,24 +77,19 @@ function aktualizovatDatumCas()
 
    /* Aktualizace DasboardC - dateC*/
 
-    // <p id="DBC-row1-dateC-timeC-hour">14</p>
-    // <p id="DBC-row1-dateC-timeC-colon">:</p>
-    // <p id="DBC-row1-dateC-timeC-minutes">20</p>
+    const d_hour = document.getElementById('DBC-row1-dateC-timeC-hour');
+    const d_minutes = document.getElementById('DBC-row1-dateC-timeC-minutes');
 
-
-    // const d_hour = document.getElementById('DBC-row1-dateC-timeC-hour');
-    // const d_minutes = document.getElementById('DBC-row1-dateC-timeC-minutes');
-
-    // if (d_hour && d_minutes)
-    // {
-    //     d_hour.textContent = hodiny;
-    //     d_minutes.textContent = minuty;
-    // }
+    if (d_hour && d_minutes)
+    {
+        d_hour.textContent = hodiny;
+        d_minutes.textContent = minuty;
+    }
 
   /* Aktualizace teploty */
 
-//   aktualizovatTeplotu();
-//   updateName();
+  aktualizovatTeplotu();
+  updateName();
 
 }
 
