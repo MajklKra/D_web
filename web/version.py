@@ -1,7 +1,7 @@
 
-__version__ = "1.1.77"
+__version__ = "1.1.78"
 
-# DBC-row1-dateC od šířky 1200px ....
+# DBC-row1-dateC od šířky 992px ....
 
 # Jedná se o tuto produkční verzi č. ----
 

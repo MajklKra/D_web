@@ -2638,7 +2638,7 @@ body
   /* width: 45%; */
   height: 100%;
 
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 
   display: flex;
   flex-direction: column;
@@ -2654,7 +2654,7 @@ body
   width: 100%;
   height: 50%;
 
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 
   /* padding-top: 30px; */
   /* padding-left: 17px; */
@@ -2685,7 +2685,7 @@ body
   max-width: 100%;
   box-sizing: border-box;
 
-  background-color: #ED1C24;
+  /* background-color: #ED1C24; */
 
 }
 
@@ -2694,7 +2694,7 @@ body
   width: 100%;
   height: 50%;
 
-  background-color: brown;
+  /* background-color: brown; */
 
   display: flex;
   flex-direction: row;
@@ -2706,7 +2706,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-weatherWrap
 {
 
-  background-color: orange;
+  /* background-color: orange; */
 
   height: 100%;
   width: 100%;
@@ -2725,7 +2725,7 @@ body
   /* width: 13px; */
   height: auto;
 
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 
   color:        #ced8ce;
 
@@ -2735,7 +2735,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-temperature
 {
 
-  background-color: brown;
+  /* background-color: brown; */
 
   /* font-size:    16px; */
   font-weight:  600;
@@ -2759,7 +2759,7 @@ body
 
   margin-left: 20px; */
 
-  background-color: black;
+  /* background-color: black; */
 
 }
 
@@ -5707,7 +5707,8 @@ body
 
 /* 9.6.2026 */
 
-/* počítačová obrazovka */
+/* počítačová obrazovka */ /* část 1 */
+
 @media (min-width: 992px) and (max-width: 1199px)
 {
 
@@ -5729,7 +5730,9 @@ body
 
     /* padding-left: 5px; */
 
-    padding-left: clamp(5px,calc(5px + 13 * ((100vw - 992px) / 207)),18px);
+    padding-left: clamp(5px,calc(5px + (31 - 5) * ((100vw - 992px) / (1199 - 992))),31px);
+
+    /* padding-left: clamp(5px,calc(5px + 13 * ((100vw - 992px) / 207)),18px); */
   }
 
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
@@ -5737,7 +5740,9 @@ body
 
     /* padding-left: 4px; */
 
-    padding-left: clamp(4px,calc(4px + 13 * ((100vw - 992px) / 207)),17px);
+    padding-left: clamp(4px,calc(4px + (31 - 4) * ((100vw - 992px) / (1199 - 992))),31px);
+
+    /* padding-left: clamp(4px,calc(4px + 13 * ((100vw - 992px) / 207)),17px); */
 
   }
 
@@ -5796,9 +5801,101 @@ body
   {
     width:     45%;
   }
+
 }
 
+/* počítačová obrazovka */ /* část 2 */
 
+/* @media (min-width: 992px) and (max-width: 1199px)
+{
+
+  #DBC-row1-dateC-weatherC-nameC
+  {
+    /* padding-top: 14px;
+
+    padding-top: clamp(14px,calc(14px + 6 * ((100vw - 992px) / 207)),20px);
+
+    /* max-width: 114px;
+    min-width: 0;
+  }
+
+  #DBC-row1-dateC-weatherC-nameC-span
+  {
+    /* font-size:    8px;
+
+    font-size: clamp(8px,calc(8px + 2 * ((100vw - 992px) / 207)),10px);
+
+    padding-left: 31px;
+
+    /* padding-left: clamp(5px,calc(5px + 13 * ((100vw - 992px) / 207)),18px);
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-weatherWrap
+  {
+
+    padding-left: 31px;
+
+    /* padding-left: clamp(4px,calc(4px + 13 * ((100vw - 992px) / 207)),17px);
+
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-thermometer
+  {
+
+    /* width: 7px;
+
+    width: clamp(7px,calc(7px + 1 * ((100vw - 992px) / 207)),8px);
+
+    height: auto;
+
+    margin-bottom: 20px;
+
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-temperature
+  {
+    /* font-size:          8px;
+
+    font-size: clamp(8px,calc(8px + 2 * ((100vw - 992px) / 207)),10px);
+
+    /* margin-bottom:      30px;
+
+    margin-bottom: clamp(28px,calc(30px - 2 * ((100vw - 992px) / 207)),30px);
+
+    /* margin-left:        3px;
+
+    margin-left: clamp(3px,calc(3px + 2 * ((100vw - 992px) / 207)),5px);
+
+  }
+
+  #DBC-row1-dateC-weatherC-weatherC-weather
+  {
+    /* width:  16px;
+
+    width: clamp(16px,calc(16px + 5 * ((100vw - 992px) / 207)),21px);
+
+    height: auto;
+
+    /* margin-bottom: 16px;
+
+    margin-bottom: clamp(14px,calc(16px - 2 * ((100vw - 992px) / 207)),16px);
+
+    /* margin-left: 8px;
+
+    margin-left: clamp(8px,calc(8px + 3 * ((100vw - 992px) / 207)),11px);
+  }
+
+  #DBC-row1-dateC-weatherC
+  {
+    width: 55%;
+  }
+
+  #DBC-row1-dateC-timeC
+  {
+    width:     45%;
+  }
+
+} */
 
 /* počítačová obrazovka */ /* část 1*/
 @media (min-width: 1200px) and (max-width: 1399px)
