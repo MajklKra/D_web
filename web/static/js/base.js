@@ -93,8 +93,8 @@ function aktualizovatDatumCas()
 
   /* Aktualizace teploty */
 
-  aktualizovatTeplotu();
-  updateName();
+//   aktualizovatTeplotu();
+//   updateName();
 
 }
 

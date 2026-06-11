@@ -1,12 +1,12 @@
 
-__version__ = "1.1.76"
+__version__ = "1.1.77"
 
-# DBC-row1-dateC-weatherC - first draft of responsivity
+# DBC-row1-dateC od šířky 1200px ....
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        10.6.2026
+# Datum:        11.6.2026
 
 
 

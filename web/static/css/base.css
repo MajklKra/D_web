@@ -2638,7 +2638,7 @@ body
   /* width: 45%; */
   height: 100%;
 
-  /* background-color: yellowgreen; */
+  background-color: yellowgreen;
 
   display: flex;
   flex-direction: column;
@@ -2654,7 +2654,7 @@ body
   width: 100%;
   height: 50%;
 
-  /* background-color: blueviolet; */
+  background-color: blueviolet;
 
   /* padding-top: 30px; */
   /* padding-left: 17px; */
@@ -2685,7 +2685,7 @@ body
   max-width: 100%;
   box-sizing: border-box;
 
-  /* background-color: #ED1C24; */
+  background-color: #ED1C24;
 
 }
 
@@ -2694,7 +2694,7 @@ body
   width: 100%;
   height: 50%;
 
-  /* background-color: brown; */
+  background-color: brown;
 
   display: flex;
   flex-direction: row;
@@ -2706,7 +2706,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-weatherWrap
 {
 
-  /* background-color: orange; */
+  background-color: orange;
 
   height: 100%;
   width: 100%;
@@ -2725,7 +2725,7 @@ body
   /* width: 13px; */
   height: auto;
 
-  /* background-color: yellowgreen; */
+  background-color: yellowgreen;
 
   color:        #ced8ce;
 
@@ -2735,7 +2735,7 @@ body
 #DBC-row1-dateC-weatherC-weatherC-temperature
 {
 
-  /* background-color: brown; */
+  background-color: brown;
 
   /* font-size:    16px; */
   font-weight:  600;
@@ -2759,7 +2759,7 @@ body
 
   margin-left: 20px; */
 
-  /* background-color: black; */
+  background-color: black;
 
 }
 
@@ -5798,9 +5798,9 @@ body
   }
 }
 
-/* Zatím hotovo*/
 
-/* počítačová obrazovka */
+
+/* počítačová obrazovka */ /* část 1*/
 @media (min-width: 1200px) and (max-width: 1399px)
 {
 
@@ -5820,18 +5820,18 @@ body
 
     font-size: clamp(10px,calc(10px + 2 * ((100vw - 1200px) / 199)),12px);
 
-    /* padding-left: 18px; */
+    padding-left: 21px;
 
-    padding-left: clamp(15px,calc(18px - 3 * ((100vw - 1200px) / 199)),18px);
+    /* padding-left: clamp(15px,calc(18px - 3 * ((100vw - 1200px) / 199)),18px); */
 
   }
 
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
   {
 
-    /* padding-left: 17px; */
+    padding-left: 21px;
 
-    padding-left: clamp(14px,calc(17px - 3 * ((100vw - 1200px) / 199)),17px);
+    /* padding-left: clamp(14px,calc(17px - 3 * ((100vw - 1200px) / 199)),17px); */
 
   }
 
@@ -5896,10 +5896,8 @@ body
 
 }
 
-/* Zatím hotovo*/
-
 /* počítačová obrazovka */
-@media (min-width: 1400px) and (max-width: 1920px)
+ @media (min-width: 1400px) and (max-width: 1920px)
 {
 
   #DBC-row1-dateC-weatherC-nameC
@@ -5911,7 +5909,7 @@ body
 
     /* padding-left: 17px; */
 
-    /* max-width: 114px; */
+    /* max-width: 114px;
     min-width: 0;
   }
 
@@ -5922,17 +5920,17 @@ body
 
     font-size: clamp(12px, calc(12px + 4 * ((100vw - 1400px) / 520)), 16px);
 
-    /* padding-left: 15px; */
+    padding-left: 20px;
 
-    padding-left: clamp(15px, calc(15px + 2 * ((100vw - 1400px) / 520)), 17px);
+    /* padding-left: clamp(15px, calc(15px + 2 * ((100vw - 1400px) / 520)), 17px); */
 
   }
 
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
   {
-    /* padding-left: 14px; */
+    padding-left: 20px;
 
-    padding-left: clamp(14px, calc(14px + 1 * ((100vw - 1400px) / 520)), 15px);
+    /*  padding-left: clamp(14px, calc(14px + 1 * ((100vw - 1400px) / 520)), 15px); */
   }
 
   #DBC-row1-dateC-weatherC-weatherC-thermometer
@@ -5992,7 +5990,6 @@ body
 
 }
 
-
 /* Zatím hotovo*/
 
 @media (min-width: 1921px)
@@ -6000,14 +5997,7 @@ body
 
   #DBC-row1-dateC-weatherC
   {
-    width: 50%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: start;
-    align-items: center;
+    width: 45%;
   }
 
   #DBC-row1-dateC-weatherC-nameC
@@ -6067,7 +6057,7 @@ body
     justify-content: start;
     align-items: center;
 
-    padding-left: 15px;
+    padding-left: 17px;
 
   }
 
@@ -6115,7 +6105,7 @@ body
 
   #DBC-row1-dateC-timeC
   {
-    width:    50%;
+    width:    55%;
   }
 
 }
