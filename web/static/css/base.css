@@ -2821,7 +2821,7 @@ body
 
 #DBC-row1-capC-descC
 {
-  /* background-color: aqua; */
+  background-color: aqua;
   width:  27%;
   height: 100%;
 
@@ -2839,7 +2839,7 @@ body
   width:  73%;
   height: 100%;
 
-  /* background-color: coral; */
+  background-color: coral;
 
   padding-right: 30px;
 }
@@ -2855,7 +2855,7 @@ body
 
   padding-left: 14px;
 
-  /* background-color: blue; */
+  background-color: blue;
 
 }
 
@@ -2871,7 +2871,7 @@ body
 
   padding-left: 14px;
 
-  /* background-color: green; */
+  background-color: green;
 
 }
 
@@ -2970,7 +2970,6 @@ body
     background: #6b7280;
     border-radius: 50%;
 }
-
 
 #DBC-row2-patientC-c1-menu
 {
@@ -6276,6 +6275,122 @@ body
 
     max-width: 347px !important;
     max-height: 118px !important;
+  }
+
+}
+
+
+/* Experimenty 6.6.2026 */
+/* DBC-row1-capC */
+
+@media (min-width: 992px) and (max-width: 1199px)
+{
+
+  #DBC-row1-capC-graph
+  {
+    padding-right:  20px;
+    padding-left:   9px;
+  }
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1200px) and (max-width: 1399px)
+{
+
+  #DBC-row1-capC-graph
+  {
+    padding-right:  20px;
+    padding-left:   9px;
+
+  }
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1400px) and (max-width: 1920px)
+{
+
+  #DBC-row1-capC-descC
+  {
+    padding-top: 10px;
+  }
+
+  #DBC-row1-capC-descC-s1
+  {
+
+    font-size: 10px;
+    margin: 0px;
+    padding-left: 11px;
+
+  }
+
+  #DBC-row1-capC-descC-s2
+  {
+
+    margin: 0px;
+    font-size: 8px;
+    color: rgba(128,128,141,1);
+    padding-left: 11px;
+
+    margin-top: 1px;
+
+  }
+
+  #DBC-row1-capC-graph
+  {
+    padding-right:  23px;
+    padding-left:   11px;
+
+    /* padding-top: 23px;
+    padding-bottom: 11px; */
+
+  }
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1921px)
+{
+
+  #DBC-row1-capC-descC
+  {
+    padding-top: 14px;
+  }
+
+  #DBC-row1-capC
+  {
+    max-width: 718px !important;
+    max-height: 118px !important;
+  }
+
+  #DBC-row1-capC-descC-s1
+  {
+
+    font-size: 14px;
+    margin: 0px;
+    padding-left: 14px;
+
+  }
+
+  #DBC-row1-capC-descC-s2
+  {
+
+    margin: 0px;
+    font-size: 12px;
+    color: rgba(128,128,141,1);
+    padding-left: 14px;
+
+  }
+
+  #DBC-row1-capC-graph
+  {
+    padding-right: 30px;
+    padding-left: 15px;
+
+    /* padding-top: 23px;
+    padding-bottom: 11px; */
+
   }
 
 }

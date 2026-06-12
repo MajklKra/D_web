@@ -1,7 +1,7 @@
 
-__version__ = "1.1.84"
+__version__ = "1.1.85"
 
-# DBC-row1-welcomeC responsivity
+# #DBC-row1-capC-graph settings for 1200px
 
 # Jedná se o tuto produkční verzi č. ----
 

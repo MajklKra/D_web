@@ -587,223 +587,224 @@ async function updateName()
 // const chartCanvas = document.getElementById("capacityChart");
 
 
-document.addEventListener("DOMContentLoaded", function ()
-{
-    const chartData = window.chartData;
-    const chartCanvas = document.getElementById("capacityChart");
+// document.addEventListener("DOMContentLoaded", function ()
+// {
+//     const chartData = window.chartData;
+//     const chartCanvas = document.getElementById("capacityChart");
 
-    if (chartCanvas && chartData)
-    {
-        new Chart(chartCanvas,
-        {
-            type: "line",
+//     if (chartCanvas && chartData)
+//     {
+//         new Chart(chartCanvas,
+//         {
+//             type: "line",
 
-            plugins: [ChartDataLabels],
+//             plugins: [ChartDataLabels],
 
-            data:
-            {
-                labels: chartData.labels,
+//             data:
+//             {
+//                 labels: chartData.labels,
 
-                datasets:
-                [
-                    {
-                        label: "Obsazenost",
-                        data: chartData.values,
+//                 datasets:
+//                 [
+//                     {
+//                         label: "Obsazenost",
+//                         data: chartData.values,
 
-                        yAxisID: "y",
+//                         yAxisID: "y",
 
-                        borderColor: "#357fab",
-                        backgroundColor: "#357fab",
+//                         borderColor: "#357fab",
+//                         backgroundColor: "#357fab",
 
-                        borderWidth: 2,
+//                         borderWidth: 2,
 
-                        tension: 0.45,
-                        cubicInterpolationMode: "monotone",
+//                         tension: 0.45,
+//                         cubicInterpolationMode: "monotone",
 
-                        pointRadius: function(context)
-                        {
-                            const lastIndex = context.dataset.data.length - 1;
+//                         pointRadius: function(context)
+//                         {
+//                             const lastIndex = context.dataset.data.length - 1;
 
-                            return (
-                                context.dataIndex === 0 ||
-                                context.dataIndex === lastIndex
-                            )
-                            ? 0
-                            : 3.5;
-                        },
+//                             return (
+//                                 context.dataIndex === 0 ||
+//                                 context.dataIndex === lastIndex
+//                             )
+//                             ? 0
+//                             : 3.5;
+//                         },
 
-                        pointHoverRadius: function(context)
-                        {
-                            const lastIndex = context.dataset.data.length - 1;
+//                         pointHoverRadius: function(context)
+//                         {
+//                             const lastIndex = context.dataset.data.length - 1;
 
-                            return (
-                                context.dataIndex === 0 ||
-                                context.dataIndex === lastIndex
-                            )
-                            ? 0
-                            : 3.5;
-                        },
+//                             return (
+//                                 context.dataIndex === 0 ||
+//                                 context.dataIndex === lastIndex
+//                             )
+//                             ? 0
+//                             : 3.5;
+//                         },
 
-                        pointBackgroundColor: "#3f7fb5",
-                        pointBorderColor: "#3f7fb5",
-                        pointBorderWidth: 0,
+//                         pointBackgroundColor: "#3f7fb5",
+//                         pointBorderColor: "#3f7fb5",
+//                         pointBorderWidth: 0,
 
-                        fill: false,
+//                         fill: false,
 
-                        datalabels:
-                        {
-                            align: "top",
-                            anchor: "end",
-                            color: "#7f7f8c",
-                            offset: 6,
+//                         datalabels:
+//                         {
+//                             align: "top",
+//                             anchor: "end",
+//                             color: "#7f7f8c",
+//                             offset: 1,
 
-                            font:
-                            {
-                                family: "Montserrat",
-                                size: 8,
-                                weight: "600"
-                            },
+//                             font:
+//                             {
+//                                 family: "Montserrat",
+//                                 size: 8,
+//                                 weight: "600"
+//                             },
 
-                            formatter: function(value, context)
-                            {
-                                const lastIndex = context.dataset.data.length - 1;
+//                             formatter: function(value, context)
+//                             {
+//                                 const lastIndex = context.dataset.data.length - 1;
 
-                                if (
-                                    context.dataIndex === 0 ||
-                                    context.dataIndex === lastIndex
-                                )
-                                {
-                                    return null;
-                                }
+//                                 if (
+//                                     context.dataIndex === 0 ||
+//                                     context.dataIndex === lastIndex
+//                                 )
+//                                 {
+//                                     return null;
+//                                 }
 
-                                return value;
-                            }
-                        }
-                    },
+//                                 return value;
+//                             }
+//                         }
 
-                    {
-                        label: "Kapacita",
-                        data: chartData.values2,
+//                     },
 
-                        yAxisID: "y1",
+//                     {
+//                         label: "Kapacita",
+//                         data: chartData.values2,
 
-                        borderColor: "#d4a373",
-                        backgroundColor: "#d4a373",
+//                         yAxisID: "y1",
 
-                        borderWidth: 2,
+//                         borderColor: "#d4a373",
+//                         backgroundColor: "#d4a373",
 
-                        tension: 0.45,
-                        cubicInterpolationMode: "monotone",
+//                         borderWidth: 2,
 
-                        pointRadius: 0,
-                        pointHoverRadius: 0,
+//                         tension: 0.45,
+//                         cubicInterpolationMode: "monotone",
 
-                        fill: false,
+//                         pointRadius: 0,
+//                         pointHoverRadius: 0,
 
-                        datalabels:
-                        {
-                            display: false
-                        }
-                    }
-                ]
-            },
+//                         fill: false,
 
-            options:
-            {
-                responsive: true,
-                maintainAspectRatio: false,
+//                         datalabels:
+//                         {
+//                             display: false
+//                         }
+//                     }
+//                 ]
+//             },
 
-                layout:
-                {
-                    padding:
-                    {
-                        left: 10,
-                        right: 10,
-                        top: 25,
-                        bottom: 5
-                    }
-                },
+//             options:
+//             {
+//                 responsive: true,
+//                 maintainAspectRatio: false,
 
-                plugins:
-                {
-                    legend:
-                    {
-                        display: false
-                    },
+//                 layout:
+//                 {
+//                     padding:
+//                     {
+//                         left: 0,
+//                         right: 0,
+//                         top: 10,
+//                         bottom:0
+//                     }
+//                 },
 
-                    tooltip:
-                    {
-                        enabled: true
-                    }
-                },
+//                 plugins:
+//                 {
+//                     legend:
+//                     {
+//                         display: false
+//                     },
 
-                scales:
-                {
-                     x:
-                        {
-                            offset: false,
+//                     tooltip:
+//                     {
+//                         enabled: true
+//                     }
+//                 },
 
-                            ticks:
-                            {
-                                display: false
-                            },
+//                 scales:
+//                 {
+//                      x:
+//                         {
+//                             offset: false,
 
-                            grid:
-                            {
-                                display: false
-                            },
+//                             ticks:
+//                             {
+//                                 display: false
+//                             },
 
-                            border:
-                            {
-                                display: true,
-                                width: 2,
-                                color: "rgba(239,242,247,1)"
-                            }
-                        },
+//                             grid:
+//                             {
+//                                 display: false
+//                             },
 
-                    y:
+//                             border:
+//                             {
+//                                 display: true,
+//                                 width: 2,
+//                                 color: "rgba(239,242,247,1)"
+//                             }
+//                         },
 
-                        {
-                            ticks:
-                            {
-                                display: false,
-                                stepSize: 25
-                            },
+//                     y:
 
-                            grid:
-                            {
-                                // color: "rgba(0,0,0,0.05)",
+//                         {
+//                             ticks:
+//                             {
+//                                 display: false,
+//                                 stepSize: 25
+//                             },
 
-                                color: "rgba(239,242,247,1)",
-                                drawTicks: false
-                            },
+//                             grid:
+//                             {
+//                                 // color: "rgba(0,0,0,0.05)",
 
-                            border:
-                            {
-                                display: true,
-                                z: 10,
-                                width: 2,
-                                color: "rgba(239,242,247,1)"
-                            }
-                        },
+//                                 color: "rgba(239,242,247,1)",
+//                                 drawTicks: false
+//                             },
 
-                    y1:
-                    {
-                        type: "linear",
-                        position: "right",
-                        display: false,
+//                             border:
+//                             {
+//                                 display: true,
+//                                 z: 10,
+//                                 width: 2,
+//                                 color: "rgba(239,242,247,1)"
+//                             }
+//                         },
 
-                        grid:
-                        {
-                            drawOnChartArea: false,
-                            drawBorder: false
-                        }
-                    }
-                }
-            }
-        });
-    }
-});
+//                     y1:
+//                     {
+//                         type: "linear",
+//                         position: "right",
+//                         display: false,
+
+//                         grid:
+//                         {
+//                             drawOnChartArea: false,
+//                             drawBorder: false
+//                         }
+//                     }
+//                 }
+//             }
+//         });
+//     }
+// });
 
 
 /* Kruhový graf */
@@ -1101,3 +1102,294 @@ const options3 = {
 };
 
 new ApexCharts(document.querySelector("#piechart3"), options3).render();
+
+
+/* 12.6.2026 První graf */
+
+let capacityChart;
+
+function createChart(size)
+{
+
+    let paddingTop;
+    let paddingBottom;
+
+    if (size === "wide")
+    {
+        paddingTop = 24;
+        console.log("Wide padding-top: " + paddingTop);
+        paddingBottom = 4;
+        console.log("Wide paddingBottom: " + paddingBottom);
+    }
+    else if (size === "normal")
+    {
+        paddingTop = 18;
+        console.log("normal padding-top: " + paddingTop);
+        paddingBottom = 2;
+        console.log("Wide paddingBottom: " + paddingBottom)
+    }
+    else if (size === "medium")
+    {
+        paddingTop = 15;
+        console.log("medium padding-top: " + paddingTop);
+
+    }
+    else if (size === "small")
+    {
+        paddingTop = 5;
+        console.log("small padding-top: " + paddingTop);
+    }
+
+
+    const chartData = window.chartData;
+    const chartCanvas = document.getElementById("capacityChart");
+
+    if (chartCanvas && chartData)
+    {
+        capacityChart = new Chart(chartCanvas,
+        {
+            type: "line",
+
+            plugins: [ChartDataLabels],
+
+            data:
+            {
+                labels: chartData.labels,
+
+                datasets:
+                [
+                    {
+                        label: "Obsazenost",
+                        data: chartData.values,
+
+                        yAxisID: "y",
+
+                        borderColor: "#357fab",
+                        backgroundColor: "#357fab",
+
+                        borderWidth: 2,
+
+                        tension: 0.45,
+                        cubicInterpolationMode: "monotone",
+
+                        pointRadius: function(context)
+                        {
+                            const lastIndex = context.dataset.data.length - 1;
+
+                            return (
+                                context.dataIndex === 0 ||
+                                context.dataIndex === lastIndex
+                            )
+                            ? 0
+                            : 3.5;
+                        },
+
+                        pointHoverRadius: function(context)
+                        {
+                            const lastIndex = context.dataset.data.length - 1;
+
+                            return (
+                                context.dataIndex === 0 ||
+                                context.dataIndex === lastIndex
+                            )
+                            ? 0
+                            : 3.5;
+                        },
+
+                        pointBackgroundColor: "#3f7fb5",
+                        pointBorderColor: "#3f7fb5",
+                        pointBorderWidth: 0,
+
+                        fill: false,
+
+                        datalabels:
+                        {
+                            align: "top",
+                            anchor: "end",
+                            color: "#7f7f8c",
+                            offset: 1,
+
+                            font:
+                            {
+                                family: "Montserrat",
+                                size: 8,
+                                weight: "600"
+                            },
+
+                            formatter: function(value, context)
+                            {
+                                const lastIndex = context.dataset.data.length - 1;
+
+                                if (
+                                    context.dataIndex === 0 ||
+                                    context.dataIndex === lastIndex
+                                )
+                                {
+                                    return null;
+                                }
+
+                                return value;
+                            }
+                        }
+
+                    },
+
+                    {
+                        label: "Kapacita",
+                        data: chartData.values2,
+
+                        yAxisID: "y1",
+
+                        borderColor: "#d4a373",
+                        backgroundColor: "#d4a373",
+
+                        borderWidth: 2,
+
+                        tension: 0.45,
+                        cubicInterpolationMode: "monotone",
+
+                        pointRadius: 0,
+                        pointHoverRadius: 0,
+
+                        fill: false,
+
+                        datalabels:
+                        {
+                            display: false
+                        }
+                    }
+                ]
+            },
+
+            options:
+            {
+                responsive: true,
+                maintainAspectRatio: false,
+
+                layout:
+                {
+                    padding:
+                    {
+                        left: 0,
+                        right: 0,
+                        top: paddingTop,
+                        bottom:paddingBottom
+                    }
+                },
+
+                plugins:
+                {
+                    legend:
+                    {
+                        display: false
+                    },
+
+                    tooltip:
+                    {
+                        enabled: true
+                    }
+                },
+
+                scales:
+                {
+                     x:
+                        {
+                            offset: false,
+
+                            ticks:
+                            {
+                                display: false
+                            },
+
+                            grid:
+                            {
+                                display: false
+                            },
+
+                            border:
+                            {
+                                display: true,
+                                width: 2,
+                                color: "rgba(239,242,247,1)"
+                            }
+                        },
+
+                    y:
+
+                        {
+                            ticks:
+                            {
+                                display: false,
+                                stepSize: 25
+                            },
+
+                            grid:
+                            {
+                                // color: "rgba(0,0,0,0.05)",
+
+                                color: "rgba(239,242,247,1)",
+                                drawTicks: false
+                            },
+
+                            border:
+                            {
+                                display: true,
+                                z: 10,
+                                width: 2,
+                                color: "rgba(239,242,247,1)"
+                            }
+                        },
+
+                    y1:
+                    {
+                        type: "linear",
+                        position: "right",
+                        display: false,
+
+                        grid:
+                        {
+                            drawOnChartArea: false,
+                            drawBorder: false
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+
+function getBreakpoint()
+{
+    const w = window.innerWidth;
+
+    if (w >= 1920) return "wide";
+    if (w >= 1400) return "normal";
+    if (w >= 1200) return "medium";
+
+    return "small";
+}
+
+let currentBreakpoint = getBreakpoint();
+
+document.addEventListener("DOMContentLoaded", function ()
+{
+    createChart(currentBreakpoint);
+});
+
+window.addEventListener("resize", () =>
+{
+    const newBreakpoint = getBreakpoint();
+
+    if (newBreakpoint !== currentBreakpoint)
+    {
+        currentBreakpoint = newBreakpoint;
+
+        if (capacityChart)
+        {
+            capacityChart.destroy();
+        }
+
+        createChart(newBreakpoint);
+    }
+
+});
