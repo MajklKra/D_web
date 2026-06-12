@@ -1,7 +1,7 @@
 
-__version__ = "1.1.83"
+__version__ = "1.1.84"
 
-# DBC-row1-welcomeC od 1200px responsivity
+# DBC-row1-welcomeC responsivity
 
 # Jedná se o tuto produkční verzi č. ----
 

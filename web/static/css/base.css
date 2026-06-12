@@ -2803,7 +2803,7 @@ body
 
   margin-bottom: 4px;
 
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 
 #DBC-row1-welcomeC-s2, #DBC-row1-welcomeC-s3
@@ -2816,7 +2816,7 @@ body
 
   /* line-height: 1.4; */
 
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
 }
 
 #DBC-row1-capC-descC
@@ -6126,7 +6126,10 @@ body
   #DBC-row1-welcomeC-s1
   {
 
-    font-size:      14px;
+    /* font-size:      14px; */
+
+    font-size: clamp(14px,calc(14px + (100vw - 992px) * 0.01449),17px);
+
     margin-bottom:  2px;
 
   }
@@ -6141,9 +6144,15 @@ body
 
   #DBC-row1-welcomeC
   {
-    padding-left: 9px;
+    /* padding-left: 9px; */
+
+    padding-left: clamp(9px,calc(9px + (100vw - 992px) * 0.00483),10px);
+
     padding-right: 10px;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
+
+    padding-bottom: clamp(10px,calc(10px + 5 * ((100vw - 992px) / 207)),15px);
+
   }
 
 }
