@@ -1,7 +1,7 @@
 
 __version__ = "1.1.88"
 
-# DBC-row1-capC from 992px first draft
+# DBC-row1-capC made to responsive first draft
 
 # Jedná se o tuto produkční verzi č. ----
 
