@@ -1,7 +1,7 @@
 
-__version__ = "1.1.86"
+__version__ = "1.1.87"
 
-# DBC-row1-capC from 1921px first draft
+# DBC-row1-capC from 1200px first draft
 
 # Jedná se o tuto produkční verzi č. ----
 

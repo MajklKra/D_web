@@ -6298,10 +6298,40 @@ body
 @media (min-width: 1200px) and (max-width: 1399px)
 {
 
+  #DBC-row1-capC-descC
+  {
+    padding-top: 8px;
+
+    width: 27%;
+  }
+
+  #DBC-row1-capC-descC-s1
+  {
+
+    font-size: 9px;
+    margin: 0px;
+    padding-left: 9px;
+
+  }
+
+  #DBC-row1-capC-descC-s2
+  {
+
+    margin: 0px;
+    font-size: 7px;
+    color: rgba(128,128,141,1);
+    padding-left: 9px;
+
+    margin-top: 1px;
+
+  }
+
   #DBC-row1-capC-graph
   {
     padding-right:  20px;
     padding-left:   9px;
+
+    width: 73%;
 
   }
 
@@ -6314,6 +6344,8 @@ body
   #DBC-row1-capC-descC
   {
     padding-top: 10px;
+
+    width: 27%;
   }
 
   #DBC-row1-capC-descC-s1
@@ -6339,11 +6371,13 @@ body
 
   #DBC-row1-capC-graph
   {
-    padding-right:  23px;
+    padding-right:  22px;
     padding-left:   11px;
 
     /* padding-top: 23px;
     padding-bottom: 11px; */
+
+    width: 73%;
 
   }
 
