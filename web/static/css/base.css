@@ -6286,10 +6286,41 @@ body
 @media (min-width: 992px) and (max-width: 1199px)
 {
 
+  #DBC-row1-capC-descC
+  {
+
+    padding-top: 8px;
+    width: 24%;
+
+  }
+
+  #DBC-row1-capC-descC-s1
+  {
+
+    font-size: 8px;
+    margin: 0px;
+    padding-left: 7px;
+
+  }
+
+  #DBC-row1-capC-descC-s2
+  {
+
+    margin: 0px;
+    font-size: 6px;
+    color: rgba(128,128,141,1);
+    padding-left: 7px;
+
+  }
+
   #DBC-row1-capC-graph
   {
+
     padding-right:  20px;
-    padding-left:   9px;
+    padding-left:   0px;
+
+    width: 76%;
+
   }
 
 }
