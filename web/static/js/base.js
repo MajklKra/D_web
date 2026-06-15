@@ -1136,7 +1136,7 @@ function createChart(size)
     }
     else if (size === "small")
     {
-        paddingTop = 5;
+        paddingTop = 11;
         console.log("small padding-top: " + paddingTop);
     }
 

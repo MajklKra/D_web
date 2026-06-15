@@ -1,12 +1,12 @@
 
-__version__ = "1.1.85"
+__version__ = "1.1.86"
 
-# #DBC-row1-capC-graph settings for 1200px
+# DBC-row1-capC from 1921px first draft
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        12.6.2026
+# Datum:        15.6.2026
 
 
 

@@ -2822,10 +2822,10 @@ body
 #DBC-row1-capC-descC
 {
   background-color: aqua;
-  width:  27%;
+  /* width:  27%; */
   height: 100%;
 
-  padding-top: 14px;
+  /* padding-top: 14px; */
 
   display: flex;
   flex-direction: column;
@@ -2836,12 +2836,12 @@ body
 
 #DBC-row1-capC-graph
 {
-  width:  73%;
+  /* width:  73%; */
   height: 100%;
 
   background-color: coral;
 
-  padding-right: 30px;
+  /* padding-right: 30px; */
 }
 
 #DBC-row1-capC-descC-s1
@@ -6349,6 +6349,8 @@ body
 
 }
 
+/* Prozatím vyřešeno */
+
 /* počítačová obrazovka */
 @media (min-width: 1921px)
 {
@@ -6356,6 +6358,9 @@ body
   #DBC-row1-capC-descC
   {
     padding-top: 14px;
+
+    width: 27%;
+
   }
 
   #DBC-row1-capC
@@ -6385,8 +6390,11 @@ body
 
   #DBC-row1-capC-graph
   {
-    padding-right: 30px;
-    padding-left: 15px;
+    padding-right:  30px;
+    padding-left:   15px;
+
+    width: 73%;
+
 
     /* padding-top: 23px;
     padding-bottom: 11px; */
