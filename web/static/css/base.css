@@ -6127,7 +6127,9 @@ body
 
     /* font-size:      12px; */
 
-    font-size: clamp(12px,calc(17px - 5 * ((100vw - 922px) / 277)),17px);
+    /* font-size: clamp(12px,calc(17px - 5 * ((100vw - 922px) / 277)),17px); */
+
+    font-size: clamp(12px,calc(12px + 5 * ((100vw - 992px) / 207)),17px);
 
     /* font-size: clamp(14px,calc(14px + (100vw - 992px) * 0.01449),17px); */
 
@@ -6161,7 +6163,11 @@ body
 
     /* padding-bottom: clamp(15px,calc(15px + 15 * ((100vw - 992px) / 928)),30px); */
 
-    padding-bottom: clamp(10px,calc(10px + 10 * ((100vw - 992px) / 207)),20px);
+    /* padding-bottom: clamp(10px,calc(10px + 10 * ((100vw - 992px) / 207)),20px); */
+
+    /* padding-bottom: clamp(15px,calc(15px + 5 * ((100vw - 992px) / 207)),20px); */
+
+    padding-bottom: 15px;
   }
 
 }
