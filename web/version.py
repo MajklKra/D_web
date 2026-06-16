@@ -1,7 +1,7 @@
 
-__version__ = "1.1.91"
+__version__ = "1.1.93"
 
-# DBC-row1-welcomeC responsive
+# DBC-row1-welcomeC-s1 limit for length of name added
 
 # Jedná se o tuto produkční verzi č. ----
 

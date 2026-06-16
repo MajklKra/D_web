@@ -2804,6 +2804,12 @@ body
   margin-bottom: 4px;
 
   /* background-color: yellow; */
+
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
 }
 
 #DBC-row1-welcomeC-s2, #DBC-row1-welcomeC-s3
