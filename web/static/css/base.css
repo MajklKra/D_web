@@ -2342,6 +2342,7 @@ body
 #DBC-row1-dateC
 {
   height: 100%;
+
   /* width: 347px; */
 
   width: 22.8%;
@@ -2624,7 +2625,7 @@ body
 
   display:          flex;
   flex-direction:   row;
-  justify-content:  start;
+  justify-content:  center;
   align-items:      center;
 
   /* font-size:        59px; */
@@ -2684,6 +2685,8 @@ body
   text-overflow: ellipsis;
 
   /* padding-left: 17px; */
+
+  text-align: start;
 
   width: 100%;
   max-width: 100%;
@@ -2774,6 +2777,11 @@ body
 
   margin: 0px;
   padding: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #DBC-row1-dateC-timeC-colon
@@ -2782,6 +2790,11 @@ body
   /* background-color: yellow; */
   margin: 0px;
   padding: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #DBC-row1-dateC-timeC-minutes
@@ -2791,10 +2804,16 @@ body
   margin: 0px;
   padding: 0px;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 #DBC-row1-welcomeC-s1
 {
+
   margin: 0px;
   font-size: 25px;
   font-family: 'Montserrat';
@@ -5565,7 +5584,7 @@ body
 
 /* Experimenty 8.6.2026 */
 
-/* DateC */
+/* DBC-row1-dateC-timeC */
 
 /* tablet*/
 @media (min-width: 768px) and (max-width: 991px)
@@ -5583,88 +5602,11 @@ body
     /* padding-top:  9px; */
 
 
-    padding-top: clamp(9px, calc(9px + 4 * ((100vw - 992px) / 208)), 13px);
+    /* padding-top: clamp(9px, calc(9px + 4 * ((100vw - 992px) / 208)), 13px);
 
-    /* padding-left: 11px; */
+    /* padding-left: 11px;
 
-    padding-left: clamp(11px, calc(11px + 4 * ((100vw - 992px) / 207)), 15px);
-
-    font-size: clamp(29px, calc(29px + 7 * ((100vw - 992px) / 207)), 36px);
-
-  }
-}
-
-/* počítačová obrazovka */
-@media (min-width: 1200px) and (max-width: 1399px)
-{
-
-  #DBC-row1-dateC-timeC
-  {
-
-    /* font-size:    36px; */
-
-    font-size: clamp(36px, calc(36px + 6 * ((100vw - 1200px) / 199)), 42px);
-
-    padding-top:  13px;
-    padding-left: 15px;
-  }
-
-}
-
-/* počítačová obrazovka */
-@media (min-width: 1400px) and (max-width: 1920px)
-{
-
-
-  #DBC-row1-dateC-timeC
-  {
-    /* font-size:    42px; */
-    /* padding-top:  13px; */
-    /* padding-left: 16px; */
-
-    padding-top: clamp(13px,calc(13px + 6 * ((100vw - 1400px) / 520)),19px);
-    padding-left: clamp(16px,calc(16px + 3 * ((100vw - 1400px) / 520)),19px);
-    font-size: clamp(42px,calc(42px + 17 * ((100vw - 1400px) / 520)),59px);
-  }
-}
-
-@media (min-width: 1921px)
-{
-
-  #DBC-row1-dateC-timeC
-  {
-    font-size:    59px;
-    padding-top:  19px;
-    padding-left: 24px;
-  }
-
-}
-
-/* Experimenty 8.6.2026 */
-
-/* DateC */
-
-/* tablet*/
-@media (min-width: 768px) and (max-width: 991px)
-{
-}
-
-/* počítačová obrazovka */
-@media (min-width: 992px) and (max-width: 1199px)
-{
-
-  #DBC-row1-dateC-timeC
-  {
-    /* font-size:    29px; */
-
-    /* padding-top:  9px; */
-
-
-    padding-top: clamp(9px, calc(9px + 4 * ((100vw - 992px) / 208)), 13px);
-
-    /* padding-left: 11px; */
-
-    padding-left: clamp(11px, calc(11px + 4 * ((100vw - 992px) / 207)), 15px);
+    padding-left: clamp(11px, calc(11px + 4 * ((100vw - 992px) / 207)), 15px); */
 
     font-size: clamp(29px, calc(29px + 7 * ((100vw - 992px) / 207)), 36px);
 
@@ -5682,8 +5624,8 @@ body
 
     font-size: clamp(36px, calc(36px + 6 * ((100vw - 1200px) / 199)), 42px);
 
-    padding-top:  13px;
-    padding-left: 15px;
+    /* padding-top:  13px;
+    padding-left: 15px; */
   }
 
 }
@@ -5692,14 +5634,15 @@ body
 @media (min-width: 1400px) and (max-width: 1920px)
 {
 
+
   #DBC-row1-dateC-timeC
   {
     /* font-size:    42px; */
     /* padding-top:  13px; */
     /* padding-left: 16px; */
 
-    padding-top: clamp(13px,calc(13px + 6 * ((100vw - 1400px) / 520)),19px);
-    padding-left: clamp(16px,calc(16px + 3 * ((100vw - 1400px) / 520)),19px);
+    /* padding-top: clamp(13px,calc(13px + 6 * ((100vw - 1400px) / 520)),19px);
+    padding-left: clamp(16px,calc(16px + 3 * ((100vw - 1400px) / 520)),19px); */
     font-size: clamp(42px,calc(42px + 17 * ((100vw - 1400px) / 520)),59px);
   }
 }
@@ -5710,8 +5653,8 @@ body
   #DBC-row1-dateC-timeC
   {
     font-size:    59px;
-    padding-top:  19px;
-    padding-left: 24px;
+    /* padding-top:  19px; */
+    /* padding-left: 24px; */
   }
 
 }
@@ -5741,7 +5684,7 @@ body
 
     /* padding-left: 5px; */
 
-    padding-left: clamp(5px,calc(5px + (31 - 5) * ((100vw - 992px) / (1199 - 992))),31px);
+    /* padding-left: clamp(5px,calc(5px + (31 - 5) * ((100vw - 992px) / (1199 - 992))),31px); */
 
     /* padding-left: clamp(5px,calc(5px + 13 * ((100vw - 992px) / 207)),18px); */
   }
@@ -5751,7 +5694,7 @@ body
 
     /* padding-left: 4px; */
 
-    padding-left: clamp(4px,calc(4px + (31 - 4) * ((100vw - 992px) / (1199 - 992))),31px);
+    /* padding-left: clamp(4px,calc(4px + (31 - 4) * ((100vw - 992px) / (1199 - 992))),31px); */
 
     /* padding-left: clamp(4px,calc(4px + 13 * ((100vw - 992px) / 207)),17px); */
 
@@ -5805,12 +5748,12 @@ body
 
   #DBC-row1-dateC-weatherC
   {
-    width: 55%;
+    width: 40%;
   }
 
   #DBC-row1-dateC-timeC
   {
-    width:     45%;
+    width:     60%;
   }
 
 }
@@ -5835,7 +5778,7 @@ body
 
     font-size: clamp(10px,calc(10px + 2 * ((100vw - 1200px) / 199)),12px);
 
-    padding-left: 21px;
+    /* padding-left: 21px; */
 
     /* padding-left: clamp(15px,calc(18px - 3 * ((100vw - 1200px) / 199)),18px); */
 
@@ -5844,7 +5787,7 @@ body
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
   {
 
-    padding-left: 21px;
+    /* padding-left: 21px; */
 
     /* padding-left: clamp(14px,calc(17px - 3 * ((100vw - 1200px) / 199)),17px); */
 
@@ -5901,18 +5844,22 @@ body
 
   #DBC-row1-dateC-weatherC
   {
-    width: 50%;
+    /* width:    45%; */
+
+    width: 37%;
   }
 
   #DBC-row1-dateC-timeC
   {
-    width:    50%;
+     /* width:    55%; */
+
+     width: 63%;
   }
 
 }
 
 /* počítačová obrazovka */
- @media (min-width: 1400px) and (max-width: 1920px)
+@media (min-width: 1400px) and (max-width: 1920px)
 {
 
   #DBC-row1-dateC-weatherC-nameC
@@ -5924,7 +5871,7 @@ body
 
     /* padding-left: 17px; */
 
-    /* max-width: 114px;
+    /* max-width: 114px; */
     min-width: 0;
   }
 
@@ -5935,7 +5882,7 @@ body
 
     font-size: clamp(12px, calc(12px + 4 * ((100vw - 1400px) / 520)), 16px);
 
-    padding-left: 20px;
+    /* padding-left: 20px; */
 
     /* padding-left: clamp(15px, calc(15px + 2 * ((100vw - 1400px) / 520)), 17px); */
 
@@ -5943,7 +5890,7 @@ body
 
   #DBC-row1-dateC-weatherC-weatherC-weatherWrap
   {
-    padding-left: 20px;
+    /* padding-left: 20px; */
 
     /*  padding-left: clamp(14px, calc(14px + 1 * ((100vw - 1400px) / 520)), 15px); */
   }
@@ -5995,12 +5942,15 @@ body
 
   #DBC-row1-dateC-weatherC
   {
-    width:    50%;
+    /* width:    45%; */
+    width: 40%;
   }
 
   #DBC-row1-dateC-timeC
   {
-    width:    50%;
+    /* width:    55%; */
+
+    width: 60%;
   }
 
 }
@@ -6010,7 +5960,7 @@ body
 
   #DBC-row1-dateC-weatherC
   {
-    width: 45%;
+    width: 37%;
   }
 
   #DBC-row1-dateC-weatherC-nameC
@@ -6029,21 +5979,9 @@ body
   #DBC-row1-dateC-weatherC-nameC-span
   {
     font-size:    16px;
-    font-weight:  600;
-    font-family:  'Montserrat';
-    color:        #ced8ce;
 
-    display: block;
+    /* padding-left: 17px; */
 
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-
-    padding-left: 17px;
-
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
   }
 
   #DBC-row1-dateC-weatherC-weatherC
@@ -6070,8 +6008,7 @@ body
     justify-content: start;
     align-items: center;
 
-    padding-left: 17px;
-
+    /* padding-left: 17px; */
   }
 
   #DBC-row1-dateC-weatherC-weatherC-thermometer
@@ -6118,7 +6055,7 @@ body
 
   #DBC-row1-dateC-timeC
   {
-    width:    55%;
+    width:    63%;
   }
 
 }
