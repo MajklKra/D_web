@@ -1,7 +1,7 @@
 
-__version__ = "1.1.94"
+__version__ = "1.1.96"
 
-# DBC-row1 completed.
+# DBC-row2-patientC from 1400px first draft.
 
 # Jedná se o tuto produkční verzi č. ----
 
