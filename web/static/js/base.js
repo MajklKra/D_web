@@ -1113,6 +1113,8 @@ function createChart(size)
 
     let paddingTop;
     let paddingBottom;
+    let pointsize;
+    let fontsize;
 
     if (size === "wide")
     {
@@ -1120,6 +1122,10 @@ function createChart(size)
         console.log("Wide padding-top: " + paddingTop);
         paddingBottom = 4;
         console.log("Wide paddingBottom: " + paddingBottom);
+        pointsize = 3.5;
+        console.log("Wide pointsize: " + pointsize);
+        fontsize = 8;
+        console.log("Wide fontsize: " + fontsize);
     }
     else if (size === "normal")
     {
@@ -1127,17 +1133,28 @@ function createChart(size)
         console.log("normal padding-top: " + paddingTop);
         paddingBottom = 2;
         console.log("Wide paddingBottom: " + paddingBottom)
+        pointsize = 3;
+        console.log("Wide pointsize: " + pointsize);
+        fontsize = 6;
+        console.log("Wide fontsize: " + fontsize);
     }
     else if (size === "medium")
     {
         paddingTop = 15;
         console.log("medium padding-top: " + paddingTop);
-
+        pointsize = 2;
+        console.log("Wide pointsize: " + pointsize);
+        fontsize = 6;
+        console.log("Wide fontsize: " + fontsize);
     }
     else if (size === "small")
     {
         paddingTop = 11;
         console.log("small padding-top: " + paddingTop);
+        pointsize = 2;
+        console.log("Wide pointsize: " + pointsize);
+        fontsize = 4;
+        console.log("Wide fontsize: " + fontsize);
     }
 
 
@@ -1181,7 +1198,7 @@ function createChart(size)
                                 context.dataIndex === lastIndex
                             )
                             ? 0
-                            : 3.5;
+                            : pointsize;
                         },
 
                         pointHoverRadius: function(context)
@@ -1193,7 +1210,7 @@ function createChart(size)
                                 context.dataIndex === lastIndex
                             )
                             ? 0
-                            : 3.5;
+                            : pointsize;
                         },
 
                         pointBackgroundColor: "#3f7fb5",
@@ -1212,7 +1229,7 @@ function createChart(size)
                             font:
                             {
                                 family: "Montserrat",
-                                size: 8,
+                                size: fontsize,
                                 weight: "600"
                             },
 
