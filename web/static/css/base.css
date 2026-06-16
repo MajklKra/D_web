@@ -6125,9 +6125,11 @@ body
   #DBC-row1-welcomeC-s1
   {
 
-    /* font-size:      14px; */
+    /* font-size:      12px; */
 
-    font-size: clamp(14px,calc(14px + (100vw - 992px) * 0.01449),17px);
+    font-size: clamp(12px,calc(17px - 5 * ((100vw - 922px) / 277)),17px);
+
+    /* font-size: clamp(14px,calc(14px + (100vw - 992px) * 0.01449),17px); */
 
     margin-bottom:  2px;
 
@@ -6136,7 +6138,11 @@ body
   #DBC-row1-welcomeC-s2, #DBC-row1-welcomeC-s3
   {
 
-    font-size:   9px;
+    /* font-size:   8px; */
+
+
+    font-size: clamp(8px,calc(8px + (9 - 8) * ((100vw - 992px) / 207)),9px);
+
     line-height: 1.2;
 
   }
@@ -6147,11 +6153,15 @@ body
 
     padding-left: clamp(9px,calc(9px + (100vw - 992px) * 0.00483),10px);
 
-    padding-right: 10px;
+    padding-right: 5px;
+
     /* padding-bottom: 10px; */
 
-    padding-bottom: clamp(10px,calc(10px + 5 * ((100vw - 992px) / 207)),15px);
+    /* padding-bottom: clamp(10px,calc(10px + 5 * ((100vw - 992px) / 207)),15px); */
 
+    /* padding-bottom: clamp(15px,calc(15px + 15 * ((100vw - 992px) / 928)),30px); */
+
+    padding-bottom: clamp(10px,calc(10px + 10 * ((100vw - 992px) / 207)),20px);
   }
 
 }
@@ -6163,10 +6173,11 @@ body
  #DBC-row1-welcomeC-s1
   {
 
-    /* font-size: 17px; */
+    /* font-size: 17px;  */
 
     font-size: clamp(17px,calc(17px + (100vw - 1200px) * 2 / 199),19px);
-    /* margin-bottom: 3px; */
+
+    /* margin-bottom: 3px;  */
 
     margin-bottom: clamp(2px,calc(3px - (100vw - 1200px) / 199),3px);
 
@@ -6189,11 +6200,11 @@ body
 
     padding-left: clamp(10px,calc(10px + (100vw - 1200px) * 3 / 199),13px);
 
-    /* padding-right: 10px; */
+    /* padding-right: 10px;  */
 
     padding-right: clamp(10px,calc(10px + (100vw - 1200px) * 3 / 199),13px);
 
-    /* padding-bottom: 15px; */
+    /* padding-bottom: 15px;  */
 
     padding-bottom: clamp(15px, calc(15px + (100vw - 1200px) / 199), 16px);
   }
