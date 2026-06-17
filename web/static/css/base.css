@@ -2462,9 +2462,9 @@ body
   justify-content: center;
   align-items: center;
 
-  padding-left: 18px;
+  /* padding-left: 18px;
   padding-top: 15px;
-  padding-right: 32px;
+  padding-right: 32px; */
 
   background-color: white;
 
@@ -3022,7 +3022,7 @@ body
    width: 100%;
    height: 20%;
 
-   /* background-color: brown; */
+   background-color: brown;
 
    display: flex;
    flex-direction: row;
@@ -3035,7 +3035,7 @@ body
   width: 100%;
   height: 80%;
 
-  /* background-color: crimson; */
+  background-color: crimson;
 
   display: flex;
   flex-direction: row;
@@ -3049,15 +3049,15 @@ body
   width: 74%;
   height: 100%;
 
-  /* background-color: chartreuse; */
+  background-color: chartreuse;
 
   font-size: 111px;
   font-family: 'Montserrat';
   font-weight: 800;
   color: #357fab;
 
-  padding-left: 11px;
-  padding-top: 10px;
+  /* padding-left: 11px;
+  padding-top: 10px; */
 
 }
 
@@ -3066,7 +3066,7 @@ body
   width: 26%;
   height: 100%;
 
-  /* background-color: orange; */
+  background-color: orange;
 
   display: flex;
   flex-direction: column;
@@ -3074,7 +3074,7 @@ body
   justify-content: start;
   align-items: center;
 
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 
@@ -3082,16 +3082,18 @@ body
 {
    width: 100%;
    height: 26.5%;
+   background-color: deeppink;
 
-   /* background-color: deeppink; */
+   margin: 0px;
 }
 
 #DBC-row2-bedC-countC-beds-XY
 {
   width: 100%;
   height: 26.5%;
+  background-color: yellow;
 
-  /* background-color: yellow; */
+  margin: 0px;
 
 }
 
@@ -3099,7 +3101,9 @@ body
 {
   width: 100%;
   height: 26.5%;
-  /* background-color: yellowgreen; */
+  background-color: yellowgreen;
+
+  margin: 0px;
 }
 
 
@@ -3108,9 +3112,9 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  /* background-color: black; */
+  background-color: black;
 
-  font-size: 12px;
+  /* font-size: 12px; */
   font-family: 'Montserrat';
   font-weight: 600;
   color: #6b7280;
@@ -3125,9 +3129,9 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  /* background-color: brown; */
+  background-color: brown;
 
-  font-size: 12px;
+  /* font-size: 12px; */
   font-family: 'Montserrat';
   font-weight: 800;
   color: #6b7280;
@@ -3141,9 +3145,9 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  /* background-color: yellow; */
+  background-color: yellow;
 
-  font-size: 12px;
+  /* font-size: 12px; */
   font-family: 'Montserrat';
   font-weight: 600;
   color: #6b7280;
@@ -3158,9 +3162,9 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  /* background-color: violet; */
+  background-color: violet;
 
-  font-size: 12px;
+  /* font-size: 12px; */
   font-family: 'Montserrat';
   font-weight: 800;
   color: #6b7280;
@@ -3173,9 +3177,9 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  /* background-color: orange; */
+  background-color: orange;
 
-  font-size: 12px;
+  /* font-size: 12px; */
   font-family: 'Montserrat';
   font-weight: 600;
   color: #6b7280;
@@ -3189,9 +3193,9 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  /* background-color: gray; */
+  background-color: gray;
 
-  font-size: 12px;
+  /* font-size: 12px; */
   font-family: 'Montserrat';
   font-weight: 800;
   color: #6b7280;
@@ -3202,11 +3206,11 @@ body
 
 #DBC-row2-bedC-r1-beds
 {
-  font-size: 14px;
+  /* font-size: 14px; */
   font-family: 'Montserrat';
   font-weight: 700;
   color: #6b7280;
-  /* background-color: aqua; */
+  background-color: aqua;
   height: auto;
 
   margin: 0px;
@@ -6707,4 +6711,289 @@ body
 #DBC-row3
 {
   flex-shrink: 0;
+}
+
+/* Experimenty 17.6.2026 */
+/* DBC-row2-bedC */
+
+@media (min-width: 992px) and (max-width: 1199px)
+{
+
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1200px) and (max-width: 1399px)
+{
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1400px) and (max-width: 1920px)
+{
+
+  #DBC-row2-bedC
+  {
+    padding-left:     14px;
+    padding-top:      10px;
+    padding-right:    21px;
+  }
+
+  #DBC-row2-bedC-r2-count
+  {
+
+    width: 71% !important;
+
+    font-size: 80px;
+
+    padding-left: 9px;
+    padding-top: 8px;
+
+  }
+
+  #DBC-row2-bedC-countC-beds
+  {
+    width: 29% !important;
+    padding-top: 10px;
+  }
+
+
+  #DBC-row2-bedC-countC-beds-YY
+  {
+    margin-bottom: 2px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XY
+  {
+
+    margin-bottom: 2px;
+
+  }
+
+  #DBC-row2-bedC-countC-beds-XX
+  {
+    margin-bottom: 2px;
+  }
+
+
+  #DBC-row2-bedC-countC-beds-YY-p
+  {
+    margin: 0px;
+    font-size: 9px;
+  }
+
+  #DBC-row2-bedC-countC-beds-YY-p-count
+  {
+    margin: 0px;
+    font-size: 9px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XY-p
+  {
+    margin: 0px;
+    font-size: 9px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XY-p-count
+  {
+    margin: 0px;
+    font-size: 9px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XX-p
+  {
+    margin: 0px;
+    font-size: 9px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XX-p-count
+  {
+    margin: 0px;
+    font-size: 9px;
+  }
+
+  #DBC-row2-bedC-r1-beds
+  {
+    font-size: 10px;
+    margin: 0px;
+  }
+
+  #DBC-row2-bedC-r1-menu
+  {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
+  .menu-dots
+  {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+
+      width: 20px;
+      align-items: center;
+      cursor: pointer;
+  }
+
+  .menu-dots span
+  {
+      width:  3px;
+      height: 3px;
+
+      background: #6b7280;
+      border-radius: 50%;
+  }
+
+}
+
+
+/* zatím hotovo */
+
+/* počítačová obrazovka */
+@media (min-width: 1921px)
+{
+
+  #DBC-row2-bedC
+  {
+    padding-left:     18px;
+    padding-top:      15px;
+    padding-right:    32px;
+
+    max-width:        347px !important;
+    max-height:       204px !important;
+
+  }
+
+  #DBC-row2-bedC-r2-count
+  {
+
+    width: 73% !important;
+
+    font-size: 111px;
+
+    padding-left: 11px;
+    padding-top: 10px;
+
+  }
+
+  #DBC-row2-bedC-countC-beds
+  {
+    width: 27% !important;
+    margin-top: 23px;
+  }
+
+
+  #DBC-row2-bedC-countC-beds-YY
+  {
+    /* width: 100%;
+    height: 26.5%; */
+
+    /* background-color: deeppink; */
+  }
+
+  #DBC-row2-bedC-countC-beds-XY
+  {
+    /* width: 100%;
+    height: 26.5%; */
+
+    /* background-color: yellow; */
+
+  }
+
+  #DBC-row2-bedC-countC-beds-XX
+  {
+    /* width: 100%;
+    height: 26.5%; */
+    /* background-color: yellowgreen; */
+  }
+
+
+  #DBC-row2-bedC-countC-beds-YY-p
+  {
+    margin: 0px;
+    /* width: 100%;
+    height: 50%; */
+    /* background-color: black; */
+
+    font-size: 12px;
+
+  }
+
+  #DBC-row2-bedC-countC-beds-YY-p-count
+  {
+    margin: 0px;
+    /* width: 100%;
+    height: 50%; */
+    /* background-color: brown; */
+
+    font-size: 12px;
+
+    /* height: auto; */
+
+  }
+
+  #DBC-row2-bedC-countC-beds-XY-p
+  {
+    margin: 0px;
+    /* width: 100%;
+    height: 50%; */
+    /* background-color: yellow; */
+
+    font-size: 12px;
+
+    /* height: auto; */
+
+  }
+
+
+  #DBC-row2-bedC-countC-beds-XY-p-count
+  {
+    margin: 0px;
+    /* width: 100%;
+    height: 50%; */
+    /* background-color: violet; */
+
+    font-size: 12px;
+
+    /* height: auto; */
+  }
+
+  #DBC-row2-bedC-countC-beds-XX-p
+  {
+    margin: 0px;
+    /* width: 100%;
+    height: 50%; */
+    /* background-color: orange; */
+
+    font-size: 12px;
+
+    /* height: auto; */
+
+  }
+
+  #DBC-row2-bedC-countC-beds-XX-p-count
+  {
+
+    margin: 0px;
+    /* width: 100%;
+    height: 50%; */
+    /* background-color: gray; */
+
+    font-size: 12px;
+
+    /* height: auto; */
+
+  }
+
+  #DBC-row2-bedC-r1-beds
+  {
+    font-size: 14px;
+    /* background-color: aqua; */
+
+    /* height: auto; */
+
+    margin: 0px;
+  }
+
 }
