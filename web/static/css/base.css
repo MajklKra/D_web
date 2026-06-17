@@ -6506,10 +6506,17 @@ body
   #DBC-row2-patientC
   {
 
-    padding-left:   12px;
-    padding-top:    8px;
+    /* padding-left:   12px; */
 
-    padding-right:  17px;
+    padding-left: clamp(12px,calc(12px + 3 * ((100vw - 1200px) / 199)),15px);
+
+    /* padding-top:    8px; */
+
+    padding-top: clamp(8px,calc(8px + 2 * ((100vw - 1200px) / 199)),10px);
+
+    /* padding-right:  17px; */
+
+    padding-right: clamp(17px,calc(17px + 4 * ((100vw - 1200px) / 199)),21px);
 
   }
 
@@ -6525,8 +6532,13 @@ body
 
   #DBC-row2-patientC-c2-count
   {
-    font-size: 70px;
-    padding-left: 6px;
+    /* font-size: 70px; */
+
+    font-size: clamp(70px, 9.7px + 5.03vw, 80px);
+
+    /* padding-left: 6px; */
+
+    padding-left: clamp(6px, calc(6px + (10 - 6) * ((100vw - 1200px) / (1399 - 1200))), 10px);
   }
 
   .menu-dots
@@ -6551,10 +6563,17 @@ body
   #DBC-row2-patientC
   {
 
-    padding-left:   15px;
-    padding-top:    10px;
+    /* padding-left:   15px; */
 
-    padding-right:  21px;
+    padding-left: clamp(15px,calc(-1.15px + 1.154vw),21px);
+
+    /* padding-top:    10px; */
+
+    padding-top: clamp(10px,calc(10px + 4 * ((100vw - 1400px) / 520)),14px);
+
+    /* padding-right:  21px; */
+
+    padding-right: clamp(21px,calc(21px + 11 * ((100vw - 1400px) / 520)),32px);
 
   }
 
@@ -6571,7 +6590,10 @@ body
 
   #DBC-row2-patientC-c1-patient
   {
-    font-size: 10px;
+    /* font-size: 10px; */
+
+    font-size: clamp(10px,calc(10px + 4 * ((100vw - 1400px) / 520)),14px);
+
   }
 
   #DBC-row2-patientC-c2
@@ -6581,8 +6603,13 @@ body
 
   #DBC-row2-patientC-c2-count
   {
-    font-size: 80px;
+
+    /* font-size: 80px; */
+
+    font-size: clamp(80px,calc(-3.46px + 5.96vw),111px);
+
     padding-left: 10px;
+
   }
 
   .menu-dots
@@ -6626,11 +6653,6 @@ body
     height: 20%;
   }
 
-  #DBC-row2-patientC-c2
-  {
-
-  }
-
   #DBC-row2-patientC-c1-patient
   {
     font-size: 14px;
@@ -6643,8 +6665,10 @@ body
 
   #DBC-row2-patientC-c2-count
   {
+
     font-size: 111px;
     padding-left: 10px;
+
   }
 
   .menu-dots
