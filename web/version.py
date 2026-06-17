@@ -1,7 +1,7 @@
 
-__version__ = "1.1.99"
+__version__ = "1.2.00"
 
-# DBC-row2-patientC from 1200px made responsive
+# DBC-row2-patientC made responsive
 
 # Jedná se o tuto produkční verzi č. ----
 

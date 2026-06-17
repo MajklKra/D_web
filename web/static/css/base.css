@@ -6443,33 +6443,46 @@ body
   #DBC-row2-patientC
   {
 
-    padding-left:   10px;
-    padding-top:    7px;
+    /* padding-left:   10px; */
 
-    padding-right:  11px;
+    padding-left: clamp(10px,calc(10px + 2 * ((100vw - 992px) / 207)),12px);
+
+    /* padding-top:    7px; */
+
+    padding-top: clamp(7px,calc(7px + (100vw - 992px) / 207),8px);
+
+    /* padding-right:  11px; */
+
+    padding-right: clamp(11px,calc(11px + 6 * ((100vw - 992px) / 207)),17px);
 
   }
 
-  /* #DBC-row2-patientC-c1
-  {
-    height: 14% !important;
-    background-color: burlywood !important;
-  } */
-
   #DBC-row2-patientC-c1-patient
   {
-    font-size: 7px;
+    /* font-size: 7px; */
+
+    font-size: clamp(7px,calc(7px + 3 * ((100vw - 992px) / 207)),10px);
   }
 
   #DBC-row2-patientC-c2
   {
-    padding-top: 8px;
+    /* padding-top: 8px; */
+
+    padding-top: clamp(5px,calc(8px - 3 * ((100vw - 992px) / 207)),8px);
+
   }
 
   #DBC-row2-patientC-c2-count
   {
-    font-size: 55px;
-    padding-left: 5px;
+
+    /* font-size: 55px; */
+
+    font-size: clamp(55px,calc(55px + 15 * ((100vw - 992px) / 207)),70px);
+
+    /* padding-left: 5px; */
+
+    padding-left: clamp(5px,calc(5px + (100vw - 992px) / 207),6px);
+
   }
 
   .menu-dots
@@ -6493,7 +6506,6 @@ body
     outline: none;
 
     padding-top: 0px;
-
   }
 
 
