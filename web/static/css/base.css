@@ -2915,7 +2915,7 @@ body
   justify-content: space-between;
   align-items: start;
 
-  background-color: red;
+  /* background-color: red; */
 }
 
 #DBC-row2-patientC-c2
@@ -2936,7 +2936,7 @@ body
   font-weight: 700;
   color: #80808d;
 
-  background-color: chocolate;
+  /* background-color: chocolate; */
 
   margin: 0px;
 }
@@ -2946,7 +2946,7 @@ body
   width: 100%;
   height: 80%;
 
-  background-color: yellow;
+  /* background-color: yellow; */
 
   display: flex;
   flex-direction: column;
@@ -2963,7 +2963,7 @@ body
   width: 100%;
   height: 100%;
 
-  background-color: orange;
+  /* background-color: orange; */
 
   font-size: 111px;
   font-family: 'Montserrat';
@@ -2972,12 +2972,18 @@ body
 
   margin: 0px;
 
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: start;
+  align-items: start; */
 
   padding-left: 10px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  display: block;
 
 }
 
@@ -3003,9 +3009,9 @@ body
 
 #DBC-row2-patientC-c1-menu
 {
-  background-color: brown;
+  /* background-color: brown; */
 
-  /* background-color: transparent; */
+  background-color: transparent;
 
   border: none;
   outline: none;
@@ -6379,8 +6385,6 @@ body
 
 }
 
-/* Prozatím vyřešeno */
-
 /* počítačová obrazovka */
 @media (min-width: 1921px)
 {
@@ -6501,7 +6505,6 @@ body
   #DBC-row2-patientC-c1-menu
   {
 
-    background-color: brown;
     border: none;
     outline: none;
 
