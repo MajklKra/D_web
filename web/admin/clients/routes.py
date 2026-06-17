@@ -9,6 +9,8 @@ from ...version import __version__
 
 from  web.share.s_print import s_print
 
+from  web.share.db import db_connection
+
 @admin_clients_bp.route('/home')
 def home():
 
@@ -35,6 +37,7 @@ def home():
 
         "labels": ["start", "2021", "2022", "2023", "2024", "2025", "end"],
         "values": [100, 123, 79, 163, 37, 150, 150],
+
     }
 
     percent = 25
@@ -43,7 +46,74 @@ def home():
 
     percent3 = 75
 
-    return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login, chart_data=data, percent=percent, percent2=percent2, percent3=percent3)
+    deps = session.get("e_deps")
+
+    ### SQL dotaz pro počet pacientů na mém oddělení ###
+
+    if not deps:
+        result = []
+        patientsCount = 0
+    else:
+
+        placeholders = ",".join(["%s"] * len(deps))
+
+        SQL_query = f'''
+
+            SELECT COUNT(*) AS patients_count
+            FROM
+            (
+
+                SELECT Patients.PatientID, Patients.Surname, Patients.`Name` AS PatientName, Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName,
+                Departments.DepartmentID, Departments.`Name` AS DepartmentName, Departments.NamePrefix, Rooms.RoomID, Rooms.RoomName, Rooms.RoomNumber,
+                NULL AS SubRoomID, NULL AS SubRoomName, NULL AS SubRoomNumber, Beds.BedID, Beds.BedName, Beds.BedNumber
+                FROM Patients
+                JOIN Beds ON Beds.BedID = Patients.BedID
+                JOIN Rooms ON Rooms.RoomID = Beds.RoomID
+                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
+                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+                UNION ALL
+
+                SELECT Patients.PatientID, Patients.Surname, Patients.`Name`AS PatientName ,  Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName,
+                Departments.DepartmentID, Departments.`Name` AS DepartmentName, Departments.NamePrefix, Rooms.RoomID, Rooms.RoomName, Rooms.RoomNumber,
+                SubRooms.SubRoomID, SubRooms.SubRoomName, SubRooms.SubRoomNumber, Beds.BedID, Beds.BedName, Beds.BedNumber
+                FROM Patients
+                JOIN Beds ON Beds.BedID = Patients.BedID
+                JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+                JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
+                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+            ) AS x
+            WHERE 		x.DepartmentID IN ({placeholders})
+
+        '''
+
+        result = db_connection(SQL_query, deps, one_row=False)
+
+
+        patientsCount = result[0][0]
+
+
+    view_data = {
+        "name": name,
+        "surname": surname,
+        "salutation": salutation,
+        "version": __version__,
+        "first_login": first_login,
+        "chart_data": data,
+        "percent": percent,
+        "percent2": percent2,
+        "percent3": percent3,
+        "patients_count": patientsCount,
+    }
+
+    # return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login, chart_data=data, percent=percent, percent2=percent2, percent3=percent3)
+    return render_template('base.html', data=view_data)
 
 @admin_clients_bp.route('/logout')
 def logout():

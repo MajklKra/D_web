@@ -61,8 +61,8 @@
 
                     <div id="nameC">
 
-                        <span id="userName">{{name}}</span>
-                        <span id="userSurname">{{surname}}</span>
+                        <span id="userName">{{data.name}}</span>
+                        <span id="userSurname">{{data.surname}}</span>
 
                         <!-- <svg id="personImg" viewBox="0 0 44.64 44.64"> -->
                         <svg id="personImg" viewBox="13 10 19 22">
@@ -789,7 +789,7 @@
 
                                     <div id="DBC-row1-welcomeC">
 
-                                        <p id="DBC-row1-welcomeC-s1">Ahoj {{salutation}},</p>
+                                        <p id="DBC-row1-welcomeC-s1">Ahoj {{data.salutation}},</p>
                                         <p id="DBC-row1-welcomeC-s2">vítej na stránkách informačního systému</p>
                                         <p id="DBC-row1-welcomeC-s3">Codaco Electronic s.r.o.</p>
 
@@ -837,7 +837,7 @@
                                     </div>
 
                                     <div id="DBC-row2-patientC-c2">
-                                        <p id="DBC-row2-patientC-c2-count">37</p>
+                                        <p id="DBC-row2-patientC-c2-count">{{data.patients_count}}</p>
                                     </div>
 
                                 </div>
@@ -1904,10 +1904,10 @@
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
         <script>
-            window.chartData = {{ chart_data | tojson | safe }};
-            window.percent = {{ percent | tojson | safe }};
-            window.percent2 = {{ percent2 | tojson | safe }};
-            window.percent3 = {{ percent3 | tojson | safe }};
+            window.chartData = {{ data.chart_data | tojson | safe }};
+            window.percent = {{ data.percent | tojson | safe }};
+            window.percent2 = {{ data.percent2 | tojson | safe }};
+            window.percent3 = {{ data.percent3 | tojson | safe }};
         </script>
 
         <!-- JS scripts  -->
