@@ -1,7 +1,7 @@
 
-__version__ = "1.2.28"
+__version__ = "1.2.29"
 
-# DBC-row2-bedC real data + ... added
+# DBC-row2-capC2 from 1921px
 
 # Jedná se o tuto produkční verzi č. ----
 

@@ -2477,9 +2477,9 @@ body
 
   width: 22.8%;
 
-  /* background-color:gold; */
+  background-color:gold;
 
-  background-color: white;
+  /* background-color: white; */
 
   border-radius: 10px;
   /* margin-left: 23px; */
@@ -2491,7 +2491,7 @@ body
   justify-content: start;
   align-items: center;
 
-  padding: 13px 14px;
+  /* padding: 13px 14px; */
 
 }
 
@@ -2501,7 +2501,7 @@ body
   /* width: 347px; */
   width: 22.8%;
 
-  /* background-color:yellowgreen; */
+  /* background-color:yellowgreen;  */
 
   background-color: white;
 
@@ -3239,7 +3239,7 @@ body
     width:   100%;
     height:  auto;
 
-    /* background-color: yellowgreen; */
+    background-color: yellowgreen;
 
     display:          flex;
     flex-direction:   row;
@@ -3253,7 +3253,7 @@ body
     width:  80%;
     height: auto;
 
-    /* background-color:  orange; */
+    background-color:  orange;
 
     display:          flex;
     flex-direction:   column;
@@ -3267,7 +3267,7 @@ body
     width: 100%;
     height: 50%;
 
-    /* background-color: lightblue; */
+    background-color: lightblue;
 
     margin: 0px;
 
@@ -3282,7 +3282,9 @@ body
 {
   width: 100%;
   height: 50%;
-  /* background-color: lightcoral; */
+
+  background-color: lightcoral;
+
   margin: 0px;
 
   font-size: 11px;
@@ -3298,7 +3300,8 @@ body
 {
   width:  20%;
   height: 100%;
-  /* background-color: lightcyan; */
+
+  background-color: lightcyan;
 
   display:          flex;
   flex-direction:   row;
@@ -3311,7 +3314,8 @@ body
 
   width: 100%;
   height: auto;
-  /* background-color: lightgoldenrodyellow; */
+
+  background-color: lightgoldenrodyellow;
 
 }
 
@@ -3332,9 +3336,9 @@ body
 
 #DBC-row2-capC2-row1-c2-menu
 {
-  /* background-color: red; */
+  background-color: red;
 
-  background-color: transparent;
+  /* background-color: transparent; */
 
   border: none;
   outline: none;
@@ -7201,7 +7205,6 @@ body
 
 }
 
-
 /* zatím hotovo */
 
 /* počítačová obrazovka */
@@ -7353,3 +7356,153 @@ body
   }
 
 }
+
+
+/* 18.6.2026 */
+/* DBC-row2-capC2 */
+
+@media (min-width: 992px) and (max-width: 1199px)
+{
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1200px) and (max-width: 1399px)
+{
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1400px) and (max-width: 1920px)
+{
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1921px)
+{
+
+  #DBC-row2-capC2
+  {
+
+    padding: 13px 14px;
+
+    max-width:        347px !important;
+    max-height:       204px !important;
+
+  }
+
+  #DBC-row2-capC2-row1
+  {
+
+    /*
+      width:   100%;
+      height:  auto; */
+
+  }
+
+  #DBC-row2-capC2-row1-c1
+  {
+
+     /*
+      width:  80%;
+      height: auto; */
+
+  }
+
+  #DBC-row2-capC2-row1-c1-p1
+  {
+
+      /*
+      width: 100%;
+      height: 50%;
+
+      margin: 0px; */
+
+      font-size: 14px;
+
+      padding-left: 2px;
+
+  }
+
+  #DBC-row2-capC2-row1-c1-p2
+  {
+    /*
+    width: 100%;
+    height: 50%;
+    margin: 0px; */
+
+    font-size: 11px;
+
+    padding-top: 1px;
+    padding-left: 2px;
+
+  }
+
+  #DBC-row2-capC2-row1-c2
+  {
+    /*
+    width:  20%;
+    height: 100%; */
+
+  }
+
+  #DBC-row2-capC2-row2
+  {
+
+    /*
+    width: 100%;
+    height: auto; */
+
+  }
+
+  #DBC-row2-capC2-row2-c1-p1
+  {
+    /*
+    width: auto;
+    height: auto;
+    margin: 0px; */
+
+    font-size: 111px;
+
+    padding-left: 7px;
+    padding-top: 17px;
+  }
+
+  #DBC-row2-capC2-row1-c2-menu
+  {
+
+    /*
+    margin-right:   5px;
+    margin-top:     1px; */
+
+    padding-top: 11px;
+  }
+
+  .menu-dots
+  {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    width: 20px;
+    align-items: center;
+    cursor: pointer;
+
+  }
+
+  .menu-dots span
+  {
+
+    width:  4px;
+    height: 4px;
+
+    background: #6b7280;
+    border-radius: 50%;
+
+  }
+
+
+}
+
