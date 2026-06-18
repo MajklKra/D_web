@@ -1,12 +1,12 @@
 
-__version__ = "1.2.23"
+__version__ = "1.2.24"
 
-# DBC-row2-bedC from 1400px
+# DBC-row2-bedC from 1200px
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        17.6.2026
+# Datum:        18.6.2026
 
 
 
