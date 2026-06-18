@@ -1,7 +1,7 @@
 
 __version__ = "1.2.27"
 
-# DBC-row2-bedC from 1200px made responsive
+# DBC-row2-bedC full container made responsive
 
 # Jedná se o tuto produkční verzi č. ----
 

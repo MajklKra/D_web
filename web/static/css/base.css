@@ -6721,9 +6721,17 @@ body
 
   #DBC-row2-bedC
   {
-    padding-left:     9px;
-    padding-top:      7px;
-    padding-right:    12px;
+    /* padding-left:     9px; */
+
+    padding-left: clamp(9px, calc(1.449vw - 5.37px), 12px);
+
+    /* padding-top:      7px; */
+
+    padding-top: clamp(7px, calc(0.966vw - 2.58px), 9px);
+
+    /* padding-right:    12px; */
+
+    padding-right: clamp(12px, calc(1.932vw - 7.17px), 16px);
   }
 
   #DBC-row2-bedC-r2-count
@@ -6731,7 +6739,9 @@ body
 
     width: 72% !important;
 
-    font-size: 58px;
+    /* font-size: 58px; */
+
+    font-size: clamp(58px, calc(5.797vw + 0.49px), 70px);
 
     padding-left: 6px;
     padding-top: 6px;
@@ -6747,56 +6757,76 @@ body
 
   #DBC-row2-bedC-countC-beds-YY
   {
-    margin-bottom: 1px;
+    /* margin-bottom: 1px; */
+
+    margin-bottom: clamp(1px, calc(0.483vw - 3.79px), 2px);
   }
 
   #DBC-row2-bedC-countC-beds-XY
   {
 
-    margin-bottom: 1px;
+    /* margin-bottom: 1px; */
+
+    margin-bottom: clamp(1px, calc(0.483vw - 3.79px), 2px);
 
   }
 
   #DBC-row2-bedC-countC-beds-XX
   {
-    margin-bottom: 1px;
+    /* margin-bottom: 1px; */
+
+    margin-bottom: clamp(1px, calc(0.483vw - 3.79px), 2px);
   }
 
 
   #DBC-row2-bedC-countC-beds-YY-p
   {
     margin: 0px;
-    font-size: 6px;
+    /* font-size: 6px; */
+
+    font-size: clamp(6px, calc(1.203vw - 5.93px), 7px);
   }
 
   #DBC-row2-bedC-countC-beds-YY-p-count
   {
     margin: 0px;
-    font-size: 6px;
+    /* font-size: 6px; */
+
+    font-size: clamp(6px, calc(1.203vw - 5.93px), 7px);
   }
 
   #DBC-row2-bedC-countC-beds-XY-p
   {
     margin: 0px;
-    font-size: 6px;
+    /* font-size: 6px; */
+
+    font-size: clamp(6px, calc(1.203vw - 5.93px), 7px);
   }
 
   #DBC-row2-bedC-countC-beds-XY-p-count
   {
     margin: 0px;
-    font-size:6px;
+    /* font-size:6px; */
+
+    font-size: clamp(6px, calc(1.203vw - 5.93px), 7px);
   }
 
   #DBC-row2-bedC-countC-beds-XX-p
   {
     margin: 0px;
-    font-size: 6px;
+    /* font-size: 6px; */
+
+    font-size: clamp(6px, calc(1.203vw - 5.93px), 7px);
+
   }
 
   #DBC-row2-bedC-countC-beds-XX-p-count
   {
     margin: 0px;
-    font-size: 6px;
+    /* font-size: 6px; */
+
+    font-size: clamp(6px, calc(1.203vw - 5.93px), 7px);
+
   }
 
   #DBC-row2-bedC-r1-beds
