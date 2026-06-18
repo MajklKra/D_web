@@ -6719,7 +6719,123 @@ body
 @media (min-width: 992px) and (max-width: 1199px)
 {
 
+  #DBC-row2-bedC
+  {
+    padding-left:     9px;
+    padding-top:      7px;
+    padding-right:    12px;
+  }
 
+  #DBC-row2-bedC-r2-count
+  {
+
+    width: 72% !important;
+
+    font-size: 58px;
+
+    padding-left: 6px;
+    padding-top: 6px;
+
+  }
+
+  #DBC-row2-bedC-countC-beds
+  {
+    width: 28% !important;
+    padding-top: 10px;
+  }
+
+
+  #DBC-row2-bedC-countC-beds-YY
+  {
+    margin-bottom: 1px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XY
+  {
+
+    margin-bottom: 1px;
+
+  }
+
+  #DBC-row2-bedC-countC-beds-XX
+  {
+    margin-bottom: 1px;
+  }
+
+
+  #DBC-row2-bedC-countC-beds-YY-p
+  {
+    margin: 0px;
+    font-size: 6px;
+  }
+
+  #DBC-row2-bedC-countC-beds-YY-p-count
+  {
+    margin: 0px;
+    font-size: 6px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XY-p
+  {
+    margin: 0px;
+    font-size: 6px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XY-p-count
+  {
+    margin: 0px;
+    font-size:6px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XX-p
+  {
+    margin: 0px;
+    font-size: 6px;
+  }
+
+  #DBC-row2-bedC-countC-beds-XX-p-count
+  {
+    margin: 0px;
+    font-size: 6px;
+  }
+
+  #DBC-row2-bedC-r1-beds
+  {
+    font-size: 8px;
+    margin: 0px;
+  }
+
+  #DBC-row2-bedC-r1-menu
+  {
+
+    background-color: blue !important;
+    /* background-color: transparent; */
+    border: none;
+    outline: none;
+
+    padding-top: 0px;
+
+  }
+
+  .menu-dots
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    width: 20px;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .menu-dots span
+  {
+    width:  3px;
+    height: 3px;
+
+    background: #6b7280;
+    border-radius: 50%;
+  }
 }
 
 /* počítačová obrazovka */
