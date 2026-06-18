@@ -99,6 +99,67 @@ def home():
         patientsCount = result[0][0]
 
 
+
+    ### Dotaz počet volných postelí ###
+
+    if not deps:
+        result = []
+        bedsCount = 0
+    else:
+
+        SQL_query2 = f'''
+
+                WITH combined AS
+                (
+                    -- Rooms-level
+                    SELECT
+                        r.RoomID,
+                        r.RoomNumber,
+                        d.NAME       AS DeptName,
+                        d.NamePrefix,
+                        r.RoomName,
+                        CAST(NULL AS INT) AS SubRoomID,
+                        COUNT(b.BedID) AS pocet_posteli,
+                        SUM(CASE WHEN b.BedID IS NOT NULL AND p.BedID IS NULL THEN 1 ELSE 0 END) AS volne_postele
+                    FROM Rooms r
+                    JOIN Departments_Rooms dr ON dr.RoomID = r.RoomID
+                    JOIN Departments d ON d.DepartmentID = dr.DepartmentID
+                    LEFT JOIN Beds b ON b.RoomID = r.RoomID
+                    LEFT JOIN Patients p ON p.BedID = b.BedID  -- např. AND p.IsActive = 1
+                    WHERE d.DepartmentID IN ({placeholders})
+                    GROUP BY r.RoomID, r.RoomNumber, d.NAME, d.NamePrefix, r.RoomName
+
+                    UNION ALL
+
+                    -- SubRooms-level
+                    SELECT
+                        r.RoomID,
+                        r.RoomNumber,
+                        d.NAME       AS DeptName,
+                        d.NamePrefix,
+                        r.RoomName,
+                        sr.SubRoomID,
+                        COUNT(b.BedID) AS pocet_posteli,
+                        SUM(CASE WHEN b.BedID IS NOT NULL AND p.BedID IS NULL THEN 1 ELSE 0 END) AS volne_postele
+                    FROM SubRooms sr
+                    JOIN Rooms r ON r.RoomID = sr.RoomID
+                    JOIN Departments_Rooms dr ON dr.RoomID = r.RoomID
+                    JOIN Departments d ON d.DepartmentID = dr.DepartmentID
+                    LEFT JOIN Beds b ON b.SubRoomID = sr.SubRoomID
+                    LEFT JOIN Patients p ON p.BedID = b.BedID  -- např. AND p.IsActive = 1
+                    WHERE d.DepartmentID IN ({placeholders})
+                    GROUP BY r.RoomID, r.RoomNumber, d.NAME, d.NamePrefix, r.RoomName, sr.SubRoomID
+                )
+
+                SELECT SUM(volne_postele) AS volne_postele
+                FROM combined
+
+            '''
+
+        result2 = db_connection(SQL_query2, deps + deps, one_row=False)
+
+        bedsCount = result[0][0]
+
     view_data = {
         "name": name,
         "surname": surname,
@@ -110,6 +171,7 @@ def home():
         "percent2": percent2,
         "percent3": percent3,
         "patients_count": patientsCount,
+        "beds_count": bedsCount,
     }
 
     # return render_template('base.html', name = name, surname = surname, salutation = salutation, version = __version__, first_login = first_login, chart_data=data, percent=percent, percent2=percent2, percent3=percent3)

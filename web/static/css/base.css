@@ -3022,7 +3022,7 @@ body
    width: 100%;
    height: 20%;
 
-   background-color: brown;
+   /* background-color: brown; */
 
    display: flex;
    flex-direction: row;
@@ -3035,7 +3035,7 @@ body
   width: 100%;
   height: 80%;
 
-  background-color: crimson;
+  /* background-color: crimson; */
 
   display: flex;
   flex-direction: row;
@@ -3049,7 +3049,7 @@ body
   width: 74%;
   height: 100%;
 
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
 
   font-size: 111px;
   font-family: 'Montserrat';
@@ -3059,6 +3059,13 @@ body
   /* padding-left: 11px;
   padding-top: 10px; */
 
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  display: block;
+
+
 }
 
 #DBC-row2-bedC-countC-beds
@@ -3066,7 +3073,7 @@ body
   width: 26%;
   height: 100%;
 
-  background-color: orange;
+  /* background-color: orange; */
 
   display: flex;
   flex-direction: column;
@@ -3082,7 +3089,7 @@ body
 {
    width: 100%;
    height: 26.5%;
-   background-color: deeppink;
+   /* background-color: deeppink; */
 
    margin: 0px;
 }
@@ -3091,7 +3098,7 @@ body
 {
   width: 100%;
   height: 26.5%;
-  background-color: yellow;
+  /* background-color: yellow; */
 
   margin: 0px;
 
@@ -3101,7 +3108,7 @@ body
 {
   width: 100%;
   height: 26.5%;
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 
   margin: 0px;
 }
@@ -3112,7 +3119,7 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  background-color: black;
+  /* background-color: black; */
 
   /* font-size: 12px; */
   font-family: 'Montserrat';
@@ -3129,7 +3136,7 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  background-color: brown;
+  /* background-color: brown; */
 
   /* font-size: 12px; */
   font-family: 'Montserrat';
@@ -3145,7 +3152,7 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  background-color: yellow;
+  /* background-color: yellow; */
 
   /* font-size: 12px; */
   font-family: 'Montserrat';
@@ -3162,7 +3169,7 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  background-color: violet;
+  /* background-color: violet; */
 
   /* font-size: 12px; */
   font-family: 'Montserrat';
@@ -3177,7 +3184,7 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  background-color: orange;
+  /* background-color: orange; */
 
   /* font-size: 12px; */
   font-family: 'Montserrat';
@@ -3193,7 +3200,7 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  background-color: gray;
+  /* background-color: gray; */
 
   /* font-size: 12px; */
   font-family: 'Montserrat';
@@ -3210,7 +3217,7 @@ body
   font-family: 'Montserrat';
   font-weight: 700;
   color: #6b7280;
-  background-color: aqua;
+  /* background-color: aqua; */
   height: auto;
 
   margin: 0px;
@@ -6837,8 +6844,6 @@ body
 
   #DBC-row2-bedC-r1-menu
   {
-
-    background-color: blue !important;
     /* background-color: transparent; */
     border: none;
     outline: none;
@@ -7000,12 +7005,8 @@ body
   #DBC-row2-bedC-r1-menu
   {
 
-    background-color: blue !important;
-    /* background-color: transparent; */
-    border: none;
-    outline: none;
-
     padding-top: 0px;
+
   }
 
   .menu-dots
