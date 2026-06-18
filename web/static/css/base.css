@@ -6844,9 +6844,17 @@ body
 
   #DBC-row2-bedC
   {
-    padding-left:     12px;
-    padding-top:      9px;
-    padding-right:    16px;
+    /* padding-left:     12px; */
+
+    padding-left: clamp(12px, calc(12px + (100vw - 1200px) * 2 / 199), 14px);
+
+    /* padding-top:      9px; */
+
+    padding-top: clamp(9px, calc(9px + (100vw - 1200px) / 199), 10px);
+
+    /* padding-right:    16px; */
+
+    padding-right: clamp(16px, calc(16px + (100vw - 1200px) * 5 / 199), 21px);
   }
 
   #DBC-row2-bedC-r2-count
@@ -6854,10 +6862,17 @@ body
 
     width: 72% !important;
 
-    font-size: 70px;
+    /* font-size: 70px; */
 
-    padding-left: 6px;
-    padding-top: 6px;
+    font-size: clamp(70px, calc(70px + (100vw - 1200px) * 10 / 199), 80px);
+
+    /* padding-left: 6px; */
+
+    padding-left: clamp(6px, calc(6px + (100vw - 1200px) * 3 / 199), 9px);
+
+    /* padding-top: 6px; */
+
+    padding-top: clamp(6px, calc(6px + (100vw - 1200px) * 2 / 199), 8px);
 
   }
 
@@ -6870,7 +6885,9 @@ body
 
   #DBC-row2-bedC-countC-beds-YY
   {
+
     margin-bottom: 2px;
+
   }
 
   #DBC-row2-bedC-countC-beds-XY
@@ -6882,50 +6899,72 @@ body
 
   #DBC-row2-bedC-countC-beds-XX
   {
+
     margin-bottom: 2px;
+
   }
 
 
   #DBC-row2-bedC-countC-beds-YY-p
   {
     margin: 0px;
-    font-size: 7px;
+
+    /* font-size: 7px; */
+
+    font-size: clamp(7px,calc(7px + 2 * ((100vw - 1200px) / 199)),9px);
   }
 
   #DBC-row2-bedC-countC-beds-YY-p-count
   {
     margin: 0px;
-    font-size: 7px;
+
+    /* font-size: 7px; */
+
+    font-size: clamp(7px,calc(7px + 2 * ((100vw - 1200px) / 199)),9px);
   }
 
   #DBC-row2-bedC-countC-beds-XY-p
   {
     margin: 0px;
-    font-size: 7px;
+
+    /* font-size: 7px; */
+
+    font-size: clamp(7px,calc(7px + 2 * ((100vw - 1200px) / 199)),9px);
   }
 
   #DBC-row2-bedC-countC-beds-XY-p-count
   {
     margin: 0px;
-    font-size:7px;
+
+    /* font-size:7px; */
+
+    font-size: clamp(7px,calc(7px + 2 * ((100vw - 1200px) / 199)),9px);
   }
 
   #DBC-row2-bedC-countC-beds-XX-p
   {
     margin: 0px;
-    font-size: 7px;
+    /* font-size: 7px; */
+
+    font-size: clamp(7px,calc(7px + 2 * ((100vw - 1200px) / 199)),9px);
   }
 
   #DBC-row2-bedC-countC-beds-XX-p-count
   {
     margin: 0px;
-    font-size: 7px;
+    /* font-size: 7px; */
+
+    font-size: clamp(7px,calc(7px + 2 * ((100vw - 1200px) / 199)),9px);
   }
 
   #DBC-row2-bedC-r1-beds
   {
-    font-size: 8px;
+    /* font-size: 8px; */
+
+    font-size: clamp(8px,calc(8px + 2 * ((100vw - 1200px) / 199)),10px);
+
     margin: 0px;
+
   }
 
   #DBC-row2-bedC-r1-menu
@@ -6967,9 +7006,18 @@ body
 
   #DBC-row2-bedC
   {
-    padding-left:     14px;
-    padding-top:      10px;
-    padding-right:    21px;
+    /* padding-left:     14px; */
+
+    padding-left: clamp(14px,calc(14px + 4 * ((100vw - 1400px) / 520)),18px);
+
+    /* padding-top:      10px; */
+
+    padding-top: clamp(10px,calc(10px + 5 * ((100vw - 1400px) / 520)),15px);
+
+    /* padding-right:    21px; */
+
+    padding-right: clamp(21px,calc(21px + 11 * ((100vw - 1400px) / 520)),32px);
+
   }
 
   #DBC-row2-bedC-r2-count
@@ -6977,17 +7025,28 @@ body
 
     width: 71% !important;
 
-    font-size: 80px;
+    /* font-size: 80px; */
 
-    padding-left: 9px;
-    padding-top: 8px;
+    font-size: clamp(80px,calc(80px + 31 * ((100vw - 1400px) / 520)),111px);
+
+    /* padding-left: 9px; */
+
+    padding-left: clamp(9px,calc(9px + 2 * ((100vw - 1400px) / 520)),11px);
+
+    /* padding-top: 8px; */
+
+    padding-top: clamp(8px,calc(8px + 2 * ((100vw - 1400px) / 520)),10px);
 
   }
 
   #DBC-row2-bedC-countC-beds
   {
     width: 29% !important;
-    padding-top: 10px;
+
+    /* padding-top: 10px; */
+
+    padding-top: clamp(10px,calc(10px + 13 * ((100vw - 1400px) / 520)),23px);
+
   }
 
 
@@ -7012,43 +7071,74 @@ body
   #DBC-row2-bedC-countC-beds-YY-p
   {
     margin: 0px;
-    font-size: 9px;
+
+    /* font-size: 9px; */
+
+    font-size: clamp(9px,calc(9px + 3 * ((100vw - 1400px) / 520)),12px);
+
   }
 
   #DBC-row2-bedC-countC-beds-YY-p-count
   {
     margin: 0px;
-    font-size: 9px;
+
+    /* font-size: 9px; */
+
+    font-size: clamp(9px,calc(9px + 3 * ((100vw - 1400px) / 520)),12px);
   }
 
   #DBC-row2-bedC-countC-beds-XY-p
   {
+
     margin: 0px;
-    font-size: 9px;
+
+    /* font-size: 9px; */
+
+    font-size: clamp(9px,calc(9px + 3 * ((100vw - 1400px) / 520)),12px);
+
   }
 
   #DBC-row2-bedC-countC-beds-XY-p-count
   {
+
     margin: 0px;
-    font-size: 9px;
+
+    /* font-size: 9px; */
+
+    font-size: clamp(9px,calc(9px + 3 * ((100vw - 1400px) / 520)),12px);
+
   }
 
   #DBC-row2-bedC-countC-beds-XX-p
   {
+
     margin: 0px;
-    font-size: 9px;
+
+    /* font-size: 9px; */
+
+    font-size: clamp(9px,calc(9px + 3 * ((100vw - 1400px) / 520)),12px);
+
   }
 
   #DBC-row2-bedC-countC-beds-XX-p-count
   {
+
     margin: 0px;
-    font-size: 9px;
+
+    /* font-size: 9px; */
+
+    font-size: clamp(9px,calc(9px + 3 * ((100vw - 1400px) / 520)),12px);
+
   }
 
   #DBC-row2-bedC-r1-beds
   {
-    font-size: 10px;
+    /* font-size: 10px; */
+
+    font-size: clamp(10px,calc(10px + 4 * ((100vw - 1400px) / 520)),14px);
+
     margin: 0px;
+
   }
 
   #DBC-row2-bedC-r1-menu
@@ -7113,7 +7203,9 @@ body
   #DBC-row2-bedC-countC-beds
   {
     width: 27% !important;
-    margin-top: 23px;
+    /* margin-top: 23px; */
+
+    padding-top: 23px;
   }
 
 

@@ -1,7 +1,7 @@
 
-__version__ = "1.2.25"
+__version__ = "1.2.27"
 
-# DBC-row2-bedC from 992px
+# DBC-row2-bedC from 1200px made responsive
 
 # Jedná se o tuto produkční verzi č. ----
 
