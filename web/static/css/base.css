@@ -7496,10 +7496,19 @@ body
   #DBC-row2-capC2
   {
 
-    padding-top:      8px;
-    padding-right:    3px;
+    /* padding-top:      8px; */
+
+    padding-top: clamp(8px,calc(8px + (100vw - 1200px) * 2 / 199),10px);
+
+    /* padding-right:    3px; */
+
+    padding-right: clamp(3px,calc(3px + (100vw - 1200px) * 4 / 199),7px);
+
     padding-bottom:   13px;
-    padding-left:     9px;
+
+    /* padding-left:     9px; */
+
+    padding-left: clamp(9px,calc(9px + (100vw - 1200px) / 199),10px);
 
   }
 
@@ -7530,7 +7539,9 @@ body
 
       margin: 0px; */
 
-      font-size: 9px;
+      /* font-size: 9px; */
+
+      font-size: clamp(9px,calc(9px + (100vw - 1200px) / 199),10px);
 
       padding-left: 2px;
 
@@ -7543,7 +7554,9 @@ body
     height: 50%;
     margin: 0px; */
 
-    font-size: 7px;
+    /* font-size: 7px; */
+
+    font-size: clamp(6px,calc(6px + (100vw - 1200px) / 199),7px);
 
     padding-top: 1px;
     padding-left: 2px;
@@ -7574,10 +7587,17 @@ body
     height: auto;
     margin: 0px; */
 
-    font-size: 70px;
+    /* font-size: 70px; */
 
-    padding-left: 3px;
-    padding-top:  9px;
+    font-size: clamp(70px,calc(70px + (100vw - 1200px) * 10 / 199),80px);
+
+    /* padding-left: 3px; */
+
+    padding-left: clamp(3px,calc(3px + (100vw - 1200px) * 4 / 199),7px);
+
+    /* padding-top:  9px; */
+
+    padding-top: clamp(9px,calc(9px + (100vw - 1200px) * 3 / 199),12px);
   }
 
   #DBC-row2-capC2-row1-c2-menu
@@ -7587,7 +7607,10 @@ body
     margin-right:   5px;
     margin-top:     1px; */
 
-    padding-top: 6px;
+    /* padding-top: 6px; */
+
+    padding-top: clamp(6px,calc(6px + (100vw - 1200px) / 199),7px);
+
   }
 
   .menu-dots
