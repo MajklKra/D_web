@@ -2477,9 +2477,9 @@ body
 
   width: 22.8%;
 
-  background-color:gold;
+  /* background-color:gold; */
 
-  /* background-color: white; */
+  background-color: white;
 
   border-radius: 10px;
   /* margin-left: 23px; */
@@ -3239,7 +3239,7 @@ body
     width:   100%;
     height:  auto;
 
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
 
     display:          flex;
     flex-direction:   row;
@@ -3253,7 +3253,7 @@ body
     width:  80%;
     height: auto;
 
-    background-color:  orange;
+    /* background-color:  orange; */
 
     display:          flex;
     flex-direction:   column;
@@ -3267,7 +3267,7 @@ body
     width: 100%;
     height: 50%;
 
-    background-color: lightblue;
+    /* background-color: lightblue; */
 
     margin: 0px;
 
@@ -3283,7 +3283,7 @@ body
   width: 100%;
   height: 50%;
 
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 
   margin: 0px;
 
@@ -3301,7 +3301,7 @@ body
   width:  20%;
   height: 100%;
 
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display:          flex;
   flex-direction:   row;
@@ -3315,7 +3315,7 @@ body
   width: 100%;
   height: auto;
 
-  background-color: lightgoldenrodyellow;
+  /* background-color: lightgoldenrodyellow; */
 
 }
 
@@ -3336,9 +3336,9 @@ body
 
 #DBC-row2-capC2-row1-c2-menu
 {
-  background-color: red;
+  /* background-color: red; */
 
-  /* background-color: transparent; */
+  background-color: transparent;
 
   border: none;
   outline: none;
@@ -7367,10 +7367,19 @@ body
   #DBC-row2-capC2
   {
 
-    padding-top:      7px;
-    padding-right:    0px;
+    /* padding-top:      7px; */
+
+    padding-top: clamp(7px, calc(7px + ((100vw - 992px) / 207)), 8px);
+
+    /* padding-right:    0px; */
+
+    padding-right: clamp(0px, calc(3 * ((100vw - 992px) / 207)), 3px);
+
     padding-bottom:   13px;
-    padding-left:     6px;
+
+    /* padding-left:     6px; */
+
+    padding-left: clamp(6px, calc(6px + 3 * ((100vw - 992px) / 207)), 9px);
 
   }
 
@@ -7401,7 +7410,9 @@ body
 
       margin: 0px; */
 
-      font-size: 7px;
+      /* font-size: 7px; */
+
+      font-size: clamp(7px, calc(7px + 2 * ((100vw - 992px) / 207)), 9px);
 
       padding-left: 2px;
 
@@ -7447,10 +7458,17 @@ body
     height: auto;
     margin: 0px; */
 
-    font-size: 57px;
+    /* font-size: 57px; */
 
-    padding-left: 4px;
-    padding-top:  8px;
+    font-size: clamp(57px, calc(57px + 13 * ((100vw - 992px) / 207)), 70px);
+
+    /* padding-left: 4px; */
+
+    padding-left: clamp(3px, calc(4px - (100vw - 992px) / 208), 4px);
+
+    /* padding-top:  8px; */
+
+    padding-top: clamp(8px, calc(8px + (100vw - 992px) / 207), 9px);
   }
 
   #DBC-row2-capC2-row1-c2-menu
@@ -7460,7 +7478,9 @@ body
     margin-right:   5px;
     margin-top:     1px; */
 
-    padding-top: 3px;
+    /* padding-top: 3px; */
+
+    padding-top: clamp(3px, calc(3px + (6 - 3) * ((100vw - 992px) / (1199 - 992))), 6px);
   }
 
   .menu-dots
