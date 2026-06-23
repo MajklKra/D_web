@@ -7953,8 +7953,15 @@ body
     max-height:       204px !important;
 
     /* padding-left:     6px; */
-    padding-top:      7px;
-    padding-right:    1px;
+    /* padding-top:      7px; */
+
+    padding-top: clamp(7px,calc(7px + ((100vw - 992px) / 207)),8px);
+
+    /* padding-right:    1px; */
+
+
+    padding-right: clamp(1px,calc(1px + 2 * ((100vw - 992px) / 207)),3px);
+
     padding-bottom:   13px;
 
   }
@@ -7988,7 +7995,10 @@ body
       height: 50%; */
 
       /* margin: 1px; */
-      font-size: 7px;
+      /* font-size: 7px; */
+
+      font-size: clamp(7px,calc(7px + 2 * ((100vw - 992px) / 207)),9px);
+
       margin-bottom: 1px;
 
       /* background-color: orange; */
@@ -8003,7 +8013,10 @@ body
     width: 100%;
     height: 40% !important;
     margin: 0px;
-    font-size: 5px;
+    /* font-size: 5px; */
+
+    font-size: clamp(5px,calc(5px + 2 * ((100vw - 992px) / 207)),7px);
+
     padding-top: 1px;
 
     /* background-color: orangered; */
@@ -8091,7 +8104,10 @@ body
       height: 50%;
     */
 
-    font-size: 5px;
+    /* font-size: 5px; */
+
+    font-size: clamp(5px,calc(5px + (100vw - 992px) * 2 / 207),7px);
+
     margin-top: 8px;
     margin-bottom: 1px;
 
@@ -8106,7 +8122,9 @@ body
     width: 100%;
     height: 50%; */
 
-    font-size: 5px;
+    /* font-size: 5px; */
+
+    font-size: clamp(5px,calc(5px + (100vw - 992px) * 2 / 207),7px);
 
     /* background-color: deepskyblue; */
 
@@ -8131,7 +8149,9 @@ body
     width: 100%;
     /*height: 50%; */
 
-    font-size: 5px;
+    /* font-size: 5px; */
+
+    font-size: clamp(5px,calc(5px + (100vw - 992px) * 2 / 207),7px);
 
     margin-bottom: 0px;
 
@@ -8146,7 +8166,9 @@ body
     width: 100%;
     height: 50%; */
 
-    font-size: 7px;
+    /* font-size: 7px; */
+
+    font-size: clamp(5px,calc(5px + (100vw - 992px) * 2 / 207),7px);
 
    /*  background-color: cornsilk; */
 
@@ -8167,7 +8189,9 @@ body
     width: 100%;
     /* height: 50%; */
 
-    font-size: 5px;
+    /* font-size: 5px; */
+
+    font-size: clamp(5px,calc(5px + (100vw - 992px) * 2 / 207),7px);
 
     margin-bottom: 1px;
 
@@ -8182,7 +8206,9 @@ body
     width: 100%;
     height: 50%;
 
-    font-size: 5px;
+    /* font-size: 5px; */
+
+    font-size: clamp(5px,calc(5px + (100vw - 992px) * 2 / 207),7px);
 
     /* background-color: hotpink; */
 
@@ -8195,7 +8221,9 @@ body
     top: -20px;
     left: -13px; */
 
-    padding-top: 4px;
+    /* padding-top: 4px; */
+
+    padding-top: clamp(2px,calc(4px - (100vw - 992px) * 2 / 207), 4px);
 
     /* background-color: aqua; */
   }
