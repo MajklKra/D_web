@@ -1473,9 +1473,9 @@ function getChartConfig(size)
     }
 
     return {
-        chartSize: 100,
-        hollowSize: "40%",
-        wordsSize: "16px"
+        chartSize: 120,
+        hollowSize: "35%",
+        wordsSize: "12px"
     };
 }
 
