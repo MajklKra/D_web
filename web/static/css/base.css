@@ -3479,7 +3479,7 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  background-color: black;
+  /* background-color: black; */
 
   /* font-size: 12px; */
   font-family: 'Montserrat';
@@ -3588,7 +3588,7 @@ body
   width: 100%;
   height: 50%;
 
-  background-color: gray;
+  /*  background-color: gray; */
 
   /* font-size: 12px; */
   font-family: 'Montserrat';
@@ -7950,6 +7950,286 @@ body
 @media (min-width: 1200px) and (max-width: 1399px)
 {
 
+  #DBC-row2-capC3
+  {
+
+    margin-left:      1.5%;
+
+    max-width:        347px !important;
+    max-height:       204px !important;
+
+    padding-left:     8px;
+    padding-top:      8px;
+    padding-right:    3px;
+    padding-bottom:   13px;
+
+  }
+
+  #DBC-row2-capC3-row1
+  {
+    /* width:  100%; */
+
+    height: 20% !important;
+
+    background-color: green;
+
+  }
+
+  #DBC-row2-capC3-row1-c1
+  {
+      /* width: 100%; */
+
+      height: 100% !important;
+      margin: 0px;
+      font-size: 14px;
+
+      background-color: blue;
+  }
+
+  #DBC-row2-capC3-row1-c1-p1
+  {
+
+      /*
+      width: 100%;
+      height: 50%; */
+
+      margin: 0px;
+      font-size: 9px;
+      margin-bottom: 0.5px;
+
+      background-color: orange;
+
+  }
+
+  #DBC-row2-capC3-row1-c1-p2
+  {
+
+    width: 100%;
+    height: 40% !important;
+    margin: 0px;
+    font-size: 7px;
+    padding-top: 1px;
+
+    background-color: orangered;
+  }
+
+  #DBC-row2-capC3-row1-c2
+  {
+
+    width:  30%;
+    height: 100%;
+
+    background-color: chartreuse;
+
+  }
+
+  #DBC-row2-capC3-row1-c2-menu
+  {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    background-color: red;
+  }
+
+  #DBC-row2-capC3-row2
+  {
+    /* width: 100%; */
+    /* height: 100%; */
+
+    height: 80% !important;
+
+    background-color: coral;
+  }
+
+  #DBC-row2-capC3-row2-c1
+  {
+
+    /* width:  63%; */
+    /* height: 100%; */
+
+
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center;
+
+    background-color: yellow !important;
+
+  }
+
+  #DBC-row2-capC3-row2-c2
+  {
+    /* width:  37%; */
+    /* height: 83%; */
+
+    height: 100% !important;
+
+    padding-left: 4px;
+
+    background-color: blueviolet;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-YY
+  {
+
+    width: 100%;
+    height: 26.5%;
+    margin-bottom: 1px;
+
+    background-color: darkgreen;
+  }
+
+  #DBC-row2-capC3-row2-c2-YY-p
+  {
+
+    /*
+      margin: 0px;
+      width: 100%;
+      height: 50%;
+    */
+
+    font-size: 7px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+
+    background-color: khaki;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-YY-p-count
+  {
+    /*
+    margin: 0px;
+    width: 100%;
+    height: 50%; */
+
+    font-size: 7px;
+
+    background-color: deepskyblue;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-XY
+  {
+
+    width: 100%;
+    height: 26.5%;
+
+    margin-bottom: 2px;
+
+    background-color: greenyellow;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-XY-p
+  {
+
+    margin: 0px;
+    width: 100%;
+    /*height: 50%; */
+
+    font-size: 7px;
+
+    margin-bottom: 0px;
+
+    background-color: crimson;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-count
+  {
+    /*
+    margin: 0px;
+    width: 100%;
+    height: 50%; */
+
+    font-size: 7px;
+
+    background-color: cornsilk;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-XX
+  {
+    width: 100%;
+    height: 26.5%;
+
+    background-color: darkcyan;
+  }
+
+  #DBC-row2-capC3-row2-c2-XX-p
+  {
+
+    margin: 0px;
+    width: 100%;
+    /* height: 50%; */
+
+    font-size: 7px;
+
+    margin-bottom: 0px;
+
+    background-color: deeppink;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-XX-count
+  {
+
+    margin: 0px;
+    width: 100%;
+    height: 50%;
+
+    font-size: 7px;
+
+    background-color: hotpink;
+
+  }
+
+  #piechart
+  {
+
+    /* position: absolute;
+    top: -20px;
+    left: -13px; */
+
+    padding-top: 2px;
+
+    background-color: aqua;
+  }
+
+  #DBC-row2-capC3-row1-c2-menu
+  {
+    /* background-color: red; */
+    border: none;
+    outline: none;
+
+    padding-top: 3px;
+
+    background-color: red;
+  }
+
+  .menu-dots
+  {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      width: 20px;
+      align-items: center;
+      cursor: pointer;
+  }
+
+  .menu-dots span
+  {
+      width:  3px;
+      height: 3px;
+
+      background: #6b7280;
+      border-radius: 50%;
+  }
+
 }
 
 /* počítačová obrazovka */
@@ -8296,7 +8576,7 @@ body
     justify-content: center ;
     align-items: center;
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
   }
 
@@ -8410,7 +8690,7 @@ body
     /* top: 0px;
     left: 0px; */
 
-    background-color: aqua;
+    /* background-color: aqua; */
 
   }
 
