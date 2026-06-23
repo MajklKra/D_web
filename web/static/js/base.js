@@ -1449,7 +1449,8 @@ function getChartConfig(size)
     {
         return {
             chartSize: 220,
-            hollowSize: "45%"
+            hollowSize: "45%",
+            wordsSize: "26px"
         };
     }
 
@@ -1457,21 +1458,24 @@ function getChartConfig(size)
     {
         return {
             chartSize: 170,
-            hollowSize: "40%"
+            hollowSize: "40%",
+            wordsSize: "20px"
         };
     }
 
     if (size === "medium")
     {
         return {
-            chartSize: 150,
-            hollowSize: "42%"
+            chartSize:  145,
+            hollowSize: "40%",
+            wordsSize:  "16px"
         };
     }
 
     return {
         chartSize: 100,
-        hollowSize: "40%"
+        hollowSize: "40%",
+        wordsSize: "16px"
     };
 }
 
@@ -1493,9 +1497,11 @@ function createPieChart(size)
     const config = getChartConfig(size);
     const chartSize = config.chartSize;
     const hollowSize = config.hollowSize;
+    const wordsSize = config.wordsSize;
 
     console.log("breakpoint:", size);
     console.log("chartSize:", chartSize);
+    console.log("wordsSize:", wordsSize);
 
     chartEl.innerHTML = "";
     chartEl.style.width = chartSize + "px";
@@ -1529,7 +1535,8 @@ function createPieChart(size)
                     },
                     value: {
                         show: true,
-                        fontSize: chartSize < 180 ? "20px" : "26px",
+                        // fontSize: chartSize < 180 ? "20px" : "26px",
+                        fontSize: wordsSize,
                         fontWeight: 600,
                         fontFamily: "Montserrat",
                         color: "#324351",

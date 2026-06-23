@@ -1,7 +1,7 @@
 
-__version__ = "1.2.40"
+__version__ = "1.2.42"
 
-# DBC-row2-capC3 1200px without chart
+# DBC-row2-capC3 992px without chart
 
 # Jedná se o tuto produkční verzi č. ----
 
