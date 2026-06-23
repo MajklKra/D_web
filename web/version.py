@@ -1,12 +1,12 @@
 
-__version__ = "1.2.37"
+__version__ = "1.2.39"
 
-# DBC-row2-capC3 1921px
+# DBC-row2-capC3 1400px responsive
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        19.6.2026
+# Datum:        23.6.2026
 
 
 

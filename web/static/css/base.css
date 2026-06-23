@@ -3355,7 +3355,7 @@ body
   width:  100%;
   height: auto;
 
-  background-color:  orange;
+  /* background-color:  orange; */
 
   display:          flex;
   flex-direction:   row;
@@ -3369,7 +3369,7 @@ body
     width: 100%;
     height: 50%;
 
-    background-color: lightblue;
+    /* background-color: lightblue; */
 
     margin: 0px;
 
@@ -3385,7 +3385,7 @@ body
     width: 100%;
     height: 50%;
 
-    background-color: lightblue;
+    /* background-color: lightblue; */
 
     margin: 0px;
 
@@ -3401,7 +3401,7 @@ body
 
   width: 100%;
   height: 50%;
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
   margin: 0px;
 
   /* font-size: 11px; */
@@ -3417,7 +3417,7 @@ body
 
   width:  30%;
   height: 100%;
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 
   display:          flex;
   flex-direction:   row;
@@ -3437,7 +3437,8 @@ body
 {
   width: 100%;
   height: 100%;
-  background-color: lightgoldenrodyellow;
+
+  /* background-color: lightgoldenrodyellow; */
 
   display:          flex;
   flex-direction:   row;
@@ -3450,9 +3451,9 @@ body
   width:  60%;
   height: 100%;
 
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
 
-  position: relative;
+  /* position: relative; */
 
 }
 
@@ -3461,7 +3462,7 @@ body
   width:  40%;
   height: 83%;
 
-  background-color: lightpink;
+  /* background-color: lightpink; */
 
 }
 
@@ -3469,7 +3470,7 @@ body
 {
   width: 100%;
   height: 26.5%;
-  background-color: lightblue;
+  /* background-color: lightblue; */
 }
 
 #DBC-row2-capC3-row2-c2-YY-p
@@ -3497,7 +3498,8 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
-  background-color: brown;
+
+  /* background-color: brown; */
 
   /* font-size: 12px; */
   font-family: 'Montserrat';
@@ -3505,8 +3507,6 @@ body
   color: #6b7280;
 
   height: auto;
-
-  /* background-color: blue; */
 
 }
 
@@ -3516,7 +3516,7 @@ body
   width: 100%;
   height: 26.5%;
 
-  background-color: orange;
+  /* background-color: orange; */
 
 }
 
@@ -3534,7 +3534,7 @@ body
 
   height: auto;
 
-  background-color: brown;
+  /* background-color: brown; */
 }
 
 #DBC-row2-capC3-row2-c2-count
@@ -3551,7 +3551,7 @@ body
 
   height: auto;
 
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 
 #DBC-row2-capC3-row2-c2-XX
@@ -3559,7 +3559,7 @@ body
   width: 100%;
   height: 26.5%;
 
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
 }
 
 #DBC-row2-capC3-row2-c2-XX-p
@@ -3577,7 +3577,7 @@ body
 
   height: auto;
 
-  background-color: lightgoldenrodyellow;
+  /* background-color: lightgoldenrodyellow; */
 
 }
 
@@ -3587,6 +3587,7 @@ body
   margin: 0px;
   width: 100%;
   height: 50%;
+
   background-color: gray;
 
   /* font-size: 12px; */
@@ -3610,9 +3611,9 @@ body
   justify-content: start;
   align-items: center;
 
-  position: absolute;
+  /* position: absolute;
   top: -20px;
-  left: -13px;
+  left: -13px; */
 }
 
 
@@ -7955,6 +7956,250 @@ body
 @media (min-width: 1400px) and (max-width: 1920px)
 {
 
+  #DBC-row2-capC3
+  {
+
+    margin-left:      1.5%;
+
+    max-width:        347px !important;
+    max-height:       204px !important;
+
+    padding-left:     9px;
+    padding-top:      10px;
+    padding-right:    5px;
+    padding-bottom:   13px;
+
+  }
+
+  #DBC-row2-capC3-row1
+  {
+    /* width:  100%; */
+
+    height: 20% !important;
+
+  }
+
+  #DBC-row2-capC3-row1-c1
+  {
+      /* width: 100%; */
+
+      height: 100% !important;
+      margin: 0px;
+      font-size: 14px;
+  }
+
+  #DBC-row2-capC3-row1-c1-p1
+  {
+
+      /*
+      width: 100%;
+      height: 50%; */
+
+      margin: 0px;
+      font-size: 10px;
+      margin-bottom: 1px;
+
+  }
+
+  #DBC-row2-capC3-row1-c1-p2
+  {
+
+    width: 100%;
+    height: 40% !important;
+    margin: 0px;
+    font-size: 8px;
+    padding-top: 1px;
+  }
+
+  #DBC-row2-capC3-row1-c2
+  {
+
+    width:  30%;
+    height: 100%;
+
+  }
+
+  #DBC-row2-capC3-row1-c2-menu
+  {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
+  #DBC-row2-capC3-row2
+  {
+    /* width: 100%; */
+    /* height: 100%; */
+
+    height: 80% !important;
+  }
+
+  #DBC-row2-capC3-row2-c1
+  {
+
+    /* width:  63%; */
+    /* height: 100%; */
+
+
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center;
+
+    /* background-color: yellow !important; */
+
+  }
+
+  #DBC-row2-capC3-row2-c2
+  {
+    /* width:  37%; */
+    /* height: 83%; */
+
+    height: 100% !important;
+
+    padding-left: 4px;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-YY
+  {
+
+    width: 100%;
+    height: 26.5%;
+    /* margin-bottom: 1px; */
+  }
+
+  #DBC-row2-capC3-row2-c2-YY-p
+  {
+
+    /*
+      margin: 0px;
+      width: 100%;
+      height: 50%;
+    */
+
+    font-size: 7px;
+    margin-top: 8px;
+    margin-bottom: 1px;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-YY-p-count
+  {
+    /*
+    margin: 0px;
+    width: 100%;
+    height: 50%; */
+
+    font-size: 7px;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-XY
+  {
+
+    width: 100%;
+    height: 26.5%;
+
+    margin-bottom: 1px;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-XY-p
+  {
+
+    margin: 0px;
+    width: 100%;
+    /*height: 50%; */
+
+    font-size: 7px;
+
+    margin-bottom: 1px;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-count
+  {
+    /*
+    margin: 0px;
+    width: 100%;
+    height: 50%; */
+
+    font-size: 7px;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-XX
+  {
+    width: 100%;
+    height: 26.5%;
+  }
+
+  #DBC-row2-capC3-row2-c2-XX-p
+  {
+
+    margin: 0px;
+    width: 100%;
+    /* height: 50%; */
+
+    font-size: 7px;
+
+    margin-bottom: 1px;
+
+  }
+
+  #DBC-row2-capC3-row2-c2-XX-count
+  {
+
+    margin: 0px;
+    width: 100%;
+    height: 50%;
+
+    font-size: 7px;
+
+  }
+
+  #piechart
+  {
+
+    /* position: absolute;
+    top: -20px;
+    left: -13px; */
+
+    padding-top: 2px;
+
+    /* background-color: aqua; */
+  }
+
+  #DBC-row2-capC3-row1-c2-menu
+  {
+    /* background-color: red; */
+    border: none;
+    outline: none;
+
+    padding-top: 3px;
+  }
+
+  .menu-dots
+  {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      width: 20px;
+      align-items: center;
+      cursor: pointer;
+  }
+
+  .menu-dots span
+  {
+      width:  4px;
+      height: 4px;
+
+      background: #6b7280;
+      border-radius: 50%;
+  }
+
 }
 
 /*  Zatím hotovo */
@@ -8044,6 +8289,14 @@ body
     /*
     width:  63%;
     height: 100%; */
+
+
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center;
+
+    background-color: yellow;
 
   }
 
@@ -8150,14 +8403,20 @@ body
   #piechart
   {
 
-    position: absolute;
-    top: -20px;
-    left: -13px;
+    /* position: absolute;
+    top:  -22px;
+    left: -15px; */
+
+    /* top: 0px;
+    left: 0px; */
+
+    background-color: aqua;
+
   }
 
   #DBC-row2-capC3-row1-c2-menu
   {
-    background-color: red;
+    /* background-color: red; */
     border: none;
     outline: none;
 

@@ -2,6 +2,8 @@ console.log(' ❤️ Vítejte na stránkách "Base.html"')
 
 console.log(' We are always solving our 👾 !!! ')
 
+/* TESTOVÁNÍ */
+
 // Funkce pro aktualizaci data a času
 function aktualizovatDatumCas()
 {
@@ -811,50 +813,53 @@ async function updateName()
 
 // const percent = 75;
 
-const percent = window.percent;
+/* ORIGINÁL */
 
-const options = {
-  series: [percent],
-  chart: {
-    type: 'radialBar',
-    width: 220,
-    sparkline: {
-      enabled: true
-    },
-    offsetX: 0,
-    offsetY: 0
-  },
-  colors: ['#2F80B7'],
-  plotOptions: {
-    radialBar: {
-      hollow: {
-        size: '45%'
-      },
-      track: {
-        background: '#EEF1F6'
-      },
-      dataLabels: {
-        name: {
-          show: false
-        },
-        value: {
-          show: true,
-          fontSize: '26px',
-          fontWeight: 600,
-          fontFamily: 'Montserrat',
-          color: '#324351',
-          offsetY: 8,
-          formatter: function ()
-          {
-            return percent + '%';
-          }
-        }
-      }
-    }
-  }
-};
+// const percent = window.percent;
 
-new ApexCharts(document.querySelector("#piechart"), options).render();
+// const options = {
+//   series: [percent],
+//   chart: {
+//     type: 'radialBar',
+//     width: 220,
+//     sparkline: {
+//       enabled: true
+//     },
+//     offsetX: 0,
+//     offsetY: 0
+//   },
+//   colors: ['#2F80B7'],
+//   plotOptions: {
+//     radialBar: {
+//       hollow: {
+//         size: '45%'
+//       },
+//       track: {
+//         background: '#EEF1F6'
+//       },
+//       dataLabels: {
+//         name: {
+//           show: false
+//         },
+//         value: {
+//           show: true,
+//           fontSize: '26px',
+//           fontWeight: 600,
+//           fontFamily: 'Montserrat',
+//           color: '#324351',
+//           offsetY: 8,
+//           formatter: function ()
+//           {
+//             return percent + '%';
+//           }
+//         }
+//       }
+//     }
+//   }
+// };
+
+// new ApexCharts(document.querySelector("#piechart"), options).render();
+
 
 /* Scrollbar */
 
@@ -1410,3 +1415,161 @@ window.addEventListener("resize", () =>
     }
 
 });
+
+
+/* 22.6.2026 */
+
+/* Nový Kruhový graf číslo 2 */
+
+let pieChart;
+
+function getBreakpoint()
+{
+    const w = window.innerWidth;
+
+    if (w >= 1920) return "wide";
+    if (w >= 1400) return "normal";
+    if (w >= 1200) return "medium";
+
+    return "small";
+}
+
+// function getChartSize(size)
+// {
+//     if (size === "wide") return 220;
+//     if (size === "normal") return 170;
+//     if (size === "medium") return 150;
+
+//     return 100;
+// }
+
+function getChartConfig(size)
+{
+    if (size === "wide")
+    {
+        return {
+            chartSize: 220,
+            hollowSize: "45%"
+        };
+    }
+
+    if (size === "normal")
+    {
+        return {
+            chartSize: 170,
+            hollowSize: "40%"
+        };
+    }
+
+    if (size === "medium")
+    {
+        return {
+            chartSize: 150,
+            hollowSize: "42%"
+        };
+    }
+
+    return {
+        chartSize: 100,
+        hollowSize: "40%"
+    };
+}
+
+function createPieChart(size)
+{
+
+    console.log(" createPieChart size: " + size);
+
+    const percent = window.percent;
+    const chartEl = document.querySelector("#piechart");
+
+    if (!chartEl) {
+        console.log("Element #piechart neexistuje");
+        return;
+    }
+
+    // const chartSize = getChartSize(size);
+
+    const config = getChartConfig(size);
+    const chartSize = config.chartSize;
+    const hollowSize = config.hollowSize;
+
+    console.log("breakpoint:", size);
+    console.log("chartSize:", chartSize);
+
+    chartEl.innerHTML = "";
+    chartEl.style.width = chartSize + "px";
+    chartEl.style.height = chartSize + "px";
+    chartEl.style.minHeight = chartSize + "px";
+
+    pieChart = new ApexCharts(chartEl, {
+        series: [percent],
+        chart: {
+            type: "radialBar",
+            width: chartSize,
+            // height: chartSize,
+            sparkline: {
+                enabled: true
+            }
+        },
+        colors: ["#2F80B7"],
+        plotOptions: {
+            radialBar: {
+                hollow: {
+                    // size: "45%"
+
+                    size: hollowSize
+                },
+                track: {
+                    background: "#EEF1F6"
+                },
+                dataLabels: {
+                    name: {
+                        show: false
+                    },
+                    value: {
+                        show: true,
+                        fontSize: chartSize < 180 ? "20px" : "26px",
+                        fontWeight: 600,
+                        fontFamily: "Montserrat",
+                        color: "#324351",
+                        offsetY: 8,
+                        formatter: function () {
+                            return percent + "%";
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    pieChart.render();
+}
+
+let currentBreakpoint2 = getBreakpoint();
+
+document.addEventListener("DOMContentLoaded", function ()
+{
+    createPieChart(currentBreakpoint2);
+});
+
+window.addEventListener("resize", function ()
+{
+    const newBreakpoint = getBreakpoint();
+
+    if (newBreakpoint !== currentBreakpoint2)
+    {
+        currentBreakpoint2 = newBreakpoint;
+
+        if (pieChart) {
+            pieChart.destroy();
+            pieChart = null;
+        }
+
+        createPieChart(newBreakpoint);
+    }
+});
+
+
+
+
