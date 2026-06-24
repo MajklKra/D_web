@@ -1436,7 +1436,8 @@ function getChartConfig(chartSize)
         return {
             chartSize,
             hollowSize: "45%",
-            wordsSize: "26px"
+            wordsSize: "26px",
+            // offsetY: "8"
         };
     }
 
@@ -1445,7 +1446,8 @@ function getChartConfig(chartSize)
         return {
             chartSize,
             hollowSize: "40%",
-            wordsSize: "20px"
+            wordsSize: "20px",
+            // offsetY: "6"
         };
     }
 
@@ -1454,14 +1456,16 @@ function getChartConfig(chartSize)
         return {
             chartSize,
             hollowSize: "38%",
-            wordsSize: "14px"
+            wordsSize: "14px",
+            // offsetY: "4",
         };
     }
 
     return {
         chartSize,
         hollowSize: "35%",
-        wordsSize: "14px"
+        wordsSize: "14px",
+        // offsetY: "2"
     };
 }
 
@@ -1534,6 +1538,7 @@ function createPieChart(chartSize)
     console.log('⚙️ config chartSize: ' + config.chartSize);
     console.log('⚙️ config wordsSize: ' + config.wordsSize);
     console.log('⚙️ config hollowSize : ' + config.hollowSize);
+    console.log('⚙️ config offesetY: ' + config.offsetY);
 
     chartEl.innerHTML = "";
     chartEl.style.width = config.chartSize + "px";
@@ -1569,7 +1574,10 @@ function createPieChart(chartSize)
                         fontWeight: 600,
                         fontFamily: "Montserrat",
                         color: "#324351",
-                        offsetY: 8,
+                        offsetY: 6,
+
+                        // offsetY: config.offsetY,
+
                         formatter: function () {
                             return percent + "%";
                         }
