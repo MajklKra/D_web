@@ -1417,74 +1417,111 @@ window.addEventListener("resize", () =>
 });
 
 
-/* 22.6.2026 */
+/* Graf číslo 2 v pořadí - první kruhový graf od začátku Dashboardu */
+/* Experimenty 24.6.2026 */
 
-/* Nový Kruhový graf číslo 2 */
-
-let pieChart;
-
-function getBreakpoint()
+function getChartWidth(screenWidth, minScreen, maxScreen, minChartWidth, maxChartWidth)
 {
-    const w = window.innerWidth;
+    screenWidth = Math.max(minScreen, Math.min(screenWidth, maxScreen));
 
-    if (w >= 1920) return "wide";
-    if (w >= 1400) return "normal";
-    if (w >= 1200) return "medium";
+    const ratio = (screenWidth - minScreen) / (maxScreen - minScreen);
 
-    return "small";
+    return minChartWidth + ratio * (maxChartWidth - minChartWidth);
 }
 
-// function getChartSize(size)
-// {
-//     if (size === "wide") return 220;
-//     if (size === "normal") return 170;
-//     if (size === "medium") return 150;
-
-//     return 100;
-// }
-
-function getChartConfig(size)
+function getChartConfig(chartSize)
 {
-    if (size === "wide")
+    if (chartSize >= 190)
     {
         return {
-            chartSize: 220,
+            chartSize,
             hollowSize: "45%",
             wordsSize: "26px"
         };
     }
 
-    if (size === "normal")
+    if (chartSize >= 140)
     {
         return {
-            chartSize: 170,
+            chartSize,
             hollowSize: "40%",
             wordsSize: "20px"
         };
     }
 
-    if (size === "medium")
+    if (chartSize >= 120)
     {
         return {
-            chartSize:  145,
-            hollowSize: "40%",
-            wordsSize:  "16px"
+            chartSize,
+            hollowSize: "38%",
+            wordsSize: "14px"
         };
     }
 
     return {
-        chartSize: 120,
+        chartSize,
         hollowSize: "35%",
-        wordsSize: "12px"
+        wordsSize: "14px"
     };
 }
 
-function createPieChart(size)
+let currentChartWidth = null;
+let pieChart = null;
+
+function updatePieChart()
 {
 
-    console.log(" createPieChart size: " + size);
+    console.log(' ƒ function updatePieChart() has been reached ... ')
 
-    const percent = window.percent;
+    let chartWidth;
+
+    if (window.innerWidth > 1920)
+    {
+       chartWidth = Math.round(getChartWidth(window.innerWidth, 1921, 3840, 190, 190));
+
+       console.log(" ↔️ width > 1920px and chartwidth: " + chartWidth );
+
+
+    }
+    else if (window.innerWidth > 1400)
+    {
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 1400, 1920, 140, 189));
+
+        console.log(" ↔️ width > 1400px and chartwidth: " + chartWidth );
+    }
+    else if (window.innerWidth > 1200)
+    {
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 1200, 1399, 120, 139));
+
+        console.log(" ↔️ width > 1200px and chartwidth: " + chartWidth );
+    }
+    else
+    {
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 920, 1199, 100, 119));
+
+        console.log(" ↔️ width > 920px and chartwidth: " + chartWidth );
+    }
+
+    if (chartWidth !== currentChartWidth)
+    {
+        currentChartWidth = chartWidth;
+
+        if (pieChart)
+        {
+            pieChart.destroy();
+            pieChart = null;
+        }
+
+        createPieChart(chartWidth);
+    }
+}
+
+window.addEventListener("resize", updatePieChart);
+document.addEventListener("DOMContentLoaded", updatePieChart);
+
+function createPieChart(chartSize)
+{
+    const percent = Number(window.percent) || 0;
     const chartEl = document.querySelector("#piechart");
 
     if (!chartEl) {
@@ -1492,28 +1529,23 @@ function createPieChart(size)
         return;
     }
 
-    // const chartSize = getChartSize(size);
+    const config = getChartConfig(chartSize);
 
-    const config = getChartConfig(size);
-    const chartSize = config.chartSize;
-    const hollowSize = config.hollowSize;
-    const wordsSize = config.wordsSize;
-
-    console.log("breakpoint:", size);
-    console.log("chartSize:", chartSize);
-    console.log("wordsSize:", wordsSize);
+    console.log('⚙️ config chartSize: ' + config.chartSize);
+    console.log('⚙️ config wordsSize: ' + config.wordsSize);
+    console.log('⚙️ config hollowSize : ' + config.hollowSize);
 
     chartEl.innerHTML = "";
-    chartEl.style.width = chartSize + "px";
-    chartEl.style.height = chartSize + "px";
-    chartEl.style.minHeight = chartSize + "px";
+    chartEl.style.width = config.chartSize + "px";
+    chartEl.style.height = config.chartSize + "px";
+    chartEl.style.minHeight = config.chartSize + "px";
 
     pieChart = new ApexCharts(chartEl, {
         series: [percent],
         chart: {
             type: "radialBar",
-            width: chartSize,
-            // height: chartSize,
+            width: config.chartSize,
+            height: config.chartSize,
             sparkline: {
                 enabled: true
             }
@@ -1522,9 +1554,7 @@ function createPieChart(size)
         plotOptions: {
             radialBar: {
                 hollow: {
-                    // size: "45%"
-
-                    size: hollowSize
+                    size: config.hollowSize
                 },
                 track: {
                     background: "#EEF1F6"
@@ -1535,8 +1565,7 @@ function createPieChart(size)
                     },
                     value: {
                         show: true,
-                        // fontSize: chartSize < 180 ? "20px" : "26px",
-                        fontSize: wordsSize,
+                        fontSize: config.wordsSize,
                         fontWeight: 600,
                         fontFamily: "Montserrat",
                         color: "#324351",
@@ -1552,31 +1581,3 @@ function createPieChart(size)
 
     pieChart.render();
 }
-
-let currentBreakpoint2 = getBreakpoint();
-
-document.addEventListener("DOMContentLoaded", function ()
-{
-    createPieChart(currentBreakpoint2);
-});
-
-window.addEventListener("resize", function ()
-{
-    const newBreakpoint = getBreakpoint();
-
-    if (newBreakpoint !== currentBreakpoint2)
-    {
-        currentBreakpoint2 = newBreakpoint;
-
-        if (pieChart) {
-            pieChart.destroy();
-            pieChart = null;
-        }
-
-        createPieChart(newBreakpoint);
-    }
-});
-
-
-
-
