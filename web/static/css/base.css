@@ -2525,7 +2525,7 @@ body
 
   border-radius: 10px;
 
-  padding: 21px 22px;
+  /* padding: 21px 22px; */
 }
 
 #DBC-row3-occupC
@@ -3645,8 +3645,8 @@ body
   height: 100%;
   /* background-color: lightgoldenrodyellow; */
 
-  padding-top: 9px;
-  padding-right: 6px;
+  /* padding-top: 9px;
+  padding-right: 6px; */
 
   display: flex;
   flex-direction: row;
@@ -3660,7 +3660,7 @@ body
   /* background-color: pink; */
   margin: 0px;
 
-  font-size:    14px;
+  /* font-size:    14px; */
   font-family:  'Montserrat';
   font-weight:  700;
   color: #80808d;
@@ -3672,13 +3672,13 @@ body
   /* background-color: lightcyan; */
   margin: 0px;
 
-  font-size:    11px;
+  /* font-size:    11px; */
   font-family:  'Montserrat';
   font-weight:  500;
   color: #80808d;
 
-  margin-top: 3px;
-  padding-left: 1px;
+  /* margin-top: 3px;
+  padding-left: 1px; */
 }
 
 
@@ -3713,8 +3713,8 @@ body
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 0;
+  /* gap: 7px;
+  padding: 0; */
 
   background-color: transparent;
 }
@@ -3722,7 +3722,7 @@ body
 #DBC-row3-employeesC-row1-c2-btn-img1
 {
 
-  width: 11px;
+  /* width: 11px; */
   height: auto;
 
   color: #80808d;
@@ -3736,7 +3736,7 @@ body
 #DBC-row3-employeesC-row1-c2-btn-text
 {
 
-  font-size:    9px;
+  /* font-size:    9px; */
   font-family:  'Montserrat';
   font-weight:  500;
   color: #80808d;
@@ -3753,7 +3753,7 @@ body
 
   height: 100%;
 
-  margin-bottom: 1px;
+  /* margin-bottom: 1px; */
 
 }
 
@@ -3769,27 +3769,29 @@ body
   justify-content: start;
   align-items: center;
 
-  padding-left: 9px;
+  /* padding-left: 9px; */
 }
 
 .DBC-row3-employeesC-images
 {
-  width: 15px;
+  /* width: 15px; */
   height: auto;
 
-  color: #80808d;
+  /* color: #80808d; */
+
+  color: rgba(76,103,123,1);
 }
 
 .DBC-row3-employeesC-eName
 {
   /* background-color: lightcyan; */
 
-  font-size:    19px;
+  /* font-size:    19px; */
   font-family:  'Montserrat';
   font-weight:  500;
   color: #324351;
 
-  margin-left: 19px;
+  /* margin-left: 19px; */
 }
 
 
@@ -9087,6 +9089,201 @@ body
       background: #6b7280;
       border-radius: 50%;
   }
+
+}
+
+/* Container Employees */
+/* DBC-row3-employeesC */
+
+
+@media (min-width: 992px) and (max-width: 1199px)
+{
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1200px) and (max-width: 1399px)
+{
+
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1400px) and (max-width: 1920px)
+{
+
+}
+
+/* počítačová obrazovka */
+@media (min-width: 1921px)
+{
+
+  #DBC-row3-employeesC
+  {
+    /* height: 100%;
+    width: 22.8%; */
+
+    /* background-color:black;  */
+
+    padding: 21px 22px;
+
+    max-width:        347px !important;
+    max-height:       460px !important;
+  }
+
+  #DBC-row3-employeesC-row1
+  {
+    /* width: 100%;
+    height: 13%; */
+
+    background-color: green;
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center; */
+  }
+
+  #DBC-row3-employeesC-row1-c1
+  {
+    /* width: 70%;
+    height: 100%; */
+    background-color: lightblue;
+  }
+
+  #DBC-row3-employeesC-row1-c2
+  {
+    /* width: 30%;
+    height: 100%; */
+    background-color: lightgoldenrodyellow;
+
+    padding-top: 9px;
+    padding-right: 6px;
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: start; */
+
+  }
+
+  #DBC-row3-employeesC-row1-c1-p1
+  {
+    background-color: lightgreen;
+    margin: 0px;
+
+    font-size:    14px;
+
+    padding-left: 1px;
+
+  }
+
+  #DBC-row3-employeesC-row1-c1-p2
+  {
+    background-color: lightcyan;
+    margin: 0px;
+
+    font-size:    12px;
+
+    margin-top: 2px;
+    padding-left: 2px;
+
+  }
+
+
+  #DBC-row3-employeesC-row2
+  {
+    width: 100%;
+    height: 87%;
+
+    background-color: brown;
+  }
+
+  #DBC-row3-employeesC-row1-c2-btn
+  {
+
+    /* width: 67px;
+    height: 22px; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+
+    padding: 0;
+    padding-left: 9px;
+
+    /* background-color: transparent; */
+
+    background-color: yellow;
+  }
+
+  #DBC-row3-employeesC-row1-c2-btn-img1
+  {
+
+    width: 11px;
+    height: auto;
+
+    background-color: red;
+  }
+
+  #DBC-row3-employeesC-row1-c2-btn-text
+  {
+
+    font-size:    11px;
+
+    background-color: lightcyan;
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+
+    /* margin: 0;
+
+    height: 100%; */
+
+    margin-bottom: 1px;
+    margin-left: 6px;
+
+  }
+
+  .DBC-row3-employeesC-employeeListItem
+  {
+    width: 100%;
+    height: 10%;
+
+    background-color: pink;
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center; */
+
+    padding-left: 9px;
+  }
+
+  .DBC-row3-employeesC-images
+  {
+    width: 15px;
+    height: auto;
+
+
+
+  }
+
+  .DBC-row3-employeesC-eName
+  {
+    background-color: lightcyan;
+
+    font-size:    20px;
+
+    margin-left: 19px;
+  }
+
+
+
 
 }
 
