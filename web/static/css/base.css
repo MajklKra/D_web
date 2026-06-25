@@ -9108,13 +9108,18 @@ body
 
     /* background-color:black; */
 
-    padding-left:   11px;
+    /* padding-left:   11px; */
+
+    padding-left: clamp(11px,calc(11px + (100vw - 992px) / 207),12px);
+
     padding-top:    10px;
-    padding-right:  11px;
+
+    /* padding-right:  11px; */
+
+    padding-right: clamp(11px,calc(11px + (100vw - 992px) * (3 / 207)),14px);
+
     padding-bottom: 18px;
 
-    max-width:        347px !important;
-    max-height:       460px !important;
   }
 
   #DBC-row3-employeesC-row1
@@ -9129,7 +9134,10 @@ body
     justify-content: start;
     align-items: center; */
 
-    margin-bottom: 1px;
+    /* margin-bottom: 1px; */
+
+    margin-bottom: clamp(1px,calc(1px + (100vw - 992px) * (2 / 207)),3px);
+
   }
 
   #DBC-row3-employeesC-row1-c1
@@ -9145,7 +9153,10 @@ body
     height: 100%; */
     /* background-color: lightgoldenrodyellow; */
 
-    padding-top: 5px;
+    /* padding-top: 5px; */
+
+    padding-top: clamp(5px,calc(5px + (100vw - 992px) * (2 / 207)),7px);
+
     padding-right: 3px;
 
     /* display: flex;
@@ -9161,7 +9172,9 @@ body
     /* background-color: lightgreen; */
     margin: 0px;
 
-    font-size:    7px;
+    /* font-size:    7px; */
+
+    font-size: clamp(7px,calc(7px + (100vw - 992px) * (2 / 207)),9px);
 
     padding-left: 1px;
 
@@ -9175,8 +9188,12 @@ body
 
     font-size:    7px;
 
-    margin-top: 1px;
-    padding-left: 1px;
+    /* margin-top: 1px; */
+    /* padding-left: 1px; */
+
+    margin-top: clamp(1px,calc(1px + (100vw - 992px) * (2 / 207)),3px);
+
+    padding-left: clamp(1px,calc(1px + (100vw - 992px) / 207),2px);
 
   }
 
@@ -9191,17 +9208,24 @@ body
   #DBC-row3-employeesC-row1-c2-btn
   {
 
-    width:  34px;
-    height: 11px;
+    /* width:  34px; */
+
+    width: clamp(34px,calc(34px + (100vw - 992px) * (8 / 207)),42px);
+
+    /* height: 11px; */
+
+    height: clamp(11px,calc(11px + (100vw - 992px) * (5 / 207)),16px);
 
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
 
-
     padding: 0;
-    padding-left: 4px;
+
+    /* padding-left: 4px; */
+
+    padding-left: clamp(4px,calc(4px + (100vw - 992px) / 207),5px);
 
     /* background-color: transparent; */
 
@@ -9212,7 +9236,10 @@ body
   #DBC-row3-employeesC-row1-c2-btn-img1
   {
 
-    width: 5px;
+    /* width: 5px; */
+
+    width: clamp(5px,calc(5px + (100vw - 992px) * (2 / 207)),7px);
+
     height: auto;
 
     /* background-color: red; */
@@ -9221,7 +9248,9 @@ body
   #DBC-row3-employeesC-row1-c2-btn-text
   {
 
-    font-size:    5px;
+    /* font-size:    5px; */
+
+    font-size: clamp(5px,calc(5px + (100vw - 992px) * (2 / 207)),7px);
 
     /* background-color: lightcyan; */
 
@@ -9235,7 +9264,10 @@ body
     height: 100%; */
 
     margin-bottom: 1px;
-    margin-left: 4px;
+
+    /* margin-left: 4px; */
+
+    margin-left: clamp(3px,calc(3px + (100vw - 1199px) / 201),4px);
 
   }
 
@@ -9251,21 +9283,33 @@ body
     justify-content: start;
     align-items: center; */
 
-    padding-left: 4px;
+    /* padding-left: 4px; */
+
+    padding-left: clamp(4px, calc(1.449vw - 10.38px), 7px);
+
     margin-bottom: 2px;
   }
 
   .DBC-row3-employeesC-images
   {
-    width:  8px;
+    /* width:  8px; */
+
+    width: clamp(8px, calc(0.483vw + 3.21px), 9px);
+
     height: auto;
   }
 
   .DBC-row3-employeesC-eName
   {
     /* background-color: lightcyan; */
-    font-size:    10px;
-    margin-left:  10px;
+
+    /* font-size:    10px; */
+
+    font-size: clamp(10px, calc(0.483vw + 5.208px), 11px);
+
+    /* margin-left:  10px; */
+
+    margin-left:clamp(10px, calc(0.966vw + 0.42px), 12px);
   }
 
 }
