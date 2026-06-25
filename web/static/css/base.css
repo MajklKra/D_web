@@ -9105,6 +9105,174 @@ body
 @media (min-width: 1200px) and (max-width: 1399px)
 {
 
+  #DBC-row3-employeesC
+  {
+    /* height: 100%;
+    width: 22.8%; */
+
+    /* background-color:black; */
+
+    padding-left:   12px;
+    padding-top:    10px;
+    padding-right:  14px;
+    padding-bottom: 18px;
+
+    max-width:        347px !important;
+    max-height:       460px !important;
+  }
+
+  #DBC-row3-employeesC-row1
+  {
+    /* width: 100%;
+    height: 13%; */
+
+    /* background-color: green; */
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center; */
+
+    margin-bottom: 3px;
+  }
+
+  #DBC-row3-employeesC-row1-c1
+  {
+    /* width: 70%;
+    height: 100%; */
+    /* background-color: lightblue; */
+  }
+
+  #DBC-row3-employeesC-row1-c2
+  {
+    /* width: 30%;
+    height: 100%; */
+    /* background-color: lightgoldenrodyellow; */
+
+    padding-top: 7px;
+    padding-right: 3px;
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: start; */
+
+  }
+
+  #DBC-row3-employeesC-row1-c1-p1
+  {
+
+    /* background-color: lightgreen; */
+    margin: 0px;
+
+    font-size:    9px;
+
+    padding-left: 1px;
+
+  }
+
+  #DBC-row3-employeesC-row1-c1-p2
+  {
+
+    /* background-color: lightcyan; */
+    margin: 0px;
+
+    font-size:    7px;
+
+    margin-top: 3px;
+    padding-left: 2px;
+
+  }
+
+
+  #DBC-row3-employeesC-row2
+  {
+    width: 100%;
+    height: 87%;
+
+    /* background-color: brown; */
+  }
+
+  #DBC-row3-employeesC-row1-c2-btn
+  {
+
+    width:  42px;
+    height: 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+
+    padding: 0;
+    padding-left: 5px;
+
+    /* background-color: transparent; */
+
+    /* background-color: yellow; */
+
+    margin-top: 1px;
+  }
+
+  #DBC-row3-employeesC-row1-c2-btn-img1
+  {
+
+    width: 7px;
+    height: auto;
+
+    /* background-color: red; */
+  }
+
+  #DBC-row3-employeesC-row1-c2-btn-text
+  {
+
+    font-size:    7px;
+
+    /* background-color: lightcyan; */
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+
+    /* margin: 0;
+
+    height: 100%; */
+
+    margin-bottom: 1px;
+    margin-left: 3px;
+
+  }
+
+  .DBC-row3-employeesC-employeeListItem
+  {
+    width: 100%;
+    height: 10%;
+
+    /* background-color: pink; */
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center; */
+
+    padding-left: 7px;
+  }
+
+  .DBC-row3-employeesC-images
+  {
+    width:  9px;
+    height: auto;
+  }
+
+  .DBC-row3-employeesC-eName
+  {
+    /* background-color: lightcyan; */
+    font-size:    11px;
+    margin-left:  12px;
+  }
+
 
 }
 
@@ -9133,7 +9301,7 @@ body
     /* width: 100%;
     height: 13%; */
 
-    background-color: green;
+    /* background-color: green; */
 
     /* display: flex;
     flex-direction: row;
@@ -9145,14 +9313,14 @@ body
   {
     /* width: 70%;
     height: 100%; */
-    background-color: lightblue;
+    /* background-color: lightblue; */
   }
 
   #DBC-row3-employeesC-row1-c2
   {
     /* width: 30%;
     height: 100%; */
-    background-color: lightgoldenrodyellow;
+    /* background-color: lightgoldenrodyellow; */
 
     padding-top: 7px;
     padding-right: 3px;
@@ -9167,7 +9335,7 @@ body
   #DBC-row3-employeesC-row1-c1-p1
   {
 
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
     margin: 0px;
 
     font-size:    10px;
@@ -9179,7 +9347,7 @@ body
   #DBC-row3-employeesC-row1-c1-p2
   {
 
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
     margin: 0px;
 
     font-size:    9px;
@@ -9195,7 +9363,7 @@ body
     width: 100%;
     height: 87%;
 
-    background-color: brown;
+    /* background-color: brown; */
   }
 
   #DBC-row3-employeesC-row1-c2-btn
@@ -9215,7 +9383,7 @@ body
 
     /* background-color: transparent; */
 
-    background-color: yellow;
+    /* background-color: yellow; */
   }
 
   #DBC-row3-employeesC-row1-c2-btn-img1
@@ -9224,7 +9392,7 @@ body
     width: 8px;
     height: auto;
 
-    background-color: red;
+    /* background-color: red; */
   }
 
   #DBC-row3-employeesC-row1-c2-btn-text
@@ -9232,7 +9400,7 @@ body
 
     font-size:    7px;
 
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
 
     /* display: flex;
     flex-direction: column;
@@ -9253,7 +9421,7 @@ body
     width: 100%;
     height: 10%;
 
-    background-color: pink;
+    /* background-color: pink; */
 
     /* display: flex;
     flex-direction: row;
@@ -9261,6 +9429,7 @@ body
     align-items: center; */
 
     padding-left: 7px;
+
   }
 
   .DBC-row3-employeesC-images
@@ -9271,7 +9440,7 @@ body
 
   .DBC-row3-employeesC-eName
   {
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
     font-size:    14px;
     margin-left:  12px;
   }
