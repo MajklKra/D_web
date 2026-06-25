@@ -9092,8 +9092,10 @@ body
 
 }
 
+/* * * * * * * * * * * */
 /* Container Employees */
 /* DBC-row3-employeesC */
+/* * * * * * * * * * * */
 
 
 @media (min-width: 992px) and (max-width: 1199px)
@@ -9454,13 +9456,25 @@ body
 
     /* background-color:black; */
 
-    padding-left:   15px;
-    padding-top:    15px;
-    padding-right: 17px;
-    padding-bottom: 18px;
+    /* padding-left:   15px; */
+
+    padding-left: clamp(15px,calc(15px + (100vw - 1400px) * 7 / 520),22px);
+
+    /* padding-top:    15px; */
+
+    padding-top: clamp(15px,calc(15px + (100vw - 1400px) * 6 / 520),21px);
+
+    /* padding-right:  17px; */
+
+    padding-right: clamp(17px,calc(17px + (100vw - 1400px) * 5 / 520),22px);
+
+    /* padding-bottom: 18px; */
+
+    padding-bottom: clamp(18px,calc(18px + (100vw - 1400px) * 3 / 520),21px);
 
     max-width:        347px !important;
     max-height:       460px !important;
+
   }
 
   #DBC-row3-employeesC-row1
@@ -9489,8 +9503,13 @@ body
     height: 100%; */
     /* background-color: lightgoldenrodyellow; */
 
-    padding-top: 7px;
-    padding-right: 3px;
+    /* padding-top: 7px; */
+
+    padding-top: clamp(7px,calc(7px + (100vw - 1400px) * 2 / 520),9px);
+
+    /* padding-right: 3px; */
+
+    padding-right: clamp(3px,calc(3px + (100vw - 1400px) * 3 / 520),6px);
 
     /* display: flex;
     flex-direction: row;
@@ -9505,7 +9524,9 @@ body
     /* background-color: lightgreen; */
     margin: 0px;
 
-    font-size:    10px;
+    /* font-size:    10px; */
+
+    font-size: clamp(10px,calc(10px + (100vw - 1400px) * 4 / 520),14px);
 
     padding-left: 1px;
 
@@ -9517,13 +9538,14 @@ body
     /* background-color: lightcyan; */
     margin: 0px;
 
-    font-size:    9px;
+    /* font-size:    9px; */
+
+    font-size: clamp(9px,calc(9px + (100vw - 1400px) * 3 / 520),12px);
 
     margin-top: 2px;
     padding-left: 2px;
 
   }
-
 
   #DBC-row3-employeesC-row2
   {
@@ -9536,17 +9558,24 @@ body
   #DBC-row3-employeesC-row1-c2-btn
   {
 
-    width: 47px;
-    height: 16px;
+    /* width: 47px; */
+
+    width: clamp(47px,calc(47px + (100vw - 1400px) * 20 / 520),67px);
+
+    /* height: 16px; */
+
+    height: clamp(16px,calc(16px + (100vw - 1400px) * 6 / 520),22px);
 
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
 
-
     padding: 0;
-    padding-left: 7px;
+
+    /* padding-left: 7px; */
+
+    padding-left: clamp(7px,calc(7px + (100vw - 1400px) * 2 / 520),9px);
 
     /* background-color: transparent; */
 
@@ -9556,7 +9585,10 @@ body
   #DBC-row3-employeesC-row1-c2-btn-img1
   {
 
-    width: 8px;
+    /* width: 8px; */
+
+    width: clamp(8px,calc(8px + (100vw - 1400px) * 3 / 520),11px);
+
     height: auto;
 
     /* background-color: red; */
@@ -9565,7 +9597,9 @@ body
   #DBC-row3-employeesC-row1-c2-btn-text
   {
 
-    font-size:    7px;
+    /* font-size:    7px; */
+
+    font-size: clamp(7px,calc(7px + (100vw - 1400px) * 4 / 520),11px);
 
     /* background-color: lightcyan; */
 
@@ -9579,7 +9613,10 @@ body
     height: 100%; */
 
     margin-bottom: 1px;
-    margin-left: 5px;
+
+    /* margin-left: 5px; */
+
+    margin-left: clamp(5px,calc(5px + (100vw - 1400px) * 1 / 520),6px);
 
   }
 
@@ -9595,24 +9632,32 @@ body
     justify-content: start;
     align-items: center; */
 
-    padding-left: 7px;
+    /* padding-left: 7px; */
+
+    padding-left: clamp(7px,calc(7px + (100vw - 1400px) * 2 / 520),9px);
 
   }
 
   .DBC-row3-employeesC-images
   {
-    width:  10px;
+    /* width:  10px; */
+
+    width: clamp(10px,calc(10px + (100vw - 1400px) * 5 / 520),15px);
+
     height: auto;
+
   }
 
   .DBC-row3-employeesC-eName
   {
     /* background-color: lightcyan; */
-    font-size:    14px;
-    margin-left:  12px;
+    /* font-size:    14px; */
+    /* margin-left:  12px; */
+
+    font-size: clamp(14px,calc(14px + (100vw - 1400px) * 6 / 520),20px);
+
+    margin-left: clamp(12px,calc(12px + (100vw - 1400px) * 7 / 520),19px);
   }
-
-
 
 }
 
@@ -9627,7 +9672,7 @@ body
 
     /* background-color:black;  */
 
-    padding: 21px 22px;
+    padding:          21px 22px;
 
     max-width:        347px !important;
     max-height:       460px !important;
@@ -9683,6 +9728,7 @@ body
   #DBC-row3-employeesC-row1-c1-p2
   {
     /* background-color: lightcyan; */
+
     margin:       0px;
 
     font-size:    12px;
@@ -9691,7 +9737,6 @@ body
     padding-left: 2px;
 
   }
-
 
   #DBC-row3-employeesC-row2
   {
@@ -9711,7 +9756,6 @@ body
     flex-direction: row;
     justify-content: start;
     align-items: center;
-
 
     padding: 0;
     padding-left: 9px;
@@ -9777,12 +9821,8 @@ body
     /* background-color: lightcyan; */
 
     font-size:    20px;
-
-    margin-left: 19px;
+    margin-left:  19px;
   }
-
-
-
 
 }
 
