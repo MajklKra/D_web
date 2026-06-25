@@ -1,7 +1,7 @@
 
-__version__ = "1.2.50"
+__version__ = "1.2.51"
 
-# DBC-row3-employeesC 1200px
+# DBC-row3-employeesC 992px
 
 # Jedná se o tuto produkční verzi č. ----
 
