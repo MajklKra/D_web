@@ -9281,13 +9281,20 @@ body
 
     /* background-color:black; */
 
-    padding-left:   12px;
-    padding-top:    10px;
-    padding-right:  14px;
+    /* padding-left:   12px; */
+
+    padding-left: clamp(12px,calc(12px + (100vw - 1200px) * 3 / 199),15px);
+
+    /* padding-top:    10px; */
+
+    padding-top: clamp(10px,calc(10px + (100vw - 1200px) * 5 / 199),15px);
+
+    /* padding-right:  14px; */
+
+    padding-right: clamp(14px,calc(14px + (100vw - 1200px) * 3 / 199),17px);
+
     padding-bottom: 18px;
 
-    max-width:        347px !important;
-    max-height:       460px !important;
   }
 
   #DBC-row3-employeesC-row1
@@ -9334,7 +9341,9 @@ body
     /* background-color: lightgreen; */
     margin: 0px;
 
-    font-size:    9px;
+    /* font-size:    9px; */
+
+    font-size: clamp(9px,calc(9px + (100vw - 1200px) / 199),10px);
 
     padding-left: 1px;
 
@@ -9346,13 +9355,17 @@ body
     /* background-color: lightcyan; */
     margin: 0px;
 
-    font-size:    7px;
+    /* font-size:    7px; */
 
-    margin-top: 3px;
+    font-size: clamp(7px,calc(7px + (100vw - 1400px) * 2 / 520),9px);
+
+    /* margin-top: 3px; */
+
+    margin-top: clamp(2px,calc(3px - (100vw - 1200px) / 720),3px);
+
     padding-left: 2px;
 
   }
-
 
   #DBC-row3-employeesC-row2
   {
@@ -9365,7 +9378,10 @@ body
   #DBC-row3-employeesC-row1-c2-btn
   {
 
-    width:  42px;
+    /* width:  42px; */
+
+    width: clamp(42px,calc(42px + (100vw - 1200px) * 5 / 199),47px);
+
     height: 16px;
 
     display: flex;
@@ -9375,7 +9391,9 @@ body
 
 
     padding: 0;
-    padding-left: 5px;
+    /* padding-left: 5px; */
+
+    padding-left: clamp(5px,calc(5px + (100vw - 1200px) * 2 / 199),7px);
 
     /* background-color: transparent; */
 
@@ -9387,7 +9405,10 @@ body
   #DBC-row3-employeesC-row1-c2-btn-img1
   {
 
-    width: 7px;
+    /* width: 7px; */
+
+    width: clamp(7px,calc(7px + (100vw - 1200px) / 199),8px);
+
     height: auto;
 
     /* background-color: red; */
@@ -9410,7 +9431,10 @@ body
     height: 100%; */
 
     margin-bottom: 1px;
-    margin-left: 3px;
+
+    /* margin-left: 3px; */
+
+    margin-left: clamp(3px,calc(3px + (100vw - 1200px) * 2 / 199),5px);
 
   }
 
@@ -9431,17 +9455,25 @@ body
 
   .DBC-row3-employeesC-images
   {
-    width:  9px;
+    /* width:  9px; */
+
+    width: clamp(9px,calc(9px + (100vw - 1200px) / 199),10px);
+
     height: auto;
+
   }
 
   .DBC-row3-employeesC-eName
   {
     /* background-color: lightcyan; */
-    font-size:    11px;
-    margin-left:  12px;
-  }
 
+    /* font-size:    11px; */
+
+    font-size: clamp(11px,calc(11px + (100vw - 1200px) * 3 / 199), 14px);
+
+    margin-left:  12px;
+
+  }
 
 }
 
@@ -9471,9 +9503,6 @@ body
     /* padding-bottom: 18px; */
 
     padding-bottom: clamp(18px,calc(18px + (100vw - 1400px) * 3 / 520),21px);
-
-    max-width:        347px !important;
-    max-height:       460px !important;
 
   }
 
