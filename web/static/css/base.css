@@ -3860,8 +3860,8 @@ body
 
 #informationPanel
 {
-  width: auto;
-  height: auto;
+  /* width: auto;
+  height: auto; */
 
   /* font-size:    19px; */
   font-family:  'Montserrat';
@@ -3872,8 +3872,8 @@ body
 
   background-color: #f3f5f6;
 
-  border:none;
-  outline:none;
+  border:     none;
+  outline:    none;
 
   /* margin-bottom: 12px;
 
@@ -3899,8 +3899,8 @@ body
 
 #informationPanel2
 {
-  width: auto;
-  height: auto;
+  /* width: auto;
+  height: auto; */
 
   /* font-size:    11px; */
   font-family:  'Montserrat';
@@ -9997,6 +9997,9 @@ body
   #informationPanel
   {
 
+    width: 153px;
+    height: 17px;
+
     font-size:    10px;
 
     margin-bottom: 8px;
@@ -10007,6 +10010,12 @@ body
     padding-right: 15px;
 
     /* background-color: greenyellow; */
+
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
   }
 
   #DBC-row3-occupC-c1-p4
@@ -10025,6 +10034,9 @@ body
   #informationPanel2
   {
 
+    width:  43px;
+    height: 11px;
+
     font-size:        6px;
 
     margin-bottom:    21px;
@@ -10038,6 +10050,11 @@ body
     /* background-color: coral; */
 
     margin-left: 1px;
+
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
   }
 
@@ -10259,6 +10276,9 @@ body
   #informationPanel
   {
 
+    width: 184px;
+    height: 20px;
+
     font-size:    12px;
 
     margin-bottom: 8px;
@@ -10267,6 +10287,11 @@ body
     padding-left: 4px;
     padding-bottom: 3px;
     padding-right: 7px;
+
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     /* background-color: greenyellow; */
   }
@@ -10286,6 +10311,9 @@ body
   #informationPanel2
   {
 
+    width: 53px;
+    height: 11px;
+
     font-size:    8px;
 
     margin-bottom: 21px;
@@ -10299,6 +10327,10 @@ body
     /* background-color: coral; */
 
     margin-left: 1px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
   }
 
@@ -10515,6 +10547,9 @@ body
   #informationPanel
   {
 
+    width: 215px;
+    height: 22px;
+
     font-size:    15px;
 
     margin-bottom: 10px;
@@ -10525,6 +10560,10 @@ body
     padding-right: 7px;
 
     /* background-color: greenyellow; */
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   #DBC-row3-occupC-c1-p4
@@ -10541,6 +10580,9 @@ body
 
   #informationPanel2
   {
+
+    width:  61px;
+    height: 13px;
 
     font-size:    8px;
 
@@ -10716,7 +10758,7 @@ body
   {
     width: 49%;
     height: 100%;
-    background-color: green;
+    /* background-color: green; */
 
   }
 
@@ -10724,7 +10766,7 @@ body
   {
     width: 51%;
     height: 100%;
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
 
     display: flex;
     flex-direction: column;
@@ -10738,7 +10780,7 @@ body
 
     font-size:    14px;
 
-    background-color: red;
+    /* background-color: red; */
 
     margin: 0px;
     margin-bottom: 3px;
@@ -10750,7 +10792,7 @@ body
 
     font-size:    11px;
 
-    background-color: blue;
+    /* background-color: blue; */
 
     margin: 0px;
     margin-bottom: 30px;
@@ -10762,7 +10804,7 @@ body
 
     font-size:    13px;
 
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
     margin: 0px;
     margin-bottom: 5px;
 
@@ -10770,6 +10812,9 @@ body
 
   #informationPanel
   {
+
+    width: 295px !important;
+    height: 31px !important;
 
     font-size:    19px;
 
@@ -10780,14 +10825,20 @@ body
     padding-bottom: 4px;
     padding-right: 12px;
 
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+
   }
 
   #DBC-row3-occupC-c1-p4
   {
     font-size:    9px;
 
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
     margin: 0px;
     margin-bottom: 13px;
 
@@ -10795,6 +10846,9 @@ body
 
   #informationPanel2
   {
+
+    width: 77px !important;
+    height: 18px !important;
 
     font-size:    11px;
 
@@ -10806,7 +10860,11 @@ body
     padding-left: 5px;
     padding-right: 6px;
 
-    background-color: coral;
+    /* background-color: coral; */
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
   }
 
@@ -10814,7 +10872,7 @@ body
   {
 
     font-size:    9px;
-    background-color: orange;
+    /* background-color: orange; */
     margin: 0px;
     margin-bottom: 3px;
 
@@ -10827,7 +10885,7 @@ body
     padding-bottom: 6px;
     padding-left: 8px;
 
-    background-color: brown;
+    /* background-color: brown; */
 
   }
 
@@ -10847,7 +10905,7 @@ body
     margin-left: 6px;
     margin-right: 5px;
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
   }
 
@@ -10855,7 +10913,7 @@ body
   {
     font-size:    13px;
 
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
 
   }
 
@@ -10865,7 +10923,7 @@ body
     height: 370px;
     width: 327px;
 
-    background-color: darkgoldenrod;
+    /* background-color: darkgoldenrod; */
 
     display: flex;
     flex-direction: row;
@@ -10884,7 +10942,7 @@ body
     overflow-y: auto;
     scrollbar-width: none;
 
-    background-color: blue;
+    /* background-color: blue; */
 
   }
 
@@ -10898,7 +10956,7 @@ body
       /* width: 11px;
       height: 100%; */
 
-      background-color: goldenrod;
+      /* background-color: goldenrod; */
   }
 
   #DBC-row3-occupC-c2-empC-thumb
