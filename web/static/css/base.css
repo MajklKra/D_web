@@ -4018,7 +4018,7 @@ body
 {
   width: 33%;
   height: 100%;
-  /* background-color: red; */
+  /*background-color: red; */
 }
 
 #DBC-row3-occupC-c2-empC-c2
@@ -4050,7 +4050,7 @@ body
 {
     /* width: calc(67% - 10px); */
 
-    width: calc(100% - 10px);
+    /* width: calc(100% - 10px); */
 
     /* Doplněk*/
 
@@ -4071,7 +4071,7 @@ body
 
 #DBC-row3-occupC-c2-empC-scrollC
 {
-    width: 11px;
+    /* width: 11px; */
     height: 100%;
 
     position: relative;
@@ -4097,7 +4097,7 @@ body
 
     background-color: rgba(205,215,231,1);
 
-    border-radius: 10px;
+    /* border-radius: 10px; */
 
     cursor: grab;
 }
@@ -10007,7 +10007,7 @@ body
     padding-top: 1.5px;
     padding-left: 4px;
     padding-bottom: 1.5px;
-    padding-right: 15px;
+    padding-right: 5px;
 
     /* background-color: greenyellow; */
 
@@ -10045,7 +10045,7 @@ body
     padding-bottom:   1px;
 
     padding-left:     2px;
-    padding-right:    6px;
+    padding-right:    5px;
 
     /* background-color: coral; */
 
@@ -10276,17 +10276,17 @@ body
   #informationPanel
   {
 
-    width: 184px;
-    height: 20px;
+    width:        184px;
+    height:        20px;
 
     font-size:    12px;
 
     margin-bottom: 8px;
 
-    padding-top: 3px;
-    padding-left: 4px;
+    padding-top:    3px;
+    padding-left:   4px;
     padding-bottom: 3px;
-    padding-right: 7px;
+    padding-right:  5px;
 
 
     overflow: hidden;
@@ -10311,18 +10311,18 @@ body
   #informationPanel2
   {
 
-    width: 53px;
-    height: 11px;
+    width:          53px;
+    height:         11px;
 
-    font-size:    8px;
+    font-size:       8px;
 
-    margin-bottom: 21px;
+    margin-bottom:  21px;
 
-    padding-top: 1px;
+    padding-top:    1px;
     padding-bottom: 3px;
 
-    padding-left: 2px;
-    padding-right: 10px;
+    padding-left:   2px;
+    padding-right:  5px;
 
     /* background-color: coral; */
 
@@ -10557,7 +10557,7 @@ body
     padding-top: 3px;
     padding-left: 7px;
     padding-bottom: 3px;
-    padding-right: 7px;
+    padding-right: 5px;
 
     /* background-color: greenyellow; */
 
@@ -10592,7 +10592,7 @@ body
     padding-bottom: 3px;
 
     padding-left: 4px;
-    padding-right: 10px;
+    padding-right: 5px;
 
     /* background-color: coral; */
 
@@ -10678,7 +10678,7 @@ body
     /* background-color: darkgoldenrod; */
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: start;
     align-items: flex-start;
 
@@ -10688,7 +10688,7 @@ body
   #DBC-row3-occupC-c2-empC-c1
   {
 
-    width: calc(100% - 10px);
+    width: calc(100% - 8px) !important;
 
     height: 100%;
 
@@ -10706,23 +10706,26 @@ body
 
   #DBC-row3-occupC-c2-empC-scrollC
   {
-      /* width: 11px;
-      height: 100%; */
+    width:  8px;
+    height: 100%;
 
-      background-color: goldenrod;
+      /* background-color: goldenrod; */
   }
 
   #DBC-row3-occupC-c2-empC-thumb
   {
 
-    /* top: 0;
-    left: 1px; */
+    top: 0;
+    left: 1px;
 
-    /* width: 8px;
+    width: 5px;
 
-    height: 31px; */
+    height: 20px !important;
 
-    background-color: dimgrey;
+    /* background-color: dimgrey; */
+
+    border-radius: 5px;
+
   }
 
 }
@@ -10831,7 +10834,6 @@ body
     white-space: nowrap;
     text-overflow: ellipsis;
 
-
   }
 
   #DBC-row3-occupC-c1-p4
@@ -10865,7 +10867,6 @@ body
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-
   }
 
   #DBC-row3-occupC-c1-p5
@@ -10953,8 +10954,8 @@ body
 
   #DBC-row3-occupC-c2-empC-scrollC
   {
-      /* width: 11px;
-      height: 100%; */
+      width: 11px;
+      height: 100%;
 
       /* background-color: goldenrod; */
   }
@@ -10962,14 +10963,16 @@ body
   #DBC-row3-occupC-c2-empC-thumb
   {
 
-    /* top: 0;
-    left: 1px; */
+    top: 0;
+    left: 1px;
 
-    /* width: 8px;
+    width: 8px;
 
-    height: 31px; */
+    height: 31px;
 
-    background-color: dimgrey;
+    /* background-color: dimgrey; */
+
+    border-radius: 10px;
   }
 
 }
