@@ -1,12 +1,12 @@
 
-__version__ = "1.2.45"
+__version__ = "1.2.46"
 
 # DBC-row3-employeesC 1400px
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        25.6.2026
+# Datum:        26.6.2026
 
 
 
