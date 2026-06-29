@@ -9956,8 +9956,13 @@ body
   #DBC-row3-occupC-c2-empC
   {
 
-    height: 191px;
-    width:  169px;
+    /* height: 191px; */
+
+    height: clamp(191px, calc(20.289855vw - 10.275px), 233px);
+
+    /* width:  169px; */
+
+    width: clamp(169px, calc(16.908213vw + 1.272px), 204px);
 
     /* background-color: darkgoldenrod; */
 
@@ -10405,8 +10410,13 @@ body
   #DBC-row3-occupC-c2-empC
   {
 
-    height: 233px;
-    width:  204px;
+    /* height: 233px; */
+
+    height: clamp(233px, calc(19.0955vw + 3.854px), 271px);
+
+    /* width:  204px; */
+
+    width: clamp(204px, calc(17.0854vw - 1.050px), 238px);
 
     /* background-color: darkgoldenrod;  */
 
@@ -10855,8 +10865,13 @@ body
   #DBC-row3-occupC-c2-empC
   {
 
-    height: 271px;
-    width: 238px;
+    /* height: 271px; */
+
+    height: clamp(271px,calc(271px + (100vw - 1400px) * 0.190385),370px);
+
+    /* width: 238px; */
+
+    width: clamp(238px,calc(238px + (100vw - 1400px) * (89 / 520)),327px);
 
     /* background-color: darkgoldenrod; */
 
@@ -11507,6 +11522,11 @@ body
   }
 
 }
+
+
+
+
+
 
 /* * * * * * * * */
 /*               */
