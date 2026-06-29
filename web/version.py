@@ -1,7 +1,7 @@
 
-__version__ = "1.2.43"
+__version__ = "1.2.45"
 
-# DBC-row3-employeesC  1400px scroll-bar made functional
+# DBC-row3-occupC 1920px made responsive
 
 # Jedná se o tuto produkční verzi č. ----
 
