@@ -10367,6 +10367,7 @@ body
   {
 
     width:  18px;
+
     height: 18px;
 
     padding-left:     3px;
@@ -10383,11 +10384,17 @@ body
   {
 
     width:  89px !important;
+
     height: 100%;
 
-    font-size:    8px;
+    /* font-size:    8px; */
 
-    margin-left:  0px;
+    font-size: clamp(8px, calc(0.961538vw - 5.462px), 13px);
+
+    /* margin-left:  0px; */
+
+    margin-left: clamp(0px, calc(0.384615vw - 5.385px), 2px);
+
     margin-right: 5px;
 
     /* background-color: yellow;  */
@@ -10399,6 +10406,7 @@ body
   #searchInput::placeholder
   {
     font-size:    8px;
+
     height:       100%;
 
     /* background-color: chartreuse;  */
@@ -10410,13 +10418,9 @@ body
   #DBC-row3-occupC-c2-empC
   {
 
-    /* height: 233px; */
+    height: 233px;
 
-    height: clamp(233px, calc(19.0955vw + 3.854px), 271px);
-
-    /* width:  204px; */
-
-    width: clamp(204px, calc(17.0854vw - 1.050px), 238px);
+    width:  204px;
 
     /* background-color: darkgoldenrod;  */
 
@@ -10500,13 +10504,22 @@ body
 
     /* background-color: brown; */
 
-    font-size:    8px;
+    /* font-size:    8px; */
+
+    font-size: clamp(8px, calc(1.005025vw - 4.060px), 10px);
+
     font-family:  'Montserrat';
     font-weight:  600;
     color: #357fab;
 
-    padding-top:  3px;
-    padding-left: 2px;
+    /* padding-top:  3px; */
+
+    padding-top: clamp(3px, calc(0.502513vw - 3.030px), 4px);
+
+    /* padding-left: 2px; */
+
+    padding-left: clamp(2px, calc(1.005025vw - 10.060px), 4px);
+
 
   }
 
@@ -10525,15 +10538,23 @@ body
     justify-content: center;
     align-items:     flex-start;
 
-    padding-top: 3px;
-    padding-bottom: 2px;
+    /* padding-top: 3px; */
+
+    padding-top: clamp(3px, calc(0.502513vw - 3.030px), 4px);
+
+    /* padding-bottom: 2px; */
+
+    padding-bottom: clamp(2px, calc(1.507538vw - 16.090px), 5px);
 
   }
 
   .occup_img
   {
 
-    width:  11px;
+    /* width:  11px; */
+
+    width: clamp(11px, calc(0.502513vw + 4.970px), 12px);
+
     height: auto;
     /* background-color: violet; */
     display: block;
@@ -10549,7 +10570,10 @@ body
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
-    font-size:    7px;
+    /* font-size:    7px; */
+
+    font-size: clamp(7px, calc(0.502513vw + 0.970px), 8px);
+
     font-family:  'Montserrat';
     font-weight:  600;
     color: #357fab;
@@ -10573,13 +10597,16 @@ body
     align-items: center;
 
     /* padding-bottom: 1px; */
+
   }
 
   .occup_img_C
   {
     /* background-color: orange; */
     text-align: start;
-    padding-left: 3px;
+    /* padding-left: 3px; */
+
+    padding-left: clamp(3px, calc(1.507538vw - 15.090px), 6px);
 
     width: 87%;
 
@@ -10601,7 +10628,10 @@ body
     justify-content: flex-start;
     align-items: stretch;
 
-    font-size:    7px;
+    /* font-size:    7px; */
+
+    font-size: clamp(7px, calc(0.502513vw + 0.970px), 8px);
+
     font-family:  'Montserrat';
     font-weight:  600;
     color: #357fab;
@@ -10639,7 +10669,12 @@ body
   {
     /* background-color: blue; */
     text-align: start;
-    padding-left: 3px;
+
+    /* padding-left: 3px; */
+
+    padding-left: clamp(3px, calc(1.507538vw - 15.090px), 6px);
+
+
     color: #59646f;
     width: 87%;
 
@@ -10649,9 +10684,11 @@ body
     align-items: start;
 
     /* padding-bottom: 1px; */
+
   }
 
 }
+
 
 /* počítačová obrazovka */
 @media (min-width: 1400px) and (max-width: 1920px)
@@ -10951,13 +10988,18 @@ body
 
     /* background-color: brown; */
 
-    font-size:    10px;
+    /* font-size:    10px; */
+
+    font-size: clamp(10px, calc(0.576923vw + 1.923077px), 13px);
+
     font-family:  'Montserrat';
     font-weight:  600;
     color: #357fab;
 
-    padding-top:  4px;
-    padding-left: 4px;
+    /* padding-top:  4px; */
+    padding-top: clamp(4px, calc(0.384615vw - 1.384615px), 6px);
+    /* padding-left: 4px; */
+    padding-left: clamp(4px, calc(0.576923vw - 4.076923px), 7px);
 
   }
 
@@ -10984,7 +11026,10 @@ body
   .occup_img
   {
 
-    width:  12px;
+    /* width:  12px; */
+
+    width: clamp(12px, calc(1.153846vw - 4.153846px), 18px);
+
     height: auto;
     /* background-color: violet; */
     display: block;
@@ -11000,7 +11045,10 @@ body
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
-    font-size:    8px;
+    /* font-size:    8px; */
+
+    font-size: clamp(8px, calc(0.961538vw - 5.461538px), 13px);
+
     font-family:  'Montserrat';
     font-weight:  600;
     color: #357fab;
@@ -11008,7 +11056,9 @@ body
     /* margin-bottom: 4px; */
     /* margin-top: 4px; */
     width: 100%;
-    height: 12px;
+    /* height: 12px; */
+
+    height: clamp(12px, calc(1.346154vw - 6.846154px), 19px);
 
   }
 
@@ -11050,7 +11100,10 @@ body
     justify-content: flex-start;
     align-items: stretch;
 
-    font-size:    8px;
+    /* font-size:    8px; */
+
+    font-size: clamp(8px, calc(0.961538vw - 5.461538px), 13px);
+
     font-family:  'Montserrat';
     font-weight:  600;
     color: #357fab;
@@ -11065,7 +11118,9 @@ body
 
     width: 100%;
 
-    height: 12px;
+    /* height: 12px; */
+
+    height: clamp(12px, calc(1.346154vw - 6.846154px), 19px);
 
   }
 
@@ -11082,6 +11137,7 @@ body
     align-items: center;
 
     /* padding-bottom: 1px; */
+
   }
 
   .occup_patient_name
@@ -11098,9 +11154,11 @@ body
     align-items: start;
 
     /* padding-bottom: 1px; */
+
   }
 
 }
+
 
 /* Zatím hotovo */
 
@@ -11426,8 +11484,6 @@ body
     font-weight:  600;
     color: #357fab;
     margin: 0px;
-    /* margin-bottom: 4px; */
-    /* margin-top: 4px; */
     width: 100%;
     height: 19px;
 

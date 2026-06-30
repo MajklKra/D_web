@@ -9956,13 +9956,18 @@ body
   #DBC-row3-occupC-c2-empC
   {
 
-    height: 191px;
-    width:  169px;
+    /* height: 191px; */
+
+    height: clamp(191px, calc(20.289855vw - 10.275px), 233px);
+
+    /* width:  169px; */
+
+    width: clamp(169px, calc(16.908213vw + 1.272px), 204px);
 
     /* background-color: darkgoldenrod; */
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: start;
     align-items: flex-start;
 
@@ -9971,7 +9976,7 @@ body
   #DBC-row3-occupC-c2-empC-c1
   {
 
-    width: calc(100% - 10px);
+    width: calc(100% - 7px) !important;
 
     height: 100%;
 
@@ -9989,24 +9994,202 @@ body
 
   #DBC-row3-occupC-c2-empC-scrollC
   {
-      /* width: 11px;
-      height: 100%; */
+      width:   7px !important;
+      height: 100%;
 
-      /* background-color: goldenrod; */
+      /* background-color: goldenrod;  */
   }
 
   #DBC-row3-occupC-c2-empC-thumb
   {
 
-    /* top: 0;
-    left: 1px; */
+    top: 0;
+    left: 1px;
 
-    /* width: 8px;
+    width: 4px;
 
-    height: 31px; */
+    height: 15px !important;
 
-    background-color: dimgrey;
+    /* background-color: dimgrey;  */
+
+    border-radius: 5px;
+
   }
+
+   .occup_row
+    {
+
+      width: 100%;
+      height: auto;
+
+      /* background-color: lightcoral; */
+
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: flex-start;
+
+      border-bottom: 1px solid rgba(244,245,247,1);
+
+    }
+
+    .occup_room
+    {
+
+      width: 34%;
+      height: auto;
+
+      /* background-color: brown; */
+
+      font-size:    7px;
+      font-family:  'Montserrat';
+      font-weight:  600;
+      color: #357fab;
+
+      padding-top:  3px;
+      padding-left: 3px;
+
+    }
+
+    .occup_list
+    {
+
+      width: 66%;
+      height: auto;
+
+      /* background-color: green; */
+
+      border-left:      2px solid rgba(244,245,247,1);
+
+      display:         flex;
+      flex-direction:  column;
+      justify-content: center;
+      align-items:     flex-start;
+
+      padding-top: 1px;
+      padding-bottom: 1px;
+
+    }
+
+    .occup_img
+    {
+
+      width:  9px;
+      height: auto;
+      /* background-color: violet; */
+      display: block;
+      /* margin-top: 1px; */
+
+    }
+
+    .occup_bed
+    {
+
+      /* background-color: lightcyan; */
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: stretch;
+      font-size:    7px;
+      font-family:  'Montserrat';
+      font-weight:  600;
+      color: #357fab;
+      margin: 0px;
+      /* margin-bottom: 4px; */
+      /* margin-top: 4px; */
+      width: 100%;
+      height: 11px;
+
+    }
+
+    .occup_bed_id
+    {
+      width: 11%;
+
+      /* background-color: red; */
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .occup_img_C
+    {
+      /* background-color: orange; */
+      text-align: start;
+      padding-left: 4px;
+
+      width: 89%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+
+      padding-top: 1px;
+
+    }
+
+    .occup_patient
+    {
+
+      /* background-color: lightcyan; */
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: stretch;
+
+      font-size:    7px;
+      font-family:  'Montserrat';
+      font-weight:  600;
+      color: #357fab;
+
+      /* padding-left: 10px; */
+      /* padding-top: 6px; */
+
+      margin: 0px;
+
+      /* margin-bottom: 4px; */
+      /* margin-top: 6px; */
+
+      width: 100%;
+
+      height: 11px;
+
+    }
+
+    .occup_patient_id
+    {
+      width: 11%;
+      /* background-color: greenyellow; */
+      text-align: center;
+      color: #59646f;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      /* padding-bottom: 1px; */
+    }
+
+    .occup_patient_name
+    {
+      /* background-color: blue; */
+      text-align: start;
+      padding-left: 4px;
+      color: #59646f;
+      width: 89%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+
+      /* padding-bottom: 1px; */
+    }
 
 }
 
@@ -10176,7 +10359,7 @@ body
     padding-left: 2px;
 
     padding-right: 16px;
-    /* background-color: brown; */
+    /* background-color: brown;  */
 
   }
 
@@ -10184,6 +10367,7 @@ body
   {
 
     width:  18px;
+
     height: 18px;
 
     padding-left:     3px;
@@ -10200,14 +10384,20 @@ body
   {
 
     width:  89px !important;
+
     height: 100%;
 
-    font-size:    8px;
+    /* font-size:    8px; */
 
-    margin-left:  0px;
+    font-size: clamp(8px, calc(0.961538vw - 5.462px), 13px);
+
+    /* margin-left:  0px; */
+
+    margin-left: clamp(0px, calc(0.384615vw - 5.385px), 2px);
+
     margin-right: 5px;
 
-    /* background-color: yellow; */
+    /* background-color: yellow;  */
 
     box-sizing: border-box;
 
@@ -10216,9 +10406,10 @@ body
   #searchInput::placeholder
   {
     font-size:    8px;
+
     height:       100%;
 
-    /* background-color: chartreuse; */
+    /* background-color: chartreuse;  */
 
     /* transform: translateY(-1px); */
 
@@ -10228,13 +10419,19 @@ body
   {
 
     height: 233px;
+
     width:  204px;
 
-    /* background-color: darkgoldenrod; */
+    /* background-color: darkgoldenrod;  */
 
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: start;
+    align-items: flex-start; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: flex-start;
 
   }
@@ -10249,7 +10446,7 @@ body
     overflow-y: auto;
     scrollbar-width: none;
 
-    /* background-color: blue; */
+    /* background-color: blue;  */
 
   }
 
@@ -10260,26 +10457,206 @@ body
 
   #DBC-row3-occupC-c2-empC-scrollC
   {
-      /* width: 11px;
-      height: 100%; */
+      width: 7px;
+      height: 100%;
 
-      background-color: goldenrod;
+      /* background-color: goldenrod; */
   }
 
   #DBC-row3-occupC-c2-empC-thumb
   {
 
-    /* top: 0;
-    left: 1px; */
+    top: 0;
+    left: 1px;
 
-    /* width: 8px;
+    width: 5px;
 
-    height: 31px; */
+    height: 20px !important;
 
-    background-color: dimgrey;
+    /* background-color: dimgrey; */
+
+    border-radius: 5px;
+
+  }
+
+  .occup_row
+  {
+
+    width: 100%;
+    height: auto;
+
+    /* background-color: lightcoral; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+
+    border-bottom: 1px solid rgba(244,245,247,1);
+
+  }
+
+  .occup_room
+  {
+
+    width: 34%;
+    height: auto;
+
+    /* background-color: brown; */
+
+    font-size:    8px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+
+    padding-top:  3px;
+    padding-left: 2px;
+
+  }
+
+  .occup_list
+  {
+
+    width: 66%;
+    height: auto;
+
+    /* background-color: green; */
+
+    border-left:      2px solid rgba(244,245,247,1);
+
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     flex-start;
+
+    padding-top: 3px;
+    padding-bottom: 2px;
+
+  }
+
+  .occup_img
+  {
+
+    width:  11px;
+    height: auto;
+    /* background-color: violet; */
+    display: block;
+    /* margin-top: 1px; */
+
+  }
+
+  .occup_bed
+  {
+
+    /* background-color: lightcyan; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-size:    7px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+    margin: 0px;
+    /* margin-bottom: 4px; */
+    /* margin-top: 4px; */
+    width: 100%;
+    height: 12px;
+
+  }
+
+  .occup_bed_id
+  {
+    width: 13%;
+
+    /* background-color: red; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* padding-bottom: 1px; */
+  }
+
+  .occup_img_C
+  {
+    /* background-color: orange; */
+    text-align: start;
+    padding-left: 3px;
+
+    width: 87%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    padding-bottom: 1px;
+
+  }
+
+  .occup_patient
+  {
+
+    /* background-color: lightcyan; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    font-size:    7px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+
+    /* padding-left: 10px; */
+    /* padding-top: 6px; */
+
+    margin: 0px;
+
+    /* margin-bottom: 4px; */
+    /* margin-top: 6px; */
+
+    width: 100%;
+
+    height: 12px;
+
+  }
+
+  .occup_patient_id
+  {
+    width: 13%;
+    /* background-color: greenyellow; */
+    text-align: center;
+    color: #59646f;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* padding-bottom: 1px; */
+  }
+
+  .occup_patient_name
+  {
+    /* background-color: blue; */
+    text-align: start;
+    padding-left: 3px;
+    color: #59646f;
+    width: 87%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    /* padding-bottom: 1px; */
   }
 
 }
+
 
 /* počítačová obrazovka */
 @media (min-width: 1400px) and (max-width: 1920px)
@@ -10493,8 +10870,13 @@ body
   #DBC-row3-occupC-c2-empC
   {
 
-    height: 271px;
-    width: 238px;
+    /* height: 271px; */
+
+    height: clamp(271px,calc(271px + (100vw - 1400px) * 0.190385),370px);
+
+    /* width: 238px; */
+
+    width: clamp(238px,calc(238px + (100vw - 1400px) * (89 / 520)),327px);
 
     /* background-color: darkgoldenrod; */
 
@@ -10530,18 +10912,18 @@ body
     width:  8px;
     height: 100%;
 
-      /* background-color: goldenrod; */
+    /* background-color: goldenrod; */
   }
 
   #DBC-row3-occupC-c2-empC-thumb
   {
 
     top: 0;
-    left: 1px;
+    left: 1px !important;
 
     width: 5px;
 
-    height: 20px !important;
+    height: 22px !important;
 
     /* background-color: dimgrey; */
 
@@ -10549,7 +10931,182 @@ body
 
   }
 
+  .occup_row
+  {
+
+    width: 100%;
+    height: auto;
+
+    /* background-color: lightcoral; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+
+    border-bottom: 1px solid rgba(244,245,247,1);
+
+  }
+
+  .occup_room
+  {
+
+    width: 34%;
+    height: auto;
+
+    /* background-color: brown; */
+
+    font-size:    10px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+
+    padding-top:  4px;
+    padding-left: 4px;
+
+  }
+
+  .occup_list
+  {
+
+    width: 66%;
+    height: auto;
+
+    /* background-color: green; */
+
+    border-left: 2px solid rgba(244,245,247,1);
+
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     flex-start;
+
+    padding-top: 4px;
+    padding-bottom: 5px;
+
+  }
+
+  .occup_img
+  {
+
+    width:  12px;
+    height: auto;
+    /* background-color: violet; */
+    display: block;
+    /* margin-top: 1px; */
+
+  }
+
+  .occup_bed
+  {
+
+    /* background-color: lightcyan; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-size:    8px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+    margin: 0px;
+    /* margin-bottom: 4px; */
+    /* margin-top: 4px; */
+    width: 100%;
+    height: 12px;
+
+  }
+
+  .occup_bed_id
+  {
+    width: 12%;
+
+    /* background-color: red; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* padding-bottom: 1px; */
+  }
+
+  .occup_img_C
+  {
+    /* background-color: orange; */
+    text-align: start;
+    padding-left: 6px;
+
+    width: 88%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+  }
+
+  .occup_patient
+  {
+
+    /* background-color: lightcyan; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    font-size:    8px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+
+    /* padding-left: 10px; */
+    /* padding-top: 6px; */
+
+    margin: 0px;
+
+    /* margin-bottom: 4px; */
+    /* margin-top: 6px; */
+
+    width: 100%;
+
+    height: 12px;
+
+  }
+
+  .occup_patient_id
+  {
+    width: 12%;
+    /* background-color: greenyellow; */
+    text-align: center;
+    color: #59646f;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* padding-bottom: 1px; */
+  }
+
+  .occup_patient_name
+  {
+    /* background-color: blue; */
+    text-align: start;
+    padding-left: 6px;
+    color: #59646f;
+    width: 88%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    /* padding-bottom: 1px; */
+  }
+
 }
+
 
 /* Zatím hotovo */
 
@@ -10796,22 +11353,21 @@ body
     border-radius: 10px;
   }
 
-
   .occup_row
   {
+
     width: 100%;
     height: auto;
 
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
 
     display: flex;
     flex-direction: row;
     justify-content: start;
-    /* align-items: center; */
-
     align-items: flex-start;
 
     border-bottom: 1px solid rgba(244,245,247,1);
+
   }
 
   .occup_room
@@ -10819,30 +11375,36 @@ body
 
     width: 34%;
     height: auto;
-    background-color: brown;
+
+    /* background-color: brown; */
 
     font-size:    13px;
     font-family:  'Montserrat';
     font-weight:  600;
     color: #357fab;
 
-    padding-top:  4px;
-    padding-left: 6px;
+    padding-top:  6px;
+    padding-left: 7px;
 
   }
 
   .occup_list
   {
+
     width: 66%;
     height: auto;
-    background-color: green;
+
+    /* background-color: green; */
 
     border-left: 2px solid rgba(244,245,247,1);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items:flex-start;
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     flex-start;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
 
   }
 
@@ -10851,60 +11413,67 @@ body
 
     width:  18px;
     height: auto;
-
-    background-color: violet;
-
+    /* background-color: violet; */
     display: block;
-
-    margin-top: 1px;
+    /* margin-top: 1px; */
 
   }
 
   .occup_bed
   {
 
-    background-color: lightcyan;
-
+    /* background-color: lightcyan; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
-
+    align-items: stretch;
     font-size:    13px;
     font-family:  'Montserrat';
     font-weight:  600;
     color: #357fab;
-
     margin: 0px;
-    /* margin-bottom: 4px; */
-    /* margin-top: 4px; */
+    width: 100%;
+    height: 19px;
 
   }
 
   .occup_bed_id
   {
+    width: 12%;
 
-    width: 11%;
-    background-color: red;
-    text-align: center;
+    /* background-color: red; */
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 1px;
   }
 
   .occup_img_C
   {
-    background-color: orange;
+    /* background-color: orange; */
     text-align: start;
-    padding-left: 8px;
+    padding-left: 6px;
+
+    width: 88%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
   }
 
   .occup_patient
   {
 
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
 
     font-size:    13px;
     font-family:  'Montserrat';
@@ -10917,27 +11486,51 @@ body
     margin: 0px;
 
     /* margin-bottom: 4px; */
-
     /* margin-top: 6px; */
+
+    width: 100%;
+
+    height: 19px;
+
   }
 
   .occup_patient_id
   {
-    width: 11%;
-    background-color: greenyellow;
+    width: 12%;
+    /* background-color: greenyellow; */
     text-align: center;
     color: #59646f;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 1px;
   }
 
   .occup_patient_name
   {
-    background-color: blue;
+    /* background-color: blue; */
     text-align: start;
-    padding-left: 8px;
+    padding-left: 6px;
     color: #59646f;
+    width: 88%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    padding-bottom: 1px;
   }
 
 }
+
+
+
+
+
 
 /* * * * * * * * */
 /*               */
