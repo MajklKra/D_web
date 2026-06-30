@@ -10273,56 +10273,79 @@ body
   #DBC-row3-occupC-c1-p1
   {
 
-    font-size:    8px;
+    /* font-size:    8px; */
+    font-size: clamp(8px, calc(1.005vw - 4.060px), 10px);
 
     /* background-color: red; */
 
     margin: 0px;
-    margin-bottom: 2px;
-    margin-top: 3px;
-    margin-left: 2px;
+
+    /* margin-bottom: 2px; */
+    margin-bottom: clamp(1px, calc(-0.503vw + 8.030px), 2px);
+
+    /* margin-top: 3px; */
+    margin-top: clamp(3px, calc(1.005vw - 9.060px), 5px);
+
+    /* margin-left: 2px; */
+    margin-left: clamp(2px, calc(1.005vw - 10.060px), 4px);
 
   }
 
   #DBC-row3-occupC-c1-p2
   {
 
-    font-size:    7px;
+    /* font-size:    7px; */
+    font-size: clamp(7px, calc(1.005vw - 5.060px), 9px);
 
     /* background-color: blue; */
 
     margin: 0px;
-    margin-bottom: 19px;
 
-    margin-left: 2px;
+    /* margin-bottom: 19px; */
+    margin-bottom: clamp(19px, calc(1.005vw + 6.940px), 21px);
+
+    /* margin-left: 2px; */
+    margin-left:  clamp(2px, calc(1.005vw - 10.060px), 4px);
 
   }
 
   #DBC-row3-occupC-c1-p3
   {
 
-    font-size:    9px;
+    /* font-size:    9px; */
+    font-size: clamp(9px, calc(1.508vw - 9.090px), 12px);
 
     /* background-color: lightcyan; */
     margin: 0px;
     margin-bottom: 0px;
 
-    margin-left: 2px;
+    /* margin-left: 2px; */
+    margin-left: clamp(2px, calc(1.005vw - 10.060px), 4px);
 
   }
 
   #informationPanel
   {
 
-    width:        184px;
-    height:        20px;
+    /* width:        184px; */
 
-    font-size:    12px;
+    width:        clamp(184px, calc(15.578vw - 2.936px), 215px);
 
-    margin-bottom: 8px;
+    /* height:        20px; */
+
+    height: clamp(20px, calc(1.005vw + 7.940px), 22px);
+
+    /* font-size:    12px; */
+    font-size: clamp(12px, calc(1.508vw - 6.090px), 15px);
+
+    /* margin-bottom: 8px; */
+    margin-bottom: clamp(8px, calc(1.005vw - 4.060px), 10px);
 
     padding-top:    3px;
-    padding-left:   4px;
+
+    /* padding-left:   4px; */
+    padding-left: clamp(4px, calc(1.508vw - 14.090px), 7px);
+
     padding-bottom: 3px;
     padding-right:  5px;
 
@@ -10332,34 +10355,77 @@ body
     text-overflow: ellipsis;
 
     /* background-color: greenyellow; */
+
+    #informationPanel
+    {
+
+      /* width: 215px; */
+
+
+      /* height: 22px; */
+
+
+      /* font-size:    15px; */
+
+
+
+      /* margin-bottom: 10px; */
+
+      padding-top: 3px;
+
+      /* padding-left: 7px; */
+
+      /* padding-bottom: 3px; */
+
+      /* padding-right: 5px; */
+
+    }
+
+
   }
 
   #DBC-row3-occupC-c1-p4
   {
-    font-size:    6px;
+
+    /* font-size:    6px; */
+
+    font-size: clamp(6px, calc(0.503vw - 0.036px), 7px);
 
     /* background-color: lightcoral; */
     margin: 0px;
-    margin-bottom: 8px;
 
-    margin-left: 2px;
+    /* margin-bottom: 8px; */
+    margin-bottom: clamp(8px, calc(2.513vw - 22.151px), 13px);
+
+    /* margin-left: 2px; */
+    margin-left: clamp(2px, calc(1.005vw - 10.060px), 4px);
 
   }
 
   #informationPanel2
   {
 
-    width:          53px;
-    height:         11px;
+    /* width:          53px; */
+
+    width:             clamp(53px, calc(4.020vw + 4.759px), 61px);
+
+    /* height:         11px; */
+
+    height:            clamp(11px, calc(1.005vw - 1.060px), 13px);
 
     font-size:       8px;
 
-    margin-bottom:  21px;
+    /* margin-bottom:  21px; */
+
+    margin-bottom:  clamp(21px, calc(2.010vw - 3.121px), 25px);
 
     padding-top:    1px;
     padding-bottom: 3px;
 
-    padding-left:   2px;
+    /* padding-left:   2px; */
+
+    padding-left: clamp(2px, calc(1.005vw - 10.060px), 4px);
+
     padding-right:  5px;
 
     /* background-color: coral; */
@@ -10375,22 +10441,26 @@ body
   #DBC-row3-occupC-c1-p5
   {
 
-    font-size:    5px;
+    /* font-size:    5px; */
+
+    font-size: clamp(5px, calc(1.005vw - 7.060px), 7px);
+
     /* background-color: orange; */
+
     margin: 0px;
-    margin-bottom: 2px;
+    /* margin-bottom: 2px; */
+    margin-bottom: clamp(2px, calc(0.503vw - 4.036px), 3px);
 
-    margin-left: 2px;
-
+    /* margin-left: 2px; */
+    margin-left: clamp(2px, calc(1.005vw - 10.060px), 4px);
   }
 
   #search-box
   {
 
-    /* padding-top: 1px;
-    padding-bottom: 2px; */
+    /* padding-left: 2px; */
 
-    padding-left: 2px;
+    padding-left: clamp(2px, calc(1.005vw - 10.060px), 4px);
 
     padding-right: 16px;
     /* background-color: brown;  */
@@ -10400,34 +10470,46 @@ body
   #search-icon
   {
 
-    width:  18px;
+    /* width:  18px; */
 
-    height: 18px;
+    width: clamp(18px, calc(1.005vw + 5.940px), 20px);
+
+    /* height: 18px; */
+
+    height: clamp(18px, calc(1.005vw + 5.940px), 20px);
 
     padding-left:     3px;
     padding-right:    3px;
-    padding-top:      3px;
-    padding-bottom:   3px;
+
+    /* padding-top:      3px; */
+    padding-top: clamp(3px, calc(0.503vw - 3.036px), 4px);
+
+    /* padding-bottom:   3px; */
+    padding-bottom: clamp(2px, calc(-0.503vw + 9.036px), 3px);
 
     background-color: white;
 
     /* margin-top: 1px; */
+
   }
 
   #searchInput
   {
 
-    width:  89px !important;
+    /* width:  89px !important; */
+
+    width: clamp(89px, calc(17.085vw - 116.025px), 123px) !important;
 
     height: 100%;
 
     /* font-size:    8px; */
 
-    font-size: clamp(8px, calc(0.961538vw - 5.462px), 13px);
+    font-size: clamp(8px, calc(2.513vw - 22.151px), 13px);
+
 
     /* margin-left:  0px; */
 
-    margin-left: clamp(0px, calc(0.384615vw - 5.385px), 2px);
+    margin-left: clamp(0px, calc(1.005vw - 12.060px), 2px);
 
     margin-right: 5px;
 
@@ -10439,7 +10521,9 @@ body
 
   #searchInput::placeholder
   {
-    font-size:    8px;
+    /* font-size:    8px; */
+
+    font-size: clamp(8px, calc(1.508vw - 10.090px), 11px);
 
     height:       100%;
 
@@ -10452,9 +10536,13 @@ body
   #DBC-row3-occupC-c2-empC
   {
 
-    height: 233px;
+    /* height: 233px; */
 
-    width:  204px;
+    height: clamp(233px, calc(19.095vw + 3.854px), 271px);
+
+    /* width:  204px; */
+
+    width: clamp(204px, calc(17.085vw - 1.025px), 238px);
 
     /* background-color: darkgoldenrod;  */
 
@@ -10467,7 +10555,6 @@ body
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-
   }
 
   #DBC-row3-occupC-c2-empC-c1
