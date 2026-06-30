@@ -2248,7 +2248,7 @@ body
 
 #dashboardC
 {
-  background-color: gray;
+  /* background-color: gray; */
 
   /* background-color: transparent; */
 
@@ -2562,7 +2562,7 @@ body
 
   width: 22.8%;
 
-  background-color: lightsalmon;
+  /* background-color: lightsalmon; */
 
   border-radius: 10px;
 
@@ -9976,7 +9976,9 @@ body
   #DBC-row3-occupC-c2-empC-c1
   {
 
-    width: calc(100% - 7px) !important;
+    /* width: calc(100% - 7px) !important; */
+
+    width: calc(100% - clamp(7px, calc(0.483vw + 2.208px), 8px)) !important;
 
     height: 100%;
 
@@ -9994,10 +9996,14 @@ body
 
   #DBC-row3-occupC-c2-empC-scrollC
   {
-      width:   7px !important;
+      /* width:   7px !important; */
+
+      width: clamp(7px, calc(0.483vw + 2.208px), 8px) !important;
+
       height: 100%;
 
       /* background-color: goldenrod;  */
+
   }
 
   #DBC-row3-occupC-c2-empC-thumb
@@ -10008,7 +10014,11 @@ body
 
     width: 4px;
 
-    height: 15px !important;
+    width: clamp(4px, calc(0.48309vw - 0.79227px), 5px) !important;
+
+    /* height: 15px !important; */
+
+    height: clamp(15px, calc(2.415vw - 8.962px), 20px) !important;
 
     /* background-color: dimgrey;  */
 
@@ -10016,204 +10026,204 @@ body
 
   }
 
-   .occup_row
-    {
+  .occup_row
+  {
 
-      width: 100%;
-      height: auto;
+    width: 100%;
+    height: auto;
 
-      /* background-color: lightcoral; */
+    /* background-color: lightcoral; */
 
-      display: flex;
-      flex-direction: row;
-      justify-content: start;
-      align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
 
-      border-bottom: 1px solid rgba(244,245,247,1);
+    border-bottom: 1px solid rgba(244,245,247,1);
 
-    }
+  }
 
-    .occup_room
-    {
+  .occup_room
+  {
 
-      width: 34%;
-      height: auto;
+    width: 34%;
+    height: auto;
 
-      /* background-color: brown; */
+    /* background-color: brown; */
 
-      /* font-size:    7px; */
+    /* font-size:    7px; */
 
-      font-size: clamp(7px, calc(0.483092vw + 2.208px), 8px);
+    font-size: clamp(7px, calc(0.483092vw + 2.208px), 8px);
 
-      font-family:  'Montserrat';
-      font-weight:  600;
-      color: #357fab;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
 
-      padding-top:  3px;
+    padding-top:  3px;
 
-      /* padding-left: 3px; */
+    /* padding-left: 3px; */
 
-      padding-left: clamp(2px, calc(-0.483092vw + 7.792px), 3px);
+    padding-left: clamp(2px, calc(-0.483092vw + 7.792px), 3px);
 
-    }
+  }
 
-    .occup_list
-    {
+  .occup_list
+  {
 
-      width: 66%;
-      height: auto;
+    width: 66%;
+    height: auto;
 
-      /* background-color: green; */
+    /* background-color: green; */
 
-      border-left:      2px solid rgba(244,245,247,1);
+    border-left:      2px solid rgba(244,245,247,1);
 
-      display:         flex;
-      flex-direction:  column;
-      justify-content: center;
-      align-items:     flex-start;
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     flex-start;
 
-      /* padding-top: 1px; */
+    /* padding-top: 1px; */
 
-      padding-top: clamp(1px, calc(0.966184vw - 8.585px), 3px);
+    padding-top: clamp(1px, calc(0.966184vw - 8.585px), 3px);
 
-      /* padding-bottom: 1px; */
+    /* padding-bottom: 1px; */
 
-      padding-bottom: clamp(1px, calc(0.483092vw - 3.792px), 2px);
+    padding-bottom: clamp(1px, calc(0.483092vw - 3.792px), 2px);
 
-    }
+  }
 
-    .occup_img
-    {
+  .occup_img
+  {
 
-      /* width:  9px; */
+    /* width:  9px; */
 
-      width: clamp(9px, calc(0.96618vw - 0.58454px), 11px);
+    width: clamp(9px, calc(0.96618vw - 0.58454px), 11px);
 
-      height: auto;
-      /* background-color: violet; */
-      display: block;
-      /* margin-top: 1px; */
+    height: auto;
+    /* background-color: violet; */
+    display: block;
+    /* margin-top: 1px; */
 
-    }
+  }
 
-    .occup_bed
-    {
+  .occup_bed
+  {
 
-      /* background-color: lightcyan; */
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: stretch;
-      font-size:    7px;
-      font-family:  'Montserrat';
-      font-weight:  600;
-      color: #357fab;
-      margin: 0px;
-      /* margin-bottom: 4px; */
-      /* margin-top: 4px; */
-      width: 100%;
+    /* background-color: lightcyan; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-size:    7px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+    margin: 0px;
+    /* margin-bottom: 4px; */
+    /* margin-top: 4px; */
+    width: 100%;
 
-      /* height: 11px; */
+    /* height: 11px; */
 
-      height: clamp(11px, calc(0.48309vw + 6.20773px), 12px);
-    }
+    height: clamp(11px, calc(0.48309vw + 6.20773px), 12px);
+  }
 
-    .occup_bed_id
-    {
-      width: 11%;
+  .occup_bed_id
+  {
+    width: 11%;
 
-      /* background-color: red; */
+    /* background-color: red; */
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    }
+  }
 
-    .occup_img_C
-    {
-      /* background-color: orange; */
-      text-align: start;
-      /* padding-left: 4px; */
+  .occup_img_C
+  {
+    /* background-color: orange; */
+    text-align: start;
+    /* padding-left: 4px; */
 
-      padding-left: clamp(3px, calc(-0.48309vw + 8.79227px), 4px);
+    padding-left: clamp(3px, calc(-0.48309vw + 8.79227px), 4px);
 
-      width: 89%;
+    width: 89%;
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
 
-      padding-top: 1px;
+    padding-top: 1px;
 
-    }
+  }
 
-    .occup_patient
-    {
+  .occup_patient
+  {
 
-      /* background-color: lightcyan; */
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: stretch;
+    /* background-color: lightcyan; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
 
-      font-size:    7px;
-      font-family:  'Montserrat';
-      font-weight:  600;
-      color: #357fab;
+    font-size:    7px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
 
-      /* padding-left: 10px; */
-      /* padding-top: 6px; */
+    /* padding-left: 10px; */
+    /* padding-top: 6px; */
 
-      margin: 0px;
+    margin: 0px;
 
-      /* margin-bottom: 4px; */
-      /* margin-top: 6px; */
+    /* margin-bottom: 4px; */
+    /* margin-top: 6px; */
 
-      width: 100%;
+    width: 100%;
 
-      /* height: 11px; */
+    /* height: 11px; */
 
-      height: clamp(11px, calc(0.483092vw + 6.207729px), 12px);
+    height: clamp(11px, calc(0.483092vw + 6.207729px), 12px);
 
-    }
+  }
 
-    .occup_patient_id
-    {
-      width: 11%;
-      /* background-color: greenyellow; */
-      text-align: center;
-      color: #59646f;
+  .occup_patient_id
+  {
+    width: 11%;
+    /* background-color: greenyellow; */
+    text-align: center;
+    color: #59646f;
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-      /* padding-bottom: 1px; */
+    /* padding-bottom: 1px; */
 
-    }
+  }
 
-    .occup_patient_name
-    {
-      /* background-color: blue; */
-      text-align: start;
+  .occup_patient_name
+  {
+    /* background-color: blue; */
+    text-align: start;
 
-      /* padding-left: 4px; */
+    /* padding-left: 4px; */
 
-      padding-left: clamp(3px, calc(-0.483092vw + 8.792271px), 4px);
+    padding-left: clamp(3px, calc(-0.483092vw + 8.792271px), 4px);
 
-      color: #59646f;
-      width: 89%;
+    color: #59646f;
+    width: 89%;
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
 
-    }
+  }
 
 }
 
@@ -10462,8 +10472,7 @@ body
 
   #DBC-row3-occupC-c2-empC-c1
   {
-
-    width: calc(100% - 10px);
+    width: calc(100% - 8px) !important;
 
     height: 100%;
 
@@ -10481,10 +10490,12 @@ body
 
   #DBC-row3-occupC-c2-empC-scrollC
   {
-      width: 7px;
+      width: 8px !important;
+
       height: 100%;
 
       /* background-color: goldenrod; */
+
   }
 
   #DBC-row3-occupC-c2-empC-thumb
@@ -10493,9 +10504,11 @@ body
     top: 0;
     left: 1px;
 
-    width: 5px;
+    width: 5px !important;
 
-    height: 20px !important;
+    /* height: 20px !important; */
+
+    height: clamp(20px, calc(1.005025vw + 7.940px), 22px) !important;
 
     /* background-color: dimgrey; */
 
@@ -10965,21 +10978,32 @@ body
 
   #DBC-row3-occupC-c2-empC-scrollC
   {
-    width:  8px;
+
+    /* width:  8px; */
+
+    width: clamp(8px, calc(0.961538vw - 5.461538px), 13px);
+
     height: 100%;
 
     /* background-color: goldenrod; */
+
   }
 
   #DBC-row3-occupC-c2-empC-thumb
   {
 
     top: 0;
-    left: 1px !important;
+    /* left: 1px !important; */
 
-    width: 5px;
+    left: clamp(1px, calc(0.192308vw - 1.692308px), 2px) !important;
 
-    height: 22px !important;
+    /* width: 5px; */
+
+    width: clamp(5px, calc(0.576923vw - 3.076923px), 8px);
+
+    /* height: 22px !important; */
+
+    height: clamp(22px, calc(1.731vw - 2.231px), 31px) !important;
 
     /* background-color: dimgrey; */
 

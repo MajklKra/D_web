@@ -875,30 +875,6 @@ document.addEventListener("DOMContentLoaded", function ()
 
     content.addEventListener("scroll", updateThumb);
 
-    // function updateThumb()
-    // {
-    //     const isEmpty = content.children.length === 0;
-
-    //     if (isEmpty || content.scrollHeight <= content.clientHeight)
-    //     {
-    //         track.style.display = "none";
-    //         content.style.width = "100%";
-    //         return;
-    //     }
-
-    //     track.style.display = "block";
-    //     content.style.width = "calc(100% - 10px)";
-
-    //     const thumbHeight = 31;
-    //     thumb.style.height = thumbHeight + "px";
-
-    //     const maxScrollTop = content.scrollHeight - content.clientHeight;
-    //     const maxThumbTop = track.clientHeight - thumbHeight;
-
-    //     const thumbTop = (content.scrollTop / maxScrollTop) * maxThumbTop;
-    //     thumb.style.top = thumbTop + "px";
-    // }
-
     function updateThumb()
     {
         const isEmpty = content.children.length === 0;
@@ -913,15 +889,16 @@ document.addEventListener("DOMContentLoaded", function ()
         track.style.display = "block";
         content.style.width = "calc(100% - 10px)";
 
-        const thumbHeight = thumb.offsetHeight;
+        const thumbHeight = 31;
+        thumb.style.height = thumbHeight + "px";
 
         const maxScrollTop = content.scrollHeight - content.clientHeight;
         const maxThumbTop = track.clientHeight - thumbHeight;
 
         const thumbTop = (content.scrollTop / maxScrollTop) * maxThumbTop;
-
         thumb.style.top = thumbTop + "px";
     }
+
 
     // content.addEventListener("scroll", updateThumb);
     window.addEventListener("resize", updateThumb);
