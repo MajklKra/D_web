@@ -10745,7 +10745,13 @@ body
 
     margin-left:      1.5%;
 
-    padding:          10px 10px;
+    /* padding:          10px 10px; */
+
+    padding-top: clamp(10px, calc(1.923077vw - 16.923px), 20px);
+    padding-bottom: clamp(10px, calc(1.923077vw - 16.923px), 20px);
+    padding-left: clamp(10px, calc(1.730769vw - 14.231px), 19px);
+    padding-right: clamp(10px, calc(1.730769vw - 14.231px), 19px);
+
   }
 
   #DBC-row3-occupC-c1
@@ -10773,12 +10779,18 @@ body
   #DBC-row3-occupC-c1-p1
   {
 
-    font-size:    10px;
+    /* font-size:    10px; */
+
+    font-size: clamp(10px, calc(0.769231vw - 0.769px), 14px);
 
     /* background-color: red; */
 
     margin: 0px;
-    margin-bottom: 1px;
+
+    /* margin-bottom: 1px; */
+
+    margin-bottom: clamp(1px, calc(0.384615vw - 4.385px), 3px);
+
     margin-top: 5px;
     margin-left: 4px;
 
@@ -10787,12 +10799,15 @@ body
   #DBC-row3-occupC-c1-p2
   {
 
-    font-size:    10px;
+    /* font-size:    10px; */
+
+    font-size: clamp(10px, calc(0.192308vw + 7.308px), 11px);
 
     /* background-color: blue; */
 
     margin: 0px;
-    margin-bottom: 21px;
+    /* margin-bottom: 21px; */
+    margin-bottom: clamp(21px, calc(1.730769vw - 3.231px), 30px);
 
     margin-left: 4px;
 
@@ -10801,11 +10816,15 @@ body
   #DBC-row3-occupC-c1-p3
   {
 
-    font-size:    12px;
+    /* font-size:    12px; */
+
+    font-size: clamp(12px, calc(0.192308vw + 9.308px), 13px);
 
     /* background-color: lightcyan; */
     margin: 0px;
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
+
+    margin-bottom: clamp(0px, calc(0.961538vw - 13.462px), 5px);
 
     margin-left: 4px;
 
@@ -10814,28 +10833,44 @@ body
   #informationPanel
   {
 
-    width: 215px;
-    height: 22px;
+    /* width: 215px; */
+    width: clamp(215px, calc(15.384615vw - 0.385px), 295px);
 
-    font-size:    15px;
+    /* height: 22px; */
+    height: clamp(22px, calc(1.730769vw - 2.231px), 31px);
 
-    margin-bottom: 10px;
+    /* font-size:    15px; */
+
+    font-size: clamp(15px, calc(0.769231vw + 4.231px), 19px);
+
+    /* margin-bottom: 10px; */
+
+    margin-bottom: clamp(10px, calc(0.384615vw + 4.615px), 12px);
 
     padding-top: 3px;
-    padding-left: 7px;
-    padding-bottom: 3px;
-    padding-right: 5px;
+
+    /* padding-left: 7px; */
+    padding-left: clamp(7px, calc(0.384615vw + 1.615px), 9px);
+
+    /* padding-bottom: 3px; */
+    padding-bottom: clamp(3px, calc(0.192308vw + 0.308px), 4px);
+
+    /* padding-right: 5px; */
+    padding-right: clamp(5px, calc(1.346154vw - 13.846px), 12px);
 
     /* background-color: greenyellow; */
 
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+
   }
 
   #DBC-row3-occupC-c1-p4
   {
-    font-size:    7px;
+    /* font-size:    7px; */
+
+    font-size: clamp(7px, calc(0.384615vw + 1.615px), 9px);
 
     /* background-color: lightcoral; */
     margin: 0px;
@@ -10848,18 +10883,32 @@ body
   #informationPanel2
   {
 
-    width:  61px;
-    height: 13px;
+    /* width:  61px; */
 
-    font-size:    8px;
+    width: clamp(61px, calc(3.076923vw + 17.923px), 77px);
 
-    margin-bottom: 25px;
+    /* height: 13px; */
+
+    height: clamp(13px, calc(0.961538vw - 0.462px), 18px);
+
+    /* font-size:    8px; */
+
+    font-size: clamp(8px, calc(0.576923vw - 0.077px), 11px);
+
+    /* margin-bottom: 25px; */
+
+    margin-bottom: clamp(25px, calc(1.153846vw + 8.846px), 31px);
 
     padding-top: 1px;
     padding-bottom: 3px;
 
-    padding-left: 4px;
-    padding-right: 5px;
+    /* padding-left: 4px; */
+
+    padding-left: clamp(4px, calc(0.192308vw + 1.308px), 5px);
+
+    /* padding-right: 5px; */
+
+    padding-right: clamp(5px, calc(0.192308vw + 2.308px), 6px);
 
     /* background-color: coral; */
 
@@ -10870,7 +10919,10 @@ body
   #DBC-row3-occupC-c1-p5
   {
 
-    font-size:    7px;
+    /* font-size:    7px; */
+
+    font-size: clamp(7px, calc(0.384615vw + 1.615px), 9px);
+
     /* background-color: orange; */
     margin: 0px;
     margin-bottom: 3px;
@@ -10882,9 +10934,17 @@ body
   #search-box
   {
 
-    padding-top: 1px;
-    padding-bottom: 2px;
-    padding-left: 4px;
+    /* padding-top: 1px; */
+
+    padding-top: clamp(1px, calc(0.961538vw - 12.462px), 6px);
+
+    /* padding-bottom: 2px; */
+
+    padding-bottom: clamp(2px, calc(0.769231vw - 8.769px), 6px);
+
+    /* padding-left: 4px; */
+
+    padding-left: clamp(4px, calc(0.769231vw - 6.769px), 8px);
 
     padding-right: 16px;
 
@@ -10895,8 +10955,13 @@ body
   #search-icon
   {
 
-    width:  20px;
-    height: 20px;
+    /* width:  20px; */
+
+    width: clamp(17px, calc(-0.576923vw + 28.077px), 20px);
+
+    /* height: 20px; */
+
+    height: clamp(17px, calc(-0.576923vw + 28.077px), 20px);
 
     padding-left: 3px;
     padding-right: 3px;
@@ -10906,6 +10971,7 @@ body
     background-color: white;
 
     /* margin-top: 1px; */
+
   }
 
   #searchInput
@@ -10917,7 +10983,10 @@ body
 
     font-size:    13px;
 
-    margin-left:  2px;
+    /* margin-left:  2px; */
+
+    margin-left: clamp(2px, calc(0.769231vw - 8.769px), 6px);
+
     margin-right: 5px;
 
     /* background-color: yellow; */
@@ -10928,7 +10997,9 @@ body
 
   #searchInput::placeholder
   {
-    font-size:    11px;
+    /* font-size:    11px; */
+
+    font-size: clamp(11px, calc(0.384615vw + 5.615px), 13px);
 
     /* background-color: chartreuse; */
 
@@ -10953,8 +11024,6 @@ body
     flex-direction: row;
     justify-content: start;
     align-items: flex-start;
-
-
   }
 
   #DBC-row3-occupC-c2-empC-c1
