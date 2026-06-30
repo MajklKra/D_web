@@ -1,7 +1,7 @@
 
-__version__ = "1.2.55"
+__version__ = "1.2.56"
 
-# DBC-row3-occupC 1200px made responsive
+# DBC-row3-occupC made responsive
 
 # Jedná se o tuto produkční verzi č. ----
 

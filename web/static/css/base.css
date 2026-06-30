@@ -9804,7 +9804,9 @@ body
   #DBC-row3-occupC-c1-p3
   {
 
-    font-size:    8px;
+    /* font-size:    8px; */
+
+    font-size: clamp(8px, calc(0.483092vw + 3.209px), 9px);
 
     /* background-color: lightcyan; */
 
@@ -9818,16 +9820,23 @@ body
   #informationPanel
   {
 
-    width: 153px;
-    height: 17px;
+    /* width: 153px; */
+    width: clamp(153px, calc(14.975845vw + 4.440px), 184px);
 
-    font-size:    10px;
+    /* height: 17px; */
+    height: clamp(17px, calc(1.449275vw + 2.623px), 20px);
+
+    /* font-size:    10px; */
+    font-size: clamp(10px, calc(0.966184vw + 0.416px), 12px);
 
     margin-bottom: 8px;
 
-    padding-top: 1.5px;
+    /* padding-top: 1.5px; */
+    padding-top: clamp(1.5px, calc(0.724638vw - 5.688px), 3px);
     padding-left: 4px;
-    padding-bottom: 1.5px;
+
+    /* padding-bottom: 1.5px; */
+    padding-bottom: clamp(1.5px, calc(0.724638vw - 5.688px), 3px);
     padding-right: 5px;
 
     /* background-color: greenyellow; */
@@ -9855,15 +9864,20 @@ body
   #informationPanel2
   {
 
-    width:  43px;
+    /* width:  43px; */
+
+    width: clamp(43px, calc(4.830918vw - 4.923px), 53px);
+
     height: 11px;
 
-    font-size:        6px;
+    /* font-size:        6px; */
+    font-size: clamp(6px, calc(0.966184vw - 3.584px), 8px);
 
     margin-bottom:    21px;
 
     padding-top:      1px;
-    padding-bottom:   1px;
+    /* padding-bottom:   1px; */
+    padding-bottom: clamp(1px, calc(0.966184vw - 8.584px), 3px);
 
     padding-left:     2px;
     padding-right:    5px;
@@ -9899,9 +9913,13 @@ body
     /* padding-top: 1px;
     padding-bottom: 2px; */
 
-    padding-left: 1px;
+    /* padding-left: 1px; */
 
-    padding-right: 0px;
+    padding-left: clamp(1px, calc(0.483092vw - 3.792px), 2px);
+
+    /* padding-right: 0px; */
+
+    padding-right: clamp(0px, calc(7.729469vw - 76.649px), 16px);
 
     /* background-color: brown; */
 
@@ -9910,8 +9928,11 @@ body
   #search-icon
   {
 
-    width:  15px;
-    height: 15px;
+    /* width:  15px; */
+    width: clamp(15px, calc(1.449275vw + 0.623px), 18px);
+
+    /* height: 15px; */
+    height:(15px, calc(1.449275vw + 0.623px), 18px);
 
     padding-left:     3px;
     padding-right:    3px;
@@ -9920,13 +9941,15 @@ body
 
     background-color: white;
 
-    /* margin-top: 1px; */
   }
 
   #searchInput
   {
 
-    width:  87px !important;
+    /* width:  87px !important; */
+
+    width: clamp(87px, calc(0.966184vw + 77.415px), 89px);
+
     height: 100%;
 
     font-size:    8px;
@@ -10355,32 +10378,6 @@ body
     text-overflow: ellipsis;
 
     /* background-color: greenyellow; */
-
-    #informationPanel
-    {
-
-      /* width: 215px; */
-
-
-      /* height: 22px; */
-
-
-      /* font-size:    15px; */
-
-
-
-      /* margin-bottom: 10px; */
-
-      padding-top: 3px;
-
-      /* padding-left: 7px; */
-
-      /* padding-bottom: 3px; */
-
-      /* padding-right: 5px; */
-
-    }
-
 
   }
 
