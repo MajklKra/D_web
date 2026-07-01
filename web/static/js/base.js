@@ -1511,3 +1511,180 @@ function createPieChart2(chartSize)
 
     pieChart2.render();
 }
+
+/* * * * * * * * * * * * */
+/*                       */
+/* Kruhový graf číslo 3  */
+/*                       */
+/* * * * * * * * * * * * */
+
+
+const percent3 = window.percent3;
+let currentChartWidth3 = null;
+let pieChart3 = null;
+
+function getChartConfig3(chartSize)
+{
+    console.log('%c ƒ function getChartConfig3() has been reached ... ', 'color: red;');
+
+    if (chartSize >= 180)
+    {
+        return {
+            chartSize,
+            hollowSize: "48%",
+            wordsSize: "27px",
+            // offsetY: "8"
+        };
+    }
+
+    if (chartSize >= 140)
+    {
+        return {
+            chartSize,
+            hollowSize: "40%",
+            wordsSize: "20px",
+            // offsetY: "6"
+        };
+    }
+
+    if (chartSize >= 120)
+    {
+        return {
+            chartSize,
+            hollowSize: "38%",
+            wordsSize: "14px",
+            // offsetY: "4",
+        };
+    }
+
+    return {
+        chartSize,
+        hollowSize: "35%",
+        wordsSize: "14px",
+        // offsetY: "2"
+    };
+}
+
+function updatePieChart3()
+{
+    console.log('%c ƒ function updatePieChart3() has been reached ... ', 'color: red;');
+
+    let chartWidth;
+
+    if (window.innerWidth > 1920)
+    {
+       chartWidth = Math.round(getChartWidth(window.innerWidth, 1921, 3840, 180, 180));
+
+       console.log("%c ↔️ width > 1920px and chartwidth: " + chartWidth,  "color: red; font-weight: bold;" );
+
+    }
+    else if (window.innerWidth > 1400)
+    {
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 1400, 1920, 140, 189));
+
+        console.log("%c ↔️ width > 1400px and chartwidth: " + chartWidth,  "color: red; font-weight: bold;" );
+    }
+    else if (window.innerWidth > 1200)
+    {
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 1200, 1399, 120, 139));
+
+        console.log("%c ↔️ width > 1200px and chartwidth: " + chartWidth,  "color: red; font-weight: bold;" );
+    }
+    else
+    {
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 920, 1199, 100, 119));
+
+        console.log("%c ↔️ width > 920px and chartwidth: " + chartWidth,  "color: red; font-weight: bold;" );
+    }
+
+    if (chartWidth !== currentChartWidth3)
+    {
+        currentChartWidth3 = chartWidth;
+
+        console.log(" %c ↔️ currentChartWidth3: " +  currentChartWidth3 ,  "color: red; font-weight: bold;" );
+
+        if (pieChart3)
+        {
+            pieChart3.destroy();
+            pieChart3 = null;
+        }
+
+        createPieChart3(chartWidth);
+    }
+}
+
+window.addEventListener("resize", updatePieChart3);
+document.addEventListener("DOMContentLoaded", updatePieChart3);
+
+function createPieChart3(chartSize)
+{
+
+    console.log("%c ƒ function createPieChart3() has been reached ... ", "color: red; font-weight: bold;");
+
+    const percent = Number(window.percent) || 0;
+    const chartEl = document.querySelector("#piechart3");
+
+    if (!chartEl)
+    {
+        console.log("Element #piechart3 neexistuje");
+        return;
+    }
+
+    const config3 = getChartConfig3(chartSize);
+
+    console.log(' %c ⚙️ config3 chartSize: ' + config3.chartSize, "color: red; font-weight: bold;");
+    console.log(' %c ⚙️ config3 wordsSize: ' + config3.wordsSize, "color: red; font-weight: bold;");
+    console.log(' %c ⚙️ config3 hollowSize : ' + config3.hollowSize, "color: red; font-weight: bold;");
+    console.log(' %c ⚙️ config3 offesetY: ' + config3.offsetY, "color: red; font-weight: bold;");
+
+    chartEl.innerHTML = "";
+    chartEl.style.width = config3.chartSize + "px";
+    chartEl.style.height = config3.chartSize + "px";
+    chartEl.style.minHeight = config3.chartSize + "px";
+
+    pieChart3 = new ApexCharts(chartEl, {
+        series: [percent3],
+        chart: {
+            type: "radialBar",
+            width: config3.chartSize,
+            height: config3.chartSize,
+            sparkline: {
+                enabled: true
+            }
+        },
+        colors: ["#2F80B7"],
+        plotOptions: {
+            radialBar: {
+                startAngle: -180,
+                endAngle: 180,
+                hollow: {
+                    size: config3.hollowSize
+                },
+                track: {
+                    background: "#EEF1F6"
+                },
+                dataLabels: {
+                    name: {
+                        show: false
+                    },
+                    value: {
+                        show: true,
+                        fontSize: config3.wordsSize,
+                        fontWeight: 600,
+                        fontFamily: "Montserrat",
+                        color: "#324351",
+                        offsetY: 6,
+
+                        // offsetY: config.offsetY,
+
+                        formatter: function () {
+                            return percent3 + "%";
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    pieChart3.render();
+}

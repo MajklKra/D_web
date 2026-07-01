@@ -1,7 +1,7 @@
 
-__version__ = "1.2.58"
+__version__ = "1.2.59"
 
-# DBC-row3-lastC-capC4 - 1920px piechart 1
+# DBC-row3-lastC-capC4 - 1920px made responsive
 
 # Jedná se o tuto produkční verzi č. ----
 
