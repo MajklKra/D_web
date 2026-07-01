@@ -4201,7 +4201,7 @@ body
   width: 50%;
   height: 100%;
 
-  background-color: lightblue;
+  /* background-color: lightblue; */
 
   /* position: relative; */
 
@@ -4217,7 +4217,7 @@ body
   width: 50%;
   height: 100%;
 
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 
   position: relative;
 }
@@ -4226,7 +4226,7 @@ body
 
 #piechart2
 {
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
 
   display: flex;
   flex-direction: column;
@@ -10793,7 +10793,7 @@ body
 
     /* height: 11.45vw; */
 
-    background-color: lightblue;
+    /* background-color: lightblue; */
 
     padding-top:      12px;
     padding-left:     12px;
@@ -10811,7 +10811,7 @@ body
     width: 100%;
     height: 20%;
 
-    background-color: red;
+    /* background-color: red; */
 
     display: flex;
     flex-direction: row;
@@ -10824,7 +10824,7 @@ body
     width: 100%;
     height: 75%;
 
-    background-color: blue;
+    /* background-color: blue; */
 
     display: flex;
     flex-direction: row;
@@ -10839,7 +10839,7 @@ body
     width: 70%;
     height: 100%;
 
-    background-color: green;
+    /* background-color: green; */
 
     display: flex;
     flex-direction: column;
@@ -10853,7 +10853,7 @@ body
     width:  30%;
     height: 100%;
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
     display: flex;
     flex-direction: row;
@@ -10866,7 +10866,7 @@ body
   {
     margin: 0px;
 
-    background-color: pink;
+    /* background-color: pink; */
 
     font-size:    14px;
     font-family:  'Montserrat';
@@ -10880,7 +10880,7 @@ body
   {
     margin: 0px;
 
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
 
     font-size:    11px;
     font-family:  'Montserrat';
@@ -10902,14 +10902,14 @@ body
     width: 50%;
     height: 100%;
 
-    background-color: orange;
+    /* background-color: orange; */
 
     /* position: relative; */
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
 
   }
 
@@ -10918,7 +10918,7 @@ body
     width: 50%;
     height: 100%;
 
-    background-color: lightcoral;
+    /*background-color: lightcoral; */
 
     position: relative;
   }
@@ -10927,16 +10927,21 @@ body
 
   #piechart2
   {
-    background-color: lightgreen;
+
+    /* background-color: lightgreen; */
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
 
     /* position: absolute;
     top:      -24px;
     left:     -33px; */
+
+    padding-top: 10px;
+    padding-left: 4px;
+
   }
 
   #piechart3
@@ -10961,7 +10966,7 @@ body
     border: none;
     outline: none;
 
-    background-color: gold;
+    /* background-color: gold; */
   }
 
   .menu-dots
