@@ -10799,7 +10799,7 @@ body
     width: 100%;
     height: 20%;
 
-    background-color: red;
+    /* background-color: red; */
 
     display: flex;
     flex-direction: row;
@@ -10812,7 +10812,7 @@ body
     width: 100%;
     height: 75%;
 
-    background-color: blue;
+    /* background-color: blue; */
 
     display: flex;
     flex-direction: row;
@@ -10827,7 +10827,7 @@ body
     width: 70%;
     height: 100%;
 
-    background-color: green;
+    /* background-color: green; */
 
     display: flex;
     flex-direction: column;
@@ -10841,7 +10841,7 @@ body
     width:  30%;
     height: 100%;
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
     display: flex;
     flex-direction: row;
@@ -10854,7 +10854,7 @@ body
   {
     margin: 0px;
 
-    background-color: pink;
+    /* background-color: pink; */
 
     font-size:    12px;
     font-family:  'Montserrat';
@@ -10868,7 +10868,7 @@ body
   {
     margin: 0px;
 
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
 
     font-size:    10px;
     font-family:  'Montserrat';
@@ -10892,7 +10892,7 @@ body
     width: 50%;
     height: 100%;
 
-    background-color: orange;
+    /* background-color: orange; */
 
     /* position: relative; */
 
@@ -10908,7 +10908,7 @@ body
     width: 50%;
     height: 100%;
 
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
 
     /* position: relative; */
 
@@ -10921,37 +10921,37 @@ body
   #piechart2
   {
 
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
 
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: center;
+    align-items: start;
 
     /* position: absolute;
     top:      -24px;
     left:     -33px; */
 
-    padding-top: 10px;
-    padding-left: 4px;
+    padding-top: 17px;
+    padding-left: 6px;
 
   }
 
   #piechart3
   {
 
-    background-color: lightblue;
+    /* background-color: lightblue; */
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: center;
+    align-items: start;
 
     /* position: absolute;
     top:      -24px;
     left:     -35px; */
 
-    padding-top: 10px;
-    padding-left: 3px;
+    padding-top: 17px;
+    padding-left: 6px;
   }
 
 
@@ -10963,7 +10963,7 @@ body
     border: none;
     outline: none;
 
-    background-color: gold;
+    /* background-color: gold; */
   }
 
   .menu-dots

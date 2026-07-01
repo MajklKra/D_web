@@ -1537,12 +1537,12 @@ function getChartConfig3(chartSize)
         };
     }
 
-    if (chartSize >= 140)
+    if (chartSize >= 138)
     {
         return {
             chartSize,
-            hollowSize: "40%",
-            wordsSize: "20px",
+            hollowSize: "44%",
+            wordsSize: "19px",
             // offsetY: "6"
         };
     }
@@ -1580,13 +1580,13 @@ function updatePieChart3()
     }
     else if (window.innerWidth > 1400)
     {
-        chartWidth = Math.round(getChartWidth(window.innerWidth, 1400, 1920, 140, 189));
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 1400, 1920, 138, 179));
 
         console.log("%c ↔️ width > 1400px and chartwidth: " + chartWidth,  "color: red; font-weight: bold;" );
     }
     else if (window.innerWidth > 1200)
     {
-        chartWidth = Math.round(getChartWidth(window.innerWidth, 1200, 1399, 120, 139));
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 1200, 1399, 120, 137));
 
         console.log("%c ↔️ width > 1200px and chartwidth: " + chartWidth,  "color: red; font-weight: bold;" );
     }

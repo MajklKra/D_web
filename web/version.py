@@ -1,7 +1,7 @@
 
-__version__ = "1.2.60"
+__version__ = "1.2.61"
 
-# DBC-row3-lastC-capC4 - 1400px piechart2
+# DBC-row3-lastC-capC4 - 1400px piechart3
 
 # Jedná se o tuto produkční verzi č. ----
 
