@@ -163,14 +163,11 @@ async function aktualizovatTeplotu()
   }
 }
 
-
-
 document.getElementById("logoutBtn").addEventListener("click", () =>
 {
     const url = document.getElementById("logoutBtn").dataset.logoutUrl;
     window.location.href = url;
 });
-
 
 /* Dnešní experimenty 26.5.2026 */
 
@@ -526,33 +523,6 @@ else
     document.body.addEventListener("htmx:historyRestore", markActiveSideNavByUrl);
 }
 
-
-/* Dnešní experimenty 28.5.2026 */
-
-// async function updateName()
-// {
-//   try
-//   {
-//     const response = await fetch("https://svatkyapi.cz/api/day");
-//     const data = await response.json();
-
-//     console.log('Dnes má svátek: :', data.name);
-
-//     const name = document.getElementById('DBC-row1-dateC-weatherC-nameC-span');
-
-//     if (name)
-//     {
-//       name.textContent = data.name;
-//     }
-
-//   }
-//   catch(error)
-//   {
-//     console.error('Chyba počasí:', error);
-//   }
-// }
-
-
 async function updateName()
 {
   try
@@ -582,287 +552,7 @@ async function updateName()
   }
 }
 
-
-// Graf - kapacita nemocnice
-
-// const chartData = window.chartData;
-// const chartCanvas = document.getElementById("capacityChart");
-
-
-// document.addEventListener("DOMContentLoaded", function ()
-// {
-//     const chartData = window.chartData;
-//     const chartCanvas = document.getElementById("capacityChart");
-
-//     if (chartCanvas && chartData)
-//     {
-//         new Chart(chartCanvas,
-//         {
-//             type: "line",
-
-//             plugins: [ChartDataLabels],
-
-//             data:
-//             {
-//                 labels: chartData.labels,
-
-//                 datasets:
-//                 [
-//                     {
-//                         label: "Obsazenost",
-//                         data: chartData.values,
-
-//                         yAxisID: "y",
-
-//                         borderColor: "#357fab",
-//                         backgroundColor: "#357fab",
-
-//                         borderWidth: 2,
-
-//                         tension: 0.45,
-//                         cubicInterpolationMode: "monotone",
-
-//                         pointRadius: function(context)
-//                         {
-//                             const lastIndex = context.dataset.data.length - 1;
-
-//                             return (
-//                                 context.dataIndex === 0 ||
-//                                 context.dataIndex === lastIndex
-//                             )
-//                             ? 0
-//                             : 3.5;
-//                         },
-
-//                         pointHoverRadius: function(context)
-//                         {
-//                             const lastIndex = context.dataset.data.length - 1;
-
-//                             return (
-//                                 context.dataIndex === 0 ||
-//                                 context.dataIndex === lastIndex
-//                             )
-//                             ? 0
-//                             : 3.5;
-//                         },
-
-//                         pointBackgroundColor: "#3f7fb5",
-//                         pointBorderColor: "#3f7fb5",
-//                         pointBorderWidth: 0,
-
-//                         fill: false,
-
-//                         datalabels:
-//                         {
-//                             align: "top",
-//                             anchor: "end",
-//                             color: "#7f7f8c",
-//                             offset: 1,
-
-//                             font:
-//                             {
-//                                 family: "Montserrat",
-//                                 size: 8,
-//                                 weight: "600"
-//                             },
-
-//                             formatter: function(value, context)
-//                             {
-//                                 const lastIndex = context.dataset.data.length - 1;
-
-//                                 if (
-//                                     context.dataIndex === 0 ||
-//                                     context.dataIndex === lastIndex
-//                                 )
-//                                 {
-//                                     return null;
-//                                 }
-
-//                                 return value;
-//                             }
-//                         }
-
-//                     },
-
-//                     {
-//                         label: "Kapacita",
-//                         data: chartData.values2,
-
-//                         yAxisID: "y1",
-
-//                         borderColor: "#d4a373",
-//                         backgroundColor: "#d4a373",
-
-//                         borderWidth: 2,
-
-//                         tension: 0.45,
-//                         cubicInterpolationMode: "monotone",
-
-//                         pointRadius: 0,
-//                         pointHoverRadius: 0,
-
-//                         fill: false,
-
-//                         datalabels:
-//                         {
-//                             display: false
-//                         }
-//                     }
-//                 ]
-//             },
-
-//             options:
-//             {
-//                 responsive: true,
-//                 maintainAspectRatio: false,
-
-//                 layout:
-//                 {
-//                     padding:
-//                     {
-//                         left: 0,
-//                         right: 0,
-//                         top: 10,
-//                         bottom:0
-//                     }
-//                 },
-
-//                 plugins:
-//                 {
-//                     legend:
-//                     {
-//                         display: false
-//                     },
-
-//                     tooltip:
-//                     {
-//                         enabled: true
-//                     }
-//                 },
-
-//                 scales:
-//                 {
-//                      x:
-//                         {
-//                             offset: false,
-
-//                             ticks:
-//                             {
-//                                 display: false
-//                             },
-
-//                             grid:
-//                             {
-//                                 display: false
-//                             },
-
-//                             border:
-//                             {
-//                                 display: true,
-//                                 width: 2,
-//                                 color: "rgba(239,242,247,1)"
-//                             }
-//                         },
-
-//                     y:
-
-//                         {
-//                             ticks:
-//                             {
-//                                 display: false,
-//                                 stepSize: 25
-//                             },
-
-//                             grid:
-//                             {
-//                                 // color: "rgba(0,0,0,0.05)",
-
-//                                 color: "rgba(239,242,247,1)",
-//                                 drawTicks: false
-//                             },
-
-//                             border:
-//                             {
-//                                 display: true,
-//                                 z: 10,
-//                                 width: 2,
-//                                 color: "rgba(239,242,247,1)"
-//                             }
-//                         },
-
-//                     y1:
-//                     {
-//                         type: "linear",
-//                         position: "right",
-//                         display: false,
-
-//                         grid:
-//                         {
-//                             drawOnChartArea: false,
-//                             drawBorder: false
-//                         }
-//                     }
-//                 }
-//             }
-//         });
-//     }
-// });
-
-
-/* Kruhový graf */
-
-// const percent = 75;
-
-/* ORIGINÁL */
-
-// const percent = window.percent;
-
-// const options = {
-//   series: [percent],
-//   chart: {
-//     type: 'radialBar',
-//     width: 220,
-//     sparkline: {
-//       enabled: true
-//     },
-//     offsetX: 0,
-//     offsetY: 0
-//   },
-//   colors: ['#2F80B7'],
-//   plotOptions: {
-//     radialBar: {
-//       hollow: {
-//         size: '45%'
-//       },
-//       track: {
-//         background: '#EEF1F6'
-//       },
-//       dataLabels: {
-//         name: {
-//           show: false
-//         },
-//         value: {
-//           show: true,
-//           fontSize: '26px',
-//           fontWeight: 600,
-//           fontFamily: 'Montserrat',
-//           color: '#324351',
-//           offsetY: 8,
-//           formatter: function ()
-//           {
-//             return percent + '%';
-//           }
-//         }
-//       }
-//     }
-//   }
-// };
-
-// new ApexCharts(document.querySelector("#piechart"), options).render();
-
-
 /* Scrollbar */
-
 
 document.addEventListener("DOMContentLoaded", function ()
 {
@@ -874,30 +564,6 @@ document.addEventListener("DOMContentLoaded", function ()
     if (!content || !track || !thumb) return;
 
     content.addEventListener("scroll", updateThumb);
-
-    // function updateThumb()
-    // {
-    //     const isEmpty = content.children.length === 0;
-
-    //     if (isEmpty || content.scrollHeight <= content.clientHeight)
-    //     {
-    //         track.style.display = "none";
-    //         content.style.width = "100%";
-    //         return;
-    //     }
-
-    //     track.style.display = "block";
-    //     content.style.width = "calc(100% - 10px)";
-
-    //     const thumbHeight = 31;
-    //     thumb.style.height = thumbHeight + "px";
-
-    //     const maxScrollTop = content.scrollHeight - content.clientHeight;
-    //     const maxThumbTop = track.clientHeight - thumbHeight;
-
-    //     const thumbTop = (content.scrollTop / maxScrollTop) * maxThumbTop;
-    //     thumb.style.top = thumbTop + "px";
-    // }
 
     function updateThumb()
     {
@@ -985,59 +651,60 @@ document.addEventListener("DOMContentLoaded", function ()
 });
 
 
+/* * * * * * * * * * * * */
+/* Kruhový graf číslo 2  */
+/* * * * * * * * * * * * */
 
-/* Kruhový graf číslo 2 */
+// const percent2 = window.percent2;
 
-const percent2 = window.percent2;
+// const options2 = {
+//   series: [percent2],
+//   chart: {
+//     type: 'radialBar',
+//     width: 220,
+//     sparkline: {
+//       enabled: true
+//     },
+//     offsetX: 0,
+//     offsetY: 0
+//   },
+//   colors: ['#2F80B7'],
+//   plotOptions: {
+//     radialBar: {
+//       startAngle: -180,
+//       endAngle: 180,
+//       hollow: {
+//         size: '45%'
+//       },
+//       track: {
+//         background: '#EEF1F6'
+//       },
+//       dataLabels: {
+//         name: {
+//           show: false
+//         },
+//         value: {
+//           show: true,
+//           fontSize: '26px',
+//           fontWeight: 600,
+//           fontFamily: 'Montserrat',
+//           color: '#324351',
+//           offsetY: 8,
+//           formatter: function ()
+//           {
+//             return percent2 + '%';
+//           }
+//         }
+//       }
+//     }
+//   }
+// };
 
-const options2 = {
-  series: [percent2],
-  chart: {
-    type: 'radialBar',
-    width: 220,
-    sparkline: {
-      enabled: true
-    },
-    offsetX: 0,
-    offsetY: 0
-  },
-  colors: ['#2F80B7'],
-  plotOptions: {
-    radialBar: {
-      startAngle: -180,
-      endAngle: 180,
-      hollow: {
-        size: '45%'
-      },
-      track: {
-        background: '#EEF1F6'
-      },
-      dataLabels: {
-        name: {
-          show: false
-        },
-        value: {
-          show: true,
-          fontSize: '26px',
-          fontWeight: 600,
-          fontFamily: 'Montserrat',
-          color: '#324351',
-          offsetY: 8,
-          formatter: function ()
-          {
-            return percent2 + '%';
-          }
-        }
-      }
-    }
-  }
-};
+// new ApexCharts(document.querySelector("#piechart2"), options2).render();
 
-new ApexCharts(document.querySelector("#piechart2"), options2).render();
-
-
-/* Kruhový graf číslo 3 */
-
+/* * * * * * * * * * * * */
+/* Kruhový graf číslo 3  */
+/* * * * * * * * * * * * */
 
 // const percent3 = window.percent3;
 
@@ -1055,6 +722,8 @@ new ApexCharts(document.querySelector("#piechart2"), options2).render();
 //   colors: ['#2F80B7'],
 //   plotOptions: {
 //     radialBar: {
+//         startAngle: -180,
+//         endAngle: 180,
 //       hollow: {
 //         size: '45%'
 //       },
@@ -1068,8 +737,9 @@ new ApexCharts(document.querySelector("#piechart2"), options2).render();
 //         value: {
 //           show: true,
 //           fontSize: '26px',
-//           fontWeight: 700,
-//           color: '#2D3B4D',
+//           fontFamily: 'Montserrat',
+//           fontWeight: 600,
+//           color: '#324351',
 //           offsetY: 8,
 //           formatter: function ()
 //           {
@@ -1082,54 +752,6 @@ new ApexCharts(document.querySelector("#piechart2"), options2).render();
 // };
 
 // new ApexCharts(document.querySelector("#piechart3"), options3).render();
-
-
-const percent3 = window.percent3;
-
-const options3 = {
-  series: [percent3],
-  chart: {
-    type: 'radialBar',
-    width: 220,
-    sparkline: {
-      enabled: true
-    },
-    offsetX: 0,
-    offsetY: 0
-  },
-  colors: ['#2F80B7'],
-  plotOptions: {
-    radialBar: {
-        startAngle: -180,
-        endAngle: 180,
-      hollow: {
-        size: '45%'
-      },
-      track: {
-        background: '#EEF1F6'
-      },
-      dataLabels: {
-        name: {
-          show: false
-        },
-        value: {
-          show: true,
-          fontSize: '26px',
-          fontFamily: 'Montserrat',
-          fontWeight: 600,
-          color: '#324351',
-          offsetY: 8,
-          formatter: function ()
-          {
-            return percent2 + '%';
-          }
-        }
-      }
-    }
-  }
-};
-
-new ApexCharts(document.querySelector("#piechart3"), options3).render();
 
 
 /* 12.6.2026 První graf */
@@ -1611,4 +1233,281 @@ function createPieChart(chartSize)
     });
 
     pieChart.render();
+}
+
+/* * * * * * * * * * * * */
+/* Kruhový graf číslo 2  */
+/* * * * * * * * * * * * */
+
+// const percent2 = window.percent2;
+
+// const options2 =
+// {
+//   series: [percent2],
+//   chart: {
+//     type: 'radialBar',
+//     width: 220,
+//     sparkline: {
+//       enabled: true
+//     },
+//     offsetX: 0,
+//     offsetY: 0
+//   },
+//   colors: ['#2F80B7'],
+//   plotOptions: {
+//     radialBar: {
+//       startAngle: -180,
+//       endAngle: 180,
+//       hollow: {
+//         size: '45%'
+//       },
+//       track: {
+//         background: '#EEF1F6'
+//       },
+//       dataLabels: {
+//         name: {
+//           show: false
+//         },
+//         value: {
+//           show: true,
+//           fontSize: '26px',
+//           fontWeight: 600,
+//           fontFamily: 'Montserrat',
+//           color: '#324351',
+//           offsetY: 8,
+//           formatter: function ()
+//           {
+//             return percent2 + '%';
+//           }
+//         }
+//       }
+//     }
+//   }
+// };
+
+// new ApexCharts(document.querySelector("#piechart2"), options2).render();
+
+
+
+/* Kruhový graf číslo 2 a v pořadí číslo 3*/
+
+
+// function getChartWidth(screenWidth, minScreen, maxScreen, minChartWidth, maxChartWidth)
+// {
+//     screenWidth = Math.max(minScreen, Math.min(screenWidth, maxScreen));
+
+//     const ratio = (screenWidth - minScreen) / (maxScreen - minScreen);
+
+//     return minChartWidth + ratio * (maxChartWidth - minChartWidth);
+// }
+
+// function getChartConfig(chartSize)
+// {
+//     if (chartSize >= 190)
+//     {
+//         return {
+//             chartSize,
+//             hollowSize: "45%",
+//             wordsSize: "26px",
+//             // offsetY: "8"
+//         };
+//     }
+
+//     if (chartSize >= 140)
+//     {
+//         return {
+//             chartSize,
+//             hollowSize: "40%",
+//             wordsSize: "20px",
+//             // offsetY: "6"
+//         };
+//     }
+
+//     if (chartSize >= 120)
+//     {
+//         return {
+//             chartSize,
+//             hollowSize: "38%",
+//             wordsSize: "14px",
+//             // offsetY: "4",
+//         };
+//     }
+
+//     return {
+//         chartSize,
+//         hollowSize: "35%",
+//         wordsSize: "14px",
+//         // offsetY: "2"
+//     };
+// }
+
+
+function getChartConfig2(chartSize)
+{
+    console.log('%c ƒ function getChartConfig2() has been reached ... ', 'color: blue;');
+
+    if (chartSize >= 180)
+    {
+        return {
+            chartSize,
+            hollowSize: "48%",
+            wordsSize: "27px",
+            // offsetY: "8"
+        };
+    }
+
+    if (chartSize >= 140)
+    {
+        return {
+            chartSize,
+            hollowSize: "40%",
+            wordsSize: "20px",
+            // offsetY: "6"
+        };
+    }
+
+    if (chartSize >= 120)
+    {
+        return {
+            chartSize,
+            hollowSize: "38%",
+            wordsSize: "14px",
+            // offsetY: "4",
+        };
+    }
+
+    return {
+        chartSize,
+        hollowSize: "35%",
+        wordsSize: "14px",
+        // offsetY: "2"
+    };
+}
+
+const percent2 = window.percent2;
+let currentChartWidth2 = null;
+let pieChart2 = null;
+
+function updatePieChart2()
+{
+    console.log('%c ƒ function updatePieChart2() has been reached ... ', 'color: green;');
+
+    let chartWidth;
+
+    if (window.innerWidth > 1920)
+    {
+       chartWidth = Math.round(getChartWidth(window.innerWidth, 1921, 3840, 180, 180));
+
+       console.log("%c ↔️ width > 1920px and chartwidth: " + chartWidth,  "color: green; font-weight: bold;" );
+
+    }
+    else if (window.innerWidth > 1400)
+    {
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 1400, 1920, 140, 189));
+
+        console.log("%c ↔️ width > 1400px and chartwidth: " + chartWidth,  "color: green; font-weight: bold;" );
+    }
+    else if (window.innerWidth > 1200)
+    {
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 1200, 1399, 120, 139));
+
+        console.log("%c ↔️ width > 1200px and chartwidth: " + chartWidth,  "color: green; font-weight: bold;" );
+    }
+    else
+    {
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 920, 1199, 100, 119));
+
+        console.log("%c ↔️ width > 920px and chartwidth: " + chartWidth,  "color: green; font-weight: bold;" );
+    }
+
+    if (chartWidth !== currentChartWidth2)
+    {
+        currentChartWidth2 = chartWidth;
+
+        console.log(" %c ↔️ currentChartWidth: " +  currentChartWidth ,  "color: green; font-weight: bold;" );
+
+        if (pieChart2)
+        {
+            pieChart2.destroy();
+            pieChart2 = null;
+        }
+
+        createPieChart2(chartWidth);
+    }
+}
+
+window.addEventListener("resize", updatePieChart2);
+document.addEventListener("DOMContentLoaded", updatePieChart2);
+
+function createPieChart2(chartSize)
+{
+
+    console.log("%c ƒ function createPieChart2() has been reached ... ", "color: green; font-weight: bold;");
+
+    const percent = Number(window.percent) || 0;
+    const chartEl = document.querySelector("#piechart2");
+
+    if (!chartEl)
+    {
+        console.log("Element #piechart2 neexistuje");
+        return;
+    }
+
+    const config2 = getChartConfig2(chartSize);
+
+    console.log(' %c ⚙️ config2 chartSize: ' + config2.chartSize, "color: green; font-weight: bold;");
+    console.log(' %c ⚙️ config2 wordsSize: ' + config2.wordsSize, "color: green; font-weight: bold;");
+    console.log(' %c ⚙️ config2 hollowSize : ' + config2.hollowSize, "color: green; font-weight: bold;");
+    console.log(' %c ⚙️ config2 offesetY: ' + config2.offsetY, "color: green; font-weight: bold;");
+
+    chartEl.innerHTML = "";
+    chartEl.style.width = config2.chartSize + "px";
+    chartEl.style.height = config2.chartSize + "px";
+    chartEl.style.minHeight = config2.chartSize + "px";
+
+    pieChart2 = new ApexCharts(chartEl, {
+        series: [percent2],
+        chart: {
+            type: "radialBar",
+            width: config2.chartSize,
+            height: config2.chartSize,
+            sparkline: {
+                enabled: true
+            }
+        },
+        colors: ["#2F80B7"],
+        plotOptions: {
+            radialBar: {
+                startAngle: -180,
+                endAngle: 180,
+                hollow: {
+                    size: config2.hollowSize
+                },
+                track: {
+                    background: "#EEF1F6"
+                },
+                dataLabels: {
+                    name: {
+                        show: false
+                    },
+                    value: {
+                        show: true,
+                        fontSize: config2.wordsSize,
+                        fontWeight: 600,
+                        fontFamily: "Montserrat",
+                        color: "#324351",
+                        offsetY: 6,
+
+                        // offsetY: config.offsetY,
+
+                        formatter: function () {
+                            return percent2 + "%";
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    pieChart2.render();
 }
