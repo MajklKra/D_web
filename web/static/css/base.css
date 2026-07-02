@@ -11654,12 +11654,143 @@ body
 @media (min-width: 1200px) and (max-width: 1399px)
 {
 
+  #DBC-row3-lastC-doc
+  {
+
+    /* width: 100%; */
+    /* height: 220px; */
+
+    /* height: 11.45vw; */
+
+    /* background-color: steelblue;   */
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    /* padding: 21px 17px; */
+
+    padding-top: 13px;
+    padding-bottom: 21px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #DBC-row3-lastC-doc-row1
+  {
+    /* width: 100%;
+    height: 21%; */
+    /* background-color: #ED1C24; */
+  }
+
+
+  #DBC-row3-lastC-doc-row2
+  {
+    /* width:    100%;
+    height:    79%; */
+
+    /* background-color: green; */
+
+    padding-top: 14px;
+  }
+
+  #DBC-row3-lastC-doc-row1-c1
+  {
+    /* width:  70%;
+    height: 100%; */
+
+    /* background-color: blue; */
+
+    font-size:    8px;
+
+  }
+
+  #DBC-row3-lastC-doc-row1-c2
+  {
+    /* width:  30%;
+    height: 100%; */
+
+    /* background-color: pink; */
+    padding-top: 1px;
+  }
+
+
+  #DBC-row3-lastC-doc-row1-c2-btn
+  {
+
+    width: 43px;
+    height: 14px;
+
+    padding: 0px;
+    /* background-color: transparent; */
+
+    /* background-color: orange; */
+
+    gap: 4px;
+    padding: 0;
+
+  }
+
+  #DBC-row3-lastC-doc-row1-c2-btn-img1
+  {
+
+    width: 6px;
+
+  }
+
+  #DBC-row3-lastC-doc-row1-c2-btn-text
+  {
+
+    font-size:    7px;
+
+    /* background-color: lightcyan; */
+
+    margin: 0;
+
+    margin-bottom: 1px;
+
+  }
+
+  .DBC-row3-lastC-doc-row
+  {
+
+    /* width: 100%;
+    height: auto; */
+
+    /* background-color: blueviolet; */
+
+    margin-bottom: 8px;
+
+  }
+
+  .DBC-row3-lastC-doc-img
+  {
+    width: 9px;
+
+    /* background-color: red; */
+
+    margin-left: 9px;
+  }
+
+
+  .DBC-row3-lastC-doc-name
+  {
+    font-size:    13px;
+
+    /* background-color: cadetblue; */
+
+    margin: 0px;
+    margin-left: 11px;
+
+  }
+
+
 }
 
 /* počítačová obrazovka */
 @media (min-width: 1400px) and (max-width: 1920px)
 {
-   #DBC-row3-lastC-doc
+  #DBC-row3-lastC-doc
   {
 
     /* width: 100%; */
