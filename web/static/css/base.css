@@ -11185,9 +11185,12 @@ body
 
     /* background-color: lightblue; */
 
-    padding-top:      9px;
-    padding-left:     9px;
-    padding-right:    5px;
+    /* padding-top:      9px; */
+    padding-top:      clamp(9px, calc(0.576923vw + 0.923px), 12px);
+    /* padding-left:     9px; */
+    padding-left:     clamp(9px, calc(0.576923vw + 0.923px), 12px);
+    /* padding-right:    5px; */
+    padding-right:    clamp(5px, calc(1.153846vw - 11.154px), 11px);
     padding-bottom:   10px;
 
   }
@@ -11254,7 +11257,11 @@ body
 
     /* background-color: pink; */
 
-    font-size:    12px;
+    /* font-size:    12px; */
+
+    font-size: clamp(12px, calc(0.384615vw + 6.615px), 14px);
+
+
     font-family:  'Montserrat';
     font-weight:  600;
     color: #59646f;
@@ -11268,7 +11275,10 @@ body
 
     /* background-color: yellowgreen; */
 
-    font-size:    10px;
+    /* font-size:    10px; */
+
+    font-size: clamp(10px, calc(0.192308vw + 7.308px), 11px);
+
     font-family:  'Montserrat';
     font-weight:  500;
     color: #59646f;
@@ -11330,8 +11340,10 @@ body
     top:      -24px;
     left:     -33px; */
 
-    padding-top: 17px;
-    padding-left: 6px;
+    /* padding-top: 17px; */
+    padding-top: clamp(10px, calc(-1.346154vw + 35.846px), 17px);
+    /* padding-left: 6px; */
+    padding-left: clamp(4px, calc(-0.384615vw + 11.385px), 6px);
 
   }
 
@@ -11348,14 +11360,19 @@ body
     top:      -24px;
     left:     -35px; */
 
-    padding-top: 17px;
-    padding-left: 4px;
+    /* padding-top: 17px; */
+    padding-top: clamp(10px, calc(-1.346154vw + 35.846px), 17px);
+    /* padding-left: 4px; */
+    padding-left: clamp(3px, calc(-0.192308vw + 6.692px), 4px);
+
   }
 
 
   #DBC-row3-lastC-capC4-row1-c2-menu
   {
-    margin-top: 3px;
+    /* margin-top: 3px; */
+
+    margin-top: clamp(3px, calc(0.192308vw + 0.308px), 4px);
 
     background-color: transparent;
     border: none;
@@ -11372,8 +11389,11 @@ body
 
   .menu-dots span
   {
-      width:  3px !important;
-      height: 3px !important;
+      /* width:  3px !important;
+      height: 3px !important; */
+
+      width: clamp(3px, calc(0.192308vw + 0.308px), 4px) !important;
+      height: clamp(3px, calc(0.192308vw + 0.308px), 4px) !important;
 
   }
 
