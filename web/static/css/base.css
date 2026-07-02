@@ -10777,10 +10777,17 @@ body
 
     /* background-color: lightblue; */
 
-    padding-top:      5px;
-    padding-left:     6px;
-    padding-right:    0px;
-    padding-bottom:   5px;
+    /* padding-top:      5px; */
+    padding-top:        clamp(5px, calc(0.966184vw - 4.585px), 7px);
+    /* padding-left:     6px; */
+    padding-left:       clamp(6px, calc(0.966184vw - 3.585px), 8px);
+    /* padding-right:    0px; */
+    padding-right:      clamp(0px, calc(0.966184vw - 9.585px), 2px);
+    padding-bottom:     5px;
+
+    /* padding-top:      7px; */
+    /* padding-left:     8px; */
+    /* padding-right:    2px; */
 
   }
 
