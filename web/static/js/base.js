@@ -1378,8 +1378,8 @@ function getChartConfig2(chartSize)
 
     return {
         chartSize,
-        hollowSize: "35%",
-        wordsSize: "14px",
+        hollowSize: "40%",
+        wordsSize: "12px",
         // offsetY: "2"
     };
 }
@@ -1415,7 +1415,7 @@ function updatePieChart2()
     }
     else
     {
-        chartWidth = Math.round(getChartWidth(window.innerWidth, 920, 1199, 100, 119));
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 920, 1199, 93, 119));
 
         console.log("%c ↔️ width > 920px and chartwidth: " + chartWidth,  "color: green; font-weight: bold;" );
     }
@@ -1551,7 +1551,7 @@ function getChartConfig3(chartSize)
     {
         return {
             chartSize,
-            hollowSize: "38%",
+            hollowSize: "39%",
             wordsSize: "14px",
             // offsetY: "4",
         };
@@ -1559,8 +1559,8 @@ function getChartConfig3(chartSize)
 
     return {
         chartSize,
-        hollowSize: "35%",
-        wordsSize: "14px",
+        hollowSize: "40%",
+        wordsSize: "12px",
         // offsetY: "2"
     };
 }
@@ -1592,7 +1592,7 @@ function updatePieChart3()
     }
     else
     {
-        chartWidth = Math.round(getChartWidth(window.innerWidth, 920, 1199, 100, 119));
+        chartWidth = Math.round(getChartWidth(window.innerWidth, 920, 1199, 93, 119));
 
         console.log("%c ↔️ width > 920px and chartwidth: " + chartWidth,  "color: red; font-weight: bold;" );
     }
