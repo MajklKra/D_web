@@ -1370,7 +1370,7 @@ function getChartConfig2(chartSize)
     {
         return {
             chartSize,
-            hollowSize: "38%",
+            hollowSize: "39%",
             wordsSize: "14px",
             // offsetY: "4",
         };

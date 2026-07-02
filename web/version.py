@@ -1,7 +1,7 @@
 
-__version__ = "1.2.61"
+__version__ = "1.2.63"
 
-# DBC-row3-lastC-capC4 - 1400px piechart3
+# DBC-row3-lastC-capC4 - 1200px first chart suggested
 
 # Jedná se o tuto produkční verzi č. ----
 
