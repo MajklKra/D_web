@@ -12215,3 +12215,23 @@ body
 
 }
 
+
+.btn
+{
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+  box-shadow: 0 6px 14px rgba(95, 158, 160, 0.35);
+}
+
+.btn:hover
+{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(95, 158, 160, 0.45);
+  filter: brightness(1.03);
+}
+
+.btn:active
+{
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 3px 8px rgba(95, 158, 160, 0.35);
+  filter: brightness(0.98);
+}
