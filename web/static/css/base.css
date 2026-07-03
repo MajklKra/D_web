@@ -658,6 +658,14 @@ body
 
   }
 
+  #personImg
+  {
+    /* width:        9px; */
+    width: clamp(9px, calc(-10.169px + 1.932vw), 13px);
+    /* margin-left:  13px; */
+    margin-left: clamp(13px, calc(8.208px + 0.483vw), 14px);
+  }
+
 }
 
 /* počítačová obrazovka */
@@ -911,6 +919,14 @@ body
 
     height: clamp(30%,calc(31% - ((100vw - 1200px) * 0.0050251)),31%);
 
+  }
+
+  #personImg
+  {
+    /* width: 13px; */
+    width: clamp(13px, calc(0.94px + 1.005vw), 15px);
+    /* margin-left: 14px; */
+    margin-left: clamp(14px, calc(1.94px + 1.005vw), 16px);
   }
 
 }
@@ -1183,6 +1199,14 @@ body
     height: clamp(28%, calc(28% + (100vw - 1400px) * 0.001923), 29%);
   }
 
+  #personImg
+  {
+    /* width: 15px; */
+    width: clamp(15px, calc(15px + 4 * ((100vw - 1400px) / 520)), 19px);
+    /* margin-left: 16px; */
+    margin-left: clamp(16px, calc(-2.8462px + 1.3462vw), 23px);
+  }
+
 }
 
 @media (min-width: 1921px)
@@ -1408,6 +1432,13 @@ body
     height: 29%;
   }
 
+
+  #personImg
+  {
+    width: 19px;
+    margin-left: 23px;
+  }
+
 }
 
 /* Experimental research and development 5.5.2026 */
@@ -1563,8 +1594,8 @@ body
 #personImg
 {
 
-  width: clamp(10px, calc(10px + 8 * ((100vw - 992px) / 408)), 19px);
-  margin-left: clamp(12px, 1vw, 20px);
+  /* width: clamp(10px, calc(10px + 8 * ((100vw - 992px) / 408)), 19px);
+  margin-left: clamp(12px, 1vw, 20px); */
 
   color: #59646f;
 }

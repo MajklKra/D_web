@@ -1,7 +1,7 @@
 
 __version__ = "1.2.78"
 
-# Stop hands added
+# personImg updated
 
 # Jedná se o tuto produkční verzi č. ----
 
