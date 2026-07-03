@@ -1,7 +1,7 @@
 
-__version__ = "1.2.77"
+__version__ = "1.2.78"
 
-# Buttons
+# Stop hands added
 
 # Jedná se o tuto produkční verzi č. ----
 
