@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .forms import LoginForm
 from .blueprints import auth_bp
-from  web.share.db import db_connection, sqliteDB
+from  web.share.db import db_connection, sqliteDB, sqliteDB_count
 from  web.share.s_print import s_print
 
 
@@ -171,7 +171,10 @@ def user_logIn(employee_id):
 
     if employee_id > 0:
 
-        first_login = sqliteDB(employee_id)
+        # first_login = sqliteDB(employee_id)
+        # session["first_login"] = first_login
+
+        first_login = sqliteDB_count(employee_id)
         session["first_login"] = first_login
 
         session["e_id"] = employee_id
@@ -240,7 +243,7 @@ def user_logIn(employee_id):
 
         session["e_id"] = 0
 
-        first_login = sqliteDB(0)
+        first_login = sqliteDB_count(employee_id)
         session["first_login"] = first_login
 
         session["e_surname"] = ""

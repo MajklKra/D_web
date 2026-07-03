@@ -8,8 +8,7 @@ from vokativ import vokativ
 from ...version import __version__
 
 from  web.share.s_print import s_print
-
-from  web.share.db import db_connection
+from  web.share.db import db_connection, sqliteDB
 
 @admin_clients_bp.route('/home')
 def home():
@@ -31,8 +30,6 @@ def home():
 
     # temp = round(weather())
 
-    first_login = session.get("first_login")
-
     data = {
 
         "labels": ["start", "2021", "2022", "2023", "2024", "2025", "end"],
@@ -47,6 +44,8 @@ def home():
     percent3 = 75
 
     deps = session.get("e_deps")
+
+    first_login = session.get("first_login")
 
     ### SQL dotaz pro počet pacientů na mém oddělení ###
 
@@ -95,10 +94,7 @@ def home():
 
         result = db_connection(SQL_query, deps, one_row=False)
 
-
         patientsCount = result[0][0]
-
-
 
     ### Dotaz počet volných postelí ###
 
@@ -229,7 +225,14 @@ def weather():
         "temp": temp
     })
 
+@admin_clients_bp.route('/first_login', methods=['POST'])
+def first_login():
 
+    print("FIRST LOGIN")
 
+    employee_id = session.get("e_id")
+    first_login = sqliteDB(employee_id)
+    session["first_login"] = first_login
 
+    return "", 204
 

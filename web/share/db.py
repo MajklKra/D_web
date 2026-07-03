@@ -200,6 +200,45 @@ def get_next_patient_id():
         cur.close()
 
 
+# def sqliteDB(Id):
+
+#     # Sqlite databáze pro evidenci přihlášení
+
+#     os.makedirs("web/db", exist_ok=True)
+
+#     db = sqlite3.connect("web/db/login.db")
+
+#     db.execute("""
+#         CREATE TABLE IF NOT EXISTS login (
+#             id INTEGER PRIMARY KEY,
+#             date TEXT
+#         );
+#     """)
+
+#     count = db.execute("""
+#         SELECT COUNT(*)
+#         FROM login
+#         WHERE id = ?
+#     """, (Id,)).fetchone()[0]
+
+#     db.execute("""
+#         INSERT INTO login (id, date)
+#         VALUES (?, datetime('now', 'localtime'))
+#         ON CONFLICT(id)
+#         DO UPDATE SET
+#             date = datetime('now', 'localtime');
+#     """, (Id,))
+
+#     db.commit()
+
+#     db.close()
+
+#     if count > 0:
+#        return False
+#     else:
+#         return True
+
+
 def sqliteDB(Id):
 
     # Sqlite databáze pro evidenci přihlášení
@@ -215,12 +254,6 @@ def sqliteDB(Id):
         );
     """)
 
-    count = db.execute("""
-        SELECT COUNT(*)
-        FROM login
-        WHERE id = ?
-    """, (Id,)).fetchone()[0]
-
     db.execute("""
         INSERT INTO login (id, date)
         VALUES (?, datetime('now', 'localtime'))
@@ -233,15 +266,27 @@ def sqliteDB(Id):
 
     db.close()
 
-    if count > 0:
-       return False
-    else:
+
+def sqliteDB_count(Id):
+
+    db_path = "web/db/login.db"
+
+    if not os.path.exists(db_path):
+        print("Databáze neexistuje.")
         return True
 
+    try:
+        with sqlite3.connect(db_path) as db:
+            count = db.execute("""
+                SELECT COUNT(*)
+                FROM login
+                WHERE id = ?
+            """, (Id,)).fetchone()[0]
 
+        return count == 0
 
-
-
-
+    except sqlite3.Error as e:
+        print(f"SQLite chyba: {e}")
+        return True
 
 

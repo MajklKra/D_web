@@ -1330,7 +1330,6 @@ function createPieChart2(chartSize)
 /*                       */
 /* * * * * * * * * * * * */
 
-
 const percent3 = window.percent3;
 let currentChartWidth3 = null;
 let pieChart3 = null;
