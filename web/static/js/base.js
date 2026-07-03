@@ -1,5 +1,4 @@
 console.log(' ❤️ Vítejte na stránkách "Base.html"')
-
 console.log(' We are always solving our 👾 !!! ')
 
 /* TESTOVÁNÍ */
@@ -650,113 +649,14 @@ document.addEventListener("DOMContentLoaded", function ()
     updateThumb();
 });
 
-
 /* * * * * * * * * * * * */
-/* Kruhový graf číslo 2  */
+/*                       */
+/* Kruhový graf číslo 1  */
+/*                       */
 /* * * * * * * * * * * * */
-
-// const percent2 = window.percent2;
-
-// const options2 = {
-//   series: [percent2],
-//   chart: {
-//     type: 'radialBar',
-//     width: 220,
-//     sparkline: {
-//       enabled: true
-//     },
-//     offsetX: 0,
-//     offsetY: 0
-//   },
-//   colors: ['#2F80B7'],
-//   plotOptions: {
-//     radialBar: {
-//       startAngle: -180,
-//       endAngle: 180,
-//       hollow: {
-//         size: '45%'
-//       },
-//       track: {
-//         background: '#EEF1F6'
-//       },
-//       dataLabels: {
-//         name: {
-//           show: false
-//         },
-//         value: {
-//           show: true,
-//           fontSize: '26px',
-//           fontWeight: 600,
-//           fontFamily: 'Montserrat',
-//           color: '#324351',
-//           offsetY: 8,
-//           formatter: function ()
-//           {
-//             return percent2 + '%';
-//           }
-//         }
-//       }
-//     }
-//   }
-// };
-
-// new ApexCharts(document.querySelector("#piechart2"), options2).render();
-
-/* * * * * * * * * * * * */
-/* Kruhový graf číslo 3  */
-/* * * * * * * * * * * * */
-
-// const percent3 = window.percent3;
-
-// const options3 = {
-//   series: [percent3],
-//   chart: {
-//     type: 'radialBar',
-//     width: 220,
-//     sparkline: {
-//       enabled: true
-//     },
-//     offsetX: 0,
-//     offsetY: 0
-//   },
-//   colors: ['#2F80B7'],
-//   plotOptions: {
-//     radialBar: {
-//         startAngle: -180,
-//         endAngle: 180,
-//       hollow: {
-//         size: '45%'
-//       },
-//       track: {
-//         background: '#EEF1F6'
-//       },
-//       dataLabels: {
-//         name: {
-//           show: false
-//         },
-//         value: {
-//           show: true,
-//           fontSize: '26px',
-//           fontFamily: 'Montserrat',
-//           fontWeight: 600,
-//           color: '#324351',
-//           offsetY: 8,
-//           formatter: function ()
-//           {
-//             return percent2 + '%';
-//           }
-//         }
-//       }
-//     }
-//   }
-// };
-
-// new ApexCharts(document.querySelector("#piechart3"), options3).render();
-
-
-/* 12.6.2026 První graf */
 
 let capacityChart;
+let currentBreakpoint = getBreakpoint();
 
 function createChart(size)
 {
@@ -1036,12 +936,24 @@ function getBreakpoint()
     return "small";
 }
 
-let currentBreakpoint = getBreakpoint();
-
-document.addEventListener("DOMContentLoaded", function ()
+function updateCapacityChart()
 {
+    const chartCanvas = document.getElementById("capacityChart");
+
+    if (!chartCanvas)
+    {
+        return;
+    }
+
+    if (capacityChart)
+    {
+        capacityChart.destroy();
+        capacityChart = null;
+    }
+
+    currentBreakpoint = getBreakpoint();
     createChart(currentBreakpoint);
-});
+}
 
 window.addEventListener("resize", () =>
 {
@@ -1061,6 +973,9 @@ window.addEventListener("resize", () =>
 
 });
 
+document.addEventListener("DOMContentLoaded", updateCapacityChart);
+document.body.addEventListener("htmx:load", updateCapacityChart);
+document.body.addEventListener("htmx:historyRestore", updateCapacityChart);
 
 /* Graf číslo 2 v pořadí - první kruhový graf od začátku Dashboardu */
 /* Experimenty 24.6.2026 */
@@ -1238,109 +1153,6 @@ function createPieChart(chartSize)
 /* * * * * * * * * * * * */
 /* Kruhový graf číslo 2  */
 /* * * * * * * * * * * * */
-
-// const percent2 = window.percent2;
-
-// const options2 =
-// {
-//   series: [percent2],
-//   chart: {
-//     type: 'radialBar',
-//     width: 220,
-//     sparkline: {
-//       enabled: true
-//     },
-//     offsetX: 0,
-//     offsetY: 0
-//   },
-//   colors: ['#2F80B7'],
-//   plotOptions: {
-//     radialBar: {
-//       startAngle: -180,
-//       endAngle: 180,
-//       hollow: {
-//         size: '45%'
-//       },
-//       track: {
-//         background: '#EEF1F6'
-//       },
-//       dataLabels: {
-//         name: {
-//           show: false
-//         },
-//         value: {
-//           show: true,
-//           fontSize: '26px',
-//           fontWeight: 600,
-//           fontFamily: 'Montserrat',
-//           color: '#324351',
-//           offsetY: 8,
-//           formatter: function ()
-//           {
-//             return percent2 + '%';
-//           }
-//         }
-//       }
-//     }
-//   }
-// };
-
-// new ApexCharts(document.querySelector("#piechart2"), options2).render();
-
-
-
-/* Kruhový graf číslo 2 a v pořadí číslo 3*/
-
-
-// function getChartWidth(screenWidth, minScreen, maxScreen, minChartWidth, maxChartWidth)
-// {
-//     screenWidth = Math.max(minScreen, Math.min(screenWidth, maxScreen));
-
-//     const ratio = (screenWidth - minScreen) / (maxScreen - minScreen);
-
-//     return minChartWidth + ratio * (maxChartWidth - minChartWidth);
-// }
-
-// function getChartConfig(chartSize)
-// {
-//     if (chartSize >= 190)
-//     {
-//         return {
-//             chartSize,
-//             hollowSize: "45%",
-//             wordsSize: "26px",
-//             // offsetY: "8"
-//         };
-//     }
-
-//     if (chartSize >= 140)
-//     {
-//         return {
-//             chartSize,
-//             hollowSize: "40%",
-//             wordsSize: "20px",
-//             // offsetY: "6"
-//         };
-//     }
-
-//     if (chartSize >= 120)
-//     {
-//         return {
-//             chartSize,
-//             hollowSize: "38%",
-//             wordsSize: "14px",
-//             // offsetY: "4",
-//         };
-//     }
-
-//     return {
-//         chartSize,
-//         hollowSize: "35%",
-//         wordsSize: "14px",
-//         // offsetY: "2"
-//     };
-// }
-
 
 function getChartConfig2(chartSize)
 {

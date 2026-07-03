@@ -170,7 +170,7 @@ body
       height: 42px;
       padding-top: 11px; */
 
-      background-color: brown;
+      /* background-color: brown; */
     }
 
     /*
@@ -218,7 +218,7 @@ body
     /* padding-top: 11px; */
     padding-top: 11px;
 
-    background-color: coral;
+    /* background-color: coral; */
   }
 
   #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -585,7 +585,7 @@ body
 
     padding-top: clamp(11px,calc(11px + ((100vw - 1200px) * 0.0201005)),15px);
 
-    background-color: #7ca0c2;
+    /* background-color: #7ca0c2; */
   }
 
   #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -832,7 +832,7 @@ body
     /* padding-top: 15px;
     padding-top: 23px; */
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
     padding-top: clamp(15px,calc(15px + ((100vw - 1400px) * 0.0153846)),23px);
 
@@ -1089,7 +1089,7 @@ body
     height: 83px;
     padding-top: 23px;
 
-    background-color: orange;
+    /* background-color: orange; */
   }
 
   #srow0, #srow1, #srow2, #srow3, #srow4, #srow5, #srow6, #srow7, #srow8
@@ -2276,7 +2276,7 @@ body
 
   width: 100%;
 
-  background-color: #ED1C24;
+  /* background-color: #ED1C24; */
 
   /* margin-top: 30px */
 
@@ -2301,7 +2301,7 @@ body
 
   width: 100%;
 
-  background-color: green;
+  /* background-color: green; */
 
   /* margin-top: 23px; */
 
@@ -2328,7 +2328,7 @@ body
 
   width: 100%;
 
-  background-color: orange;
+  /* background-color: orange; */
 
   /* margin-top: 23px; */
 
@@ -2562,7 +2562,7 @@ body
 
   width: 22.8%;
 
-  background-color: blue;
+  /* background-color: blue; */
 
   border-radius: 10px;
 

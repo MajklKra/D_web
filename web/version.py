@@ -1,12 +1,12 @@
 
-__version__ = "1.2.74"
+__version__ = "1.2.75"
 
-# DBC-row3-lastC-doc-row2 1400px made responsive
+# DBC-row3-lastC-doc-row2 reload page after htmx:load and htmx:historyRestore
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        2.7.2026
+# Datum:        3.7.2026
 
 
 
