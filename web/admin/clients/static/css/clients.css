@@ -3,5 +3,185 @@
 #list-patients-component
 {
     background-color: yellow;
+    height: 100%;
+    width: 100%;
+    padding-top: 25px;
+
+    position: relative;
+}
+
+#list-patients-component-searching-bar
+{
+    width: 100%;
+    height: auto;
+    background-color: yellowgreen;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+
+#list-patients-component-searching-bar-searchInput
+{
+    width: 265px;
+    height: 30px;
+    border-radius: 5px;
+
+    border:none;
+    outline:none
+}
+
+#list-patients-component-searching-bar-btn1
+{
+    width: 72px;
+    height: 30px;
+    border-radius: 5px;
+
+    border:none;
+    outline:none;
+
+    margin-left: 15px;
+}
+
+#list-patients-component-searching-bar-btn2
+{
+    width:          104px;
+    height:         30px;
+    border-radius:  5px;
+
+    border:none;
+    outline:none;
+
+    margin-left: 15px;
+}
+
+#list-patients-component-searching-bar-selectBox1
+{
+    width:              146px;
+    height:              30px;
+    border-radius:        5px;
+    border:none;
+    outline:none;
+
+    background-color: lightblue;
+
+    margin-left: 342px;
+}
+
+#list-patients-component-searching-bar-selectBox2
+{
+    width:              171px;
+    height:              30px;
+    border-radius:        5px;
+    border:none;
+    outline:none;
+
+    background-color: lightblue;
+    margin-left: 15px;
+
+}
+
+#list-patients-component-searching-bar-selectBox3
+{
+    width:              165px;
+    height:              30px;
+    border-radius:        5px;
+    border:none;
+    outline:none;
+
+    background-color: lightblue;
+
+    margin-left: 15px;
+
+}
+
+#list-patients-component-searching-bar-selectBox4
+{
+    width:              152px;
+    height:              30px;
+    border-radius:        5px;
+    border:none;
+    outline:none;
+
+    background-color: lightblue;
+
+    margin-left: 15px;
+
+}
+
+
+#list-patients-component-listC
+{
+    width:  98.3%;
+    height: 84.2%;
+
+    background-color: pink;
+
+    margin-top: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    padding: 7px;
+}
+
+#list-patients-component-listC-head
+{
+    width: 100%;
+    height: 40px;
+    background-color: #ced8e8;
+
+    border-radius: 5px;
+
+}
+
+
+#list-patients-component-listC-listC2
+{
+    width: 100%;
+    height: 100%;
+
+    background-color: darkseagreen;
+
+    margin-top: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+
+#list-patients-component-listC-listC2-content
+{
+    flex: 1;
+    height: 100%;
+    background-color: chocolate;
+
+}
+
+#list-patients-component-listC-listC2-scrollC
+{
+    width: 11px;
+    height: 100%;
+    background-color: gray;
+}
+
+
+#list-patients-component-lessC
+{
+    position: absolute;
+
+    right:        80px;
+    bottom:       90px;
+
+    width:      200px;
+    height:      50px;
+
+    background-color: aquamarine;
 }
 
