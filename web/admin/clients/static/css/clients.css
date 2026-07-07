@@ -56,6 +56,18 @@
     outline:none;
 
     margin-left: 15px;
+
+    /* background-color: cornflowerblue; */
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    padding-left: 8px;
+
 }
 
 #list-patients-component-searching-bar-btn2
@@ -207,29 +219,6 @@
 
 }
 
-/* #list-patients-component-searching-bar-searchInput
-{
-    background-color: transparent;
-    outline: none;
-    border: none;
-
-    color: #7ca0c2;
-
-    width: 100%;
-    /* background-color: darksalmon;
-
-    padding-left: 2px;
-
-    font-family: 'Montserrat';
-    font-weight: 600;
-    font-size: 13px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-
-} */
 
 #list-patients-component-magnifierC
 {
@@ -243,23 +232,6 @@
     align-items: center;
 }
 
-/* #list-patients-component-searching-bar-searchInput::placeholder
-{
-    /* background-color: blueviolet;
-    padding-left: 3px;
-
-    font-family: 'Montserrat';
-    font-weight: 600;
-    font-size: 13px;
-
-    color: #7ca0c2;
-
-    width: 50%;
-
-} */
-
-
-/* Další úpravy */
 
 #list-patients-component-searchWrapper
 {
@@ -317,4 +289,37 @@
     /* background-color: transparent; */
     outline: none;
     border: none;
+}
+
+
+#list-patients-component-searching-bar-btn1-add
+{
+    /* background-color: goldenrod; */
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 13px;
+
+    color: #357fab;
+
+    margin-left: 6px;
+}
+
+#list-patients-component-searching-bar-btn1-imgC
+{
+    width: 11px;
+    /* background-color: orange; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#list-patients-component-searching-bar-btn1-img1
+{
+    width: 100%;
+    /* background-color: red; */
+
 }
