@@ -1,7 +1,7 @@
 
-__version__ = "1.2.85"
+__version__ = "1.2.86"
 
-# list-patients-component-searching-bar-btn1 created
+# list-patients-component-searching-bar-btn2 created
 
 # Jedná se o tuto produkční verzi č. ----
 

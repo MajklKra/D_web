@@ -80,6 +80,18 @@
     outline:none;
 
     margin-left: 15px;
+
+    /* background-color: cornflowerblue; */
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    padding-left: 9px;
+
 }
 
 #list-patients-component-searching-bar-selectBox1
@@ -323,3 +335,36 @@
     /* background-color: red; */
 
 }
+
+
+#list-patients-component-searching-bar-btn2-imgC
+{
+    width: 16px;
+    /* background-color: blue; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#list-patients-component-searching-bar-btn2-img1
+{
+    width: 100%;
+    /* background-color: red; */
+    color: #92adcc;
+}
+
+#list-patients-component-searching-bar-btn2-delete
+{
+    /* background-color: goldenrod; */
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 13px;
+
+    color: #92adcc;
+
+    margin-left: 8px;
+}
+
