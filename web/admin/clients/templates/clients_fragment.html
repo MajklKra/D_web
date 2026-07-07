@@ -4,7 +4,43 @@
 <section id="list-patients-component">
 
     <section id="list-patients-component-searching-bar">
-        <input type="search" id="list-patients-component-searching-bar-searchInput" name="q" placeholder="Vyhledat klienta..." autocomplete="off" spellcheck="false">
+        <!-- <input type="search" id="list-patients-component-searching-bar-searchInput" name="q" placeholder="Vyhledat klienta..." autocomplete="off" spellcheck="false"> -->
+
+        <div id="list-patients-component-searching-bar-searchingBox">
+            <!-- <span id="list-patients-component-searching-bar-search-icon">⌕</span> -->
+
+            <div id="list-patients-component-magnifierC">
+
+                <svg id="list-patients-component-magnifier"  viewBox="4.5 4.5 16 16">
+                    <defs>
+                        <style>
+                        .list-patients-component-magnifierC-m_cls-1 {
+                            fill: currentColor;
+                            opacity: .71;
+                        }
+                        </style>
+                    </defs>
+                    <path class="list-patients-component-magnifierC-m_cls-1" d="M10.67,5.09c3.03,0,5.5,2.47,5.5,5.5,0,1.2-.39,2.3-1.04,3.21l4.46,4.32c.39.38.4,1,.02,1.39-.19.2-.45.3-.71.3s-.5-.09-.69-.28l-4.47-4.33s-.01-.02-.02-.03c-.87.59-1.92.93-3.05.93-3.03,0-5.5-2.47-5.5-5.5s2.47-5.5,5.5-5.5ZM10.67,14.61c2.22,0,4.02-1.8,4.02-4.02s-1.8-4.02-4.02-4.02-4.02,1.8-4.02,4.02,1.8,4.02,4.02,4.02Z"/>
+                </svg>
+
+            </div>
+
+            <!-- <input id="list-patients-component-searching-bar-searchInput" type="search" placeholder="Vyhledat"> -->
+
+
+            <div id="list-patients-component-searchWrapper">
+
+                <span id="list-patients-component-searchLabel">
+                    Vyhledat
+                </span>
+
+                <input id="list-patients-component-searching-bar-searchInput" type="search"  maxlength="50">
+
+            </div>
+
+
+        </div>
+
         <button id="list-patients-component-searching-bar-btn1">+ Přidat</button>
         <button id="list-patients-component-searching-bar-btn2">- Odstranit</button>
         <div id="list-patients-component-searching-bar-selectBox1">SelectBox 1</div>
