@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS</title>
-    <link rel="stylesheet" href="{{ url_for('admin_clients.static', filename='css/clients.css') }}">
-</head>
-<body>
+{# templates/admin_clients/clients_page.html #}
 
-    <h1 style="color: red; font-size: 42px;"> Hi my friend, welcome to the clients´page !</h1>
+{% extends "base.html" %}
 
+{% block content %}
+  {% include "clients_fragment.html" %}
+{% endblock %}
 
-</body>
-</html>
+{% block welcomeC %}{% endblock %}

@@ -1,7 +1,8 @@
 
-__version__ = "1.2.80"
+__version__ = "1.2.81"
 
-# Refreshing piecharts after getting back to the base.html
+# First draft of client's fragment page and client's full page
+
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
