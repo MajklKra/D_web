@@ -1499,3 +1499,43 @@ function createPieChart3(chartSize)
 
     pieChart3.render();
 }
+
+
+/* 7.7.2026 Pokusy a experimenty */
+
+function refreshPieChartsAfterReturn()
+{
+    requestAnimationFrame(() =>
+    {
+        requestAnimationFrame(() =>
+        {
+            currentChartWidth = null;
+            currentChartWidth2 = null;
+            currentChartWidth3 = null;
+
+            if (pieChart) {
+                pieChart.destroy();
+                pieChart = null;
+            }
+
+            if (pieChart2) {
+                pieChart2.destroy();
+                pieChart2 = null;
+            }
+
+            if (pieChart3) {
+                pieChart3.destroy();
+                pieChart3 = null;
+            }
+
+            updatePieChart();
+            updatePieChart2();
+            updatePieChart3();
+
+            window.dispatchEvent(new Event("resize"));
+        });
+    });
+}
+
+document.body.addEventListener("htmx:historyRestore", refreshPieChartsAfterReturn);
+document.body.addEventListener("htmx:load", refreshPieChartsAfterReturn);

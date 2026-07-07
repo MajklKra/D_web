@@ -1,0 +1,140 @@
+
+
+
+<div id="clientsTable" hx-history-elt>
+        <div id="table-box">
+
+            <table id="t1">
+                <thead>
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th></th>
+                        <th>Příjmení</th>
+                        <th>Jméno</th>
+                        <th>Typ</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for c in clients %}
+
+                        <tr class="client-row" data-id="{{ c[0] }}" hx-get="{{ url_for('admin_clients.clientDetails', client_id=c[0]) }}" hx-target="#contentC" hx-push-url="true" hx-trigger="dblclick" style="cursor:pointer;">
+                            <!-- <td class="truncate">{{ c[0] }}</td> -->
+                            <td class="truncate">
+
+                                <div id="obal">
+
+                                    {% if c[4] not in (-1, 0) %}
+
+                                        <div class="imgCfc" title="Client je umístěn na postel.">
+
+                                            <svg class="fcbeds" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                viewBox="0 0 512 512"  xml:space="preserve">
+                                                <style type="text/css">
+                                                    .st0{fill:currentColor}
+                                                </style>
+                                                <g>
+                                                    <polygon class="st0" points="61.549,88.131 0,88.131 0,423.869 61.549,423.869 61.549,339.934 450.442,339.934 450.442,423.869
+                                                        511.992,423.869 511.992,339.934 512,339.934 512,267.188 61.549,267.188 	"/>
+                                                    <path class="st0" d="M459.656,146.18H237.82v87.434H512v-35.09C512,169.615,488.566,146.18,459.656,146.18z"/>
+                                                    <circle class="st0" cx="139.541" cy="191.992" r="47.91"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                    {% endif %}
+
+                                    {% if c[5] is not none and c[6] == 0 %}
+                                        <div class="imgC2fc" title="Client je regitrován v IS Cygnus.">C</div>
+                                    {% endif %}
+
+                                    {% if c[5] is not none and c[6] == 1 %}
+                                        <div class="imgC3fc" title="Client není regitrován v IS Cygnus.">C</div>
+                                    {% endif %}
+
+                                    {% if c[7] is not none and c[8] == 0 %}
+
+                                        <div class="imgC4fc" title="Client je regitrován v IS Dods.">D</div>
+
+                                    {% endif %}
+
+                                    {% if c[7] is not none and c[8] == 1 %}
+
+                                        <div class="imgC5fc" title="Client není regitrován v IS DODS.">D</div>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </td>
+                            <td class="truncate">{{ c[1] }}</td>
+                            <td class="truncate">{{ c[2] }}</td>
+                            <td class="truncate">{{ c[3] }}</td>
+                            <td class="truncate">
+
+                                {% if c[4] not in (-1, 0) %}
+
+                                    <div class="imgC" title="Client je umístěn na postel.">
+
+                                        <svg class="beds" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            viewBox="0 0 512 512"  xml:space="preserve">
+                                            <style type="text/css">
+                                                .st0{fill:currentColor}
+                                            </style>
+                                            <g>
+                                                <polygon class="st0" points="61.549,88.131 0,88.131 0,423.869 61.549,423.869 61.549,339.934 450.442,339.934 450.442,423.869
+                                                    511.992,423.869 511.992,339.934 512,339.934 512,267.188 61.549,267.188 	"/>
+                                                <path class="st0" d="M459.656,146.18H237.82v87.434H512v-35.09C512,169.615,488.566,146.18,459.656,146.18z"/>
+                                                <circle class="st0" cx="139.541" cy="191.992" r="47.91"/>
+                                            </g>
+                                        </svg>
+
+                                    </div>
+
+                                {% endif %}
+
+                                </td>
+
+                                <td class="truncate">
+
+                                {% if c[5] is not none and c[6] == 0 %}
+                                    <div class="imgC2" title="Client je regitrován v IS Cygnus.">C</div>
+                                {% endif %}
+
+                                {% if c[5] is not none and c[6] == 1 %}
+                                    <div class="imgC3" title="Client není regitrován v IS Cygnus.">C</div>
+                                {% endif %}
+
+                            </td>
+
+                            <td class="truncate">
+
+                                {% if c[7] is not none and c[8] == 0 %}
+
+                                <div class="imgC4" title="Client je regitrován v IS Dods.">D</div>
+
+                                {% endif %}
+
+                                {% if c[7] is not none and c[8] == 1 %}
+
+                                <div class="imgC5" title="Client není regitrován v IS DODS.">D</div>
+
+                                {% endif %}
+
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+</div>

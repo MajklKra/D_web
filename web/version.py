@@ -1,12 +1,11 @@
 
-__version__ = "1.2.78"
+__version__ = "1.2.80"
 
-# personImg updated
-
+# Refreshing piecharts after getting back to the base.html
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        3.7.2026
+# Datum:        7.7.2026
 
 
 

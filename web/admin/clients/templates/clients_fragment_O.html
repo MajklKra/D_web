@@ -1,0 +1,283 @@
+{# templates/admin_clients/clients_fragment.html #}
+
+<section id="list-patients-component">
+
+    <div id="btnC2" style="width: 90%; display: flex; flex-direction: row; justify-content: flex-end; align-items: center; margin-bottom: 10px;">
+
+        <button id="magnifierBtn" class="btn" title="Hledat klienta.">
+
+            <svg id="magnifierImg" width="40px" height="40px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect width="16" height="16" id="icon-bound" fill="none" />
+                <path fill="currentColor" d="M15.708,13.587l-3.675-3.675C12.646,8.92,13,7.751,13,6.5C13,2.91,10.09,0,6.5,0S0,2.91,0,6.5S2.91,13,6.5,13 c1.251,0,2.42-0.354,3.412-0.967l3.675,3.675c0.389,0.389,1.025,0.389,1.414,0l0.707-0.707 C16.097,14.612,16.097,13.976,15.708,13.587z M3.318,9.682C2.468,8.832,2,7.702,2,6.5s0.468-2.332,1.318-3.182S5.298,2,6.5,2 s2.332,0.468,3.182,1.318C10.532,4.168,11,5.298,11,6.5s-0.468,2.332-1.318,3.182C8.832,10.532,7.702,11,6.5,11 S4.168,10.532,3.318,9.682z" />
+            </svg>
+
+        </button>
+    </div>
+
+    <form id="select" hx-get="{{ url_for('admin_clients.searchData') }}" hx-trigger="submit" hx-target="#clientsTable" hx-swap="outerHTML" hx-replace-url="true">
+
+         {{ form.hidden_tag() }}  <!-- CSRF + skryté fieldy -->
+
+        <h1 id="selectCtitle"> HLEDAT KLIENTA</h1>
+
+        <div id = "searchC">
+
+            <div id="wrapNameC">
+
+                {{ form.name.label(id="lname") }}
+                {{ form.name(maxLength=50, id="name", title="Zadejte jméno!" ) }}
+
+            </div>
+
+            <div id="wrapSurnameC">
+
+                {{form.surname.label (id="lsurname")}}
+                {{form.surname(maxLength=50, id="surname", title="Zadej příjmení.")}}
+
+            </div>
+
+        </div>
+
+        <div id = "selectC2">
+
+            <div id="wrapSelectbox">
+                {{ form.departments.label(id="lDepartment") }}
+                {{ form.departments(id="departments", title="Volba oddělení.") }}
+
+            </div>
+
+            <div id="wrapCheckbox">
+
+                <div id="wrapCheckboxC1">
+
+                    <div id="wrapCheckboxC12">
+                        {{ form.clients_WOB(id="clients_WOB") }}
+                        {{ form.clients_WOB.label(id="lclients_WOB") }}
+
+                    </div>
+                </div>
+
+                <!-- <div id="wrapCheckboxC2">
+                    {{ form.clients_WOB(id="clients_WOB") }}
+                    {{ form.clients_WOB.label(id="lclients_WOB") }}
+                </div> -->
+
+                <div id="wrapCheckboxC3">
+                    {{ form.myClients(id="myClients") }}
+                    {{ form.myClients.label(id="lmyClients") }}
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="btnC">
+            {{ form.submit(id="selectCbtn", class_="btn", title="Tlačítko pro odeslání dat.")}}
+        </div>
+
+    </form>
+
+    <div id="title" style="position: relative;">
+        SEZNAM KLIENTŮ
+
+        <div id="tableBtnC">
+
+            <button id="addBtn" class="btn" title="přidat klienta">
+                <span id="plus">+</span>
+            </button>
+
+            <button id="removeBtn" class="btn" title="odebrat klienta">
+                <span id="x">-</span>
+            </button>
+
+        </div>
+    </div>
+
+    <div id="clientsTable" hx-history-elt>
+        <div id="table-box">
+
+            <table id="t1">
+                <thead>
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th></th>
+                        <th>Příjmení</th>
+                        <th>Jméno</th>
+                        <th>Typ</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for c in clients %}
+
+                        <tr class="client-row" data-id="{{ c[0] }}" hx-get="{{ url_for('admin_clients.clientDetails', client_id=c[0]) }}" hx-target="#contentC" hx-push-url="true" hx-trigger="dblclick" style="cursor:pointer;">
+                            <!-- <td class="truncate">{{ c[0] }}</td> -->
+                            <td class="truncate">
+
+                                <div id="obal">
+
+                                    {% if c[4] not in (-1, 0) %}
+
+                                        <div class="imgCfc" title="Client je umístěn na postel.">
+
+                                            <svg class="fcbeds" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                viewBox="0 0 512 512"  xml:space="preserve">
+                                                <style type="text/css">
+                                                    .st0{fill:currentColor}
+                                                </style>
+                                                <g>
+                                                    <polygon class="st0" points="61.549,88.131 0,88.131 0,423.869 61.549,423.869 61.549,339.934 450.442,339.934 450.442,423.869
+                                                        511.992,423.869 511.992,339.934 512,339.934 512,267.188 61.549,267.188 	"/>
+                                                    <path class="st0" d="M459.656,146.18H237.82v87.434H512v-35.09C512,169.615,488.566,146.18,459.656,146.18z"/>
+                                                    <circle class="st0" cx="139.541" cy="191.992" r="47.91"/>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                    {% endif %}
+
+                                    {% if c[5] is not none and c[6] == 0 %}
+                                        <div class="imgC2fc" title="Client je regitrován v IS Cygnus.">C</div>
+                                    {% endif %}
+
+                                    {% if c[5] is not none and c[6] == 1 %}
+                                        <div class="imgC3fc" title="Client není regitrován v IS Cygnus.">C</div>
+                                    {% endif %}
+
+                                    {% if c[7] is not none and c[8] == 0 %}
+
+                                        <div class="imgC4fc" title="Client je regitrován v IS Dods.">D</div>
+
+                                    {% endif %}
+
+                                    {% if c[7] is not none and c[8] == 1 %}
+
+                                        <div class="imgC5fc" title="Client není regitrován v IS DODS.">D</div>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </td>
+                            <td class="truncate">{{ c[1] }}</td>
+                            <td class="truncate">{{ c[2] }}</td>
+                            <td class="truncate">{{ c[3] }}</td>
+                            <td class="truncate">
+
+                                {% if c[4] not in (-1, 0) %}
+
+                                    <div class="imgC" title="Client je umístěn na postel.">
+
+                                        <svg class="beds" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            viewBox="0 0 512 512"  xml:space="preserve">
+                                            <style type="text/css">
+                                                .st0{fill:currentColor}
+                                            </style>
+                                            <g>
+                                                <polygon class="st0" points="61.549,88.131 0,88.131 0,423.869 61.549,423.869 61.549,339.934 450.442,339.934 450.442,423.869
+                                                    511.992,423.869 511.992,339.934 512,339.934 512,267.188 61.549,267.188 	"/>
+                                                <path class="st0" d="M459.656,146.18H237.82v87.434H512v-35.09C512,169.615,488.566,146.18,459.656,146.18z"/>
+                                                <circle class="st0" cx="139.541" cy="191.992" r="47.91"/>
+                                            </g>
+                                        </svg>
+
+                                    </div>
+
+                                {% endif %}
+
+                            </td>
+
+                            <td class="truncate">
+
+                                {% if c[5] is not none and c[6] == 0 %}
+                                    <div class="imgC2" title="Client je regitrován v IS Cygnus.">C</div>
+                                {% endif %}
+
+                                {% if c[5] is not none and c[6] == 1 %}
+                                    <div class="imgC3" title="Client není regitrován v IS Cygnus.">C</div>
+                                {% endif %}
+
+                            </td>
+
+                            <td class="truncate">
+
+                                {% if c[7] is not none and c[8] == 0 %}
+
+                                <div class="imgC4" title="Client je regitrován v IS Dods.">D</div>
+
+                                {% endif %}
+
+                                {% if c[7] is not none and c[8] == 1 %}
+
+                                <div class="imgC5" title="Client není regitrován v IS DODS.">D</div>
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+    <!-- <form id ="clientForm" class="modal" hx-post="{{ url_for('admin_clients.newClientData') }}" hx-trigger="submit" hx-swap="none"> -->
+    <form id ="clientForm" class="modal" hx-post="{{ url_for('admin_clients.newClientData') }}" hx-trigger="submit" hx-target="#clientsTable" hx-swap="outerHTML">
+
+        <h1 id="patientTitle">Nový klient</h1>
+
+        {{ form2.hidden_tag() }}  <!-- CSRF + skryté fieldy -->
+
+        <div id="cfc5">
+
+            <div id="cfc1">
+                {{ form2.firstname.label(id="clname") }}
+                {{ form2.firstname(maxLength=50, id="cname", title="Zadejte jméno!", autocomplete="off" ) }}
+            </div>
+
+            <div id="cfc2">
+                {{form2.surname.label (id="clsurname")}}
+                {{form2.surname(maxLength=50, id="csurname", title="Zadej příjmení.", autocomplete="off")}}
+            </div>
+
+            <div id="cfc3">
+                {{ form2.client_type.label(for="clientT", id="clclient", title="Vyber typ pacienta.") }}
+                {{ form2.client_type(id="cclientT", class="form-select") }}
+            </div>
+
+        </div>
+
+        <div id="cfc4">
+
+            <button type="submit" name="{{ form2.submit_clientType.name }}" id="btnAddClient" class="btn" title="Uložit klienta.">
+
+                <svg id="imgTick" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                    <polygon points="437.3,30 202.7,339.3 64,200.7 0,264.7 213.3,478 512,94 "/>
+                </svg>
+
+            </button>
+
+            <button id="btnCancelClient" class="btn" onclick="closeClientForm()" type="button" title="Zrušit tvorbu klienta.">
+
+                <svg id="imgCross" fill="currentcolor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.8,16l5.5-5.5c0.8-0.8,0.8-2,0-2.8l0,0C24,7.3,23.5,7,23,7c-0.5,0-1,0.2-1.4,0.6L16,13.2l-5.5-5.5  c-0.8-0.8-2.1-0.8-2.8,0C7.3,8,7,8.5,7,9.1s0.2,1,0.6,1.4l5.5,5.5l-5.5,5.5C7.3,21.9,7,22.4,7,23c0,0.5,0.2,1,0.6,1.4  C8,24.8,8.5,25,9,25c0.5,0,1-0.2,1.4-0.6l5.5-5.5l5.5,5.5c0.8,0.8,2.1,0.8,2.8,0c0.8-0.8,0.8-2.1,0-2.8L18.8,16z"/>
+                </svg>
+
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
