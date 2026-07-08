@@ -29,36 +29,38 @@ document.addEventListener("focusout", e =>
 });
 
 
-/* Pokusy SelectBox 1 */
+/* Aktuální selectBox1  */
 
 
-const select = document.getElementById("clientSelect");
-const btn = select.querySelector(".custom-select-btn");
-const options = select.querySelectorAll(".custom-select-options div");
-const valueText = document.getElementById("clientSelectValue");
-const hiddenInput = document.getElementById("clientFilter");
+document.addEventListener("click", function (e)
+{
+    const select = document.getElementById("list-patients-component-searching-bar-selectBox1");
+    if (!select) return;
 
-btn.addEventListener("click", () => {
-  select.classList.toggle("open");
-});
+    const btn = e.target.closest("#list-patients-component-searching-bar-selectBox1-btn1");
+    const option = e.target.closest(".list-patients-component-searching-bar-selectBox1-menu-options");
 
-options.forEach(option => {
-  option.addEventListener("click", () => {
-    valueText.textContent = option.textContent;
-    hiddenInput.value = option.dataset.value;
+    if (btn)
+    {
+        select.classList.toggle("open");
+        return;
+    }
 
-    select.classList.remove("open");
+    if (option)
+    {
+        const valueText = document.getElementById("list-patients-component-searching-bar-selectBox1-sp2");
+        const hiddenInput = document.getElementById("list-patients-component-searching-bar-selectBox1-filter");
 
-    console.log("Vybráno:", hiddenInput.value);
+        valueText.textContent = option.textContent;
+        hiddenInput.value = option.dataset.value;
 
-    // tady můžeš potom spustit filtrování tabulky
-    // například:
-    // filterClients(hiddenInput.value);
-  });
-});
+        console.log("Vybráno:", hiddenInput.value);
 
-document.addEventListener("click", e => {
-  if (!select.contains(e.target)) {
-    select.classList.remove("open");
-  }
+        select.classList.remove("open");
+        return;
+    }
+
+    if (!select.contains(e.target)) {
+        select.classList.remove("open");
+    }
 });

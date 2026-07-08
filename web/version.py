@@ -1,7 +1,7 @@
 
-__version__ = "1.2.88"
+__version__ = "1.2.90"
 
-# SelectBox1 - menu visualized
+# SelectBox1 - arrow rotation added
 
 # Jedná se o tuto produkční verzi č. ----
 
