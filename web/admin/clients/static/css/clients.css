@@ -531,7 +531,6 @@
 
 }
 
-
 #list-patients-component-searching-bar-selectBox1-menu-o1:hover, #list-patients-component-searching-bar-selectBox1-menu-o2:hover,#list-patients-component-searching-bar-selectBox1-menu-o3:hover
 {
   background: rgba(234,238,245,0.8);
@@ -771,4 +770,30 @@
 #list-patients-component-searching-bar-selectBox2-menu-o5:hover
 {
   background: rgba(234,238,245,0.8);
+}
+
+
+#list-patients-component-searching-bar-selectBox2
+#list-patients-component-searching-bar-selectBox2-menu
+{
+    display: none;
+}
+
+#list-patients-component-searching-bar-selectBox2.open
+#list-patients-component-searching-bar-selectBox2-menu
+{
+    display: block;
+}
+
+/* Šipka */
+#list-patients-component-searching-bar-selectBo2-img
+{
+    transition: transform 0.2s ease;
+}
+
+/* Po otevření selectboxu */
+#list-patients-component-searching-bar-selectBox2.open
+#list-patients-component-searching-bar-selectBox2-img
+{
+    transform: rotate(180deg);
 }

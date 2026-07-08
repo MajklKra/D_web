@@ -64,3 +64,44 @@ document.addEventListener("click", function (e)
         select.classList.remove("open");
     }
 });
+
+
+
+/* * * * * * * */
+/* SELECTBOX2  */
+/* * * * * * * */
+
+
+document.addEventListener("click", function (e)
+{
+    const select = document.getElementById("list-patients-component-searching-bar-selectBox2");
+    if (!select) return;
+
+    const btn = e.target.closest("#list-patients-component-searching-bar-selectBox2-btn1");
+    const option = e.target.closest(".list-patients-component-searching-bar-selectBox2-menu-options");
+
+    if (btn)
+    {
+        select.classList.toggle("open");
+        return;
+    }
+
+    if (option)
+    {
+        const valueText = document.getElementById("list-patients-component-searching-bar-selectBox2-sp2");
+        const hiddenInput = document.getElementById("list-patients-component-searching-bar-selectBox2-filter");
+
+        valueText.textContent = option.textContent;
+        hiddenInput.value = option.dataset.value;
+
+        console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
+
+        select.classList.remove("open");
+        return;
+    }
+
+    if (!select.contains(e.target)) {
+        select.classList.remove("open");
+    }
+});
+
