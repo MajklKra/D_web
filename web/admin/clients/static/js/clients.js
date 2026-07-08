@@ -105,3 +105,43 @@ document.addEventListener("click", function (e)
     }
 });
 
+
+
+/* * * * * * * */
+/* SELECTBOX3  */
+/* * * * * * * */
+
+
+document.addEventListener("click", function (e)
+{
+    const select = document.getElementById("list-patients-component-searching-bar-selectBox3");
+    if (!select) return;
+
+    const btn = e.target.closest("#list-patients-component-searching-bar-selectBox3-btn1");
+    const option = e.target.closest(".list-patients-component-searching-bar-selectBox3-menu-options");
+
+    if (btn)
+    {
+        select.classList.toggle("open");
+        return;
+    }
+
+    if (option)
+    {
+        const valueText = document.getElementById("list-patients-component-searching-bar-selectBox3-sp2");
+        const hiddenInput = document.getElementById("list-patients-component-searching-bar-selectBox3-filter");
+
+        valueText.textContent = option.textContent;
+        hiddenInput.value = option.dataset.value;
+
+        console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
+
+        select.classList.remove("open");
+        return;
+    }
+
+    if (!select.contains(e.target)) {
+        select.classList.remove("open");
+    }
+});
+
