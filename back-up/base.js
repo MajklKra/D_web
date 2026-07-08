@@ -553,124 +553,22 @@ async function updateName()
 
 /* Scrollbar */
 
-// Původní scroll-bar //
-// document.addEventListener("DOMContentLoaded", function ()
-// {
-//     const content = document.getElementById("DBC-row3-occupC-c2-empC-c1");
-
-//     const track = document.getElementById("DBC-row3-occupC-c2-empC-scrollC");
-//     const thumb = document.getElementById("DBC-row3-occupC-c2-empC-thumb");
-
-//     if (!content || !track || !thumb) return;
-
-//     content.addEventListener("scroll", updateThumb);
-
-//     function updateThumb()
-//     {
-//         const isEmpty = content.children.length === 0;
-
-//         if (isEmpty || content.scrollHeight <= content.clientHeight)
-//         {
-//             track.style.display = "none";
-//             content.style.width = "100%";
-//             return;
-//         }
-
-//         track.style.display = "block";
-//         content.style.width = "calc(100% - 10px)";
-
-//         const thumbHeight = thumb.offsetHeight;
-
-//         const maxScrollTop = content.scrollHeight - content.clientHeight;
-//         const maxThumbTop = track.clientHeight - thumbHeight;
-
-//         const thumbTop = (content.scrollTop / maxScrollTop) * maxThumbTop;
-
-//         thumb.style.top = thumbTop + "px";
-//     }
-
-//     // content.addEventListener("scroll", updateThumb);
-//     window.addEventListener("resize", updateThumb);
-
-//     let isDragging = false;
-//     let startY = 0;
-//     let startTop = 0;
-
-//     thumb.addEventListener("mousedown", function (e) {
-//         isDragging = true;
-//         startY = e.clientY;
-//         startTop = parseFloat(thumb.style.top) || 0;
-
-//         document.body.style.userSelect = "none";
-//         e.preventDefault();
-//     });
-
-//     document.addEventListener("mousemove", function (e) {
-//         if (!isDragging) return;
-
-//         const deltaY = e.clientY - startY;
-//         const thumbHeight = thumb.offsetHeight;
-//         const maxThumbTop = track.clientHeight - thumbHeight;
-
-//         let newTop = startTop + deltaY;
-//         newTop = Math.max(0, Math.min(newTop, maxThumbTop));
-
-//         thumb.style.top = newTop + "px";
-
-//         const maxScrollTop = content.scrollHeight - content.clientHeight;
-
-//         content.scrollTop = maxThumbTop > 0
-//             ? (newTop / maxThumbTop) * maxScrollTop
-//             : 0;
-//     });
-
-//     document.addEventListener("mouseup", function () {
-//         isDragging = false;
-//         document.body.style.userSelect = "";
-//     });
-
-//     track.addEventListener("click", function (e) {
-//         if (e.target === thumb) return;
-
-//         const rect = track.getBoundingClientRect();
-//         const clickY = e.clientY - rect.top;
-//         const thumbHeight = thumb.offsetHeight;
-//         const maxThumbTop = track.clientHeight - thumbHeight;
-
-//         let newTop = clickY - thumbHeight / 2;
-//         newTop = Math.max(0, Math.min(newTop, maxThumbTop));
-
-//         const maxScrollTop = content.scrollHeight - content.clientHeight;
-
-//         content.scrollTop = maxThumbTop > 0
-//             ? (newTop / maxThumbTop) * maxScrollTop
-//             : 0;
-//     });
-
-//     updateThumb();
-// });
-
-let scrollbarAbortController = null;
-
-function initCustomScrollbar()
+document.addEventListener("DOMContentLoaded", function ()
 {
     const content = document.getElementById("DBC-row3-occupC-c2-empC-c1");
+
     const track = document.getElementById("DBC-row3-occupC-c2-empC-scrollC");
     const thumb = document.getElementById("DBC-row3-occupC-c2-empC-thumb");
 
     if (!content || !track || !thumb) return;
 
-    if (scrollbarAbortController)
-    {
-        scrollbarAbortController.abort();
-    }
-
-    scrollbarAbortController = new AbortController();
-    const signal = scrollbarAbortController.signal;
+    content.addEventListener("scroll", updateThumb);
 
     function updateThumb()
     {
-        if (content.children.length === 0 || content.scrollHeight <= content.clientHeight)
+        const isEmpty = content.children.length === 0;
+
+        if (isEmpty || content.scrollHeight <= content.clientHeight)
         {
             track.style.display = "none";
             content.style.width = "100%";
@@ -681,30 +579,32 @@ function initCustomScrollbar()
         content.style.width = "calc(100% - 10px)";
 
         const thumbHeight = thumb.offsetHeight;
+
         const maxScrollTop = content.scrollHeight - content.clientHeight;
         const maxThumbTop = track.clientHeight - thumbHeight;
 
-        thumb.style.top = ((content.scrollTop / maxScrollTop) * maxThumbTop) + "px";
+        const thumbTop = (content.scrollTop / maxScrollTop) * maxThumbTop;
+
+        thumb.style.top = thumbTop + "px";
     }
 
-    content.addEventListener("scroll", updateThumb, { signal });
-    window.addEventListener("resize", updateThumb, { signal });
+    // content.addEventListener("scroll", updateThumb);
+    window.addEventListener("resize", updateThumb);
 
     let isDragging = false;
     let startY = 0;
     let startTop = 0;
 
-    thumb.addEventListener("mousedown", function (e)
-    {
+    thumb.addEventListener("mousedown", function (e) {
         isDragging = true;
         startY = e.clientY;
         startTop = parseFloat(thumb.style.top) || 0;
+
         document.body.style.userSelect = "none";
         e.preventDefault();
-    }, { signal });
+    });
 
-    document.addEventListener("mousemove", function (e)
-    {
+    document.addEventListener("mousemove", function (e) {
         if (!isDragging) return;
 
         const deltaY = e.clientY - startY;
@@ -721,16 +621,14 @@ function initCustomScrollbar()
         content.scrollTop = maxThumbTop > 0
             ? (newTop / maxThumbTop) * maxScrollTop
             : 0;
-    }, { signal });
+    });
 
-    document.addEventListener("mouseup", function ()
-    {
+    document.addEventListener("mouseup", function () {
         isDragging = false;
         document.body.style.userSelect = "";
-    }, { signal });
+    });
 
-    track.addEventListener("click", function (e)
-    {
+    track.addEventListener("click", function (e) {
         if (e.target === thumb) return;
 
         const rect = track.getBoundingClientRect();
@@ -746,22 +644,10 @@ function initCustomScrollbar()
         content.scrollTop = maxThumbTop > 0
             ? (newTop / maxThumbTop) * maxScrollTop
             : 0;
-    }, { signal });
+    });
 
-    requestAnimationFrame(updateThumb);
-}
-
-document.addEventListener("DOMContentLoaded", initCustomScrollbar);
-document.body.addEventListener("htmx:load", initCustomScrollbar);
-document.body.addEventListener("htmx:historyRestore", function ()
-{
-    requestAnimationFrame(initCustomScrollbar);
+    updateThumb();
 });
-
-
-/* Scrollbar */
-
-
 
 /* * * * * * * * * * * * */
 /*                       */
