@@ -1,7 +1,7 @@
 
-__version__ = "1.2.87"
+__version__ = "1.2.88"
 
-# SelectBox1 - visualized
+# SelectBox1 - menu visualized
 
 # Jedná se o tuto produkční verzi č. ----
 
