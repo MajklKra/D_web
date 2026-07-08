@@ -152,9 +152,9 @@
 #list-patients-component-listC
 {
     width:  98.3%;
-    height: 84.2%;
+    height: 85.2%;
 
-    background-color: pink;
+    /* background-color: pink; */
 
     margin-top: 8px;
 
@@ -185,7 +185,7 @@
     width: 100%;
     height: 100%;
 
-    background-color: darkseagreen;
+    /* background-color: darkseagreen; */
 
     margin-top: 5px;
 
@@ -200,7 +200,7 @@
 {
     flex: 1;
     height: 100%;
-    background-color: chocolate;
+    /* background-color: chocolate; */
 
 }
 
@@ -208,7 +208,7 @@
 {
     width: 11px;
     height: 100%;
-    background-color: gray;
+    background-color: rgba(238,239,241,1);
 }
 
 
@@ -1449,8 +1449,6 @@
 
     position: relative;
 
-    background-color: white;
-
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -1483,4 +1481,219 @@
 #DBC-row3-occupC-c2-empC-c1::-webkit-scrollbar
 {
     display: none;
+}
+
+
+#list-patients-component-listC-listC2-content-table-box
+{
+    width: 100%;
+    height: 100%;
+
+    /* background-color: yellowgreen; */
+
+    background-color: white;
+}
+
+
+/* * * * * * * * */
+/*   Tabulka  T1 */
+/* * * * * * * * */
+
+
+#list-patients-component-listC-listC2-content-table-box-t1
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col1
+{
+    width: 76px;
+    height: 49px;
+    /* background-color: aquamarine; */
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+
+    text-align: end;
+    vertical-align: middle;
+
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col2
+{
+    width:  255px;
+    height: 49px;
+    /* background-color: palevioletred; */
+
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 16px;
+    color: #324351;
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col3
+{
+    width:  267px;
+    height: 49px;
+    /* background-color: orange; */
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #324351;
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col4
+{
+    width:  384px;
+    height: 49px;
+    /* background-color: green; */
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #324351;
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col5
+{
+    width:  146px;
+    height: 49px;
+    /* background-color: yellowgreen; */
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #324351;
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col6
+{
+    width:  157px;
+    height: 49px;
+    /* background-color: lightblue; */
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #324351;
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col7
+{
+    flex: 1;
+    height: 49px;
+    /* background-color: yellow; */
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #324351;
+}
+
+
+#list-patients-component-listC-listC2-content-table-box-t1 tr
+{
+    position: relative;
+}
+
+#list-patients-component-listC-listC2-content-table-box-t1 tr::after
+{
+    content: "";
+    position: absolute;
+    left:  55px;
+    right: 30px;
+    bottom: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(180,199,232,1) 10%,
+        rgba(180,199,232,1) 90%,
+        transparent
+    );
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col7-minus
+{
+    width:  21px;
+    height:  2px;
+    background-color: #324351;        /* šedá */
+    border-radius: 999px;               /* zaoblené konce */
+}
+
+/* Row - checkbox */
+
+#list-patients-component-listC-listC2-content-table-box-t1-col1-label
+{
+    width:  76px;
+    height: 100%;
+
+    /* background-color: blue; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 13px;
+    color: #324351;
+
+    cursor: pointer;
+}
+
+#list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox
+{
+    display: none;
+}
+
+#list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox-box
+{
+    width: 14px;
+    height: 14px;
+
+    border: 1px solid #324351;
+    /* border-radius: 5px; */
+
+    background: #FFFFFF;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all .15s ease;
+}
+
+
+#list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox-box svg
+{
+    width: 8px;
+
+    fill: none;
+    stroke: white;
+    stroke-width: 3;
+
+    opacity: 0;
+
+    transition: opacity .15s ease;
+
+}
+
+#list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox:checked
++ #list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox-box
+{
+    background: rgba(53, 127, 171, 1);
+    border-color: rgba(53, 127, 171, 1);
+}
+
+#list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox:checked
++ #list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox-box svg
+{
+    opacity: 1;
 }
