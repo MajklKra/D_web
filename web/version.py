@@ -1,7 +1,7 @@
 
 __version__ = "1.2.94"
 
-# SelectBox4 - created
+# list-patients-component-listC-head added
 
 # Jedná se o tuto produkční verzi č. ----
 
