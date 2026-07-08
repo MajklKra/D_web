@@ -1,7 +1,7 @@
 
-__version__ = "1.2.93"
+__version__ = "1.2.94"
 
-# SelectBox3 - created
+# SelectBox4 - created
 
 # Jedná se o tuto produkční verzi č. ----
 

@@ -107,7 +107,7 @@
     margin-left: 342px;
 } */
 
-#list-patients-component-searching-bar-selectBox2
+/* #list-patients-component-searching-bar-selectBox2
 {
     width:              171px;
     height:              30px;
@@ -118,9 +118,9 @@
     background-color: lightblue;
     margin-left: 15px;
 
-}
+} */
 
-#list-patients-component-searching-bar-selectBox3
+/* #list-patients-component-searching-bar-selectBox3
 {
     width:              165px;
     height:              30px;
@@ -132,9 +132,9 @@
 
     margin-left: 15px;
 
-}
+} */
 
-#list-patients-component-searching-bar-selectBox4
+/* #list-patients-component-searching-bar-selectBox4
 {
     width:              152px;
     height:              30px;
@@ -146,7 +146,7 @@
 
     margin-left: 15px;
 
-}
+} */
 
 
 #list-patients-component-listC
@@ -898,7 +898,7 @@
 #list-patients-component-searching-bar-selectBox3-menu
 {
 
-  /* display: none; */
+  display: none;
   position: absolute;
   top: 34px;
   left: 0;
@@ -1035,6 +1035,208 @@
 /* Po otevření selectboxu */
 #list-patients-component-searching-bar-selectBox3.open
 #list-patients-component-searching-bar-selectBox3-img
+{
+    transform: rotate(180deg);
+}
+
+
+/* * * * * * * * * */
+/*                 */
+/*   SelectBox 4   */
+/*                 */
+/* * * * * * * * * */
+
+
+
+#list-patients-component-searching-bar-selectBox4
+{
+    width:              152px;
+    height:              30px;
+    border-radius:        5px;
+    border:none;
+    outline:none;
+
+    /* background-color: lightblue; */
+
+    background-color: white;
+
+    margin-left: 15px;
+
+    position: relative;
+}
+
+
+#list-patients-component-searching-bar-selectBox4-btn1
+{
+    width: 100%;
+    height: 100%;
+
+    /* background-color: lightcoral; */
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    border-radius:        5px;
+    border:none;
+    outline:none;
+
+    padding-left: 13px;
+}
+
+
+#list-patients-component-searching-bar-selectBox4-img
+{
+    width: 10px;
+    height: auto;
+
+    /* background-color: pink; */
+
+    /* margin-left: 16px; */
+    margin-top: 1px;
+
+    margin-right: 1px;
+
+    color: #324351;
+}
+
+
+#list-patients-component-searching-bar-selectBox4-sp1
+{
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 12px;
+    color: #324351;
+
+}
+
+#list-patients-component-searching-bar-selectBox4-sp2
+{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 13px;
+    color: #357fab;
+
+    margin-left: 7px;
+
+    /* background-color: red; */
+
+    min-width: 76px;
+    max-width: 76px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    text-align: start;
+
+}
+
+
+#list-patients-component-searching-bar-selectBox4-menu
+{
+
+  display: none;
+  position: absolute;
+  top: 34px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: white;
+  border-radius: 5px;
+
+  border: 1px solid rgba(245,246,247,1);
+
+  padding-top:  6px;
+  /* padding-left: 9px; */
+
+  overflow: auto;
+
+}
+
+#list-patients-component-searching-bar-selectBox4-menu-o1
+{
+
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 12px;
+  color: #324351;
+
+  /* background-color: red; */
+
+  margin-bottom: 3px;
+  padding-left: 9px;
+
+
+}
+
+#list-patients-component-searching-bar-selectBox4-menu-o2
+{
+
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 12px;
+  color: #324351;
+
+  /* background-color: blue; */
+
+  margin-bottom: 3px;
+  padding-left: 9px;
+
+}
+
+#list-patients-component-searching-bar-selectBox4-menu-o3
+{
+
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 12px;
+  color: #324351;
+  padding-left: 9px;
+  margin-bottom: 3px;
+
+  /* background-color: green; */
+
+}
+
+#list-patients-component-searching-bar-selectBox4-menu-o1:hover,
+#list-patients-component-searching-bar-selectBox4-menu-o2:hover,
+#list-patients-component-searching-bar-selectBox4-menu-o3:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+
+#list-patients-component-searching-bar-selectBox4
+#list-patients-component-searching-bar-selectBox4-menu
+{
+    display: none;
+}
+
+#list-patients-component-searching-bar-selectBox4.open
+#list-patients-component-searching-bar-selectBox4-menu
+{
+    display: block;
+}
+
+/* Šipka */
+#list-patients-component-searching-bar-selectBox4-img
+{
+    transition: transform 0.2s ease;
+}
+
+/* Po otevření selectboxu */
+#list-patients-component-searching-bar-selectBox4.open
+#list-patients-component-searching-bar-selectBox4-img
 {
     transform: rotate(180deg);
 }
