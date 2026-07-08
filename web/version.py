@@ -1,7 +1,7 @@
 
-__version__ = "1.2.90"
+__version__ = "1.2.91"
 
-# SelectBox1 - base.httm scroll-bar corrected
+# SelectBox2 - design suggested
 
 # Jedná se o tuto produkční verzi č. ----
 
