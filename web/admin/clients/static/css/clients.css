@@ -94,7 +94,7 @@
 
 }
 
-#list-patients-component-searching-bar-selectBox1
+/* #list-patients-component-searching-bar-selectBox1
 {
     width:              146px;
     height:              30px;
@@ -105,7 +105,7 @@
     background-color: lightblue;
 
     margin-left: 342px;
-}
+} */
 
 #list-patients-component-searching-bar-selectBox2
 {
@@ -368,3 +368,159 @@
     margin-left: 8px;
 }
 
+/* * * * * * * * * */
+/*                 */
+/*   SelectBox 1   */
+/*                 */
+/* * * * * * * * * */
+
+.custom-select
+{
+  position: relative;
+
+  width:              146px;
+  height:              30px;
+  border-radius:        5px;
+  border:none;
+  outline:none;
+
+  background-color: lightblue;
+
+  margin-left: 342px;
+
+  box-sizing: border-box;
+}
+
+.custom-select-btn
+{
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 9px;
+  /* background: white; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 13px;
+  cursor: pointer;
+  color: #4f5d73;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+
+  background-color: red;
+}
+
+.custom-select-btn strong
+{
+  color: #367eab;
+  margin-left: 5px;
+  margin-right: auto;
+}
+
+.arrow
+{
+  font-size: 18px;
+  color: #4f5d73;
+}
+
+.custom-select-options
+{
+  display: none;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  z-index: 50;
+}
+
+.custom-select-options div
+{
+  padding: 10px 13px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #4f5d73;
+}
+
+.custom-select-options div:hover
+{
+  background: #eaf4fb;
+  color: #367eab;
+}
+
+.custom-select.open .custom-select-options
+{
+  display: block;
+}
+
+
+/* Aktu8ln9 selectBox1 */
+
+
+ #list-patients-component-searching-bar-selectBox1
+ {
+
+    width:              146px;
+    height:              30px;
+    border-radius:        5px;
+    border:none;
+    outline:none;
+
+    background-color: lightblue;
+
+    margin-left: 342px;
+
+ }
+
+#list-patients-component-searching-bar-selectBox1-btn1
+{
+    width: 100%;
+    height: 100%;
+
+    background-color: lightcoral;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    border-radius:        5px;
+    border:none;
+    outline:none;
+
+    padding-left: 9px;
+}
+
+#list-patients-component-searching-bar-selectBox1-img
+{
+    width: 10px;
+    height: auto;
+
+    background-color: pink;
+
+    margin-left: 16px;
+    margin-top: 1px;
+}
+
+#list-patients-component-searching-bar-selectBox1-sp1
+{
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 12px;
+    color: #324351;
+
+}
+
+#list-patients-component-searching-bar-selectBox1-sp2
+{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 13px;
+    color: #357fab;
+
+    margin-left: 8px;
+}

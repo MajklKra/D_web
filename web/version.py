@@ -1,12 +1,12 @@
 
-__version__ = "1.2.86"
+__version__ = "1.2.87"
 
-# list-patients-component-searching-bar-btn2 created
+# SelectBox1 - visualized
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        7.7.2026
+# Datum:        8.7.2026
 
 
 
