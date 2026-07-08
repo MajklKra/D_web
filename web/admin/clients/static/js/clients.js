@@ -146,9 +146,8 @@ document.addEventListener("click", function (e)
 });
 
 /* * * * * * * */
-/* SELECTBOX34 */
+/* SELECTBOX4  */
 /* * * * * * * */
-
 
 document.addEventListener("click", function (e)
 {

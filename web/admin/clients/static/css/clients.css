@@ -1437,3 +1437,50 @@
 {
     opacity: 1;
 }
+
+/* * * * * * */
+/* ScrollBar */
+/* * * * * * */
+
+
+#list-patients-component-listC-listC2-scrollC
+{
+    height: 100%;
+
+    position: relative;
+
+    background-color: white;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    /* border-left: 1px solid rgba(244,245,247,1) */
+}
+
+
+#list-patients-component-listC-listC2-scrollC-thumb
+{
+    position: absolute;
+
+    top: 0;
+    left: 1px;
+
+    width: 9px;
+
+    height: 91px;
+
+    border-radius: 5px;
+
+    background-color: rgba(205,215,231,1);
+
+    /* border-radius: 10px; */
+
+    cursor: grab;
+}
+
+#DBC-row3-occupC-c2-empC-c1::-webkit-scrollbar
+{
+    display: none;
+}
