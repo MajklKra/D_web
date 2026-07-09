@@ -413,9 +413,28 @@
                                         </td>
                                     {% endif %}
 
-                                    <td class="list-patients-component-listC-listC2-content-table-box-t1-col7">
-                                        <div class="list-patients-component-listC-listC2-content-table-box-t1-col7-minus"></div>
-                                    </td>
+
+
+                                    {% if c[7] is not none and c[8] == 0 %}
+
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col7">
+                                            Cygnus
+                                        </td>
+
+                                    {% elif c[9] is not none and c[10] == 0 %}
+
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col7">
+                                            DODS
+                                        </td>
+
+                                    {% else %}
+
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col7">
+                                            <div class="list-patients-component-listC-listC2-content-table-box-t1-col7-minus"></div>
+                                        </td>
+
+                                    {% endif %}
+
 
                                     <td class="list-patients-component-listC-listC2-content-table-box-t1-col8">
                                         <button id="list-patients-component-listC-listC2-content-table-box-t1-col8-btn1">
@@ -435,9 +454,14 @@
 
                                         </button>
                                     </td>
+
+
+
                                 </tr>
 
-                            {% endfor %}
+                        {% endfor %}
+
+
 
                         </tbody>
                     </table>

@@ -1611,10 +1611,10 @@
 
 .list-patients-component-listC-listC2-content-table-box-t1-col7-minus
 {
-    width:  21px;
+    width:  22px;
     height:  2px;
-    background-color: #324351;        /* šedá */
-    border-radius: 999px;               /* zaoblené konce */
+    background-color: rgba(131,135,145,1);        /* šedá */
+    border-radius: 999px
 }
 
 /* Row - checkbox */
