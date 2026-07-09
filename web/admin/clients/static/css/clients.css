@@ -1884,3 +1884,23 @@
     background-color: rgba(131,135,145,1);        /* šedá */
     border-radius: 999px;                           /* zaoblené konce */
 }
+
+.list-patients-component-listC-listC2-content-table-box-t1-col6-btn
+{
+    width: 27px;
+    height: 27px;
+    /* background-color: green; */
+    background-color: transparent;
+
+    border: none;
+    outline: none;
+
+    padding: 0;
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col6-btn-img
+{
+    /* background-color: red; */
+    width: 100%;
+    color: rgba(131,135,145,1);
+}

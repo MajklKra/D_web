@@ -391,10 +391,32 @@
                                         </td>
                                     {% endif %}
 
+                                    {% if c[6] is not none %}
                                     <td class="list-patients-component-listC-listC2-content-table-box-t1-col6">{{c[6]}}</td>
+                                    {% else %}
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col6">
+                                               <button class="list-patients-component-listC-listC2-content-table-box-t1-col6-btn">
+
+                                                 <svg class="list-patients-component-listC-listC2-content-table-box-t1-col6-btn-img" viewBox="9 13 26 16">
+                                                    <defs>
+                                                        <style>
+                                                        .list-patients-component-listC-listC2-content-table-box-t1-col6-btn-img-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="list-patients-component-listC-listC2-content-table-box-t1-col6-btn-img-cls-1" d="M34.12,18.41c-.56,0-1.02.46-1.02,1.02v2.9H11.53v-7.63c0-.56-.46-1.02-1.02-1.02h0c-.56,0-1.02.46-1.02,1.02v14.03c0,.11.09.2.2.2h1.64c.11,0,.2-.09.2-.2v-2.28h21.57v2.28c0,.11.09.2.2.2h1.64c.11,0,.2-.09.2-.2v-9.3c0-.56-.46-1.02-1.02-1.02Z"/>
+                                                </svg>
+
+
+                                               </button>
+                                        </td>
+                                    {% endif %}
+
                                     <td class="list-patients-component-listC-listC2-content-table-box-t1-col7">
                                         <div class="list-patients-component-listC-listC2-content-table-box-t1-col7-minus"></div>
                                     </td>
+
                                     <td class="list-patients-component-listC-listC2-content-table-box-t1-col8">
                                         <button id="list-patients-component-listC-listC2-content-table-box-t1-col8-btn1">
 
