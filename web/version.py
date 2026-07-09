@@ -1,12 +1,12 @@
 
-__version__ = "1.2.95"
+__version__ = "1.2.96"
 
-# list-patients-component-listC-listC2 first row suggested
+# list-patients-component-listC-listC2 delere btn added
 
 # Jedná se o tuto produkční verzi č. ----
 
 # Vytvořil:     Michal Kraninger
-# Datum:        8.7.2026
+# Datum:        9.7.2026
 
 
 
