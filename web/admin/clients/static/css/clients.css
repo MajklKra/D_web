@@ -210,25 +210,35 @@
     max-height: 90.6%;
 }
 
-#list-patients-component-listC-listC2-scrollC
+/* #list-patients-component-listC-listC2-scrollC
 {
     width: 11px;
     height: 100%;
     background-color: rgba(238,239,241,1);
-}
+} */
 
 
 #list-patients-component-lessC
 {
     position: absolute;
 
-    right:              80px;
-    bottom:             90px;
+    right:              57px;
+    bottom:             99px;
 
-    width:              200px;
-    height:             50px;
+    width:              auto;
+    height:             auto;
 
     background-color: aquamarine;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size:   20px;
+    color: #324351;
 }
 
 #list-patients-component-magnifier
@@ -1451,7 +1461,8 @@
 
 #list-patients-component-listC-listC2-scrollC
 {
-    height: 100%;
+    width: 11px;
+    height: 98%;
 
     position: relative;
 
@@ -1461,7 +1472,16 @@
     border-bottom-right-radius: 5px;
 
     /* border-left: 1px solid rgba(244,245,247,1) */
+
+    background-color: rgba(238,239,241,1);
 }
+
+/* #list-patients-component-listC-listC2-scrollC
+{
+    width: 11px;
+    height: 100%;
+    background-color: rgba(238,239,241,1);
+} */
 
 
 #list-patients-component-listC-listC2-scrollC-thumb
@@ -1746,4 +1766,104 @@
 #list-patients-component-listC-listC2-content::-webkit-scrollbar
 {
      display: none;
+}
+
+
+/* * * * * * * * */
+/*               */
+/*  Strankování  */
+/*               */
+/* * * * * * * * */
+
+#list-patients-component-lessC-p1
+{
+    width: auto;
+    height: auto;
+    /* background-color: black; */
+    margin: 0px;
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size:   20px;
+    color: #324351;
+}
+
+#list-patients-component-lessC-p2
+{
+    width: auto;
+    height: auto;
+    /* background-color: brown; */
+    margin: 0px;
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size:   20px;
+    color: #324351;
+}
+
+#list-patients-component-lessC-p3
+{
+    width: auto;
+    height: auto;
+    /* background-color: yellow; */
+    margin: 0px;
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size:   20px;
+    color: #324351;
+}
+
+#list-patients-component-lessC-btn1
+{
+    width: auto;
+    height: auto;
+
+    margin-left: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+}
+
+#list-patients-component-lessC-btn2
+{
+    width: auto;
+    height: auto;
+    margin-left: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+#list-patients-component-lessC-btn1-img1
+{
+    /* background-color: red; */
+    width: 15px;
+    color: #324351;
+}
+
+#list-patients-component-lessC-btn1-img2
+{
+    /* background-color: red; */
+    width: 15px;
+    color: #324351;
+
+    transform: rotate(180deg);
 }

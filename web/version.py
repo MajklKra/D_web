@@ -1,7 +1,7 @@
 
-__version__ = "1.2.99"
+__version__ = "1.3.00"
 
-# list-patients-component-listC-listC2 scroll-bar zprovozněn
+# list-patients-component-lessC suggested
 
 # Jedná se o tuto produkční verzi č. ----
 
