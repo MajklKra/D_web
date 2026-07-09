@@ -181,3 +181,148 @@ document.addEventListener("click", function (e)
         select.classList.remove("open");
     }
 });
+
+
+/* * * * * * * */
+/* Scroll-bar  */
+/* * * * * * * */
+
+// function initScrollBar()
+// {
+//     const content = document.getElementById("list-patients-component-listC-listC2-content");
+//     const track = document.getElementById("list-patients-component-listC-listC2-scrollC");
+//     const thumb = document.getElementById("list-patients-component-listC-listC2-scrollC-thumb");
+
+//     if (!content || !track || !thumb)
+//     {
+//         console.error("ScrollBar: některý prvek nebyl nalezen.");
+//         return;
+//     }
+
+//     content.addEventListener("scroll", () =>
+//     {
+//         const maxScroll = content.scrollHeight - content.clientHeight;
+//         const maxThumb = track.clientHeight - thumb.clientHeight;
+
+//         thumb.style.top =
+//             (content.scrollTop / maxScroll) * maxThumb + "px";
+//     });
+
+//     let isDragging = false;
+//     let startY = 0;
+//     let startTop = 0;
+
+//     thumb.addEventListener("mousedown", e =>
+//     {
+//         isDragging = true;
+//         startY = e.clientY;
+//         startTop = thumb.offsetTop;
+
+//         thumb.style.cursor = "grabbing";
+//         document.body.style.userSelect = "none";
+//     });
+
+//     document.addEventListener("mousemove", e =>
+//     {
+//         if (!isDragging) return;
+
+//         const deltaY = e.clientY - startY;
+
+//         const maxThumb =
+//             track.clientHeight - thumb.clientHeight;
+
+//         let newTop = startTop + deltaY;
+
+//         if (newTop < 0) newTop = 0;
+//         if (newTop > maxThumb) newTop = maxThumb;
+
+//         thumb.style.top = newTop + "px";
+
+//         const maxScroll =
+//             content.scrollHeight - content.clientHeight;
+
+//         content.scrollTop =
+//             (newTop / maxThumb) * maxScroll;
+//     });
+
+//     document.addEventListener("mouseup", () =>
+//     {
+//         if (!isDragging) return;
+
+//         isDragging = false;
+//         thumb.style.cursor = "grab";
+//         document.body.style.userSelect = "";
+//     });
+
+
+// }
+
+// initScrollBar();
+
+
+function initCustomScrollbar()
+{
+    const content = document.getElementById("list-patients-component-listC-listC2-content");
+    const track = document.getElementById("list-patients-component-listC-listC2-scrollC");
+    const thumb = document.getElementById("list-patients-component-listC-listC2-scrollC-thumb");
+
+    if (!content || !track || !thumb) return;
+
+    if (content.dataset.scrollbarReady === "1") return;
+    content.dataset.scrollbarReady = "1";
+
+    content.addEventListener("scroll", () =>
+    {
+        const maxScroll = content.scrollHeight - content.clientHeight;
+        const maxThumb = track.clientHeight - thumb.clientHeight;
+
+        if (maxScroll <= 0 || maxThumb <= 0) return;
+
+        thumb.style.top = (content.scrollTop / maxScroll) * maxThumb + "px";
+    });
+
+    let isDragging = false;
+    let startY = 0;
+    let startTop = 0;
+
+    thumb.addEventListener("mousedown", e =>
+    {
+        isDragging = true;
+        startY = e.clientY;
+        startTop = thumb.offsetTop;
+
+        thumb.style.cursor = "grabbing";
+        document.body.style.userSelect = "none";
+    });
+
+    document.addEventListener("mousemove", e =>
+    {
+        if (!isDragging) return;
+
+        const maxThumb = track.clientHeight - thumb.clientHeight;
+        const maxScroll = content.scrollHeight - content.clientHeight;
+
+        let newTop = startTop + (e.clientY - startY);
+
+        if (newTop < 0) newTop = 0;
+        if (newTop > maxThumb) newTop = maxThumb;
+
+        thumb.style.top = newTop + "px";
+        content.scrollTop = (newTop / maxThumb) * maxScroll;
+    });
+
+    document.addEventListener("mouseup", () =>
+    {
+        if (!isDragging) return;
+
+        isDragging = false;
+        thumb.style.cursor = "grab";
+        document.body.style.userSelect = "";
+    });
+}
+
+
+document.addEventListener("DOMContentLoaded", initCustomScrollbar);
+document.addEventListener("htmx:afterSwap", initCustomScrollbar);
+document.addEventListener("htmx:historyRestore", initCustomScrollbar);
+window.addEventListener("pageshow", initCustomScrollbar);

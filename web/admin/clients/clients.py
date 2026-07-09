@@ -221,7 +221,7 @@ def clients():
     LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
 
     WHERE Patients.BedID = -1
-    ORDER BY PatientID;
+    ORDER BY Surname, Name;
 
     '''
 
@@ -232,16 +232,10 @@ def clients():
     ###  Úvodní SQL dotaz ###
 
 
-
-
-
-
-
-
     # HTMX request? -> vrať jen obsah
     if request.headers.get("HX-Request"):
         s_print("🔹 Posílám JEN fragment:", "blue",1,1)
-        return render_template("clients_fragment.html")
+        return render_template("clients_fragment.html", all_clients=result_all_pacients)
 
     s_print("🔹 Posílám CELOU stránku", "blue",1,1)
-    return render_template("clients_full_page.html", data=view_data)
+    return render_template("clients_full_page.html", data=view_data, all_clients=result_all_pacients)

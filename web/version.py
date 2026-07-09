@@ -1,7 +1,7 @@
 
-__version__ = "1.2.97"
+__version__ = "1.2.99"
 
-# Data to feed the client_fragment.html
+# list-patients-component-listC-listC2 scroll-bar zprovozněn
 
 # Jedná se o tuto produkční verzi č. ----
 

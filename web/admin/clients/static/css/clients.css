@@ -164,6 +164,9 @@
     align-items: start;
 
     padding: 7px;
+
+    max-height: 85.2% !important;
+    overflow: hidden;
 }
 
 #list-patients-component-listC-head
@@ -185,7 +188,7 @@
     width: 100%;
     height: 100%;
 
-    /* background-color: darkseagreen; */
+    background-color: darkseagreen;
 
     margin-top: 5px;
 
@@ -200,8 +203,11 @@
 {
     flex: 1;
     height: 100%;
-    /* background-color: chocolate; */
+    background-color: chocolate;
 
+    overflow-y: auto;
+
+    max-height: 90.6%;
 }
 
 #list-patients-component-listC-listC2-scrollC
@@ -1478,7 +1484,7 @@
     cursor: grab;
 }
 
-#DBC-row3-occupC-c2-empC-c1::-webkit-scrollbar
+#list-patients-component-listC::-webkit-scrollbar
 {
     display: none;
 }
@@ -1489,7 +1495,7 @@
     width: 100%;
     height: 100%;
 
-    /* background-color: yellowgreen; */
+    background-color: yellowgreen;
 
     background-color: white;
 }
@@ -1504,6 +1510,8 @@
 {
     width: 100%;
     border-collapse: collapse;
+
+    background-color: brown;
 }
 
 .list-patients-component-listC-listC2-content-table-box-t1-col1
@@ -1600,6 +1608,8 @@
    height: 49px;
 
    background-color: violet;
+
+   visibility: hidden;
 }
 
 
@@ -1730,4 +1740,10 @@
 {
     color: white;
     width: 25px;
+}
+
+
+#list-patients-component-listC-listC2-content::-webkit-scrollbar
+{
+     display: none;
 }
