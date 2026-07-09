@@ -5,6 +5,7 @@ from flask import Blueprint, request, session, render_template, redirect, jsonif
 from .blueprints import admin_clients_bp
 from ...version import __version__
 from vokativ import vokativ
+from math import ceil
 
 from  web.share.s_print import s_print
 from  web.share.db import db_connection, sqliteDB
@@ -231,11 +232,87 @@ def clients():
 
     ###  Úvodní SQL dotaz ###
 
+    ###  Stránkování ###
+
+
+    page = request.args.get("page", 1, type=int)
+    per_page = 50
+    offset = (page - 1) * per_page
+
+    total_records = db_connection(
+        """
+            SELECT COUNT(*)
+            FROM Patients
+        """,
+        one_row=True)[0]
+
+
+    total_pages = ceil(total_records / per_page)
+
+
+    # clients = db_connection("""
+    #     SELECT PatientID, Surname, Name
+    #     FROM Patients
+    #     ORDER BY PatientID
+    #     LIMIT %s OFFSET %s
+    # """, (per_page, offset))
+
+
+
+    SQL_query_all_pacients_pages = '''
+
+        SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, DodsSubjectId
+        FROM Patients
+        JOIN Beds ON Beds.BedID = Patients.BedID
+        JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+        JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+        JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+        JOIN Floors ON Floors.FloorID = Rooms.FloorID
+        JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+        UNION ALL
+
+        SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.`Name`, Departments.`Name` AS Department, Rooms.RoomNumber, Beds.BedNumber, CygnusClientId, DodsSubjectId
+        FROM Patients
+        JOIN Beds ON Beds.BedID = Patients.BedID
+        JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+        JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+        JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+        JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+        JOIN Floors ON Floors.FloorID = Rooms.FloorID
+        JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+        UNION ALL
+
+        SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, DodsSubjectId
+        FROM Patients
+        LEFT JOIN Beds ON Beds.BedID = Patients.BedID
+        LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+        LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+        LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+        LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
+        LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+        WHERE Patients.BedID = -1
+        ORDER BY Surname, Name
+        LIMIT %s OFFSET %s;
+
+        '''
+
+    clients_per_page = db_connection(SQL_query_all_pacients_pages, (per_page, offset), one_row=False)
+
+    ###  Stránkování ###
+
+
 
     # HTMX request? -> vrať jen obsah
     if request.headers.get("HX-Request"):
         s_print("🔹 Posílám JEN fragment:", "blue",1,1)
-        return render_template("clients_fragment.html", all_clients=result_all_pacients)
+        # return render_template("clients_fragment.html", all_clients=result_all_pacients)
+        return render_template("clients_fragment.html", all_clients=clients_per_page, page=page, per_page=per_page, total_records=total_records, total_pages=total_pages)
+
+
 
     s_print("🔹 Posílám CELOU stránku", "blue",1,1)
-    return render_template("clients_full_page.html", data=view_data, all_clients=result_all_pacients)
+    # return render_template("clients_full_page.html", data=view_data, all_clients=result_all_pacients)
+    return render_template("clients_full_page.html", data=view_data, all_clients=clients_per_page, page=page, per_page=per_page, total_records=total_records, total_pages=total_pages)

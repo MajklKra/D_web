@@ -1867,3 +1867,41 @@
 
     transform: rotate(180deg);
 }
+
+#list-patients-component-lessC-a1
+{
+    width: auto;
+    height: auto;
+
+    margin-left: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+}
+
+#list-patients-component-lessC-a2
+{
+    width: auto;
+    height: auto;
+    margin-left: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+}

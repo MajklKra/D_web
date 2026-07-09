@@ -1,7 +1,7 @@
 
-__version__ = "1.3.00"
+__version__ = "1.3.01"
 
-# list-patients-component-lessC suggested
+# list-patients-component-lessC paging made to be working
 
 # Jedná se o tuto produkční verzi č. ----
 

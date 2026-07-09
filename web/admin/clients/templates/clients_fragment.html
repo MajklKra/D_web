@@ -407,19 +407,71 @@
 
     <section id="list-patients-component-lessC">
 
-        <p id="list-patients-component-lessC-p1">x</p> &nbsp;-&nbsp;
-        <p id="list-patients-component-lessC-p2">y</p> &nbsp;z&nbsp;
-        <p id="list-patients-component-lessC-p3">z</p>
-        <button id="list-patients-component-lessC-btn1">
+        <p id="list-patients-component-lessC-p1"> {{ ((page - 1) * per_page) + 1 }} </p> &nbsp;-&nbsp;
+        <p id="list-patients-component-lessC-p2"> {{ [page * per_page, total_records] | min }} </p> &nbsp;z&nbsp;
+        <p id="list-patients-component-lessC-p3"> {{ total_records }} </p>
+
+
+
+        <!-- {% if page > 1 %}
+        <a href="?page={{ page - 1 }}">‹</a>
+        {% else %}
+            <span>‹</span>
+        {% endif %} -->
+
+        {% if page > 1 %}
+            <a id="list-patients-component-lessC-a1" href="/administration/clients?page={{ page - 1 }}">
+                <svg id="list-patients-component-lessC-btn1-img1" viewBox="0 0 1024 1024" class="icon">
+                    <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
+                </svg>
+            </a>
+        {% else %}
+            <button id="list-patients-component-lessC-btn1">
+                <svg id="list-patients-component-lessC-btn1-img1" viewBox="0 0 1024 1024" class="icon">
+                    <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
+                </svg>
+            </button>
+        {% endif %}
+
+
+
+
+        <!-- <button id="list-patients-component-lessC-btn1">
             <svg id="list-patients-component-lessC-btn1-img1" viewBox="0 0 1024 1024" class="icon">
                 <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
             </svg>
-        </button>
-        <button id="list-patients-component-lessC-btn2">
+        </button> -->
+
+        <!-- <button id="list-patients-component-lessC-btn2">
             <svg id="list-patients-component-lessC-btn1-img2" viewBox="0 0 1024 1024" class="icon">
                 <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
             </svg>
-        </button>
+        </button> -->
+
+
+        <!-- {% if page < total_pages %}
+        <a href="?page={{ page + 1 }}">›</a>
+        {% else %}
+            <span>›</span>
+        {% endif %} -->
+
+
+        {% if page < total_pages %}
+            <a id="list-patients-component-lessC-a2" href="?page={{ page + 1 }}">
+                <svg id="list-patients-component-lessC-btn1-img2" viewBox="0 0 1024 1024" class="icon">
+                    <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
+                </svg>
+            </a>
+        {% else %}
+
+            <button id="list-patients-component-lessC-btn2">
+                <svg id="list-patients-component-lessC-btn1-img2" viewBox="0 0 1024 1024" class="icon">
+                    <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
+                </svg>
+            </button>
+
+        {% endif %}
+
 
     </section>
 
