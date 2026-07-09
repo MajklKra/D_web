@@ -1,7 +1,7 @@
 
-__version__ = "1.2.96"
+__version__ = "1.2.97"
 
-# list-patients-component-listC-listC2 delere btn added
+# Data to feed the client_fragment.html
 
 # Jedná se o tuto produkční verzi č. ----
 

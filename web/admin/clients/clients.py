@@ -182,6 +182,62 @@ def clients():
         "beds_count": bedsCount,
     }
 
+
+
+    ###  Úvodní SQL dotaz ###
+
+    SQL_query_all_pacients = '''
+
+    SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, DodsSubjectId
+    FROM Patients
+    JOIN Beds ON Beds.BedID = Patients.BedID
+    JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+    JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+    JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+    JOIN Floors ON Floors.FloorID = Rooms.FloorID
+    JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+    UNION ALL
+
+    SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.`Name`, Departments.`Name` AS Department, Rooms.RoomNumber, Beds.BedNumber, CygnusClientId, DodsSubjectId
+    FROM Patients
+    JOIN Beds ON Beds.BedID = Patients.BedID
+    JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+    JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+    JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+    JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+    JOIN Floors ON Floors.FloorID = Rooms.FloorID
+    JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+    UNION ALL
+
+    SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, DodsSubjectId
+    FROM Patients
+    LEFT JOIN Beds ON Beds.BedID = Patients.BedID
+    LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+    LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+    LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+    LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
+    LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+    WHERE Patients.BedID = -1
+    ORDER BY PatientID;
+
+    '''
+
+    result_all_pacients = db_connection(SQL_query_all_pacients, (), one_row=False)
+
+    print("Výsledek SQL dotazů result_all_pacients delivered !!! ")
+
+    ###  Úvodní SQL dotaz ###
+
+
+
+
+
+
+
+
     # HTMX request? -> vrať jen obsah
     if request.headers.get("HX-Request"):
         s_print("🔹 Posílám JEN fragment:", "blue",1,1)
