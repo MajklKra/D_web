@@ -183,145 +183,6 @@ document.addEventListener("click", function (e)
 });
 
 
-/* * * * * * * */
-/* Scroll-bar  */
-/* * * * * * * */
-
-// function initScrollBar()
-// {
-//     const content = document.getElementById("list-patients-component-listC-listC2-content");
-//     const track = document.getElementById("list-patients-component-listC-listC2-scrollC");
-//     const thumb = document.getElementById("list-patients-component-listC-listC2-scrollC-thumb");
-
-//     if (!content || !track || !thumb)
-//     {
-//         console.error("ScrollBar: některý prvek nebyl nalezen.");
-//         return;
-//     }
-
-//     content.addEventListener("scroll", () =>
-//     {
-//         const maxScroll = content.scrollHeight - content.clientHeight;
-//         const maxThumb = track.clientHeight - thumb.clientHeight;
-
-//         thumb.style.top =
-//             (content.scrollTop / maxScroll) * maxThumb + "px";
-//     });
-
-//     let isDragging = false;
-//     let startY = 0;
-//     let startTop = 0;
-
-//     thumb.addEventListener("mousedown", e =>
-//     {
-//         isDragging = true;
-//         startY = e.clientY;
-//         startTop = thumb.offsetTop;
-
-//         thumb.style.cursor = "grabbing";
-//         document.body.style.userSelect = "none";
-//     });
-
-//     document.addEventListener("mousemove", e =>
-//     {
-//         if (!isDragging) return;
-
-//         const deltaY = e.clientY - startY;
-
-//         const maxThumb =
-//             track.clientHeight - thumb.clientHeight;
-
-//         let newTop = startTop + deltaY;
-
-//         if (newTop < 0) newTop = 0;
-//         if (newTop > maxThumb) newTop = maxThumb;
-
-//         thumb.style.top = newTop + "px";
-
-//         const maxScroll =
-//             content.scrollHeight - content.clientHeight;
-
-//         content.scrollTop =
-//             (newTop / maxThumb) * maxScroll;
-//     });
-
-//     document.addEventListener("mouseup", () =>
-//     {
-//         if (!isDragging) return;
-
-//         isDragging = false;
-//         thumb.style.cursor = "grab";
-//         document.body.style.userSelect = "";
-//     });
-
-
-// }
-
-// initScrollBar();
-
-
-// function initCustomScrollbar()
-// {
-//     const content = document.getElementById("list-patients-component-listC-listC2-content");
-//     const track = document.getElementById("list-patients-component-listC-listC2-scrollC");
-//     const thumb = document.getElementById("list-patients-component-listC-listC2-scrollC-thumb");
-
-//     if (!content || !track || !thumb) return;
-
-//     if (content.dataset.scrollbarReady === "1") return;
-//     content.dataset.scrollbarReady = "1";
-
-//     content.addEventListener("scroll", () =>
-//     {
-//         const maxScroll = content.scrollHeight - content.clientHeight;
-//         const maxThumb = track.clientHeight - thumb.clientHeight;
-
-//         if (maxScroll <= 0 || maxThumb <= 0) return;
-
-//         thumb.style.top = (content.scrollTop / maxScroll) * maxThumb + "px";
-//     });
-
-//     let isDragging = false;
-//     let startY = 0;
-//     let startTop = 0;
-
-//     thumb.addEventListener("mousedown", e =>
-//     {
-//         isDragging = true;
-//         startY = e.clientY;
-//         startTop = thumb.offsetTop;
-
-//         thumb.style.cursor = "grabbing";
-//         document.body.style.userSelect = "none";
-//     });
-
-//     document.addEventListener("mousemove", e =>
-//     {
-//         if (!isDragging) return;
-
-//         const maxThumb = track.clientHeight - thumb.clientHeight;
-//         const maxScroll = content.scrollHeight - content.clientHeight;
-
-//         let newTop = startTop + (e.clientY - startY);
-
-//         if (newTop < 0) newTop = 0;
-//         if (newTop > maxThumb) newTop = maxThumb;
-
-//         thumb.style.top = newTop + "px";
-//         content.scrollTop = (newTop / maxThumb) * maxScroll;
-//     });
-
-//     document.addEventListener("mouseup", () =>
-//     {
-//         if (!isDragging) return;
-
-//         isDragging = false;
-//         thumb.style.cursor = "grab";
-//         document.body.style.userSelect = "";
-//     });
-// }
-
-
 function initCustomScrollbar()
 {
     const content = document.getElementById(
@@ -435,15 +296,10 @@ function initCustomScrollbar()
     updateThumbPosition();
 }
 
-// document.addEventListener("DOMContentLoaded", initCustomScrollbar);
-// document.addEventListener("htmx:afterSwap", initCustomScrollbar);
-// document.addEventListener("htmx:historyRestore", initCustomScrollbar);
-// window.addEventListener("pageshow", initCustomScrollbar);
-
-document.addEventListener("DOMContentLoaded", () =>
-{
-    initCustomScrollbar();
-});
+// document.addEventListener("DOMContentLoaded", () =>
+// {
+//     initCustomScrollbar();
+// });
 
 document.addEventListener("htmx:afterSwap", event =>
 {
@@ -496,5 +352,249 @@ document.addEventListener("click", function (e)
 
     if (!btn) return;
 
-    alert("Kliknuto!");
+    const row = btn.closest("tr");
+
+    const patientId = row.dataset.patientId;
+
+    console.log(
+        "%c🧪 ID klienta:",
+        "color:hotpink; font-weight:bold;",
+        patientId
+    );
+
+    alert("ID klienta: " + patientId);
+});
+
+
+/* * * * * * * * * * */
+/*                   */
+/*   Checkbox akce   */
+/*                   */
+/* * * * * * * * * * */
+
+// document.addEventListener("change", function (e)
+// {
+//     if (!e.target.matches(".list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox"))
+//     {
+//         return;
+//     }
+
+//     const row = e.target.closest("tr");
+
+//     row.classList.toggle("selected", e.target.checked);
+
+//     console.log(
+//         "Checked:",
+//         e.target.checked,
+//         "Class:",
+//         row.className
+//     );
+// });
+
+/* * * * * * * * * * * */
+/*  SELECTION MANAGER  */
+/* * * * * * * * * * * */
+
+
+const SelectionManager =
+{
+    storageKey: "selectedPatientIds",
+
+    selected: new Set(),
+
+    init()
+    {
+        try
+        {
+            const saved = sessionStorage.getItem(this.storageKey);
+
+            this.selected = saved
+                ? new Set(JSON.parse(saved).map(String))
+                : new Set();
+        }
+        catch (error)
+        {
+            console.error("Chyba při načítání výběru klientů:", error);
+
+            this.selected = new Set();
+            sessionStorage.removeItem(this.storageKey);
+        }
+    },
+
+    save()
+    {
+        sessionStorage.setItem(
+            this.storageKey,
+            JSON.stringify([...this.selected])
+        );
+    },
+
+    add(patientId)
+    {
+        this.selected.add(String(patientId));
+        this.save();
+    },
+
+    remove(patientId)
+    {
+        this.selected.delete(String(patientId));
+        this.save();
+    },
+
+    has(patientId)
+    {
+        return this.selected.has(String(patientId));
+    },
+
+    clear()
+    {
+        this.selected.clear();
+        this.save();
+        this.restore();
+    },
+
+    count()
+    {
+        return this.selected.size;
+    },
+
+    getAll()
+    {
+        return [...this.selected];
+    },
+
+    restore()
+    {
+        const rows = document.querySelectorAll(
+            "#list-patients-component-listC-listC2-content-table-box-t1 tbody tr"
+        );
+
+        rows.forEach(row =>
+        {
+            const patientId = row.dataset.patientId;
+
+            const checkbox = row.querySelector(
+                ".list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox"
+            );
+
+            if (!checkbox || !patientId)
+            {
+                return;
+            }
+
+            const isSelected = this.has(patientId);
+
+            checkbox.checked = isSelected;
+            row.classList.toggle("selected", isSelected);
+        });
+    }
+};
+
+document.addEventListener("change", function (e)
+{
+    if (!e.target.matches(
+        ".list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox"
+    ))
+    {
+        return;
+    }
+
+    const row = e.target.closest("tr");
+
+    if (!row)
+    {
+        return;
+    }
+
+    const patientId = row.dataset.patientId;
+
+    if (!patientId)
+    {
+        return;
+    }
+
+    if (e.target.checked)
+    {
+        SelectionManager.add(patientId);
+    }
+    else
+    {
+        SelectionManager.remove(patientId);
+    }
+
+    row.classList.toggle("selected", e.target.checked);
+
+    console.log(
+        "%cVybraní klienti:",
+        "color:hotpink; font-weight:bold;",
+        SelectionManager.getAll()
+    );
+});
+
+// document.addEventListener("DOMContentLoaded", () =>
+// {
+//     SelectionManager.init();
+//     SelectionManager.restore();
+
+//     initCustomScrollbar();
+// });
+
+document.addEventListener("DOMContentLoaded", () =>
+{
+    const navigation = performance.getEntriesByType("navigation")[0];
+
+    if (navigation && navigation.type === "reload")
+    {
+        sessionStorage.removeItem(SelectionManager.storageKey);
+    }
+
+    SelectionManager.init();
+    SelectionManager.restore();
+
+    initCustomScrollbar();
+});
+
+document.addEventListener("htmx:afterSwap", event =>
+{
+    const target = event.detail.target;
+
+    if (
+        target.id ===
+        "list-patients-component-listC-listC2-content-table-box"
+    )
+    {
+        const content = document.getElementById(
+            "list-patients-component-listC-listC2-content"
+        );
+
+        const thumb = document.getElementById(
+            "list-patients-component-listC-listC2-scrollC-thumb"
+        );
+
+        if (content)
+        {
+            content.scrollTop = 0;
+        }
+
+        if (thumb)
+        {
+            thumb.style.top = "0px";
+        }
+
+        SelectionManager.restore();
+    }
+
+    requestAnimationFrame(initCustomScrollbar);
+});
+
+document.addEventListener("htmx:historyRestore", () =>
+{
+    SelectionManager.restore();
+    requestAnimationFrame(initCustomScrollbar);
+});
+
+window.addEventListener("pageshow", () =>
+{
+    SelectionManager.restore();
+    requestAnimationFrame(initCustomScrollbar);
 });

@@ -1,7 +1,7 @@
 
-__version__ = "1.3.07"
+__version__ = "1.3.08"
 
-# List of patiens erase Button updated
+# Selection Manager suggested
 
 # Jedná se o tuto produkční verzi č. ___
 
