@@ -345,8 +345,8 @@
 /*                 */
 /* * * * * * * * * */
 
- #list-patients-component-searching-bar-selectBox1
- {
+#list-patients-component-searching-bar-selectBox1
+{
 
     width:              146px;
     height:              30px;
@@ -362,7 +362,7 @@
 
     position: relative;
 
- }
+}
 
 #list-patients-component-searching-bar-selectBox1-btn1
 {
@@ -383,6 +383,8 @@
     outline:none;
 
     padding-left: 9px;
+
+    cursor: pointer;
 }
 
 #list-patients-component-searching-bar-selectBox1-img
@@ -448,6 +450,8 @@
 
   padding-top:  6px;
   /* padding-left: 9px; */
+
+  z-index: 5;
 
 }
 
@@ -577,6 +581,8 @@
     outline:none;
 
     padding-left: 9px;
+
+    cursor: pointer;
 }
 
 
@@ -645,6 +651,8 @@
   /* padding-left: 9px; */
 
   overflow: auto;
+
+  z-index: 5;
 
 }
 
@@ -815,6 +823,8 @@
     outline:none;
 
     padding-left: 12px;
+
+    cursor: pointer;
 }
 
 
@@ -884,6 +894,8 @@
   /* padding-left: 9px; */
 
   overflow: auto;
+
+  z-index: 5;
 
 }
 
@@ -1034,6 +1046,7 @@
     margin-left: 15px;
 
     position: relative;
+
 }
 
 
@@ -1056,6 +1069,8 @@
     outline:none;
 
     padding-left: 13px;
+
+    cursor: pointer;
 }
 
 
@@ -1125,6 +1140,8 @@
   /* padding-left: 9px; */
 
   overflow: auto;
+
+  z-index: 5;
 
 }
 

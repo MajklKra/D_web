@@ -1,7 +1,7 @@
 
-__version__ = "1.3.04"
+__version__ = "1.3.05"
 
-# id=list-patients-component-listC-listC2-content-table-box" Aktualizace jen těchto dat místo celé stránky
+# selectBoxs z-indexes
 
 # Jedná se o tuto produkční verzi č. ___
 
