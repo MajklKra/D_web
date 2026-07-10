@@ -1,7 +1,7 @@
 
-__version__ = "1.3.05"
+__version__ = "1.3.06"
 
-# selectBoxs z-indexes
+# List of patiens hover implamented
 
 # Jedná se o tuto produkční verzi č. ___
 

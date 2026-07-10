@@ -171,9 +171,9 @@
 
 #list-patients-component-lessC
 {
-    position: absolute;
+    position:           absolute;
 
-    right:              57px;
+    right:              60px;
     bottom:             99px;
 
     width:              auto;
@@ -537,13 +537,11 @@
     transform: rotate(180deg);
 }
 
-
 /* * * * * * * * * */
 /*                 */
 /*   SelectBox 2   */
 /*                 */
 /* * * * * * * * * */
-
 
 #list-patients-component-searching-bar-selectBox2
 {
@@ -777,14 +775,11 @@
     transform: rotate(180deg);
 }
 
-
-
 /* * * * * * * * * */
 /*                 */
 /*   SelectBox 3   */
 /*                 */
 /* * * * * * * * * */
-
 
 #list-patients-component-searching-bar-selectBox3
 {
@@ -1022,14 +1017,11 @@
     transform: rotate(180deg);
 }
 
-
 /* * * * * * * * * */
 /*                 */
 /*   SelectBox 4   */
 /*                 */
 /* * * * * * * * * */
-
-
 
 #list-patients-component-searching-bar-selectBox4
 {
@@ -1505,11 +1497,81 @@
     /* background-color: brown; */
 }
 
+
+/* * * * * * * ZKOUŠKA * * * * * * */
+
+#list-patients-component-listC-listC2-content-table-box-t1 tr::before
+{
+
+    content: "";
+    position: absolute;
+
+    left: 0px;
+    right: 30px;
+    top: 0px;
+    bottom: 0px;
+
+    border-radius: 6px;
+
+    /* background: #ecf1fa; */
+
+    opacity: 0;
+    transition: opacity .15s;
+    z-index: 0;
+
+     /* background: linear-gradient(
+        to right,
+        #ecf1fa 0%,
+        #ecf1fa 88%,
+        #ffffff 100%
+    ); */
+
+    background: linear-gradient(
+        to right,
+        #ecf1fa 0%,
+        #f2f5fb 35%,
+        #f8fafd 70%,
+        #ffffff 100%
+    );
+
+}
+
+#list-patients-component-listC-listC2-content-table-box-t1 tr:hover::before
+{
+
+    opacity: 1;
+
+}
+
+#list-patients-component-listC-listC2-content-table-box-t1 td
+{
+
+    position: relative;
+    z-index: 1;
+    background: transparent;
+
+}
+
+
+/* * * * * * * ZKOUŠKA * * * * * * */
+
+
+#list-patients-component-listC-listC2-content-table-box-t1
+{
+    width: 100%;
+    border-collapse: collapse;
+
+    /* background-color: brown; */
+}
+
 .list-patients-component-listC-listC2-content-table-box-t1-col1
 {
     width:  73px;
     height: 49px;
-    background-color: aquamarine;
+
+    /* background-color: aquamarine; */
+
+    background-color: transparent;
 
     /* display: flex;
     flex-direction: row;
@@ -1524,7 +1586,10 @@
 {
     width:  256px;
     height: 49px;
-    background-color: palevioletred;
+
+    /* background-color: palevioletred; */
+
+    background-color: transparent;
 
     font-family: 'Montserrat';
     font-weight: 700;
@@ -1536,7 +1601,10 @@
 {
     width:  268px;
     height: 49px;
-    background-color: orange;
+
+    /* background-color: orange; */
+
+    background-color: transparent;
 
     font-family: 'Montserrat';
     font-weight: 500;
@@ -1548,7 +1616,10 @@
 {
     width:  384px;
     height: 49px;
-    background-color: green;
+
+    /* background-color: green; */
+
+    background-color: transparent;
 
     font-family: 'Montserrat';
     font-weight: 500;
@@ -1560,7 +1631,10 @@
 {
     width:  147px;
     height: 49px;
-    background-color: yellowgreen;
+
+    /* background-color: yellowgreen; */
+
+    background-color: transparent;
 
     font-family: 'Montserrat';
     font-weight: 500;
@@ -1572,7 +1646,10 @@
 {
     width:  157px;
     height: 49px;
-    background-color: lightblue;
+
+    /* background-color: lightblue; */
+
+    background-color: transparent;
 
     font-family: 'Montserrat';
     font-weight: 500;
@@ -1584,7 +1661,10 @@
 {
     width: 100px;
     height: 49px;
-    background-color: yellow;
+
+    /* background-color: yellow; */
+
+    background-color: transparent;
 
     font-family: 'Montserrat';
     font-weight: 500;
@@ -1597,7 +1677,9 @@
    flex: 1;
    height: 49px;
 
-   background-color: violet;
+   /* background-color: violet; */
+
+   background-color: transparent;
 
    visibility: hidden;
 }
@@ -1743,7 +1825,7 @@
 
 /* * * * * * * * */
 /*               */
-/*  Strankování  */
+/*  Stránkování  */
 /*               */
 /* * * * * * * * */
 
@@ -1764,7 +1846,9 @@
 {
     width: auto;
     height: auto;
+
     /* background-color: brown; */
+
     margin: 0px;
 
     font-family: 'Montserrat';
@@ -1777,7 +1861,9 @@
 {
     width: auto;
     height: auto;
+
     /* background-color: yellow; */
+
     margin: 0px;
 
     font-family: 'Montserrat';
@@ -1799,6 +1885,9 @@
     align-items: center;
 
     background-color: transparent;
+
+    /* background-color: blue; */
+
     border: none;
     outline: none;
 
@@ -1809,7 +1898,7 @@
 {
     width: auto;
     height: auto;
-    margin-left: 5px;
+    margin-left: 9px;
 
     display: flex;
     flex-direction: column;
@@ -1817,6 +1906,9 @@
     align-items: center;
 
     background-color: transparent;
+
+    /* background-color: green; */
+
     border: none;
     outline: none;
 
@@ -1827,6 +1919,7 @@
 #list-patients-component-lessC-btn1-img1
 {
     /* background-color: red; */
+
     width: 15px;
     color: #324351;
 }
@@ -1834,6 +1927,7 @@
 #list-patients-component-lessC-btn1-img2
 {
     /* background-color: red; */
+
     width: 15px;
     color: #324351;
 
@@ -1845,7 +1939,7 @@
     width: auto;
     height: auto;
 
-    margin-left: 12px;
+    /* margin-left: 12px; */
 
     display: flex;
     flex-direction: column;
@@ -1853,6 +1947,9 @@
     align-items: center;
 
     background-color: transparent;
+
+    /* background-color: pink; */
+
     border: none;
     outline: none;
 
@@ -1863,7 +1960,7 @@
 {
     width: auto;
     height: auto;
-    margin-left: 5px;
+    /* margin-left: 5px; */
 
     display: flex;
     flex-direction: column;
@@ -1871,6 +1968,9 @@
     align-items: center;
 
     background-color: transparent;
+
+    /* background-color: yellow; */
+
     border: none;
     outline: none;
 
