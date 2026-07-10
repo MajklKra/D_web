@@ -183,8 +183,6 @@ def clients():
         "beds_count": bedsCount,
     }
 
-
-
     ###  Úvodní SQL dotaz ###
 
     SQL_query_all_pacients = '''
@@ -236,6 +234,7 @@ def clients():
 
 
     page = request.args.get("page", 1, type=int)
+    partial = request.args.get("partial")
     per_page = 50
     offset = (page - 1) * per_page
 
@@ -248,16 +247,6 @@ def clients():
 
 
     total_pages = ceil(total_records / per_page)
-
-
-    clients = db_connection("""
-        SELECT PatientID, Surname, Name
-        FROM Patients
-        ORDER BY PatientID
-        LIMIT %s OFFSET %s
-    """, (per_page, offset))
-
-
 
     # SQL_query_all_pacients_pages = '''
 
@@ -346,14 +335,59 @@ def clients():
 
     ###  Stránkování ###
 
-    # HTMX request? -> vrať jen obsah
+
+    # if request.headers.get("HX-Request"):
+    #     s_print("🔹 Posílám JEN fragment:", "blue",1,1)
+
+    #     return render_template("clients_fragment.html", all_clients=clients_per_page, page=page, per_page=per_page, total_records=total_records, total_pages=total_pages)
+
+
+
+    # s_print("🔹 Posílám CELOU stránku", "blue",1,1)
+    # return render_template("clients_full_page.html", data=view_data, all_clients=clients_per_page, page=page, per_page=per_page, total_records=total_records, total_pages=total_pages)
+
+    # HTMX stránkování – vrátí pouze tabulku a stránkování
+    if partial == "table":
+
+        s_print("🔹 Posílám pouze tabulku:", "blue", 1, 1)
+
+        return render_template(
+            "clients_table_response.html",
+            all_clients=clients_per_page,
+            page=page,
+            per_page=per_page,
+            total_records=total_records,
+            total_pages=total_pages,
+            table_response=True,
+        )
+
+
+    # Jiný HTMX požadavek – vrátí celý obsah stránky klientů
     if request.headers.get("HX-Request"):
-        s_print("🔹 Posílám JEN fragment:", "blue",1,1)
-        # return render_template("clients_fragment.html", all_clients=result_all_pacients)
-        return render_template("clients_fragment.html", all_clients=clients_per_page, page=page, per_page=per_page, total_records=total_records, total_pages=total_pages)
+
+        s_print("🔹 Posílám clients_fragment:", "blue", 1, 1)
+
+        return render_template(
+            "clients_fragment.html",
+            all_clients=clients_per_page,
+            page=page,
+            per_page=per_page,
+            total_records=total_records,
+            total_pages=total_pages,
+            table_response=False,
+        )
 
 
+    # Normální načtení celé stránky
+    s_print("🔹 Posílám CELOU stránku", "blue", 1, 1)
 
-    s_print("🔹 Posílám CELOU stránku", "blue",1,1)
-    # return render_template("clients_full_page.html", data=view_data, all_clients=result_all_pacients)
-    return render_template("clients_full_page.html", data=view_data, all_clients=clients_per_page, page=page, per_page=per_page, total_records=total_records, total_pages=total_pages)
+    return render_template(
+        "clients_full_page.html",
+        data=view_data,
+        all_clients=clients_per_page,
+        page=page,
+        per_page=per_page,
+        total_records=total_records,
+        total_pages=total_pages,
+        table_response=False,
+    )

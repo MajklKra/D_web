@@ -260,228 +260,69 @@ document.addEventListener("click", function (e)
 // initScrollBar();
 
 
-// function initCustomScrollbar()
-// {
-//     const content = document.getElementById("list-patients-component-listC-listC2-content");
-//     const track = document.getElementById("list-patients-component-listC-listC2-scrollC");
-//     const thumb = document.getElementById("list-patients-component-listC-listC2-scrollC-thumb");
-
-//     if (!content || !track || !thumb) return;
-
-//     if (content.dataset.scrollbarReady === "1") return;
-//     content.dataset.scrollbarReady = "1";
-
-//     content.addEventListener("scroll", () =>
-//     {
-//         const maxScroll = content.scrollHeight - content.clientHeight;
-//         const maxThumb = track.clientHeight - thumb.clientHeight;
-
-//         if (maxScroll <= 0 || maxThumb <= 0) return;
-
-//         thumb.style.top = (content.scrollTop / maxScroll) * maxThumb + "px";
-//     });
-
-//     let isDragging = false;
-//     let startY = 0;
-//     let startTop = 0;
-
-//     thumb.addEventListener("mousedown", e =>
-//     {
-//         isDragging = true;
-//         startY = e.clientY;
-//         startTop = thumb.offsetTop;
-
-//         thumb.style.cursor = "grabbing";
-//         document.body.style.userSelect = "none";
-//     });
-
-//     document.addEventListener("mousemove", e =>
-//     {
-//         if (!isDragging) return;
-
-//         const maxThumb = track.clientHeight - thumb.clientHeight;
-//         const maxScroll = content.scrollHeight - content.clientHeight;
-
-//         let newTop = startTop + (e.clientY - startY);
-
-//         if (newTop < 0) newTop = 0;
-//         if (newTop > maxThumb) newTop = maxThumb;
-
-//         thumb.style.top = newTop + "px";
-//         content.scrollTop = (newTop / maxThumb) * maxScroll;
-//     });
-
-//     document.addEventListener("mouseup", () =>
-//     {
-//         if (!isDragging) return;
-
-//         isDragging = false;
-//         thumb.style.cursor = "grab";
-//         document.body.style.userSelect = "";
-//     });
-// }
-
-
 function initCustomScrollbar()
 {
-    const content = document.getElementById(
-        "list-patients-component-listC-listC2-content"
-    );
+    const content = document.getElementById("list-patients-component-listC-listC2-content");
+    const track = document.getElementById("list-patients-component-listC-listC2-scrollC");
+    const thumb = document.getElementById("list-patients-component-listC-listC2-scrollC-thumb");
 
-    const track = document.getElementById(
-        "list-patients-component-listC-listC2-scrollC"
-    );
+    if (!content || !track || !thumb) return;
 
-    const thumb = document.getElementById(
-        "list-patients-component-listC-listC2-scrollC-thumb"
-    );
+    if (content.dataset.scrollbarReady === "1") return;
+    content.dataset.scrollbarReady = "1";
 
-    if (!content || !track || !thumb)
+    content.addEventListener("scroll", () =>
     {
-        return;
-    }
+        const maxScroll = content.scrollHeight - content.clientHeight;
+        const maxThumb = track.clientHeight - thumb.clientHeight;
 
-    /*
-     * Nepoužívat dataset.
-     * Dataset se může uložit do HTMX history cache,
-     * ale event listenery se s HTML neukládají.
-     */
-    if (content._customScrollbarReady === true)
-    {
-        return;
-    }
+        if (maxScroll <= 0 || maxThumb <= 0) return;
 
-    content._customScrollbarReady = true;
-
-    function updateThumbPosition()
-    {
-        const maxScroll =
-            content.scrollHeight - content.clientHeight;
-
-        const maxThumb =
-            track.clientHeight - thumb.clientHeight;
-
-        if (maxScroll <= 0 || maxThumb <= 0)
-        {
-            thumb.style.top = "0px";
-            return;
-        }
-
-        const newTop =
-            (content.scrollTop / maxScroll) * maxThumb;
-
-        thumb.style.top = `${newTop}px`;
-    }
-
-    content.addEventListener("scroll", updateThumbPosition);
+        thumb.style.top = (content.scrollTop / maxScroll) * maxThumb + "px";
+    });
 
     let isDragging = false;
     let startY = 0;
     let startTop = 0;
 
-    thumb.addEventListener("mousedown", event =>
+    thumb.addEventListener("mousedown", e =>
     {
-        event.preventDefault();
-
         isDragging = true;
-        startY = event.clientY;
+        startY = e.clientY;
         startTop = thumb.offsetTop;
 
         thumb.style.cursor = "grabbing";
         document.body.style.userSelect = "none";
     });
 
-    document.addEventListener("mousemove", event =>
+    document.addEventListener("mousemove", e =>
     {
-        if (!isDragging)
-        {
-            return;
-        }
+        if (!isDragging) return;
 
-        const maxThumb =
-            track.clientHeight - thumb.clientHeight;
+        const maxThumb = track.clientHeight - thumb.clientHeight;
+        const maxScroll = content.scrollHeight - content.clientHeight;
 
-        const maxScroll =
-            content.scrollHeight - content.clientHeight;
+        let newTop = startTop + (e.clientY - startY);
 
-        if (maxThumb <= 0 || maxScroll <= 0)
-        {
-            return;
-        }
+        if (newTop < 0) newTop = 0;
+        if (newTop > maxThumb) newTop = maxThumb;
 
-        let newTop =
-            startTop + (event.clientY - startY);
-
-        newTop = Math.max(0, Math.min(newTop, maxThumb));
-
-        thumb.style.top = `${newTop}px`;
-
-        content.scrollTop =
-            (newTop / maxThumb) * maxScroll;
+        thumb.style.top = newTop + "px";
+        content.scrollTop = (newTop / maxThumb) * maxScroll;
     });
 
     document.addEventListener("mouseup", () =>
     {
-        if (!isDragging)
-        {
-            return;
-        }
+        if (!isDragging) return;
 
         isDragging = false;
         thumb.style.cursor = "grab";
         document.body.style.userSelect = "";
     });
-
-    updateThumbPosition();
 }
 
-// document.addEventListener("DOMContentLoaded", initCustomScrollbar);
-// document.addEventListener("htmx:afterSwap", initCustomScrollbar);
-// document.addEventListener("htmx:historyRestore", initCustomScrollbar);
-// window.addEventListener("pageshow", initCustomScrollbar);
 
-document.addEventListener("DOMContentLoaded", () =>
-{
-    initCustomScrollbar();
-});
-
-document.addEventListener("htmx:afterSwap", event =>
-{
-    const target = event.detail.target;
-
-    if (
-        target.id ===
-        "list-patients-component-listC-listC2-content-table-box"
-    )
-    {
-        const content = document.getElementById(
-            "list-patients-component-listC-listC2-content"
-        );
-
-        const thumb = document.getElementById(
-            "list-patients-component-listC-listC2-scrollC-thumb"
-        );
-
-        if (content)
-        {
-            content.scrollTop = 0;
-        }
-
-        if (thumb)
-        {
-            thumb.style.top = "0px";
-        }
-    }
-
-    requestAnimationFrame(initCustomScrollbar);
-});
-
-document.addEventListener("htmx:historyRestore", () =>
-{
-    requestAnimationFrame(initCustomScrollbar);
-});
-
-window.addEventListener("pageshow", () =>
-{
-    requestAnimationFrame(initCustomScrollbar);
-});
+document.addEventListener("DOMContentLoaded", initCustomScrollbar);
+document.addEventListener("htmx:afterSwap", initCustomScrollbar);
+document.addEventListener("htmx:historyRestore", initCustomScrollbar);
+window.addEventListener("pageshow", initCustomScrollbar);
