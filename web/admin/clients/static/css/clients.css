@@ -1553,6 +1553,13 @@
 }
 
 
+#list-patients-component-listC-listC2-content-table-box-t1 tr:hover
+.list-patients-component-listC-listC2-content-table-box-t1-col8
+{
+    visibility: visible;
+}
+
+
 /* * * * * * * ZKOUŠKA * * * * * * */
 
 
@@ -1790,14 +1797,15 @@
     opacity: 1;
 }
 
-
-#list-patients-component-listC-listC2-content-table-box-t1-col8-btn1
+.list-patients-component-listC-listC2-content-table-box-t1-col8-btn1
 {
-    width: 25px;
-    height: 25px;
+    width:  26px;
+    height: 26px;
     border-radius: 5px;
 
-    background-color: rgba(53,127,171,1);
+    /* background-color: rgba(53,127,171,1); */
+
+    background-color: transparent;
 
     border: none;
     outline: none;
@@ -1808,12 +1816,30 @@
     align-items: center;
 
     margin-left: 35px;
+
+    cursor: pointer;
+
+    transition: background-color .15s ease;
 }
 
-#list-patients-component-listC-listC2-content-table-box-t1-col8-btn1-img
+.list-patients-component-listC-listC2-content-table-box-t1-col8-btn1-img
+{
+    color: rgba(120,120,133,1);
+    width: 26px;
+
+    transition: background-color .15s ease;
+}
+
+
+.list-patients-component-listC-listC2-content-table-box-t1-col8-btn1:hover
+{
+    background-color: rgba(53,127,171,1);
+}
+
+.list-patients-component-listC-listC2-content-table-box-t1-col8-btn1:hover
+.list-patients-component-listC-listC2-content-table-box-t1-col8-btn1-img
 {
     color: white;
-    width: 25px;
 }
 
 

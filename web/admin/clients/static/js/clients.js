@@ -485,3 +485,16 @@ window.addEventListener("pageshow", () =>
 {
     requestAnimationFrame(initCustomScrollbar);
 });
+
+/* Testování tlačítka */
+
+document.addEventListener("click", function (e)
+{
+    const btn = e.target.closest(
+        ".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1"
+    );
+
+    if (!btn) return;
+
+    alert("Kliknuto!");
+});

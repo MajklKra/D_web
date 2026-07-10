@@ -1,7 +1,7 @@
 
-__version__ = "1.3.06"
+__version__ = "1.3.07"
 
-# List of patiens hover implamented
+# List of patiens erase Button updated
 
 # Jedná se o tuto produkční verzi č. ___
 
