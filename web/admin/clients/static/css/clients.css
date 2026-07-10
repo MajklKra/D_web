@@ -19,6 +19,7 @@
     flex-direction: row;
     justify-content: start;
     align-items: center;
+
 }
 
 
@@ -91,6 +92,10 @@
     align-items: center;
 
     padding-left: 9px;
+
+    position: relative;
+
+    z-index: 5;
 
 }
 
@@ -2056,4 +2061,33 @@
     /* background-color: red; */
     width: 100%;
     color: rgba(131,135,145,1);
+}
+
+#list-patients-component-searching-bar-count
+{
+    width: 72px;
+    height: 30px;
+    /* background-color: green; */
+
+    background-color: white;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 13px;
+
+    color: #357fab;
+
+    position: absolute;
+    left: 100px;
+    top: 0px;
+
+    display: none;
 }

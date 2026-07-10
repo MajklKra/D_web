@@ -1,7 +1,7 @@
 
 __version__ = "1.3.08"
 
-# Selection Manager suggested
+# list-patients-component-searching-bar-count added
 
 # Jedná se o tuto produkční verzi č. ___
 

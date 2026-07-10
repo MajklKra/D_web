@@ -29,8 +29,9 @@ document.addEventListener("focusout", e =>
 });
 
 
-/* Aktuální selectBox1  */
-
+/* * * * * * * */
+/* SELECTBOX1  */
+/* * * * * * * */
 
 document.addEventListener("click", function (e)
 {
@@ -65,12 +66,9 @@ document.addEventListener("click", function (e)
     }
 });
 
-
-
 /* * * * * * * */
 /* SELECTBOX2  */
 /* * * * * * * */
-
 
 document.addEventListener("click", function (e)
 {
@@ -105,12 +103,9 @@ document.addEventListener("click", function (e)
     }
 });
 
-
-
 /* * * * * * * */
 /* SELECTBOX3  */
 /* * * * * * * */
-
 
 document.addEventListener("click", function (e)
 {
@@ -366,31 +361,6 @@ document.addEventListener("click", function (e)
 });
 
 
-/* * * * * * * * * * */
-/*                   */
-/*   Checkbox akce   */
-/*                   */
-/* * * * * * * * * * */
-
-// document.addEventListener("change", function (e)
-// {
-//     if (!e.target.matches(".list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox"))
-//     {
-//         return;
-//     }
-
-//     const row = e.target.closest("tr");
-
-//     row.classList.toggle("selected", e.target.checked);
-
-//     console.log(
-//         "Checked:",
-//         e.target.checked,
-//         "Class:",
-//         row.className
-//     );
-// });
-
 /* * * * * * * * * * * */
 /*  SELECTION MANAGER  */
 /* * * * * * * * * * * */
@@ -598,3 +568,4 @@ window.addEventListener("pageshow", () =>
     SelectionManager.restore();
     requestAnimationFrame(initCustomScrollbar);
 });
+
