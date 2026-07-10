@@ -365,7 +365,6 @@ document.addEventListener("click", function (e)
 /*  SELECTION MANAGER  */
 /* * * * * * * * * * * */
 
-
 const SelectionManager =
 {
     storageKey: "selectedPatientIds",
@@ -457,6 +456,13 @@ const SelectionManager =
             checkbox.checked = isSelected;
             row.classList.toggle("selected", isSelected);
         });
+
+
+        /* Experiment */
+
+        updateSelectionControls();
+
+        /* Experiment */
     }
 };
 
@@ -493,6 +499,10 @@ document.addEventListener("change", function (e)
     }
 
     row.classList.toggle("selected", e.target.checked);
+
+    /* Experiment */
+    updateSelectionControls();
+    /* Experiment */
 
     console.log(
         "%cVybraní klienti:",
@@ -569,3 +579,38 @@ window.addEventListener("pageshow", () =>
     requestAnimationFrame(initCustomScrollbar);
 });
 
+
+/* Pokusy a experimenty */
+
+function updateSelectionControls()
+{
+    const button = document.getElementById(
+        "list-patients-component-searching-bar-btn2"
+    );
+
+    const countSpan = document.getElementById(
+        "list-patients-component-searching-bar-count"
+    );
+
+    if (!button || !countSpan)
+    {
+        return;
+    }
+
+    const selectedCount = SelectionManager.count();
+    const isActive = selectedCount >= 2;
+
+    button.classList.toggle("active", isActive);
+    button.disabled = !isActive;
+
+    if (isActive)
+    {
+        countSpan.textContent = selectedCount + " klientů";
+        countSpan.style.display = "flex";
+    }
+    else
+    {
+        countSpan.textContent = "";
+        countSpan.style.display = "none";
+    }
+}

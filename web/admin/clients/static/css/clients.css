@@ -95,7 +95,7 @@
 
     position: relative;
 
-    z-index: 5;
+    /* z-index: 5; */
 
 }
 
@@ -2086,8 +2086,47 @@
     color: #357fab;
 
     position: absolute;
-    left: 100px;
+    left: 105px;
     top: 0px;
 
     display: none;
+
+    z-index: 1;
 }
+
+
+/* Experimenty Count */
+
+#list-patients-component-searching-bar-btn2:disabled
+{
+    background-color: white;
+    cursor: default;
+}
+
+#list-patients-component-searching-bar-btn2.active
+{
+    background-color: #357fab;
+    cursor: pointer;
+}
+
+#list-patients-component-searching-bar-btn2.active
+#list-patients-component-searching-bar-btn2-img1
+{
+    color: white;
+}
+
+#list-patients-component-searching-bar-btn2.active
+#list-patients-component-searching-bar-btn2-delete
+{
+    color: white;
+}
+
+#list-patients-component-searching-bar-btn2.active
+#list-patients-component-searching-bar-count
+{
+    color: #357fab;
+    background-color: white;
+}
+
+
+/* Experimenty Count */
