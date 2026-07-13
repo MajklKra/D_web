@@ -1,7 +1,7 @@
 
-__version__ = "1.3.10"
+__version__ = "1.3.11"
 
-# DeleteC - first attempt
+# DeleteC - list-patients-component-listC-deleteC-row2-noBtn
 
 # Jedná se o tuto produkční verzi č. ___
 

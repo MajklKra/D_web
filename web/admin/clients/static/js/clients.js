@@ -339,26 +339,26 @@ window.addEventListener("pageshow", () =>
 
 /* Testování tlačítka */
 
-document.addEventListener("click", function (e)
-{
-    const btn = e.target.closest(
-        ".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1"
-    );
+// document.addEventListener("click", function (e)
+// {
+//     const btn = e.target.closest(
+//         ".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1"
+//     );
 
-    if (!btn) return;
+//     if (!btn) return;
 
-    const row = btn.closest("tr");
+//     const row = btn.closest("tr");
 
-    const patientId = row.dataset.patientId;
+//     const patientId = row.dataset.patientId;
 
-    console.log(
-        "%c🧪 ID klienta:",
-        "color:hotpink; font-weight:bold;",
-        patientId
-    );
+//     console.log(
+//         "%c🧪 ID klienta:",
+//         "color:hotpink; font-weight:bold;",
+//         patientId
+//     );
 
-    alert("ID klienta: " + patientId);
-});
+//     alert("ID klienta: " + patientId);
+// });
 
 
 /* * * * * * * * * * * */
@@ -731,4 +731,106 @@ document.addEventListener("change", async function (event)
         updateSelectionControls();
     }
 
+});
+
+
+/* Experimenty 13.7.2026 */
+
+/* Zobrazení kontejneru + načtení jména */
+
+document.addEventListener("click", function (e)
+{
+    const btn = e.target.closest(
+        ".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1"
+    );
+
+    if (!btn)
+    {
+        return;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const row = btn.closest("tr");
+
+    if (!row)
+    {
+        return;
+    }
+
+    const patientId = row.dataset.patientId;
+
+    const patientName = row.querySelector(
+        ".list-patients-component-listC-listC2-content-table-box-t1-col2"
+    )?.textContent.trim();
+
+    const deleteDialog = document.getElementById(
+        "list-patients-component-listC-deleteC"
+    );
+
+    const clientName = document.getElementById(
+        "list-patients-component-listC-deleteC-row1-client"
+    );
+
+    if (!deleteDialog)
+    {
+        return;
+    }
+
+    /*
+     * ID klienta uložíme přímo do dialogu.
+     */
+    deleteDialog.dataset.patientId = patientId;
+
+    if (clientName)
+    {
+        clientName.textContent = patientName || "";
+    }
+
+    openDeleteDialog();
+});
+
+function openDeleteDialog()
+{
+    document
+        .getElementById("list-patients-component-listC-deleteC-shadow")
+        ?.classList.add("show");
+
+    document
+        .getElementById("list-patients-component-listC-deleteC")
+        ?.classList.add("show");
+}
+
+function closeDeleteDialog()
+{
+    const dialog = document.getElementById(
+        "list-patients-component-listC-deleteC"
+    );
+
+    document
+        .getElementById("list-patients-component-listC-deleteC-shadow")
+        ?.classList.remove("show");
+
+    dialog?.classList.remove("show");
+
+    if (dialog)
+    {
+        delete dialog.dataset.patientId;
+    }
+}
+
+document.addEventListener("click", function (e)
+{
+    const cancelBtn = e.target.closest("#list-patients-component-listC-deleteC-row2-noBtn");
+
+    if (!cancelBtn)
+    {
+        return;
+    }
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    closeDeleteDialog();
 });
