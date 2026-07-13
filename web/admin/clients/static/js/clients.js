@@ -571,6 +571,8 @@ document.addEventListener("htmx:afterSwap", event =>
             thumb.style.top = "0px";
         }
 
+        syncTotalRecords();
+
         SelectionManager.restore();
     }
 
@@ -591,6 +593,47 @@ window.addEventListener("pageshow", () =>
 
 
 /* Další experimenty */
+
+/* * * * * * * Dnešní experimenty * * * * * * /
+
+*/
+
+function syncTotalRecords()
+{
+    const headCheckbox = document.getElementById(
+        "list-patients-component-listC-head-c1-checkbox"
+    );
+
+    const totalRecordsElement = document.getElementById(
+        "list-patients-component-lessC-p3"
+    );
+
+    if (!headCheckbox || !totalRecordsElement)
+    {
+        return;
+    }
+
+    const totalRecords = Number(
+        totalRecordsElement.textContent.trim()
+    );
+
+    if (!Number.isFinite(totalRecords))
+    {
+        return;
+    }
+
+    headCheckbox.dataset.totalRecords = String(totalRecords);
+
+    console.log(
+        "%cAktualizovaný počet klientů:",
+        "color:hotpink; font-weight:bold;",
+        totalRecords
+    );
+}
+
+/* * * * * * * Dnešní experimenty * * * * * * /
+
+*/
 
 function updateSelectionControls()
 {
@@ -736,13 +779,129 @@ document.addEventListener("change", async function (event)
 
 /* Experimenty 13.7.2026 */
 
-/* Zobrazení kontejneru + načtení jména */
+/* * * * * * * * * * * * * * * * * * * * */
+/* Zobrazení kontejneru + načtení jména  */
+/* * * * * * * * * * * * * * * * * * * * */
+
+// document.addEventListener("click", function (e)
+// {
+//     const btn = e.target.closest(".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1");
+
+//     if (!btn)
+//     {
+//         return;
+//     }
+
+//     e.preventDefault();
+//     e.stopPropagation();
+
+//     const row = btn.closest("tr");
+
+//     if (!row)
+//     {
+//         return;
+//     }
+
+//     const patientId = row.dataset.patientId;
+
+//     const patientName = row.querySelector(".list-patients-component-listC-listC2-content-table-box-t1-col2")?.textContent.trim();
+
+//     const deleteDialog = document.getElementById("list-patients-component-listC-deleteC");
+
+//     const clientName = document.getElementById("list-patients-component-listC-deleteC-row1-client");
+
+//     if (!deleteDialog)
+//     {
+//         return;
+//     }
+
+//     /*
+//      * ID klienta uložíme přímo do dialogu.
+//      */
+//     deleteDialog.dataset.patientId = patientId;
+
+//     if (clientName)
+//     {
+//         clientName.textContent = patientName || "";
+//     }
+
+//     openDeleteDialog();
+
+// });
+
+// function openDeleteDialog()
+// {
+//     document.getElementById("list-patients-component-listC-deleteC-shadow")?.classList.add("show");
+
+//     document.getElementById("list-patients-component-listC-deleteC")?.classList.add("show");
+// }
+
+// function closeDeleteDialog()
+// {
+//     const dialog = document.getElementById(
+//         "list-patients-component-listC-deleteC"
+//     );
+
+//     document.getElementById("list-patients-component-listC-deleteC-shadow")?.classList.remove("show");
+
+//     dialog?.classList.remove("show");
+
+//     if (dialog)
+//     {
+//         delete dialog.dataset.patientId;
+//     }
+// }
+
+// document.addEventListener("click", function (e)
+// {
+//     const cancelBtn = e.target.closest("#list-patients-component-listC-deleteC-row2-noBtn");
+
+//     if (!cancelBtn)
+//     {
+//         return;
+//     }
+
+//     e.preventDefault();
+//     e.stopPropagation();
+
+//     closeDeleteDialog();
+// });
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* Zobrazení kontejneru + načtení jména  Originál */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* Zobrazení kontejneru + načtení jména  Aktuální verze  */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+function openDeleteDialog()
+{
+    document.getElementById("list-patients-component-listC-deleteC-shadow")?.classList.add("show");
+
+    document.getElementById("list-patients-component-listC-deleteC")?.classList.add("show");
+}
+
+function closeDeleteDialog()
+{
+    const dialog = document.getElementById(
+        "list-patients-component-listC-deleteC"
+    );
+
+    document.getElementById("list-patients-component-listC-deleteC-shadow")?.classList.remove("show");
+
+    dialog?.classList.remove("show");
+
+    if (dialog)
+    {
+        delete dialog.dataset.patientId;
+    }
+}
 
 document.addEventListener("click", function (e)
 {
-    const btn = e.target.closest(
-        ".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1"
-    );
+    const btn = e.target.closest(".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1");
 
     if (!btn)
     {
@@ -761,26 +920,19 @@ document.addEventListener("click", function (e)
 
     const patientId = row.dataset.patientId;
 
-    const patientName = row.querySelector(
-        ".list-patients-component-listC-listC2-content-table-box-t1-col2"
-    )?.textContent.trim();
+    const patientName = row.querySelector(".list-patients-component-listC-listC2-content-table-box-t1-col2")?.textContent.trim();
 
-    const deleteDialog = document.getElementById(
-        "list-patients-component-listC-deleteC"
-    );
+    const deleteDialog = document.getElementById("list-patients-component-listC-deleteC");
 
-    const clientName = document.getElementById(
-        "list-patients-component-listC-deleteC-row1-client"
-    );
+    const clientName = document.getElementById("list-patients-component-listC-deleteC-row1-client");
 
-    if (!deleteDialog)
+    const deleteButton = document.getElementById("list-patients-component-listC-deleteC-row2-deleteBtn");
+
+    if (!deleteDialog || !deleteButton || !patientId)
     {
         return;
     }
 
-    /*
-     * ID klienta uložíme přímo do dialogu.
-     */
     deleteDialog.dataset.patientId = patientId;
 
     if (clientName)
@@ -788,37 +940,82 @@ document.addEventListener("click", function (e)
         clientName.textContent = patientName || "";
     }
 
+    /*
+     * Nastavení HTMX požadavku pro konkrétního klienta.
+     */
+
+    deleteButton.setAttribute("hx-post",`/administration/clients/delete/${patientId}`);
+
+    deleteButton.setAttribute("hx-target","#list-patients-component-listC-listC2-content-table-box");
+
+    deleteButton.setAttribute("hx-swap","outerHTML");
+
+    /*
+     * Protože jsme HTMX atributy přidali dynamicky,
+     * musíme tlačítko nechat HTMX znovu zpracovat.
+     */
+
+    htmx.process(deleteButton);
+
     openDeleteDialog();
 });
 
-function openDeleteDialog()
+document.addEventListener("htmx:afterRequest", function (event)
 {
-    document
-        .getElementById("list-patients-component-listC-deleteC-shadow")
-        ?.classList.add("show");
+    const source = event.detail.elt;
 
-    document
-        .getElementById("list-patients-component-listC-deleteC")
-        ?.classList.add("show");
-}
+    if (
+        source.id !==
+        "list-patients-component-listC-deleteC-row2-deleteBtn"
+    )
+    {
+        return;
+    }
 
-function closeDeleteDialog()
-{
+    if (!event.detail.successful)
+    {
+        return;
+    }
+
     const dialog = document.getElementById(
         "list-patients-component-listC-deleteC"
     );
 
-    document
-        .getElementById("list-patients-component-listC-deleteC-shadow")
-        ?.classList.remove("show");
+    const patientId = dialog?.dataset.patientId;
 
-    dialog?.classList.remove("show");
-
-    if (dialog)
+    if (patientId)
     {
-        delete dialog.dataset.patientId;
+        /*
+         * Smazaného klienta odstraníme také ze SelectionManageru.
+         */
+        SelectionManager.remove(patientId);
     }
-}
+
+    closeDeleteDialog();
+    updateSelectionControls();
+
+    requestAnimationFrame(initCustomScrollbar);
+});
+
+document.addEventListener("htmx:responseError", function (event)
+{
+    const source = event.detail.elt;
+
+    if (
+        source.id !==
+        "list-patients-component-listC-deleteC-row2-deleteBtn"
+    )
+    {
+        return;
+    }
+
+    console.error(
+        "Nepodařilo se odstranit klienta:",
+        event.detail.xhr.responseText
+    );
+
+    alert("Klienta se nepodařilo odstranit.");
+});
 
 document.addEventListener("click", function (e)
 {

@@ -1,14 +1,17 @@
 
 
-from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for
+from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for, current_app
 
 from .blueprints import admin_clients_bp
 from ...version import __version__
 from vokativ import vokativ
+
+import math
 from math import ceil
 
 from  web.share.s_print import s_print
 from  web.share.db import db_connection, sqliteDB
+
 
 @admin_clients_bp.route('/')
 def clients():
@@ -334,7 +337,6 @@ def clients():
         table_response=False,
     )
 
-
 @admin_clients_bp.route("/api/all-patient-ids")
 def all_patient_ids():
 
@@ -356,5 +358,105 @@ def all_patient_ids():
     })
 
 
+#### Dnešní experimenty  13.7.2026 ####
 
+@admin_clients_bp.route( "/delete/<int:patient_id>", methods=["POST"])
+
+def delete_client(patient_id):
+
+    print ("delete_client function")
+
+    try:
+        db_connection(
+            """
+            DELETE FROM Patients
+            WHERE PatientID = %s
+            """,
+            (patient_id,)
+        )
+
+        return render_clients_table()
+
+    except Exception as error:
+        current_app.logger.exception(
+            "Chyba při mazání klienta %s",
+            patient_id
+        )
+
+        return "Klienta se nepodařilo odstranit.", 500
+
+def render_clients_table():
+
+    page = request.args.get("page", 1, type=int)
+    per_page = 50
+
+    total_records = db_connection(
+        """
+        SELECT COUNT(*)
+        FROM Patients
+        """,
+        (),
+        one_row=True
+    )[0]
+
+    total_pages = max(1,math.ceil(total_records / per_page))
+
+    page = min(page, total_pages)
+
+    offset = (page - 1) * per_page
+
+    SQL_query_all_pacients_pages = '''
+
+        SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+        DodsSubjectId, DodsBrokenClient
+        FROM Patients
+        JOIN Beds ON Beds.BedID = Patients.BedID
+        JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+        JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+        JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+        JOIN Floors ON Floors.FloorID = Rooms.FloorID
+        JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+
+        UNION ALL
+
+        SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+        DodsSubjectId, DodsBrokenClient
+        FROM Patients
+        JOIN Beds ON Beds.BedID = Patients.BedID
+        JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+        JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+        JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+        JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+        JOIN Floors ON Floors.FloorID = Rooms.FloorID
+        JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+        UNION ALL
+
+        SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+        DodsSubjectId, DodsBrokenClient
+        FROM Patients
+        LEFT JOIN Beds ON Beds.BedID = Patients.BedID
+        LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+        LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+        LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+        LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
+        LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+        WHERE Patients.BedID = -1
+        ORDER BY Surname, Name
+        LIMIT %s OFFSET %s;
+
+    '''
+
+    clients_per_page = db_connection(SQL_query_all_pacients_pages, (per_page, offset), one_row=False)
+
+    return render_template(
+                "clients_table_response.html",
+                all_clients=clients_per_page,
+                page=page,
+                per_page=per_page,
+                total_records=total_records,
+                total_pages=total_pages,
+                table_response=True,
+            )
 

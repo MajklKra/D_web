@@ -1,7 +1,7 @@
 
 __version__ = "1.3.11"
 
-# DeleteC - list-patients-component-listC-deleteC-row2-noBtn
+# Deletion of client from the table ant its update automatically
 
 # Jedná se o tuto produkční verzi č. ___
 
