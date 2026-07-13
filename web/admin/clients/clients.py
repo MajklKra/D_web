@@ -337,6 +337,7 @@ def clients():
 
 @admin_clients_bp.route("/api/all-patient-ids")
 def all_patient_ids():
+
     rows = db_connection(
         """
         SELECT PatientID

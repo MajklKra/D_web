@@ -590,42 +590,6 @@ window.addEventListener("pageshow", () =>
 });
 
 
-/* Pokusy a experimenty */
-
-// function updateSelectionControls()
-// {
-//     const button = document.getElementById(
-//         "list-patients-component-searching-bar-btn2"
-//     );
-
-//     const countSpan = document.getElementById(
-//         "list-patients-component-searching-bar-count"
-//     );
-
-//     if (!button || !countSpan)
-//     {
-//         return;
-//     }
-
-//     const selectedCount = SelectionManager.count();
-//     const isActive = selectedCount >= 2;
-
-//     button.classList.toggle("active", isActive);
-//     button.disabled = !isActive;
-
-//     if (isActive)
-//     {
-//         countSpan.textContent = selectedCount + " klientů";
-//         countSpan.style.display = "flex";
-//     }
-//     else
-//     {
-//         countSpan.textContent = "";
-//         countSpan.style.display = "none";
-//     }
-// }
-
-
 /* Další experimenty */
 
 function updateSelectionControls()
@@ -646,7 +610,7 @@ function updateSelectionControls()
 
     if (button && countSpan)
     {
-        const isActive = selectedCount > 0;
+        const isActive = selectedCount >= 2;
 
         button.classList.toggle("active", isActive);
         button.disabled = !isActive;
@@ -695,6 +659,7 @@ document.addEventListener("change", async function (event)
      * Po kliknutí odstraníme indeterminate stav.
      * Checkbox je nyní buď plně zapnutý, nebo vypnutý.
      */
+
     headCheckbox.indeterminate = false;
 
     if (!headCheckbox.checked)
@@ -765,4 +730,5 @@ document.addEventListener("change", async function (event)
         headCheckbox.disabled = false;
         updateSelectionControls();
     }
+
 });

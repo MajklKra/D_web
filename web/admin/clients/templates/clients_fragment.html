@@ -416,7 +416,6 @@
             </div>
 
 
-
             <div id="list-patients-component-listC-listC2-scrollC">
                 <div id="list-patients-component-listC-listC2-scrollC-thumb"></div>
             </div>
@@ -425,43 +424,26 @@
 
     </section>
 
-    <!-- <section id="list-patients-component-lessC">
 
-        <p id="list-patients-component-lessC-p1"> {{ ((page - 1) * per_page) + 1 }} </p> &nbsp;-&nbsp;
-        <p id="list-patients-component-lessC-p2"> {{ [page * per_page, total_records] | min }} </p> &nbsp;z&nbsp;
-        <p id="list-patients-component-lessC-p3"> {{ total_records }} </p>
+    <div id="list-patients-component-listC-deleteC-shadow">
+        <p>XXX</p>
+    </div>
 
-        {% if page > 1 %}
-            <a id="list-patients-component-lessC-a1" href="/administration/clients?page={{ page - 1 }}">
-                <svg id="list-patients-component-lessC-btn1-img1" viewBox="0 0 1024 1024" class="icon">
-                    <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
-                </svg>
-            </a>
-        {% else %}
-            <button id="list-patients-component-lessC-btn1">
-                <svg id="list-patients-component-lessC-btn1-img1" viewBox="0 0 1024 1024" class="icon">
-                    <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
-                </svg>
-            </button>
-        {% endif %}
+    <section id="list-patients-component-listC-deleteC">
 
-        {% if page < total_pages %}
-            <a id="list-patients-component-lessC-a2" href="?page={{ page + 1 }}">
-                <svg id="list-patients-component-lessC-btn1-img2" viewBox="0 0 1024 1024" class="icon">
-                    <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
-                </svg>
-            </a>
-        {% else %}
+            <div id="list-patients-component-listC-deleteC-row1">
+                <p  id="list-patients-component-listC-deleteC-row1-notice"> Opravdu chcete odstranit klienta?</p>
+                <span id="list-patients-component-listC-deleteC-row1-client">Michal Kraninger</span>
+            </div>
+            <div id="list-patients-component-listC-deleteC-row2">
 
-            <button id="list-patients-component-lessC-btn2">
-                <svg id="list-patients-component-lessC-btn1-img2" viewBox="0 0 1024 1024" class="icon">
-                    <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" fill="currentcolor" />
-                </svg>
-            </button>
+                <button  id="list-patients-component-listC-deleteC-row2-noBtn">Zrušit</button>
+                <button  id="list-patients-component-listC-deleteC-row2-deleteBtn">Odstranit</button>
 
-        {% endif %}
+            </div>
+
+        </section>
 
 
-    </section> -->
 
 </section>

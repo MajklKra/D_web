@@ -1,7 +1,7 @@
 
-__version__ = "1.3.09"
+__version__ = "1.3.10"
 
-# Aggregated checking of items of list
+# DeleteC - first attempt
 
 # Jedná se o tuto produkční verzi č. ___
 
