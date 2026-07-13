@@ -410,6 +410,16 @@ const SelectionManager =
         this.save();
     },
 
+    setAll(patientIds)
+    {
+        this.selected = new Set(
+            patientIds.map(String)
+        );
+
+        this.save();
+        this.restore();
+    },
+
     has(patientId)
     {
         return this.selected.has(String(patientId));
@@ -582,6 +592,42 @@ window.addEventListener("pageshow", () =>
 
 /* Pokusy a experimenty */
 
+// function updateSelectionControls()
+// {
+//     const button = document.getElementById(
+//         "list-patients-component-searching-bar-btn2"
+//     );
+
+//     const countSpan = document.getElementById(
+//         "list-patients-component-searching-bar-count"
+//     );
+
+//     if (!button || !countSpan)
+//     {
+//         return;
+//     }
+
+//     const selectedCount = SelectionManager.count();
+//     const isActive = selectedCount >= 2;
+
+//     button.classList.toggle("active", isActive);
+//     button.disabled = !isActive;
+
+//     if (isActive)
+//     {
+//         countSpan.textContent = selectedCount + " klientů";
+//         countSpan.style.display = "flex";
+//     }
+//     else
+//     {
+//         countSpan.textContent = "";
+//         countSpan.style.display = "none";
+//     }
+// }
+
+
+/* Další experimenty */
+
 function updateSelectionControls()
 {
     const button = document.getElementById(
@@ -592,25 +638,131 @@ function updateSelectionControls()
         "list-patients-component-searching-bar-count"
     );
 
-    if (!button || !countSpan)
+    const headCheckbox = document.getElementById(
+        "list-patients-component-listC-head-c1-checkbox"
+    );
+
+    const selectedCount = SelectionManager.count();
+
+    if (button && countSpan)
+    {
+        const isActive = selectedCount > 0;
+
+        button.classList.toggle("active", isActive);
+        button.disabled = !isActive;
+
+        if (isActive)
+        {
+            countSpan.textContent = selectedCount + " klientů";
+            countSpan.style.display = "flex";
+        }
+        else
+        {
+            countSpan.textContent = "";
+            countSpan.style.display = "none";
+        }
+    }
+
+    if (headCheckbox)
+    {
+        const totalRecords = Number(
+            headCheckbox.dataset.totalRecords || 0
+        );
+
+        headCheckbox.checked =
+            totalRecords > 0 &&
+            selectedCount === totalRecords;
+
+        headCheckbox.indeterminate =
+            selectedCount > 0 &&
+            selectedCount < totalRecords;
+    }
+}
+
+document.addEventListener("change", async function (event)
+{
+    if (
+        event.target.id !==
+        "list-patients-component-listC-head-c1-checkbox"
+    )
     {
         return;
     }
 
-    const selectedCount = SelectionManager.count();
-    const isActive = selectedCount >= 2;
+    const headCheckbox = event.target;
 
-    button.classList.toggle("active", isActive);
-    button.disabled = !isActive;
+    /*
+     * Po kliknutí odstraníme indeterminate stav.
+     * Checkbox je nyní buď plně zapnutý, nebo vypnutý.
+     */
+    headCheckbox.indeterminate = false;
 
-    if (isActive)
+    if (!headCheckbox.checked)
     {
-        countSpan.textContent = selectedCount + " klientů";
-        countSpan.style.display = "flex";
+        SelectionManager.clear();
+
+        console.log(
+            "%cVšichni klienti byli odznačeni.",
+            "color:hotpink; font-weight:bold;"
+        );
+
+        return;
     }
-    else
+
+    try
     {
-        countSpan.textContent = "";
-        countSpan.style.display = "none";
+        headCheckbox.disabled = true;
+
+        const response = await fetch(
+            "/administration/clients/api/all-patient-ids",
+            {
+                method: "GET",
+                headers:
+                {
+                    "Accept": "application/json"
+                }
+            }
+        );
+
+        if (!response.ok)
+        {
+            throw new Error(
+                `Server odpověděl stavem ${response.status}`
+            );
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data.patient_ids))
+        {
+            throw new Error(
+                "Server nevrátil platný seznam klientů."
+            );
+        }
+
+        SelectionManager.setAll(data.patient_ids);
+
+        console.log(
+            "%cOznačeni všichni klienti:",
+            "color:hotpink; font-weight:bold;",
+            SelectionManager.getAll()
+        );
     }
-}
+    catch (error)
+    {
+        console.error(
+            "Nepodařilo se označit všechny klienty:",
+            error
+        );
+
+        headCheckbox.checked = false;
+        headCheckbox.indeterminate = false;
+
+        alert("Nepodařilo se označit všechny klienty.");
+    }
+    finally
+    {
+        headCheckbox.disabled = false;
+        updateSelectionControls();
+    }
+});

@@ -2128,5 +2128,25 @@
     background-color: white;
 }
 
+/* 13.7.2026 */
 
-/* Experimenty Count */
+/* #list-patients-component-listC-head-c1-checkbox:indeterminate
++ #list-patients-component-listC-head-c1-checkbox-box
+{
+    background-color: rgba(53, 127, 171, 1);
+    border-color: rgba(53, 127, 171, 1);
+} */
+
+#list-patients-component-listC-head-c1-checkbox:indeterminate
++ #list-patients-component-listC-head-c1-checkbox-box
+{
+    background-color: white;
+    border-color: rgba(53, 127, 171, 1);
+}
+
+
+#list-patients-component-listC-head-c1-checkbox:indeterminate
++ #list-patients-component-listC-head-c1-checkbox-box svg
+{
+    opacity: 0;
+}

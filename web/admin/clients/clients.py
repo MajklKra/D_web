@@ -333,3 +333,23 @@ def clients():
         total_pages=total_pages,
         table_response=False,
     )
+
+
+@admin_clients_bp.route("/api/all-patient-ids")
+def all_patient_ids():
+    rows = db_connection(
+        """
+        SELECT PatientID
+        FROM Patients
+        ORDER BY PatientID
+        """,
+        (),
+        one_row=False
+    )
+
+    patient_ids = [str(row[0]) for row in rows]
+
+    return jsonify({
+        "patient_ids": patient_ids,
+        "count": len(patient_ids)
+    })
