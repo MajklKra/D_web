@@ -337,29 +337,6 @@ window.addEventListener("pageshow", () =>
     requestAnimationFrame(initCustomScrollbar);
 });
 
-/* Testování tlačítka */
-
-// document.addEventListener("click", function (e)
-// {
-//     const btn = e.target.closest(
-//         ".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1"
-//     );
-
-//     if (!btn) return;
-
-//     const row = btn.closest("tr");
-
-//     const patientId = row.dataset.patientId;
-
-//     console.log(
-//         "%c🧪 ID klienta:",
-//         "color:hotpink; font-weight:bold;",
-//         patientId
-//     );
-
-//     alert("ID klienta: " + patientId);
-// });
-
 
 /* * * * * * * * * * * */
 /*  SELECTION MANAGER  */
@@ -591,31 +568,22 @@ window.addEventListener("pageshow", () =>
     requestAnimationFrame(initCustomScrollbar);
 });
 
-
 /* Další experimenty */
 
-/* * * * * * * Dnešní experimenty * * * * * * /
-
-*/
+/* Sychnronizace počtu kilentů do hlavního checkboxu */
 
 function syncTotalRecords()
 {
-    const headCheckbox = document.getElementById(
-        "list-patients-component-listC-head-c1-checkbox"
-    );
+    const headCheckbox = document.getElementById("list-patients-component-listC-head-c1-checkbox");
 
-    const totalRecordsElement = document.getElementById(
-        "list-patients-component-lessC-p3"
-    );
+    const totalRecordsElement = document.getElementById("list-patients-component-lessC-p3");
 
     if (!headCheckbox || !totalRecordsElement)
     {
         return;
     }
 
-    const totalRecords = Number(
-        totalRecordsElement.textContent.trim()
-    );
+    const totalRecords = Number(totalRecordsElement.textContent.trim());
 
     if (!Number.isFinite(totalRecords))
     {
@@ -624,16 +592,8 @@ function syncTotalRecords()
 
     headCheckbox.dataset.totalRecords = String(totalRecords);
 
-    console.log(
-        "%cAktualizovaný počet klientů:",
-        "color:hotpink; font-weight:bold;",
-        totalRecords
-    );
+    console.log("%cAktualizovaný počet klientů:","color:hotpink; font-weight:bold;", totalRecords);
 }
-
-/* * * * * * * Dnešní experimenty * * * * * * /
-
-*/
 
 function updateSelectionControls()
 {
@@ -776,105 +736,11 @@ document.addEventListener("change", async function (event)
 
 });
 
-
 /* Experimenty 13.7.2026 */
-
-/* * * * * * * * * * * * * * * * * * * * */
-/* Zobrazení kontejneru + načtení jména  */
-/* * * * * * * * * * * * * * * * * * * * */
-
-// document.addEventListener("click", function (e)
-// {
-//     const btn = e.target.closest(".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1");
-
-//     if (!btn)
-//     {
-//         return;
-//     }
-
-//     e.preventDefault();
-//     e.stopPropagation();
-
-//     const row = btn.closest("tr");
-
-//     if (!row)
-//     {
-//         return;
-//     }
-
-//     const patientId = row.dataset.patientId;
-
-//     const patientName = row.querySelector(".list-patients-component-listC-listC2-content-table-box-t1-col2")?.textContent.trim();
-
-//     const deleteDialog = document.getElementById("list-patients-component-listC-deleteC");
-
-//     const clientName = document.getElementById("list-patients-component-listC-deleteC-row1-client");
-
-//     if (!deleteDialog)
-//     {
-//         return;
-//     }
-
-//     /*
-//      * ID klienta uložíme přímo do dialogu.
-//      */
-//     deleteDialog.dataset.patientId = patientId;
-
-//     if (clientName)
-//     {
-//         clientName.textContent = patientName || "";
-//     }
-
-//     openDeleteDialog();
-
-// });
-
-// function openDeleteDialog()
-// {
-//     document.getElementById("list-patients-component-listC-deleteC-shadow")?.classList.add("show");
-
-//     document.getElementById("list-patients-component-listC-deleteC")?.classList.add("show");
-// }
-
-// function closeDeleteDialog()
-// {
-//     const dialog = document.getElementById(
-//         "list-patients-component-listC-deleteC"
-//     );
-
-//     document.getElementById("list-patients-component-listC-deleteC-shadow")?.classList.remove("show");
-
-//     dialog?.classList.remove("show");
-
-//     if (dialog)
-//     {
-//         delete dialog.dataset.patientId;
-//     }
-// }
-
-// document.addEventListener("click", function (e)
-// {
-//     const cancelBtn = e.target.closest("#list-patients-component-listC-deleteC-row2-noBtn");
-
-//     if (!cancelBtn)
-//     {
-//         return;
-//     }
-
-//     e.preventDefault();
-//     e.stopPropagation();
-
-//     closeDeleteDialog();
-// });
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
-/* Zobrazení kontejneru + načtení jména  Originál */
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* Zobrazení kontejneru + načtení jména  Aktuální verze  */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 
 function openDeleteDialog()
 {
@@ -885,9 +751,7 @@ function openDeleteDialog()
 
 function closeDeleteDialog()
 {
-    const dialog = document.getElementById(
-        "list-patients-component-listC-deleteC"
-    );
+    const dialog = document.getElementById("list-patients-component-listC-deleteC");
 
     document.getElementById("list-patients-component-listC-deleteC-shadow")?.classList.remove("show");
 
@@ -965,8 +829,7 @@ document.addEventListener("htmx:afterRequest", function (event)
     const source = event.detail.elt;
 
     if (
-        source.id !==
-        "list-patients-component-listC-deleteC-row2-deleteBtn"
+        source.id !== "list-patients-component-listC-deleteC-row2-deleteBtn"
     )
     {
         return;
@@ -977,9 +840,7 @@ document.addEventListener("htmx:afterRequest", function (event)
         return;
     }
 
-    const dialog = document.getElementById(
-        "list-patients-component-listC-deleteC"
-    );
+    const dialog = document.getElementById("list-patients-component-listC-deleteC");
 
     const patientId = dialog?.dataset.patientId;
 
@@ -1002,17 +863,13 @@ document.addEventListener("htmx:responseError", function (event)
     const source = event.detail.elt;
 
     if (
-        source.id !==
-        "list-patients-component-listC-deleteC-row2-deleteBtn"
+        source.id !=="list-patients-component-listC-deleteC-row2-deleteBtn"
     )
     {
         return;
     }
 
-    console.error(
-        "Nepodařilo se odstranit klienta:",
-        event.detail.xhr.responseText
-    );
+    console.error("Nepodařilo se odstranit klienta:",event.detail.xhr.responseText);
 
     alert("Klienta se nepodařilo odstranit.");
 });
@@ -1030,4 +887,144 @@ document.addEventListener("click", function (e)
     e.stopPropagation();
 
     closeDeleteDialog();
+});
+
+
+/* * * * * * * * * * * * * * */
+/* Hromadné mazání klientů   */
+/*      13.7.2026            */
+/* * * * * * * * * * * * * * */
+
+document.addEventListener("click", async function (event)
+{
+    const button = event.target.closest("#list-patients-component-searching-bar-btn2");
+
+    if (!button)
+    {
+        return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const patientIds = SelectionManager.getAll();
+
+    /*
+     * Hromadné mazání je povoleno až od dvou klientů.
+     */
+
+    if (patientIds.length < 2)
+    {
+        return;
+    }
+
+    try
+    {
+        button.disabled = true;
+
+        const currentPage =
+            new URLSearchParams(window.location.search)
+                .get("page") || "1";
+
+        const response = await fetch(
+            `/administration/clients/delete-selected?page=${currentPage}`,
+            {
+                method: "POST",
+
+                headers:
+                {
+                    "Content-Type": "application/json",
+                    "Accept": "text/html"
+                },
+
+                body: JSON.stringify({
+                    patient_ids: patientIds
+                })
+            }
+        );
+
+        if (!response.ok)
+        {
+            const errorText = await response.text();
+
+            throw new Error(
+                errorText ||
+                `Server odpověděl stavem ${response.status}`
+            );
+        }
+
+        const html = await response.text();
+
+        /*
+         * Odpověď obsahuje novou tabulku
+         * a nové stránkování.
+         */
+        const parser = new DOMParser();
+
+        const responseDocument = parser.parseFromString(
+            html,
+            "text/html"
+        );
+
+        const newTable = responseDocument.getElementById(
+            "list-patients-component-listC-listC2-content-table-box"
+        );
+
+        const newPagination = responseDocument.getElementById(
+            "list-patients-component-lessC"
+        );
+
+        const currentTable = document.getElementById(
+            "list-patients-component-listC-listC2-content-table-box"
+        );
+
+        const currentPagination = document.getElementById(
+            "list-patients-component-lessC"
+        );
+
+        if (!newTable || !currentTable)
+        {
+            throw new Error(
+                "Server nevrátil aktualizovanou tabulku."
+            );
+        }
+
+        currentTable.replaceWith(newTable);
+
+        if (newPagination && currentPagination)
+        {
+            currentPagination.replaceWith(newPagination);
+        }
+
+        /*
+         * Po úspěšném smazání vyčistíme celý výběr.
+         */
+        SelectionManager.clear();
+
+        syncTotalRecords();
+        updateSelectionControls();
+
+        requestAnimationFrame(initCustomScrollbar);
+
+        console.log(
+            "%cOdstranění klienti:",
+            "color:hotpink; font-weight:bold;",
+            patientIds
+        );
+    }
+    catch (error)
+    {
+        console.error(
+            "Nepodařilo se odstranit vybrané klienty:",
+            error
+        );
+
+        alert("Vybrané klienty se nepodařilo odstranit.");
+
+        /*
+         * Při chybě výběr zachováme.
+         */
+
+        updateSelectionControls();
+    }
 });

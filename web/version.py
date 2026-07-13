@@ -1,7 +1,7 @@
 
-__version__ = "1.3.11"
+__version__ = "1.3.12"
 
-# Deletion of client from the table ant its update automatically
+# Deletion of aggregate number of clients from the table ant its update automatically
 
 # Jedná se o tuto produkční verzi č. ___
 

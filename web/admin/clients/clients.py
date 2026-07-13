@@ -361,7 +361,6 @@ def all_patient_ids():
 #### Dnešní experimenty  13.7.2026 ####
 
 @admin_clients_bp.route( "/delete/<int:patient_id>", methods=["POST"])
-
 def delete_client(patient_id):
 
     print ("delete_client function")
@@ -378,10 +377,10 @@ def delete_client(patient_id):
         return render_clients_table()
 
     except Exception as error:
-        current_app.logger.exception(
-            "Chyba při mazání klienta %s",
-            patient_id
-        )
+
+        # current_app.logger.exception("Chyba při mazání klienta %s",patient_id)
+
+        s_print(f"Chyba při mazání klienta {patient_id}", "blue", 1,1)
 
         return "Klienta se nepodařilo odstranit.", 500
 
@@ -416,7 +415,6 @@ def render_clients_table():
         JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
         JOIN Floors ON Floors.FloorID = Rooms.FloorID
         JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
-
 
         UNION ALL
 
@@ -460,3 +458,55 @@ def render_clients_table():
                 table_response=True,
             )
 
+### Hromadné mazání ###
+
+@admin_clients_bp.route("/delete-selected", methods=["POST"])
+def delete_selected_clients():
+
+
+    print(" /delete-selected function ")
+
+
+    try:
+        data = request.get_json(silent=True) or {}
+
+        patient_ids = data.get("patient_ids", [])
+
+        if not isinstance(patient_ids, list):
+            return "Neplatný seznam klientů.", 400
+
+        patient_ids = [
+            int(patient_id)
+            for patient_id in patient_ids
+            if str(patient_id).isdigit()
+        ]
+
+        patient_ids = list(set(patient_ids))
+
+        if len(patient_ids) < 2:
+            return "Vyberte alespoň dva klienty.", 400
+
+        placeholders = ",".join(
+            ["%s"] * len(patient_ids)
+        )
+
+        SQL_query = f"""
+            DELETE FROM Patients
+            WHERE PatientID IN ({placeholders})
+        """
+
+        db_connection(
+            SQL_query,
+            tuple(patient_ids)
+        )
+
+        return render_clients_table()
+
+    except Exception as error:
+
+        current_app.logger.exception(
+            "Chyba při hromadném mazání klientů: %s",
+            error
+        )
+
+        return "Vybrané klienty se nepodařilo odstranit.", 500
