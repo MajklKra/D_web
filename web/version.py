@@ -1,7 +1,7 @@
 
-__version__ = "1.3.15"
+__version__ = "1.3.16"
 
-# default_data() created
+# default list of clients according to departments
 
 # Jedná se o tuto produkční verzi č. ___
 

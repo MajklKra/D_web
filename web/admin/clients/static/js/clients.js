@@ -4,7 +4,6 @@ console.log(" %c𝐖𝐄𝐋𝐂𝐎𝐌𝐄 TO client´s page !!! ", "color:yel
 
 /* Změna padding pro list-patients-component-searching-bar-searchInput */
 
-
 document.addEventListener("focusin", e =>
 {
     if (e.target.id === "list-patients-component-searching-bar-searchInput")
@@ -27,7 +26,6 @@ document.addEventListener("focusout", e =>
             .classList.remove("hidden");
     }
 });
-
 
 /* * * * * * * */
 /* SELECTBOX1  */
@@ -184,9 +182,11 @@ document.addEventListener("click", function (e)
         return;
     }
 
-    if (!select.contains(e.target)) {
+    if (!select.contains(e.target))
+    {
         select.classList.remove("open");
     }
+
 });
 
 
@@ -302,11 +302,6 @@ function initCustomScrollbar()
 
     updateThumbPosition();
 }
-
-// document.addEventListener("DOMContentLoaded", () =>
-// {
-//     initCustomScrollbar();
-// });
 
 document.addEventListener("htmx:afterSwap", event =>
 {
@@ -503,11 +498,7 @@ document.addEventListener("change", function (e)
     updateSelectionControls();
     /* Experiment */
 
-    console.log(
-        "%cVybraní klienti:",
-        "color:hotpink; font-weight:bold;",
-        SelectionManager.getAll()
-    );
+    console.log("%cVybraní klienti:","color:hotpink; font-weight:bold;",SelectionManager.getAll());
 });
 
 // document.addEventListener("DOMContentLoaded", () =>
@@ -582,7 +573,7 @@ window.addEventListener("pageshow", () =>
 
 /* Další experimenty */
 
-/* Sychnronizace počtu kilentů do hlavního checkboxu */
+/* Synchronizace počtu kilentů do hlavního checkboxu */
 
 function syncTotalRecords()
 {
@@ -609,17 +600,11 @@ function syncTotalRecords()
 
 function updateSelectionControls()
 {
-    const button = document.getElementById(
-        "list-patients-component-searching-bar-btn2"
-    );
+    const button = document.getElementById("list-patients-component-searching-bar-btn2");
 
-    const countSpan = document.getElementById(
-        "list-patients-component-searching-bar-count"
-    );
+    const countSpan = document.getElementById("list-patients-component-searching-bar-count");
 
-    const headCheckbox = document.getElementById(
-        "list-patients-component-listC-head-c1-checkbox"
-    );
+    const headCheckbox = document.getElementById("list-patients-component-listC-head-c1-checkbox");
 
     const selectedCount = SelectionManager.count();
 
@@ -660,6 +645,9 @@ function updateSelectionControls()
 
 document.addEventListener("change", async function (event)
 {
+
+    console.log(" %cListener change started .... ","color:red; font-wight: bold;");
+
     if (
         event.target.id !==
         "list-patients-component-listC-head-c1-checkbox"
@@ -712,6 +700,8 @@ document.addEventListener("change", async function (event)
         }
 
         const data = await response.json();
+
+        console.log(" %c ❗data:","color:red; font-weight: bold;", data);
 
         if (!Array.isArray(data.patient_ids))
         {
@@ -900,7 +890,6 @@ document.addEventListener("click", function (e)
 
     closeDeleteDialog();
 });
-
 
 /* * * * * * * * * * * * * * */
 /* Hromadné mazání klientů   */
