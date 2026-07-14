@@ -662,7 +662,7 @@
 
 }
 
-#list-patients-component-searching-bar-selectBox2-menu-o1
+/* #list-patients-component-searching-bar-selectBox2-menu-o1
 {
 
   cursor: pointer;
@@ -672,7 +672,7 @@
   font-size: 12px;
   color: #324351;
 
-  /* background-color: red; */
+  /* background-color: red;
 
   margin-bottom: 3px;
   padding-left: 9px;
@@ -690,7 +690,7 @@
   font-size: 12px;
   color: #324351;
 
-  /* background-color: blue; */
+  /* background-color: blue;
 
   margin-bottom: 3px;
   padding-left: 9px;
@@ -709,7 +709,7 @@
   padding-left: 9px;
   margin-bottom: 3px;
 
-  /* background-color: green; */
+  /* background-color: green;
 
 }
 
@@ -723,7 +723,7 @@
   font-size: 12px;
   color: #324351;
 
-  /* background-color: blue; */
+  /* background-color: blue;
 
   margin-bottom: 3px;
   padding-left: 9px;
@@ -741,7 +741,7 @@
   font-size: 12px;
   color: #324351;
 
-  /* background-color: blue; */
+  /* background-color: blue;
 
   margin-bottom: 3px;
   padding-left: 9px;
@@ -755,7 +755,7 @@
 #list-patients-component-searching-bar-selectBox2-menu-o5:hover
 {
   background: rgba(234,238,245,0.8);
-}
+} */
 
 
 #list-patients-component-searching-bar-selectBox2
@@ -903,7 +903,7 @@
 }
 
 
-#list-patients-component-searching-bar-selectBox3-menu-o1
+/* #list-patients-component-searching-bar-selectBox3-menu-o1
 {
 
   cursor: pointer;
@@ -913,7 +913,7 @@
   font-size: 12px;
   color: #324351;
 
-  /* background-color: red; */
+  /* background-color: red;
 
   margin-bottom: 3px;
   padding-left: 9px;
@@ -931,7 +931,7 @@
   font-size: 12px;
   color: #324351;
 
-  /* background-color: blue; */
+  /* background-color: blue;
 
   margin-bottom: 3px;
   padding-left: 9px;
@@ -950,7 +950,7 @@
   padding-left: 9px;
   margin-bottom: 3px;
 
-  /* background-color: green; */
+  /* background-color: green;
 
 }
 
@@ -964,15 +964,15 @@
   font-size: 12px;
   color: #324351;
 
-  /* background-color: blue; */
+  /* background-color: blue;
 
   margin-bottom: 3px;
   padding-left: 9px;
 
-}
+} */
 
 
-#list-patients-component-searching-bar-selectBox3-menu-o5
+/* #list-patients-component-searching-bar-selectBox3-menu-o5
 {
 
   cursor: pointer;
@@ -982,22 +982,22 @@
   font-size: 12px;
   color: #324351;
 
-  /* background-color: blue; */
+  /* background-color: blue;
 
   margin-bottom: 3px;
   padding-left: 9px;
 
-}
+} */
 
 
-#list-patients-component-searching-bar-selectBox3-menu-o1:hover,
+/* #list-patients-component-searching-bar-selectBox3-menu-o1:hover,
 #list-patients-component-searching-bar-selectBox3-menu-o2:hover,
 #list-patients-component-searching-bar-selectBox3-menu-o3:hover,
 #list-patients-component-searching-bar-selectBox3-menu-o4:hover,
 #list-patients-component-searching-bar-selectBox3-menu-o5:hover
 {
   background: rgba(234,238,245,0.8);
-}
+} */
 
 
 #list-patients-component-searching-bar-selectBox3
@@ -2311,4 +2311,49 @@
 #list-patients-component-listC-deleteC-shadow.show
 {
     display: block;
+}
+
+
+.list-patients-component-searching-bar-selectBox2-menu-options
+{
+
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 12px;
+  color: #324351;
+
+  /* background-color: blue; */
+
+  margin-bottom: 3px;
+  padding-left: 9px;
+
+}
+
+.list-patients-component-searching-bar-selectBox-menu2-options:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+.list-patients-component-searching-bar-selectBox3-menu-options
+{
+
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 12px;
+  color: #324351;
+
+  /* background-color: blue; */
+
+  margin-bottom: 3px;
+  padding-left: 9px;
+
+}
+
+.list-patients-component-searching-bar-selectBox3-menu-options:hover
+{
+  background: rgba(234,238,245,0.8);
 }

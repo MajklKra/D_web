@@ -58,6 +58,9 @@ document.addEventListener("click", function (e)
         console.log("Vybráno:", hiddenInput.value);
 
         select.classList.remove("open");
+
+        sendCurrentFilters();
+
         return;
     }
 
@@ -95,6 +98,9 @@ document.addEventListener("click", function (e)
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
         select.classList.remove("open");
+
+        sendCurrentFilters();
+
         return;
     }
 
@@ -132,6 +138,9 @@ document.addEventListener("click", function (e)
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
         select.classList.remove("open");
+
+        sendCurrentFilters();
+
         return;
     }
 
@@ -169,6 +178,9 @@ document.addEventListener("click", function (e)
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
         select.classList.remove("open");
+
+        sendCurrentFilters();
+
         return;
     }
 
@@ -927,7 +939,8 @@ document.addEventListener("click", async function (event)
                 .get("page") || "1";
 
         const response = await fetch(
-            `/administration/clients/delete-selected?page=${currentPage}`,
+            // `/administration/clients/delete-selected?page=${currentPage}`,
+            `/administration/clients/delete-selected`,
             {
                 method: "POST",
 
@@ -947,10 +960,7 @@ document.addEventListener("click", async function (event)
         {
             const errorText = await response.text();
 
-            throw new Error(
-                errorText ||
-                `Server odpověděl stavem ${response.status}`
-            );
+            throw new Error(errorText ||`Server odpověděl stavem ${response.status}`);
         }
 
         const html = await response.text();
@@ -959,34 +969,23 @@ document.addEventListener("click", async function (event)
          * Odpověď obsahuje novou tabulku
          * a nové stránkování.
          */
+
+
         const parser = new DOMParser();
 
-        const responseDocument = parser.parseFromString(
-            html,
-            "text/html"
-        );
+        const responseDocument = parser.parseFromString(html,"text/html");
 
-        const newTable = responseDocument.getElementById(
-            "list-patients-component-listC-listC2-content-table-box"
-        );
+        const newTable = responseDocument.getElementById("list-patients-component-listC-listC2-content-table-box");
 
-        const newPagination = responseDocument.getElementById(
-            "list-patients-component-lessC"
-        );
+        const newPagination = responseDocument.getElementById("list-patients-component-lessC");
 
-        const currentTable = document.getElementById(
-            "list-patients-component-listC-listC2-content-table-box"
-        );
+        const currentTable = document.getElementById("list-patients-component-listC-listC2-content-table-box");
 
-        const currentPagination = document.getElementById(
-            "list-patients-component-lessC"
-        );
+        const currentPagination = document.getElementById("list-patients-component-lessC");
 
         if (!newTable || !currentTable)
         {
-            throw new Error(
-                "Server nevrátil aktualizovanou tabulku."
-            );
+            throw new Error("Server nevrátil aktualizovanou tabulku.");
         }
 
         currentTable.replaceWith(newTable);
@@ -999,18 +998,38 @@ document.addEventListener("click", async function (event)
         /*
          * Po úspěšném smazání vyčistíme celý výběr.
          */
+
         SelectionManager.clear();
 
         syncTotalRecords();
         updateSelectionControls();
 
-        requestAnimationFrame(initCustomScrollbar);
+        // requestAnimationFrame(initCustomScrollbar);
 
-        console.log(
-            "%cOdstranění klienti:",
-            "color:hotpink; font-weight:bold;",
-            patientIds
-        );
+        requestAnimationFrame(() =>
+        {
+            initCustomScrollbar();
+
+            const content = document.getElementById(
+                "list-patients-component-listC-listC2-content"
+            );
+
+            const thumb = document.getElementById(
+                "list-patients-component-listC-listC2-scrollC-thumb"
+            );
+
+            if (content)
+            {
+                content.scrollTop = 0;
+            }
+
+            if (thumb)
+            {
+                thumb.style.top = "0px";
+            }
+        });
+
+        console.log("%cOdstranění klienti:","color:hotpink; font-weight:bold;",patientIds);
     }
     catch (error)
     {
@@ -1026,5 +1045,55 @@ document.addEventListener("click", async function (event)
          */
 
         updateSelectionControls();
+    }
+});
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*    Načtení vybraných hodnot                             */
+/*    list-patients-component-searching-bar-searchInput    */
+/*    list-patients-component-searching-bar-selectBox1     */
+/*    list-patients-component-searching-bar-selectBox2     */
+/*    list-patients-component-searching-bar-selectBox3     */
+/*    list-patients-component-searching-bar-selectBox4     */
+/*                   14.7.2026                             */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+function sendCurrentFilters()
+{
+    const filters =
+    {
+        search: document.getElementById("list-patients-component-searching-bar-searchInput").value,
+
+        clients: document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value,
+
+        department: document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value,
+
+        building: document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value,
+
+        source: document.getElementById("list-patients-component-searching-bar-selectBox4-filter").value
+    };
+
+    console.log(filters);
+
+    fetch("/administration/clients/current_data", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(filters)
+    });
+}
+
+
+document.addEventListener("input", function (event)
+{
+    if (
+        event.target.id ===
+        "list-patients-component-searching-bar-searchInput"
+    )
+    {
+        sendCurrentFilters();
     }
 });

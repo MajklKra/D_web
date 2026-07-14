@@ -1,12 +1,12 @@
 
-__version__ = "1.3.12"
+__version__ = "1.3.14"
 
-# Deletion of aggregate number of clients from the table ant its update automatically
+# SelectionBoxes options are red for the DB
 
 # Jedná se o tuto produkční verzi č. ___
 
 # Vytvořil:     Michal Kraninger
-# Datum:        13.7.2026
+# Datum:        14.7.2026
 
 
 

@@ -12,6 +12,9 @@ from math import ceil
 from  web.share.s_print import s_print
 from  web.share.db import db_connection, sqliteDB
 
+# # # # # # # # # # # # # # # # # # #
+#   Defaultní vykreslení /clients   #
+# # # # # # # # # # # # # # # # # # #
 
 @admin_clients_bp.route('/')
 def clients():
@@ -167,19 +170,6 @@ def clients():
 
         bedsCount = result[0][0]
 
-    view_data = {
-        "name": name,
-        "surname": surname,
-        "salutation": salutation,
-        "version": __version__,
-        "first_login": first_login,
-        "chart_data": data,
-        "percent": percent,
-        "percent2": percent2,
-        "percent3": percent3,
-        "patients_count": patientsCount,
-        "beds_count": bedsCount,
-    }
 
     ###  Úvodní SQL dotaz ###
 
@@ -227,6 +217,63 @@ def clients():
     print("Výsledek SQL dotazů result_all_pacients delivered !!! ")
 
     ###  Úvodní SQL dotaz ###
+
+    # # # # # # # # # # # # # # # # # # #
+    #                                   #
+    #  SQL dotaz seznam oddělení + IDs  #
+    #                                   #
+    # # # # # # # # # # # # # # # # # # #
+
+
+    SQL_departments = '''
+
+    SELECT      DepartmentID, Name
+	FROM        Departments
+    ORDER BY    Name
+
+    '''
+
+    result_departments = db_connection(SQL_departments, (), one_row=False)
+
+
+    # # # # # # # # # # # # # # # # # # #
+    #                                   #
+    #  SQL dotaz seznam budov + IDs  #
+    #                                   #
+    # # # # # # # # # # # # # # # # # # #
+
+
+    SQL_buildings = '''
+
+   	SELECT 	    BuildingID, Name
+	FROM 		Buildings
+    ORDER BY    Name
+
+    '''
+
+    result_buildings = db_connection(SQL_buildings, (), one_row=False)
+
+    # # # # # # # # # # # # # # # # # # #
+    #                                   #
+    #  Konec SQL dotazu                 #
+    #                                   #
+    # # # # # # # # # # # # # # # # # # #
+
+    view_data = {
+        "name": name,
+        "surname": surname,
+        "salutation": salutation,
+        "version": __version__,
+        "first_login": first_login,
+        "chart_data": data,
+        "percent": percent,
+        "percent2": percent2,
+        "percent3": percent3,
+        "patients_count": patientsCount,
+        "beds_count": bedsCount,
+        "departments": result_departments,
+        "buildings" : result_buildings
+    }
 
     ###  Stránkování ###
 
@@ -314,6 +361,7 @@ def clients():
 
         return render_template(
             "clients_fragment.html",
+            data=view_data,
             all_clients=clients_per_page,
             page=page,
             per_page=per_page,
@@ -357,7 +405,6 @@ def all_patient_ids():
         "count": len(patient_ids)
     })
 
-
 #### Dnešní experimenty  13.7.2026 ####
 
 @admin_clients_bp.route( "/delete/<int:patient_id>", methods=["POST"])
@@ -383,6 +430,10 @@ def delete_client(patient_id):
         s_print(f"Chyba při mazání klienta {patient_id}", "blue", 1,1)
 
         return "Klienta se nepodařilo odstranit.", 500
+
+# # # # # # # # # # # # # #
+#   Vykreslení tabulky    #
+# # # # # # # # # # # # # #
 
 def render_clients_table():
 
@@ -458,14 +509,14 @@ def render_clients_table():
                 table_response=True,
             )
 
+# # # # # # # # # # # #
 ### Hromadné mazání ###
+# # # # # # # # # # # #
 
 @admin_clients_bp.route("/delete-selected", methods=["POST"])
 def delete_selected_clients():
 
-
     print(" /delete-selected function ")
-
 
     try:
         data = request.get_json(silent=True) or {}
@@ -504,9 +555,45 @@ def delete_selected_clients():
 
     except Exception as error:
 
-        current_app.logger.exception(
-            "Chyba při hromadném mazání klientů: %s",
-            error
-        )
+        # current_app.logger.exception(
+        #     "Chyba při hromadném mazání klientů: %s",
+        #     error
+        # )
+
+        s_print(f"Chyba při hromadném mazání klientů: ({error})", "red",0,1)
 
         return "Vybrané klienty se nepodařilo odstranit.", 500
+
+@admin_clients_bp.route("/current_data", methods=["POST"])
+def current_data():
+
+    print("Hello Mate, you have just reached the /current_data function ... ")
+
+    data = request.get_json(silent=True) or {}
+
+    search = str(data.get("search", "")).strip()
+    clients_filter = str(data.get("clients", "all")).strip()
+    department = str(data.get("department", "all")).strip()
+    building = str(data.get("building", "all")).strip()
+    source = str(data.get("source", "all")).strip()
+
+    print("Vyhledávání:", search)
+    print("Klienti:", clients_filter)
+    print("Oddělení:", department)
+    print("Budova:", building)
+    print("Zdroj:", source)
+
+    return jsonify({
+        "success": True,
+        "filters": {
+            "search": search,
+            "clients": clients_filter,
+            "department": department,
+            "building": building,
+            "source": source
+        }
+    })
+
+
+# def default_data():
+

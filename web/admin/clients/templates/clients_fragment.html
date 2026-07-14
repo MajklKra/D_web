@@ -124,8 +124,8 @@
 
             <div id="list-patients-component-searching-bar-selectBox1-menu">
                 <div id="list-patients-component-searching-bar-selectBox1-menu-o1" data-value="all" class="list-patients-component-searching-bar-selectBox1-menu-options">Všichni</div>
-                <div id="list-patients-component-searching-bar-selectBox1-menu-o2" data-value="without-bed" class="list-patients-component-searching-bar-selectBox1-menu-options">Umístění</div>
-                <div id="list-patients-component-searching-bar-selectBox1-menu-o3" data-value="on-bed" class="list-patients-component-searching-bar-selectBox1-menu-options">Neumístění</div>
+                <div id="list-patients-component-searching-bar-selectBox1-menu-o2" data-value="on-bed" class="list-patients-component-searching-bar-selectBox1-menu-options">Umístění</div>
+                <div id="list-patients-component-searching-bar-selectBox1-menu-o3" data-value="without-bed" class="list-patients-component-searching-bar-selectBox1-menu-options">Neumístění</div>
             </div>
 
             <input type="hidden" name="list-patients-component-searching-bar-selectBox1-filter" id="list-patients-component-searching-bar-selectBox1-filter" value="all">
@@ -155,10 +155,18 @@
 
             <div id="list-patients-component-searching-bar-selectBox2-menu">
                 <div id="list-patients-component-searching-bar-selectBox2-menu-o1" data-value="all" class="list-patients-component-searching-bar-selectBox2-menu-options">Všechny</div>
-                <div id="list-patients-component-searching-bar-selectBox2-menu-o2" data-value="Gyn" class="list-patients-component-searching-bar-selectBox2-menu-options">Gynekologie</div>
+                <!-- <div id="list-patients-component-searching-bar-selectBox2-menu-o2" data-value="Gyn" class="list-patients-component-searching-bar-selectBox2-menu-options">Gynekologie</div>
                 <div id="list-patients-component-searching-bar-selectBox2-menu-o3" data-value="Sex" class="list-patients-component-searching-bar-selectBox2-menu-options">Sexuologie</div>
                 <div id="list-patients-component-searching-bar-selectBox2-menu-o4" data-value="Psy" class="list-patients-component-searching-bar-selectBox2-menu-options">Psychologie</div>
-                <div id="list-patients-component-searching-bar-selectBox2-menu-o5" data-value="Trau" class="list-patients-component-searching-bar-selectBox2-menu-options">Traumatologie</div>
+                <div id="list-patients-component-searching-bar-selectBox2-menu-o5" data-value="Trau" class="list-patients-component-searching-bar-selectBox2-menu-options">Traumatologie</div> -->
+
+                 {% for department_id, department_name in data.departments %}
+                    <div class="list-patients-component-searching-bar-selectBox2-menu-options" data-value="{{ department_id }}">
+                        {{ department_name }}
+                    </div>
+                 {% endfor %}
+
+
             </div>
 
             <input type="hidden" name="list-patients-component-searching-bar-selectBox2-filter" id="list-patients-component-searching-bar-selectBox2-filter" value="all">
@@ -188,10 +196,18 @@
 
             <div id="list-patients-component-searching-bar-selectBox3-menu">
                 <div id="list-patients-component-searching-bar-selectBox3-menu-o1" data-value="all" class="list-patients-component-searching-bar-selectBox3-menu-options">Všechny</div>
-                <div id="list-patients-component-searching-bar-selectBox3-menu-o2" data-value="A" class="list-patients-component-searching-bar-selectBox3-menu-options">A</div>
+                <!-- <div id="list-patients-component-searching-bar-selectBox3-menu-o2" data-value="A" class="list-patients-component-searching-bar-selectBox3-menu-options">A</div>
                 <div id="list-patients-component-searching-bar-selectBox3-menu-o3" data-value="B" class="list-patients-component-searching-bar-selectBox3-menu-options">B</div>
                 <div id="list-patients-component-searching-bar-selectBox3-menu-o4" data-value="C" class="list-patients-component-searching-bar-selectBox3-menu-options">C</div>
-                <div id="list-patients-component-searching-bar-selectBox3-menu-o5" data-value="D" class="list-patients-component-searching-bar-selectBox3-menu-options">D</div>
+                <div id="list-patients-component-searching-bar-selectBox3-menu-o5" data-value="D" class="list-patients-component-searching-bar-selectBox3-menu-options">D</div> -->
+
+
+                {% for building_id, building_name in data.buildings %}
+                    <div class="list-patients-component-searching-bar-selectBox3-menu-options" data-value="{{ building_id }}">
+                        {{ building_name}}
+                    </div>
+                {% endfor %}
+
             </div>
 
             <input type="hidden" name="list-patients-component-searching-bar-selectBox3-filter" id="list-patients-component-searching-bar-selectBox3-filter" value="all">
@@ -423,7 +439,6 @@
         </div>
 
     </section>
-
 
     <div id="list-patients-component-listC-deleteC-shadow">
         <p>XXX</p>
