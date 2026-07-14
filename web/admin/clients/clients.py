@@ -3,7 +3,9 @@
 from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for, current_app
 
 from .blueprints import admin_clients_bp
+
 from ...version import __version__
+
 from vokativ import vokativ
 
 import math
@@ -29,146 +31,146 @@ def clients():
 
     ### Data supply ###
 
-    salutation = session.get('e_name')
-    salutation = vokativ(salutation).capitalize()
+    # salutation = session.get('e_name')
+    # salutation = vokativ(salutation).capitalize()
 
-    s_print(salutation, "white",0,0)
+    # s_print(salutation, "white",0,0)
 
-    name = session.get('e_name')
+    # name = session.get('e_name')
 
-    s_print(name, "white",0,0)
+    # s_print(name, "white",0,0)
 
-    surname = session.get('e_surname')
+    # surname = session.get('e_surname')
 
-    s_print(surname, "white",0,1)
+    # s_print(surname, "white",0,1)
 
-    # temp = round(weather())
+    # # temp = round(weather())
 
-    data = {
+    # data = {
 
-        "labels": ["start", "2021", "2022", "2023", "2024", "2025", "end"],
-        "values": [100, 123, 79, 163, 37, 150, 150],
+    #     "labels": ["start", "2021", "2022", "2023", "2024", "2025", "end"],
+    #     "values": [100, 123, 79, 163, 37, 150, 150],
 
-    }
+    # }
 
-    percent = 25
+    # percent = 25
 
-    percent2 = 75
+    # percent2 = 75
 
-    percent3 = 75
+    # percent3 = 75
 
-    deps = session.get("e_deps")
+    # deps = session.get("e_deps")
 
-    first_login = session.get("first_login")
+    # first_login = session.get("first_login")
 
     ### SQL dotaz pro počet pacientů na mém oddělení ###
 
-    if not deps:
-        result = []
-        patientsCount = 0
-    else:
+    # if not deps:
+    #     result = []
+    #     patientsCount = 0
+    # else:
 
-        placeholders = ",".join(["%s"] * len(deps))
+        # placeholders = ",".join(["%s"] * len(deps))
 
-        SQL_query = f'''
+        # SQL_query = f'''
 
-            SELECT COUNT(*) AS patients_count
-            FROM
-            (
+        #     SELECT COUNT(*) AS patients_count
+        #     FROM
+        #     (
 
-                SELECT Patients.PatientID, Patients.Surname, Patients.`Name` AS PatientName, Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName,
-                Departments.DepartmentID, Departments.`Name` AS DepartmentName, Departments.NamePrefix, Rooms.RoomID, Rooms.RoomName, Rooms.RoomNumber,
-                NULL AS SubRoomID, NULL AS SubRoomName, NULL AS SubRoomNumber, Beds.BedID, Beds.BedName, Beds.BedNumber
-                FROM Patients
-                JOIN Beds ON Beds.BedID = Patients.BedID
-                JOIN Rooms ON Rooms.RoomID = Beds.RoomID
-                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
-                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-                JOIN Floors ON Floors.FloorID = Rooms.FloorID
-                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+        #         SELECT Patients.PatientID, Patients.Surname, Patients.`Name` AS PatientName, Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName,
+        #         Departments.DepartmentID, Departments.`Name` AS DepartmentName, Departments.NamePrefix, Rooms.RoomID, Rooms.RoomName, Rooms.RoomNumber,
+        #         NULL AS SubRoomID, NULL AS SubRoomName, NULL AS SubRoomNumber, Beds.BedID, Beds.BedName, Beds.BedNumber
+        #         FROM Patients
+        #         JOIN Beds ON Beds.BedID = Patients.BedID
+        #         JOIN Rooms ON Rooms.RoomID = Beds.RoomID
+        #         JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+        #         JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+        #         JOIN Floors ON Floors.FloorID = Rooms.FloorID
+        #         JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
 
-                UNION ALL
+        #         UNION ALL
 
-                SELECT Patients.PatientID, Patients.Surname, Patients.`Name`AS PatientName ,  Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName,
-                Departments.DepartmentID, Departments.`Name` AS DepartmentName, Departments.NamePrefix, Rooms.RoomID, Rooms.RoomName, Rooms.RoomNumber,
-                SubRooms.SubRoomID, SubRooms.SubRoomName, SubRooms.SubRoomNumber, Beds.BedID, Beds.BedName, Beds.BedNumber
-                FROM Patients
-                JOIN Beds ON Beds.BedID = Patients.BedID
-                JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
-                JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
-                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
-                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-                JOIN Floors ON Floors.FloorID = Rooms.FloorID
-                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+        #         SELECT Patients.PatientID, Patients.Surname, Patients.`Name`AS PatientName ,  Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName,
+        #         Departments.DepartmentID, Departments.`Name` AS DepartmentName, Departments.NamePrefix, Rooms.RoomID, Rooms.RoomName, Rooms.RoomNumber,
+        #         SubRooms.SubRoomID, SubRooms.SubRoomName, SubRooms.SubRoomNumber, Beds.BedID, Beds.BedName, Beds.BedNumber
+        #         FROM Patients
+        #         JOIN Beds ON Beds.BedID = Patients.BedID
+        #         JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+        #         JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+        #         JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+        #         JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+        #         JOIN Floors ON Floors.FloorID = Rooms.FloorID
+        #         JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
 
-            ) AS x
-            WHERE 		x.DepartmentID IN ({placeholders})
+        #     ) AS x
+        #     WHERE 		x.DepartmentID IN ({placeholders})
 
-        '''
+        # '''
 
-        result = db_connection(SQL_query, deps, one_row=False)
+        # result = db_connection(SQL_query, deps, one_row=False)
 
-        patientsCount = result[0][0]
+        # patientsCount = result[0][0]
 
     ### Dotaz počet volných postelí ###
 
-    if not deps:
-        result = []
-        bedsCount = 0
-    else:
+    # if not deps:
+    #     result = []
+    #     bedsCount = 0
+    # else:
 
-        SQL_query2 = f'''
+        # SQL_query2 = f'''
 
-                WITH combined AS
-                (
-                    -- Rooms-level
-                    SELECT
-                        r.RoomID,
-                        r.RoomNumber,
-                        d.NAME       AS DeptName,
-                        d.NamePrefix,
-                        r.RoomName,
-                        CAST(NULL AS INT) AS SubRoomID,
-                        COUNT(b.BedID) AS pocet_posteli,
-                        SUM(CASE WHEN b.BedID IS NOT NULL AND p.BedID IS NULL THEN 1 ELSE 0 END) AS volne_postele
-                    FROM Rooms r
-                    JOIN Departments_Rooms dr ON dr.RoomID = r.RoomID
-                    JOIN Departments d ON d.DepartmentID = dr.DepartmentID
-                    LEFT JOIN Beds b ON b.RoomID = r.RoomID
-                    LEFT JOIN Patients p ON p.BedID = b.BedID  -- např. AND p.IsActive = 1
-                    WHERE d.DepartmentID IN ({placeholders})
-                    GROUP BY r.RoomID, r.RoomNumber, d.NAME, d.NamePrefix, r.RoomName
+        #         WITH combined AS
+        #         (
+        #             -- Rooms-level
+        #             SELECT
+        #                 r.RoomID,
+        #                 r.RoomNumber,
+        #                 d.NAME       AS DeptName,
+        #                 d.NamePrefix,
+        #                 r.RoomName,
+        #                 CAST(NULL AS INT) AS SubRoomID,
+        #                 COUNT(b.BedID) AS pocet_posteli,
+        #                 SUM(CASE WHEN b.BedID IS NOT NULL AND p.BedID IS NULL THEN 1 ELSE 0 END) AS volne_postele
+        #             FROM Rooms r
+        #             JOIN Departments_Rooms dr ON dr.RoomID = r.RoomID
+        #             JOIN Departments d ON d.DepartmentID = dr.DepartmentID
+        #             LEFT JOIN Beds b ON b.RoomID = r.RoomID
+        #             LEFT JOIN Patients p ON p.BedID = b.BedID  -- např. AND p.IsActive = 1
+        #             WHERE d.DepartmentID IN ({placeholders})
+        #             GROUP BY r.RoomID, r.RoomNumber, d.NAME, d.NamePrefix, r.RoomName
 
-                    UNION ALL
+        #             UNION ALL
 
-                    -- SubRooms-level
-                    SELECT
-                        r.RoomID,
-                        r.RoomNumber,
-                        d.NAME       AS DeptName,
-                        d.NamePrefix,
-                        r.RoomName,
-                        sr.SubRoomID,
-                        COUNT(b.BedID) AS pocet_posteli,
-                        SUM(CASE WHEN b.BedID IS NOT NULL AND p.BedID IS NULL THEN 1 ELSE 0 END) AS volne_postele
-                    FROM SubRooms sr
-                    JOIN Rooms r ON r.RoomID = sr.RoomID
-                    JOIN Departments_Rooms dr ON dr.RoomID = r.RoomID
-                    JOIN Departments d ON d.DepartmentID = dr.DepartmentID
-                    LEFT JOIN Beds b ON b.SubRoomID = sr.SubRoomID
-                    LEFT JOIN Patients p ON p.BedID = b.BedID  -- např. AND p.IsActive = 1
-                    WHERE d.DepartmentID IN ({placeholders})
-                    GROUP BY r.RoomID, r.RoomNumber, d.NAME, d.NamePrefix, r.RoomName, sr.SubRoomID
-                )
+        #             -- SubRooms-level
+        #             SELECT
+        #                 r.RoomID,
+        #                 r.RoomNumber,
+        #                 d.NAME       AS DeptName,
+        #                 d.NamePrefix,
+        #                 r.RoomName,
+        #                 sr.SubRoomID,
+        #                 COUNT(b.BedID) AS pocet_posteli,
+        #                 SUM(CASE WHEN b.BedID IS NOT NULL AND p.BedID IS NULL THEN 1 ELSE 0 END) AS volne_postele
+        #             FROM SubRooms sr
+        #             JOIN Rooms r ON r.RoomID = sr.RoomID
+        #             JOIN Departments_Rooms dr ON dr.RoomID = r.RoomID
+        #             JOIN Departments d ON d.DepartmentID = dr.DepartmentID
+        #             LEFT JOIN Beds b ON b.SubRoomID = sr.SubRoomID
+        #             LEFT JOIN Patients p ON p.BedID = b.BedID  -- např. AND p.IsActive = 1
+        #             WHERE d.DepartmentID IN ({placeholders})
+        #             GROUP BY r.RoomID, r.RoomNumber, d.NAME, d.NamePrefix, r.RoomName, sr.SubRoomID
+        #         )
 
-                SELECT SUM(volne_postele) AS volne_postele
-                FROM combined
+        #         SELECT SUM(volne_postele) AS volne_postele
+        #         FROM combined
 
-            '''
+        #     '''
 
-        result2 = db_connection(SQL_query2, deps + deps, one_row=False)
+        # result2 = db_connection(SQL_query2, deps + deps, one_row=False)
 
-        bedsCount = result[0][0]
+        # bedsCount = result[0][0]
 
 
     ###  Úvodní SQL dotaz ###
@@ -225,16 +227,15 @@ def clients():
     # # # # # # # # # # # # # # # # # # #
 
 
-    SQL_departments = '''
+    # SQL_departments = '''
 
-    SELECT      DepartmentID, Name
-	FROM        Departments
-    ORDER BY    Name
+    # SELECT      DepartmentID, Name
+	# FROM        Departments
+    # ORDER BY    Name
 
-    '''
+    # '''
 
-    result_departments = db_connection(SQL_departments, (), one_row=False)
-
+    # result_departments = db_connection(SQL_departments, (), one_row=False)
 
     # # # # # # # # # # # # # # # # # # #
     #                                   #
@@ -242,16 +243,15 @@ def clients():
     #                                   #
     # # # # # # # # # # # # # # # # # # #
 
+    # SQL_buildings = '''
 
-    SQL_buildings = '''
+   	# SELECT 	    BuildingID, Name
+	# FROM 		Buildings
+    # ORDER BY    Name
 
-   	SELECT 	    BuildingID, Name
-	FROM 		Buildings
-    ORDER BY    Name
+    # '''
 
-    '''
-
-    result_buildings = db_connection(SQL_buildings, (), one_row=False)
+    # result_buildings = db_connection(SQL_buildings, (), one_row=False)
 
     # # # # # # # # # # # # # # # # # # #
     #                                   #
@@ -259,21 +259,24 @@ def clients():
     #                                   #
     # # # # # # # # # # # # # # # # # # #
 
-    view_data = {
-        "name": name,
-        "surname": surname,
-        "salutation": salutation,
-        "version": __version__,
-        "first_login": first_login,
-        "chart_data": data,
-        "percent": percent,
-        "percent2": percent2,
-        "percent3": percent3,
-        "patients_count": patientsCount,
-        "beds_count": bedsCount,
-        "departments": result_departments,
-        "buildings" : result_buildings
-    }
+    # view_data = {
+    #     "name": name,
+    #     "surname": surname,
+    #     "salutation": salutation,
+    #     "version": __version__,
+    #     "first_login": first_login,
+    #     "chart_data": data,
+    #     "percent": percent,
+    #     "percent2": percent2,
+    #     "percent3": percent3,
+    #     "patients_count": patientsCount,
+    #     "beds_count": bedsCount,
+    #     "departments": result_departments,
+    #     "buildings" : result_buildings
+    # }
+
+
+    view_data = default_data()
 
     ###  Stránkování ###
 
@@ -594,6 +597,222 @@ def current_data():
         }
     })
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                       #
+#  Načtení defaultních dat pro první otevření stránky / #
+#                                                       #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# def default_data():
+def default_data():
+
+    """
+    Data pro první načtení stránky "/"
+    """
+
+    s_print("function clients() started ...", "blue",0,0)
+
+    ### Data supply ###
+
+    salutation = session.get('e_name')
+    salutation = vokativ(salutation).capitalize()
+
+    s_print(salutation, "white",0,0)
+
+    name = session.get('e_name')
+
+    s_print(name, "white",0,0)
+
+    surname = session.get('e_surname')
+
+    s_print(surname, "white",0,1)
+
+    data = {
+
+        "labels": ["start", "2021", "2022", "2023", "2024", "2025", "end"],
+        "values": [100, 123, 79, 163, 37, 150, 150],
+
+    }
+
+    percent = 25
+
+    percent2 = 75
+
+    percent3 = 75
+
+    deps = session.get("e_deps")
+
+    first_login = session.get("first_login")
+
+
+    ### SQL dotaz pro počet pacientů na mém oddělení ###
+
+    if not deps:
+        result = []
+        patientsCount = 0
+    else:
+
+        placeholders = ",".join(["%s"] * len(deps))
+
+        SQL_query = f'''
+
+            SELECT COUNT(*) AS patients_count
+            FROM
+            (
+
+                SELECT Patients.PatientID, Patients.Surname, Patients.`Name` AS PatientName, Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName,
+                Departments.DepartmentID, Departments.`Name` AS DepartmentName, Departments.NamePrefix, Rooms.RoomID, Rooms.RoomName, Rooms.RoomNumber,
+                NULL AS SubRoomID, NULL AS SubRoomName, NULL AS SubRoomNumber, Beds.BedID, Beds.BedName, Beds.BedNumber
+                FROM Patients
+                JOIN Beds ON Beds.BedID = Patients.BedID
+                JOIN Rooms ON Rooms.RoomID = Beds.RoomID
+                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
+                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+                UNION ALL
+
+                SELECT Patients.PatientID, Patients.Surname, Patients.`Name`AS PatientName ,  Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName,
+                Departments.DepartmentID, Departments.`Name` AS DepartmentName, Departments.NamePrefix, Rooms.RoomID, Rooms.RoomName, Rooms.RoomNumber,
+                SubRooms.SubRoomID, SubRooms.SubRoomName, SubRooms.SubRoomNumber, Beds.BedID, Beds.BedName, Beds.BedNumber
+                FROM Patients
+                JOIN Beds ON Beds.BedID = Patients.BedID
+                JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+                JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
+                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+            ) AS x
+            WHERE 		x.DepartmentID IN ({placeholders})
+
+        '''
+
+        result = db_connection(SQL_query, deps, one_row=False)
+
+        patientsCount = result[0][0]
+
+    ### Dotaz počet volných postelí ###
+
+    if not deps:
+        result = []
+        bedsCount = 0
+    else:
+
+        SQL_query2 = f'''
+
+                WITH combined AS
+                (
+                    -- Rooms-level
+                    SELECT
+                        r.RoomID,
+                        r.RoomNumber,
+                        d.NAME       AS DeptName,
+                        d.NamePrefix,
+                        r.RoomName,
+                        CAST(NULL AS INT) AS SubRoomID,
+                        COUNT(b.BedID) AS pocet_posteli,
+                        SUM(CASE WHEN b.BedID IS NOT NULL AND p.BedID IS NULL THEN 1 ELSE 0 END) AS volne_postele
+                    FROM Rooms r
+                    JOIN Departments_Rooms dr ON dr.RoomID = r.RoomID
+                    JOIN Departments d ON d.DepartmentID = dr.DepartmentID
+                    LEFT JOIN Beds b ON b.RoomID = r.RoomID
+                    LEFT JOIN Patients p ON p.BedID = b.BedID  -- např. AND p.IsActive = 1
+                    WHERE d.DepartmentID IN ({placeholders})
+                    GROUP BY r.RoomID, r.RoomNumber, d.NAME, d.NamePrefix, r.RoomName
+
+                    UNION ALL
+
+                    -- SubRooms-level
+                    SELECT
+                        r.RoomID,
+                        r.RoomNumber,
+                        d.NAME       AS DeptName,
+                        d.NamePrefix,
+                        r.RoomName,
+                        sr.SubRoomID,
+                        COUNT(b.BedID) AS pocet_posteli,
+                        SUM(CASE WHEN b.BedID IS NOT NULL AND p.BedID IS NULL THEN 1 ELSE 0 END) AS volne_postele
+                    FROM SubRooms sr
+                    JOIN Rooms r ON r.RoomID = sr.RoomID
+                    JOIN Departments_Rooms dr ON dr.RoomID = r.RoomID
+                    JOIN Departments d ON d.DepartmentID = dr.DepartmentID
+                    LEFT JOIN Beds b ON b.SubRoomID = sr.SubRoomID
+                    LEFT JOIN Patients p ON p.BedID = b.BedID  -- např. AND p.IsActive = 1
+                    WHERE d.DepartmentID IN ({placeholders})
+                    GROUP BY r.RoomID, r.RoomNumber, d.NAME, d.NamePrefix, r.RoomName, sr.SubRoomID
+                )
+
+                SELECT SUM(volne_postele) AS volne_postele
+                FROM combined
+
+            '''
+
+        result2 = db_connection(SQL_query2, deps + deps, one_row=False)
+
+        bedsCount = result[0][0]
+
+    ###  Úvodní SQL dotaz ###
+
+    # # # # # # # # # # # # # # # # # # #
+    #                                   #
+    #  SQL dotaz seznam oddělení + IDs  #
+    #                                   #
+    # # # # # # # # # # # # # # # # # # #
+
+
+    SQL_departments = '''
+
+    SELECT      DepartmentID, Name
+    FROM        Departments
+    ORDER BY    Name
+
+    '''
+
+    result_departments = db_connection(SQL_departments, (), one_row=False)
+
+
+    # # # # # # # # # # # # # # # # # # #
+    #                                   #
+    #  SQL dotaz seznam budov + IDs  #
+    #                                   #
+    # # # # # # # # # # # # # # # # # # #
+
+
+    SQL_buildings = '''
+
+    SELECT 	    BuildingID, Name
+    FROM 		Buildings
+    ORDER BY    Name
+
+    '''
+
+    result_buildings = db_connection(SQL_buildings, (), one_row=False)
+
+    # # # # # # # # # # # # # # # # # # #
+    #                                   #
+    #  Konec SQL dotazu                 #
+    #                                   #
+    # # # # # # # # # # # # # # # # # # #
+
+    view_data = {
+        "name": name,
+        "surname": surname,
+        "salutation": salutation,
+        "version": __version__,
+        "first_login": first_login,
+        "chart_data": data,
+        "percent": percent,
+        "percent2": percent2,
+        "percent3": percent3,
+        "patients_count": patientsCount,
+        "beds_count": bedsCount,
+        "departments": result_departments,
+        "buildings" : result_buildings
+    }
+
+
+    return view_data
+
 
