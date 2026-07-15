@@ -1,7 +1,7 @@
 
-__version__ = "1.3.18"
+__version__ = "1.3.19"
 
-#  Original SQL_queries for starting out has been updated
+#  Adding BuildingID, DepartmentID to SQL_queries
 
 # Jedná se o tuto produkční verzi č. ___
 

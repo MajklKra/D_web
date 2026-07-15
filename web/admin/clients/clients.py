@@ -56,7 +56,7 @@ def clients():
         SQL_query_all_pacients_pages = '''
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -68,7 +68,7 @@ def clients():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
@@ -81,7 +81,7 @@ def clients():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             LEFT JOIN Beds ON Beds.BedID = Patients.BedID
             LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -97,7 +97,7 @@ def clients():
         SQL_query_all_pacients = '''
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -109,7 +109,7 @@ def clients():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
@@ -122,7 +122,7 @@ def clients():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             LEFT JOIN Beds ON Beds.BedID = Patients.BedID
             LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -151,7 +151,7 @@ def clients():
 
         SQL_query_deps_pages = f"""
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -164,7 +164,7 @@ def clients():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
@@ -178,7 +178,7 @@ def clients():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             LEFT JOIN Beds ON Beds.BedID = Patients.BedID
             LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -196,7 +196,7 @@ def clients():
         SQL_query_deps = f"""
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -209,7 +209,7 @@ def clients():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
@@ -223,7 +223,7 @@ def clients():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             LEFT JOIN Beds ON Beds.BedID = Patients.BedID
             LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -761,6 +761,12 @@ def loading_data():
     tech = session.get("tech")
     admin = session.get("admin")
 
+    search = session.get("search")
+    accomodated = session.get("SB1")
+    department = session.get("SB2")
+    building = session.get("SB3")
+    source = session.get("SB4")
+
     if e_id > 0:
        e_deps = session.get("e_deps")
 
@@ -781,7 +787,7 @@ def loading_data():
         SQL_query_all_pacients_pages = '''
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -793,7 +799,7 @@ def loading_data():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
@@ -806,7 +812,7 @@ def loading_data():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             LEFT JOIN Beds ON Beds.BedID = Patients.BedID
             LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -876,7 +882,7 @@ def loading_data():
 
         SQL_query_deps_pages = f"""
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -889,7 +895,7 @@ def loading_data():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             JOIN Beds ON Beds.BedID = Patients.BedID
             JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
@@ -903,7 +909,7 @@ def loading_data():
             UNION ALL
 
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient
+            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
             FROM Patients
             LEFT JOIN Beds ON Beds.BedID = Patients.BedID
             LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
@@ -976,8 +982,6 @@ def loading_data():
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #                   KONEC SQL DOTAZU                    #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-    # return render_template("clients_table_response.html",all_clients=clients_per_page,page=page,per_page=per_page,total_records=total_records,total_pages=total_pages,table_response=True,)
 
     loading_data = {
         "clients_per_page":clients_per_page,
