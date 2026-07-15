@@ -1,7 +1,7 @@
 
-__version__ = "1.3.19"
+__version__ = "1.3.20"
 
-#  Adding BuildingID, DepartmentID to SQL_queries
+#  SQL_query_withoutbeds_pages_results suggested
 
 # Jedná se o tuto produkční verzi č. ___
 
