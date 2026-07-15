@@ -4,7 +4,6 @@ console.log(" %c𝐖𝐄𝐋𝐂𝐎𝐌𝐄 TO client´s page !!! ", "color:yel
 
 /* Změna padding pro list-patients-component-searching-bar-searchInput */
 
-
 document.addEventListener("focusin", e =>
 {
     if (e.target.id === "list-patients-component-searching-bar-searchInput")
@@ -27,7 +26,6 @@ document.addEventListener("focusout", e =>
             .classList.remove("hidden");
     }
 });
-
 
 /* * * * * * * */
 /* SELECTBOX1  */
@@ -58,6 +56,9 @@ document.addEventListener("click", function (e)
         console.log("Vybráno:", hiddenInput.value);
 
         select.classList.remove("open");
+
+        sendCurrentFilters();
+
         return;
     }
 
@@ -95,6 +96,9 @@ document.addEventListener("click", function (e)
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
         select.classList.remove("open");
+
+        sendCurrentFilters();
+
         return;
     }
 
@@ -132,6 +136,9 @@ document.addEventListener("click", function (e)
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
         select.classList.remove("open");
+
+        sendCurrentFilters();
+
         return;
     }
 
@@ -169,12 +176,17 @@ document.addEventListener("click", function (e)
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
         select.classList.remove("open");
+
+        sendCurrentFilters();
+
         return;
     }
 
-    if (!select.contains(e.target)) {
+    if (!select.contains(e.target))
+    {
         select.classList.remove("open");
     }
+
 });
 
 
@@ -291,11 +303,6 @@ function initCustomScrollbar()
     updateThumbPosition();
 }
 
-// document.addEventListener("DOMContentLoaded", () =>
-// {
-//     initCustomScrollbar();
-// });
-
 document.addEventListener("htmx:afterSwap", event =>
 {
     const target = event.detail.target;
@@ -336,29 +343,6 @@ window.addEventListener("pageshow", () =>
 {
     requestAnimationFrame(initCustomScrollbar);
 });
-
-/* Testování tlačítka */
-
-// document.addEventListener("click", function (e)
-// {
-//     const btn = e.target.closest(
-//         ".list-patients-component-listC-listC2-content-table-box-t1-col8-btn1"
-//     );
-
-//     if (!btn) return;
-
-//     const row = btn.closest("tr");
-
-//     const patientId = row.dataset.patientId;
-
-//     console.log(
-//         "%c🧪 ID klienta:",
-//         "color:hotpink; font-weight:bold;",
-//         patientId
-//     );
-
-//     alert("ID klienta: " + patientId);
-// });
 
 
 /* * * * * * * * * * * */
@@ -514,11 +498,7 @@ document.addEventListener("change", function (e)
     updateSelectionControls();
     /* Experiment */
 
-    console.log(
-        "%cVybraní klienti:",
-        "color:hotpink; font-weight:bold;",
-        SelectionManager.getAll()
-    );
+    console.log("%cVybraní klienti:","color:hotpink; font-weight:bold;",SelectionManager.getAll());
 });
 
 // document.addEventListener("DOMContentLoaded", () =>
@@ -591,10 +571,9 @@ window.addEventListener("pageshow", () =>
     requestAnimationFrame(initCustomScrollbar);
 });
 
-
 /* Další experimenty */
 
-/* Sychnronizace počtu kilentů do hlavního checkboxu */
+/* Synchronizace počtu kilentů do hlavního checkboxu */
 
 function syncTotalRecords()
 {
@@ -621,17 +600,11 @@ function syncTotalRecords()
 
 function updateSelectionControls()
 {
-    const button = document.getElementById(
-        "list-patients-component-searching-bar-btn2"
-    );
+    const button = document.getElementById("list-patients-component-searching-bar-btn2");
 
-    const countSpan = document.getElementById(
-        "list-patients-component-searching-bar-count"
-    );
+    const countSpan = document.getElementById("list-patients-component-searching-bar-count");
 
-    const headCheckbox = document.getElementById(
-        "list-patients-component-listC-head-c1-checkbox"
-    );
+    const headCheckbox = document.getElementById("list-patients-component-listC-head-c1-checkbox");
 
     const selectedCount = SelectionManager.count();
 
@@ -672,6 +645,9 @@ function updateSelectionControls()
 
 document.addEventListener("change", async function (event)
 {
+
+    console.log(" %cListener change started .... ","color:red; font-wight: bold;");
+
     if (
         event.target.id !==
         "list-patients-component-listC-head-c1-checkbox"
@@ -725,6 +701,8 @@ document.addEventListener("change", async function (event)
 
         const data = await response.json();
 
+        console.log(" %c ❗data:","color:red; font-weight: bold;", data);
+
         if (!Array.isArray(data.patient_ids))
         {
             throw new Error(
@@ -760,9 +738,7 @@ document.addEventListener("change", async function (event)
 
 });
 
-
 /* Experimenty 13.7.2026 */
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* Zobrazení kontejneru + načtení jména  Aktuální verze  */
@@ -913,4 +889,200 @@ document.addEventListener("click", function (e)
     e.stopPropagation();
 
     closeDeleteDialog();
+});
+
+/* * * * * * * * * * * * * * */
+/* Hromadné mazání klientů   */
+/*      13.7.2026            */
+/* * * * * * * * * * * * * * */
+
+document.addEventListener("click", async function (event)
+{
+    const button = event.target.closest("#list-patients-component-searching-bar-btn2");
+
+    if (!button)
+    {
+        return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const patientIds = SelectionManager.getAll();
+
+    /*
+     * Hromadné mazání je povoleno až od dvou klientů.
+     */
+
+    if (patientIds.length < 2)
+    {
+        return;
+    }
+
+    try
+    {
+        button.disabled = true;
+
+        const currentPage =
+            new URLSearchParams(window.location.search)
+                .get("page") || "1";
+
+        const response = await fetch(
+            // `/administration/clients/delete-selected?page=${currentPage}`,
+            `/administration/clients/delete-selected`,
+            {
+                method: "POST",
+
+                headers:
+                {
+                    "Content-Type": "application/json",
+                    "Accept": "text/html"
+                },
+
+                body: JSON.stringify({
+                    patient_ids: patientIds
+                })
+            }
+        );
+
+        if (!response.ok)
+        {
+            const errorText = await response.text();
+
+            throw new Error(errorText ||`Server odpověděl stavem ${response.status}`);
+        }
+
+        const html = await response.text();
+
+        /*
+         * Odpověď obsahuje novou tabulku
+         * a nové stránkování.
+         */
+
+
+        const parser = new DOMParser();
+
+        const responseDocument = parser.parseFromString(html,"text/html");
+
+        const newTable = responseDocument.getElementById("list-patients-component-listC-listC2-content-table-box");
+
+        const newPagination = responseDocument.getElementById("list-patients-component-lessC");
+
+        const currentTable = document.getElementById("list-patients-component-listC-listC2-content-table-box");
+
+        const currentPagination = document.getElementById("list-patients-component-lessC");
+
+        if (!newTable || !currentTable)
+        {
+            throw new Error("Server nevrátil aktualizovanou tabulku.");
+        }
+
+        currentTable.replaceWith(newTable);
+
+        if (newPagination && currentPagination)
+        {
+            currentPagination.replaceWith(newPagination);
+        }
+
+        /*
+         * Po úspěšném smazání vyčistíme celý výběr.
+         */
+
+        SelectionManager.clear();
+
+        syncTotalRecords();
+        updateSelectionControls();
+
+        // requestAnimationFrame(initCustomScrollbar);
+
+        requestAnimationFrame(() =>
+        {
+            initCustomScrollbar();
+
+            const content = document.getElementById(
+                "list-patients-component-listC-listC2-content"
+            );
+
+            const thumb = document.getElementById(
+                "list-patients-component-listC-listC2-scrollC-thumb"
+            );
+
+            if (content)
+            {
+                content.scrollTop = 0;
+            }
+
+            if (thumb)
+            {
+                thumb.style.top = "0px";
+            }
+        });
+
+        console.log("%cOdstranění klienti:","color:hotpink; font-weight:bold;",patientIds);
+    }
+    catch (error)
+    {
+        console.error(
+            "Nepodařilo se odstranit vybrané klienty:",
+            error
+        );
+
+        alert("Vybrané klienty se nepodařilo odstranit.");
+
+        /*
+         * Při chybě výběr zachováme.
+         */
+
+        updateSelectionControls();
+    }
+});
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*    Načtení vybraných hodnot                             */
+/*    list-patients-component-searching-bar-searchInput    */
+/*    list-patients-component-searching-bar-selectBox1     */
+/*    list-patients-component-searching-bar-selectBox2     */
+/*    list-patients-component-searching-bar-selectBox3     */
+/*    list-patients-component-searching-bar-selectBox4     */
+/*                   14.7.2026                             */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+function sendCurrentFilters()
+{
+    const filters =
+    {
+        search: document.getElementById("list-patients-component-searching-bar-searchInput").value,
+
+        clients: document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value,
+
+        department: document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value,
+
+        building: document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value,
+
+        source: document.getElementById("list-patients-component-searching-bar-selectBox4-filter").value
+    };
+
+    console.log(filters);
+
+    fetch("/administration/clients/current_data", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(filters)
+    });
+}
+
+
+document.addEventListener("input", function (event)
+{
+    if (
+        event.target.id ===
+        "list-patients-component-searching-bar-searchInput"
+    )
+    {
+        sendCurrentFilters();
+    }
 });

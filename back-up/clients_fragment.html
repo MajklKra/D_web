@@ -1,0 +1,463 @@
+
+{# templates/admin_clients/clients_fragment.html #}
+
+<section id="list-patients-component">
+
+    <section id="list-patients-component-searching-bar">
+        <!-- <input type="search" id="list-patients-component-searching-bar-searchInput" name="q" placeholder="Vyhledat klienta..." autocomplete="off" spellcheck="false"> -->
+
+        <div id="list-patients-component-searching-bar-searchingBox">
+
+            <div id="list-patients-component-magnifierC">
+
+                <svg id="list-patients-component-magnifier"  viewBox="4.5 4.5 16 16">
+                    <defs>
+                        <style>
+                        .list-patients-component-magnifierC-m_cls-1 {
+                            fill: currentColor;
+                            opacity: .71;
+                        }
+                        </style>
+                    </defs>
+                    <path class="list-patients-component-magnifierC-m_cls-1" d="M10.67,5.09c3.03,0,5.5,2.47,5.5,5.5,0,1.2-.39,2.3-1.04,3.21l4.46,4.32c.39.38.4,1,.02,1.39-.19.2-.45.3-.71.3s-.5-.09-.69-.28l-4.47-4.33s-.01-.02-.02-.03c-.87.59-1.92.93-3.05.93-3.03,0-5.5-2.47-5.5-5.5s2.47-5.5,5.5-5.5ZM10.67,14.61c2.22,0,4.02-1.8,4.02-4.02s-1.8-4.02-4.02-4.02-4.02,1.8-4.02,4.02,1.8,4.02,4.02,4.02Z"/>
+                </svg>
+
+            </div>
+
+            <div id="list-patients-component-searchWrapper">
+
+                <span id="list-patients-component-searchLabel">
+                    Vyhledat
+                </span>
+
+                <input id="list-patients-component-searching-bar-searchInput" type="search"  maxlength="50" name="q" autocomplete="off" spellcheck="false">
+
+            </div>
+
+
+        </div>
+
+        <button id="list-patients-component-searching-bar-btn1">
+
+
+            <div id="list-patients-component-searching-bar-btn1-imgC">
+
+                <!-- <svg id="list-patients-component-searching-bar-btn1-img1" viewBox="0 0 23.9 23.9">
+                    <defs>
+                        <style>
+                        .list-patients-component-searching-bar-btn1-img1-cls-1 {
+                            fill: #357fab;
+                            stroke: #357fab;
+                            stroke-miterlimit: 10;
+                            stroke-width: .25px;
+                        }
+                        </style>
+                    </defs>
+                    <path class="list-patients-component-searching-bar-btn1-img1-cls-1" d="M12.33,11.2v-4.64c0-.29-.23-.52-.52-.52s-.52.23-.52.52v4.64h-4.64c-.29,0-.52.23-.52.52s.23.52.52.52h4.64v4.64c0,.29.23.52.52.52.14,0,.27-.06.37-.15s.15-.22.15-.37v-4.64h4.64c.14,0,.27-.06.37-.15s.15-.22.15-.37c0-.29-.23-.52-.52-.52h-4.64Z"/>
+                </svg> -->
+
+                 <svg id="list-patients-component-searching-bar-btn1-img1" viewBox="6 6 11.5 11.5">
+                    <defs>
+                        <style>
+                        .list-patients-component-searching-bar-btn1-img1-cls-1 {
+                            fill: #357fab;
+                            stroke: #357fab;
+                            stroke-miterlimit: 10;
+                            stroke-width: .25px;
+                        }
+                        </style>
+                    </defs>
+                    <path class="list-patients-component-searching-bar-btn1-img1-cls-1" d="M12.33,11.2v-4.64c0-.29-.23-.52-.52-.52s-.52.23-.52.52v4.64h-4.64c-.29,0-.52.23-.52.52s.23.52.52.52h4.64v4.64c0,.29.23.52.52.52.14,0,.27-.06.37-.15s.15-.22.15-.37v-4.64h4.64c.14,0,.27-.06.37-.15s.15-.22.15-.37c0-.29-.23-.52-.52-.52h-4.64Z"/>
+                </svg>
+
+            </div>
+
+            <p id="list-patients-component-searching-bar-btn1-add"> Přidat </p>
+
+        </button>
+
+        <button id="list-patients-component-searching-bar-btn2" type="button" disabled>
+
+            <div id="list-patients-component-searching-bar-btn2-imgC">
+
+                 <svg id="list-patients-component-searching-bar-btn2-img1" viewBox="4.5 2.2 15 19">
+                    <defs>
+                        <style>
+                        .list-patients-component-searching-bar-btn2-img1-cls-1
+                        {
+                            fill: currentColor;
+                        }
+                        </style>
+                    </defs>
+                    <path class="list-patients-component-searching-bar-btn2-img1-cls-1" d="M16.78,17.42l2.98-2.98c.13-.13.21-.31.21-.5s-.07-.36-.21-.5c-.28-.27-.72-.27-1,0l-2.98,2.98-2.98-2.98c-.27-.27-.72-.27-1,0-.27.27-.27.72,0,1l2.98,2.98-2.98,2.98c-.27.27-.27.72,0,1,.27.27.72.27,1,0l2.98-2.98,2.98,2.98c.14.14.32.21.5.21s.36-.07.5-.21.21-.31.21-.5-.07-.36-.21-.5l-2.98-2.98Z"/>
+                    <path class="list-patients-component-searching-bar-btn2-img1-cls-1" d="M16.14,12.94c-.5-1.23-1.38-2.19-2.45-2.81-.19-.11-.37-.2-.54-.27,0,0-.02-.01-.03-.02,1.06-.74,1.75-1.96,1.75-3.34,0-2.25-1.83-4.08-4.08-4.08s-4.08,1.83-4.08,4.08c0,1.39.7,2.61,1.76,3.35-2.01.9-3.41,2.91-3.41,5.25,0,.35.28.63.63.63s.63-.28.63-.63c0-2.47,2.01-4.49,4.49-4.49.7,0,1.35.17,1.94.46.11.05.22.11.32.17.82.48,1.51,1.22,1.89,2.17.13.32.5.48.82.35.32-.13.48-.5.35-.82ZM10.79,9.32c-1.55,0-2.81-1.26-2.81-2.81s1.26-2.81,2.81-2.81,2.81,1.26,2.81,2.81-1.26,2.81-2.81,2.81Z"/>
+                </svg>
+
+            </div>
+
+            <p id="list-patients-component-searching-bar-btn2-delete">Odstranit</p>
+
+            <span id="list-patients-component-searching-bar-count">x</span>
+
+        </button>
+
+        <!-- <div id="list-patients-component-searching-bar-selectBox1">SelectBox 1</div> -->
+        <div id="list-patients-component-searching-bar-selectBox1">
+
+            <button id="list-patients-component-searching-bar-selectBox1-btn1" type="button">
+
+                <span id="list-patients-component-searching-bar-selectBox1-sp1">Klienti:</span>
+
+                <!-- <strong id="clientSelectValue">Všichni</strong> -->
+                <span id="list-patients-component-searching-bar-selectBox1-sp2">Všichni</span>
+
+                <!-- <span class="arrow">⌄</span> -->
+                <svg id="list-patients-component-searching-bar-selectBox1-img" fill="currentcolor" viewBox="0 0 451.847 451.847" xml:space="preserve">
+                    <g>
+                        <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                            c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                            c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
+                    </g>
+                </svg>
+
+            </button>
+
+            <div id="list-patients-component-searching-bar-selectBox1-menu">
+                <div id="list-patients-component-searching-bar-selectBox1-menu-o1" data-value="all" class="list-patients-component-searching-bar-selectBox1-menu-options">Všichni</div>
+                <div id="list-patients-component-searching-bar-selectBox1-menu-o2" data-value="on-bed" class="list-patients-component-searching-bar-selectBox1-menu-options">Umístění</div>
+                <div id="list-patients-component-searching-bar-selectBox1-menu-o3" data-value="without-bed" class="list-patients-component-searching-bar-selectBox1-menu-options">Neumístění</div>
+            </div>
+
+            <input type="hidden" name="list-patients-component-searching-bar-selectBox1-filter" id="list-patients-component-searching-bar-selectBox1-filter" value="all">
+
+        </div>
+
+        <!-- <div id="list-patients-component-searching-bar-selectBox2">SelectBox 2</div> -->
+        <div id="list-patients-component-searching-bar-selectBox2">
+
+            <button id="list-patients-component-searching-bar-selectBox2-btn1" type="button">
+
+                <span id="list-patients-component-searching-bar-selectBox2-sp1">Oddělení:</span>
+
+                <!-- <strong id="clientSelectValue">Všichni</strong> -->
+                <span id="list-patients-component-searching-bar-selectBox2-sp2">Všechny</span>
+
+                <!-- <span class="arrow">⌄</span> -->
+                <svg id="list-patients-component-searching-bar-selectBox2-img" fill="currentcolor" viewBox="0 0 451.847 451.847" xml:space="preserve">
+                    <g>
+                        <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                            c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                            c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
+                    </g>
+                </svg>
+
+            </button>
+
+            <div id="list-patients-component-searching-bar-selectBox2-menu">
+                <div id="list-patients-component-searching-bar-selectBox2-menu-o1" data-value="all" class="list-patients-component-searching-bar-selectBox2-menu-options">Všechny</div>
+                <!-- <div id="list-patients-component-searching-bar-selectBox2-menu-o2" data-value="Gyn" class="list-patients-component-searching-bar-selectBox2-menu-options">Gynekologie</div>
+                <div id="list-patients-component-searching-bar-selectBox2-menu-o3" data-value="Sex" class="list-patients-component-searching-bar-selectBox2-menu-options">Sexuologie</div>
+                <div id="list-patients-component-searching-bar-selectBox2-menu-o4" data-value="Psy" class="list-patients-component-searching-bar-selectBox2-menu-options">Psychologie</div>
+                <div id="list-patients-component-searching-bar-selectBox2-menu-o5" data-value="Trau" class="list-patients-component-searching-bar-selectBox2-menu-options">Traumatologie</div> -->
+
+                 {% for department_id, department_name in data.departments %}
+                    <div class="list-patients-component-searching-bar-selectBox2-menu-options" data-value="{{ department_id }}">
+                        {{ department_name }}
+                    </div>
+                 {% endfor %}
+
+
+            </div>
+
+            <input type="hidden" name="list-patients-component-searching-bar-selectBox2-filter" id="list-patients-component-searching-bar-selectBox2-filter" value="all">
+
+        </div>
+
+        <!-- <div id="list-patients-component-searching-bar-selectBox3">SelectBox 3</div> -->
+        <div id="list-patients-component-searching-bar-selectBox3">
+
+            <button id="list-patients-component-searching-bar-selectBox3-btn1" type="button">
+
+                <span id="list-patients-component-searching-bar-selectBox3-sp1">Budova:</span>
+
+                <!-- <strong id="clientSelectValue">Všichni</strong> -->
+                <span id="list-patients-component-searching-bar-selectBox3-sp2">Všechny</span>
+
+                <!-- <span class="arrow">⌄</span> -->
+                <svg id="list-patients-component-searching-bar-selectBox3-img" fill="currentcolor" viewBox="0 0 451.847 451.847" xml:space="preserve">
+                    <g>
+                        <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                            c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                            c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
+                    </g>
+                </svg>
+
+            </button>
+
+            <div id="list-patients-component-searching-bar-selectBox3-menu">
+                <div id="list-patients-component-searching-bar-selectBox3-menu-o1" data-value="all" class="list-patients-component-searching-bar-selectBox3-menu-options">Všechny</div>
+                <!-- <div id="list-patients-component-searching-bar-selectBox3-menu-o2" data-value="A" class="list-patients-component-searching-bar-selectBox3-menu-options">A</div>
+                <div id="list-patients-component-searching-bar-selectBox3-menu-o3" data-value="B" class="list-patients-component-searching-bar-selectBox3-menu-options">B</div>
+                <div id="list-patients-component-searching-bar-selectBox3-menu-o4" data-value="C" class="list-patients-component-searching-bar-selectBox3-menu-options">C</div>
+                <div id="list-patients-component-searching-bar-selectBox3-menu-o5" data-value="D" class="list-patients-component-searching-bar-selectBox3-menu-options">D</div> -->
+
+
+                {% for building_id, building_name in data.buildings %}
+                    <div class="list-patients-component-searching-bar-selectBox3-menu-options" data-value="{{ building_id }}">
+                        {{ building_name}}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <input type="hidden" name="list-patients-component-searching-bar-selectBox3-filter" id="list-patients-component-searching-bar-selectBox3-filter" value="all">
+
+        </div>
+
+        <!-- <div id="list-patients-component-searching-bar-selectBox4">SelectBox 4</div> -->
+        <div id="list-patients-component-searching-bar-selectBox4">
+
+            <button id="list-patients-component-searching-bar-selectBox4-btn1" type="button">
+
+                <span id="list-patients-component-searching-bar-selectBox4-sp1">Zdroj:</span>
+
+                <!-- <strong id="clientSelectValue">Všichni</strong> -->
+                <span id="list-patients-component-searching-bar-selectBox4-sp2">Všechny</span>
+
+                <!-- <span class="arrow">⌄</span> -->
+                <svg id="list-patients-component-searching-bar-selectBox4-img" fill="currentcolor" viewBox="0 0 451.847 451.847" xml:space="preserve">
+                    <g>
+                        <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
+                            c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0
+                            c12.365,12.354,12.365,32.392,0,44.751L248.292,345.449C242.115,351.621,234.018,354.706,225.923,354.706z"/>
+                    </g>
+                </svg>
+
+            </button>
+
+            <div id="list-patients-component-searching-bar-selectBox4-menu">
+                <div id="list-patients-component-searching-bar-selectBox4-menu-o1" data-value="all" class="list-patients-component-searching-bar-selectBox4-menu-options">Všechny</div>
+                <div id="list-patients-component-searching-bar-selectBox4-menu-o2" data-value="Cygnus" class="list-patients-component-searching-bar-selectBox4-menu-options">Cygnus</div>
+                <div id="list-patients-component-searching-bar-selectBox4-menu-o3" data-value="Dods" class="list-patients-component-searching-bar-selectBox4-menu-options">Dods</div>
+            </div>
+
+            <input type="hidden" name="list-patients-component-searching-bar-selectBox4-filter" id="list-patients-component-searching-bar-selectBox4-filter" value="all">
+
+        </div>
+
+    </section>
+
+    <section id="list-patients-component-listC">
+
+        <div id="list-patients-component-listC-head">
+
+            <!-- <span id="list-patients-component-listC-head-c1"> -->
+                <label id="list-patients-component-listC-head-c1">
+                    <input type="checkbox" id="list-patients-component-listC-head-c1-checkbox" data-total-records="{{ total_records }}">
+
+                    <span id="list-patients-component-listC-head-c1-checkbox-box">
+                        <!-- <svg viewBox="0 0 24 24">
+                            <path d="M5 12.5L10 17L19 7"/>
+                        </svg> -->
+
+                        <svg viewBox="4 6 16 12">
+                            <path d="M5 12.5L10 17L19 7"/>
+                        </svg>
+
+                    </span>
+
+                </label>
+            <!-- </span> -->
+            <span id="list-patients-component-listC-head-c2">Klient</span>
+            <span id="list-patients-component-listC-head-c3">Budova</span>
+            <span id="list-patients-component-listC-head-c4">Oddělení</span>
+            <span id="list-patients-component-listC-head-c5">Pokoj</span>
+            <span id="list-patients-component-listC-head-c6">Lůžko</span>
+            <span id="list-patients-component-listC-head-c7">Zdroj</span>
+
+        </div>
+
+        <div id="list-patients-component-listC-listC2">
+
+            <div id="list-patients-component-listC-listC2-content">
+
+                 {% include "clients_table.html" %}
+
+                <!-- <div id="list-patients-component-listC-listC2-content-table-box">
+
+                    <table id="list-patients-component-listC-listC2-content-table-box-t1">
+
+                        <thead style="display: none;">
+                            <tr>
+                                <th></th>
+                                <th>Klient</th>
+                                <th>Budova</th>
+                                <th>Oddělení</th>
+                                <th>Pokoj</th>
+                                <th>Lůžko</th>
+                                <th>Zdroj</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="list-patients-component-listC-listC2-content-table-box-t1-patients-table-body">
+
+                            {% for c in all_clients %}
+
+                                <tr data-patient-id= {{c[0]}}>
+                                    <td class="list-patients-component-listC-listC2-content-table-box-t1-col1">
+
+                                        <label id="list-patients-component-listC-listC2-content-table-box-t1-col1-label">
+                                            <input type="checkbox" id="list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox">
+
+                                            <span id="list-patients-component-listC-listC2-content-table-box-t1-col1-checkbox-box">
+
+                                                <svg viewBox="4 6 16 12">
+                                                    <path d="M5 12.5L10 17L19 7"/>
+                                                </svg>
+
+                                            </span>
+
+                                        </label>
+
+                                    </td>
+                                    <td class="list-patients-component-listC-listC2-content-table-box-t1-col2">{{c[1]}} {{c[3]}}</td>
+
+
+                                    {% if c[2] is not none %}
+
+                                    <td class="list-patients-component-listC-listC2-content-table-box-t1-col3">{{c[2]}}</td>
+
+                                    {% else %}
+
+                                    <td class="list-patients-component-listC-listC2-content-table-box-t1-col3">
+                                        <div class="list-patients-component-listC-listC2-content-table-box-t1-col3-minus"></div>
+                                    </td>
+
+                                    {% endif %}
+
+                                    {% if c[4] is not none %}
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col4">{{c[4]}}</td>
+                                    {% else %}
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col4">
+                                            <div class="list-patients-component-listC-listC2-content-table-box-t1-col4-minus"></div>
+                                        </td>
+                                    {% endif %}
+
+                                    {% if c[5] is not none %}
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col5">{{c[5]}}</td>
+                                    {% else %}
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col5">
+                                            <div class="list-patients-component-listC-listC2-content-table-box-t1-col5-minus"></div>
+                                        </td>
+                                    {% endif %}
+
+                                    {% if c[6] is not none %}
+                                    <td class="list-patients-component-listC-listC2-content-table-box-t1-col6">{{c[6]}}</td>
+                                    {% else %}
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col6">
+                                               <button class="list-patients-component-listC-listC2-content-table-box-t1-col6-btn">
+
+                                                 <svg class="list-patients-component-listC-listC2-content-table-box-t1-col6-btn-img" viewBox="9 13 26 16">
+                                                    <defs>
+                                                        <style>
+                                                        .list-patients-component-listC-listC2-content-table-box-t1-col6-btn-img-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="list-patients-component-listC-listC2-content-table-box-t1-col6-btn-img-cls-1" d="M34.12,18.41c-.56,0-1.02.46-1.02,1.02v2.9H11.53v-7.63c0-.56-.46-1.02-1.02-1.02h0c-.56,0-1.02.46-1.02,1.02v14.03c0,.11.09.2.2.2h1.64c.11,0,.2-.09.2-.2v-2.28h21.57v2.28c0,.11.09.2.2.2h1.64c.11,0,.2-.09.2-.2v-9.3c0-.56-.46-1.02-1.02-1.02Z"/>
+                                                </svg>
+
+
+                                               </button>
+                                        </td>
+                                    {% endif %}
+
+
+
+                                    {% if c[7] is not none and c[8] == 0 %}
+
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col7">
+                                            Cygnus
+                                        </td>
+
+                                    {% elif c[9] is not none and c[10] == 0 %}
+
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col7">
+                                            DODS
+                                        </td>
+
+                                    {% else %}
+
+                                        <td class="list-patients-component-listC-listC2-content-table-box-t1-col7">
+                                            <div class="list-patients-component-listC-listC2-content-table-box-t1-col7-minus"></div>
+                                        </td>
+
+                                    {% endif %}
+
+
+                                    <td class="list-patients-component-listC-listC2-content-table-box-t1-col8">
+                                        <button id="list-patients-component-listC-listC2-content-table-box-t1-col8-btn1">
+
+                                            <svg id="list-patients-component-listC-listC2-content-table-box-t1-col8-btn1-img" viewBox="0 0 23.9 23.9">
+                                                <defs>
+                                                    <style>
+                                                    .list-patients-component-listC-listC2-content-table-box-t1-col8-btn1-img-cls-1
+                                                    {
+                                                        fill: currentColor;
+                                                    }
+                                                    </style>
+                                                </defs>
+                                                <path class="list-patients-component-listC-listC2-content-table-box-t1-col8-btn1-img-cls-1" d="M16.78,17.42l2.98-2.98c.13-.13.21-.31.21-.5s-.07-.36-.21-.5c-.28-.27-.72-.27-1,0l-2.98,2.98-2.98-2.98c-.27-.27-.72-.27-1,0-.27.27-.27.72,0,1l2.98,2.98-2.98,2.98c-.27.27-.27.72,0,1,.27.27.72.27,1,0l2.98-2.98,2.98,2.98c.14.14.32.21.5.21s.36-.07.5-.21.21-.31.21-.5-.07-.36-.21-.5l-2.98-2.98Z"/>
+                                                <path class="list-patients-component-listC-listC2-content-table-box-t1-col8-btn1-img-cls-1" d="M16.14,12.94c-.5-1.23-1.38-2.19-2.45-2.81-.19-.11-.37-.2-.54-.27,0,0-.02-.01-.03-.02,1.06-.74,1.75-1.96,1.75-3.34,0-2.25-1.83-4.08-4.08-4.08s-4.08,1.83-4.08,4.08c0,1.39.7,2.61,1.76,3.35-2.01.9-3.41,2.91-3.41,5.25,0,.35.28.63.63.63s.63-.28.63-.63c0-2.47,2.01-4.49,4.49-4.49.7,0,1.35.17,1.94.46.11.05.22.11.32.17.82.48,1.51,1.22,1.89,2.17.13.32.5.48.82.35.32-.13.48-.5.35-.82ZM10.79,9.32c-1.55,0-2.81-1.26-2.81-2.81s1.26-2.81,2.81-2.81,2.81,1.26,2.81,2.81-1.26,2.81-2.81,2.81Z"/>
+                                            </svg>
+
+                                        </button>
+                                    </td>
+
+
+
+                                </tr>
+
+                        {% endfor %}
+
+
+
+                        </tbody>
+                    </table>
+
+                </div> -->
+
+            </div>
+
+
+            <div id="list-patients-component-listC-listC2-scrollC">
+                <div id="list-patients-component-listC-listC2-scrollC-thumb"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <div id="list-patients-component-listC-deleteC-shadow">
+        <p>XXX</p>
+    </div>
+
+    <section id="list-patients-component-listC-deleteC">
+
+            <div id="list-patients-component-listC-deleteC-row1">
+                <p  id="list-patients-component-listC-deleteC-row1-notice"> Opravdu chcete odstranit klienta?</p>
+                <span id="list-patients-component-listC-deleteC-row1-client">Michal Kraninger</span>
+            </div>
+
+            <div id="list-patients-component-listC-deleteC-row2">
+
+                <button  id="list-patients-component-listC-deleteC-row2-noBtn">Zrušit</button>
+                <button  id="list-patients-component-listC-deleteC-row2-deleteBtn">Odstranit</button>
+
+            </div>
+
+    </section>
+
+</section>
