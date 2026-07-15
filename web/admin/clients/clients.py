@@ -175,12 +175,26 @@ def clients():
             JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
             WHERE Departments.DepartmentID IN ({placeholders})
 
+            UNION ALL
+
+            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+            DodsSubjectId, DodsBrokenClient
+            FROM Patients
+            LEFT JOIN Beds ON Beds.BedID = Patients.BedID
+            LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+            LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+            LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+            LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
+            LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+            WHERE Patients.BedID = -1
+
             ORDER BY Surname, Name
             LIMIT %s OFFSET %s
         """
         params = tuple(e_deps) + tuple(e_deps) + (per_page, offset)
 
         SQL_query_deps = f"""
+
             SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
             DodsSubjectId, DodsBrokenClient
             FROM Patients
@@ -205,7 +219,22 @@ def clients():
             JOIN Floors ON Floors.FloorID = Rooms.FloorID
             JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
             WHERE Departments.DepartmentID IN ({placeholders})
+
+            UNION ALL
+
+            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+            DodsSubjectId, DodsBrokenClient
+            FROM Patients
+            LEFT JOIN Beds ON Beds.BedID = Patients.BedID
+            LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+            LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+            LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+            LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
+            LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+            WHERE Patients.BedID = -1
+
             ORDER BY Surname, Name
+
         """
 
         params2 = tuple(e_deps) + tuple(e_deps)
@@ -216,7 +245,7 @@ def clients():
         clients_ids = [row[0] for row in clients]
         session["filtered_patient_ids"] = clients_ids
 
-        total_records =  len(clients_per_page)
+        total_records =  len(clients_ids)
         total_pages = ceil(total_records / per_page)
 
     print(" Výsledek SQL dotazů result_all_pacients delivered !!! ")
@@ -871,6 +900,19 @@ def loading_data():
             JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
             WHERE Departments.DepartmentID IN ({placeholders})
 
+            UNION ALL
+
+            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+            DodsSubjectId, DodsBrokenClient
+            FROM Patients
+            LEFT JOIN Beds ON Beds.BedID = Patients.BedID
+            LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+            LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+            LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+            LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
+            LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+            WHERE Patients.BedID = -1
+
             ORDER BY Surname, Name
             LIMIT %s OFFSET %s
         """
@@ -901,6 +943,20 @@ def loading_data():
             JOIN Floors ON Floors.FloorID = Rooms.FloorID
             JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
             WHERE Departments.DepartmentID IN ({placeholders})
+
+            UNION ALL
+
+            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+            DodsSubjectId, DodsBrokenClient
+            FROM Patients
+            LEFT JOIN Beds ON Beds.BedID = Patients.BedID
+            LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+            LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+            LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+            LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
+            LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+            WHERE Patients.BedID = -1
+
             ORDER BY Surname, Name
         """
 
@@ -912,7 +968,7 @@ def loading_data():
         clients_ids = [row[0] for row in clients]
         session["filtered_patient_ids"] = clients_ids
 
-        total_records =  len(clients_per_page)
+        total_records =  len(clients_ids)
         total_pages = ceil(total_records / per_page)
 
     print(" Výsledek SQL dotazů result_all_pacients delivered !!! ")

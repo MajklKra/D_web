@@ -1,7 +1,7 @@
 
-__version__ = "1.3.17"
+__version__ = "1.3.18"
 
-# implemention function loadingData() and re-designing the function render_clients_table():
+#  Original SQL_queries for starting out has been updated
 
 # Jedná se o tuto produkční verzi č. ___
 
