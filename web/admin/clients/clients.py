@@ -1296,11 +1296,12 @@ def loading_data():
     tech = session.get("tech")
     admin = session.get("admin")
 
-    search = session.get("search")
-    accomodated = session.get("SB1")
-    department = session.get("SB2")
-    building = session.get("SB3")
-    source = session.get("SB4")
+    search = session.get("search", "").strip()
+    accommodated = session.get("SB1", "all")
+    department = session.get("SB2", "all")
+    building = session.get("SB3", "all")
+    source = session.get("SB4", "all")
+
 
     if e_id > 0:
        e_deps = session.get("e_deps")
@@ -1312,7 +1313,7 @@ def loading_data():
     if e_id > 0:
        e_deps = session.get("e_deps")
 
-    if accomodated == "without-bed":
+    if accommodated == "without-bed":
        option3 = True
 
     elif e_id == 0 or tech == True or admin == True:
@@ -1325,107 +1326,315 @@ def loading_data():
     # Varianta 1 - všichni klienti v databázi
     # if e_id == 0 or tech == True or admin == True
 
+    # if option1:
+
+    #     page = request.args.get("page", 1, type=int)
+    #     partial = request.args.get("partial")
+    #     per_page = 50
+    #     offset = (page - 1) * per_page
+    #     total_records = db_connection(
+    #         """
+    #             SELECT COUNT(*)
+    #             FROM Patients
+    #         """,
+    #         one_row=True)[0]
+    #     total_pages = ceil(total_records / per_page)
+
+    #     SQL_query_all_pacients_pages = '''
+
+    #         SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+    #         DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
+    #         FROM Patients
+    #         JOIN Beds ON Beds.BedID = Patients.BedID
+    #         JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+    #         JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+    #         JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+    #         JOIN Floors ON Floors.FloorID = Rooms.FloorID
+    #         JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+    #         UNION ALL
+
+    #         SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+    #         DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
+    #         FROM Patients
+    #         JOIN Beds ON Beds.BedID = Patients.BedID
+    #         JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+    #         JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+    #         JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+    #         JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+    #         JOIN Floors ON Floors.FloorID = Rooms.FloorID
+    #         JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+    #         UNION ALL
+
+    #         SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+    #         DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
+    #         FROM Patients
+    #         LEFT JOIN Beds ON Beds.BedID = Patients.BedID
+    #         LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+    #         LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+    #         LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+    #         LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
+    #         LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+    #         WHERE Patients.BedID = -1
+    #         ORDER BY Surname, Name
+    #         LIMIT %s OFFSET %s;
+
+    #     '''
+    #     SQL_query_all_pacients = '''
+
+    #         SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+    #         DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
+    #         FROM Patients
+    #         JOIN Beds ON Beds.BedID = Patients.BedID
+    #         JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+    #         JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+    #         JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+    #         JOIN Floors ON Floors.FloorID = Rooms.FloorID
+    #         JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+    #         UNION ALL
+
+    #         SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+    #         DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
+    #         FROM Patients
+    #         JOIN Beds ON Beds.BedID = Patients.BedID
+    #         JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+    #         JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+    #         JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+    #         JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+    #         JOIN Floors ON Floors.FloorID = Rooms.FloorID
+    #         JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+    #         UNION ALL
+
+    #         SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
+    #         DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
+    #         FROM Patients
+    #         LEFT JOIN Beds ON Beds.BedID = Patients.BedID
+    #         LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+    #         LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+    #         LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+    #         LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
+    #         LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+    #         WHERE Patients.BedID = -1
+    #         ORDER BY Surname, Name
+    #     '''
+
+    #     clients_per_page = db_connection(SQL_query_all_pacients_pages, (per_page, offset), one_row=False)
+    #     clients_all_pacients = db_connection( SQL_query_all_pacients, (), one_row=False)
+
+    #     clients_ids = [row[0] for row in clients_all_pacients]
+    #     session["filtered_patient_ids"] = clients_ids
+
+
+    #     loading_data = {
+    #         "clients_per_page":clients_per_page,
+    #         "clients_ids":clients_ids,
+    #         "page":page,
+    #         "per_page":per_page,
+    #         "total_records":total_records,
+    #         "total_pages":total_pages,
+    #     }
+
     if option1:
 
         page = request.args.get("page", 1, type=int)
-        partial = request.args.get("partial")
         per_page = 50
         offset = (page - 1) * per_page
-        total_records = db_connection(
-            """
-                SELECT COUNT(*)
+
+        SQL_query_all_pacients_pages = """
+            SELECT *
+            FROM
+            (
+
+                SELECT Patients.PatientID, Patients.Surname, Buildings.Name AS Building, Patients.Name AS ClientName, Departments.Name AS Department,
+                    Rooms.RoomNumber, Beds.BedNumber, Patients.CygnusClientId, Patients.CygnusBrokenClient, Patients.DodsSubjectId,
+                    Patients.DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID, Patients.BedID
                 FROM Patients
-            """,
-            one_row=True)[0]
-        total_pages = ceil(total_records / per_page)
+                JOIN Beds ON Beds.BedID = Patients.BedID
+                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
+                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
 
-        SQL_query_all_pacients_pages = '''
+                UNION ALL
 
-            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
-            FROM Patients
-            JOIN Beds ON Beds.BedID = Patients.BedID
-            JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
-            JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-            JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
-            JOIN Floors ON Floors.FloorID = Rooms.FloorID
-            JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+                SELECT Patients.PatientID, Patients.Surname, Buildings.Name AS Building, Patients.Name AS ClientName, Departments.Name AS Department,
+                    Rooms.RoomNumber, Beds.BedNumber, Patients.CygnusClientId, Patients.CygnusBrokenClient, Patients.DodsSubjectId,
+                    Patients.DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID, Patients.BedID
+                FROM Patients
+                JOIN Beds ON Beds.BedID = Patients.BedID
+                JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+                JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
+                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
 
-            UNION ALL
+                UNION ALL
 
-            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
-            FROM Patients
-            JOIN Beds ON Beds.BedID = Patients.BedID
-            JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
-            JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
-            JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
-            JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-            JOIN Floors ON Floors.FloorID = Rooms.FloorID
-            JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+                SELECT Patients.PatientID, Patients.Surname, NULL AS Building, Patients.Name AS ClientName,
+                    NULL AS Department, NULL AS RoomNumber, NULL AS BedNumber, Patients.CygnusClientId,
+                    Patients.CygnusBrokenClient, Patients.DodsSubjectId, Patients.DodsBrokenClient,
+                    NULL AS BuildingID, NULL AS DepartmentID, Patients.BedID
+                FROM Patients
+                WHERE Patients.BedID IN (-1, 0)
 
-            UNION ALL
+            ) AS clients
+            WHERE 1 = 1
 
-            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
-            FROM Patients
-            LEFT JOIN Beds ON Beds.BedID = Patients.BedID
-            LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
-            LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-            LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
-            LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
-            LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
-            WHERE Patients.BedID = -1
-            ORDER BY Surname, Name
-            LIMIT %s OFFSET %s;
+        """
 
-        '''
-        SQL_query_all_pacients = '''
+        params = []
 
-            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
-            FROM Patients
-            JOIN Beds ON Beds.BedID = Patients.BedID
-            JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
-            JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-            JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
-            JOIN Floors ON Floors.FloorID = Rooms.FloorID
-            JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+        if search:
+            SQL_query_all_pacients_pages += """
+                AND CONCAT_WS(
+                    ' ',
+                    clients.Surname,
+                    clients.ClientName
+                ) LIKE %s
+            """
+            params.append(f"%{search}%")
 
-            UNION ALL
+        if accommodated == "on-bed":
+            SQL_query_all_pacients_pages += """
+                AND clients.BedID NOT IN (0, -1)
+            """
 
-            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
-            FROM Patients
-            JOIN Beds ON Beds.BedID = Patients.BedID
-            JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
-            JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
-            JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
-            JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-            JOIN Floors ON Floors.FloorID = Rooms.FloorID
-            JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+        if department != "all":
+            SQL_query_all_pacients_pages += """
+                AND clients.DepartmentID = %s
+            """
+            params.append(department)
 
-            UNION ALL
+        if building != "all":
+            SQL_query_all_pacients_pages += """
+                AND clients.BuildingID = %s
+            """
+            params.append(building)
 
-            SELECT PatientID, Surname, Buildings.`Name` AS Building, Patients.NAME, Departments.`Name` AS Department, Rooms.RoomNumber , Beds.BedNumber, CygnusClientId, CygnusBrokenClient,
-            DodsSubjectId, DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID
-            FROM Patients
-            LEFT JOIN Beds ON Beds.BedID = Patients.BedID
-            LEFT JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
-            LEFT JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-            LEFT JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
-            LEFT JOIN Floors ON Floors.FloorID = Rooms.FloorID
-            LEFT JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
-            WHERE Patients.BedID = -1
-            ORDER BY Surname, Name
-        '''
+        if source == "Cygnus":
+            SQL_query_all_pacients_pages += """
+                AND clients.CygnusClientId IS NOT NULL
+                AND clients.CygnusBrokenClient = 0
+            """
 
-        clients_per_page = db_connection(SQL_query_all_pacients_pages, (per_page, offset), one_row=False)
-        clients_all_pacients = db_connection( SQL_query_all_pacients, (), one_row=False)
+        elif source == "Dods":
+            SQL_query_all_pacients_pages += """
+                AND clients.DodsSubjectId IS NOT NULL
+                AND clients.DodsBrokenClient = 0
+            """
 
-        clients_ids = [row[0] for row in clients_all_pacients]
+        SQL_query_all_pacients_pages += """
+            ORDER BY clients.Surname, clients.ClientName
+            LIMIT %s OFFSET %s
+        """
+
+        params.extend([per_page, offset])
+
+        clients_per_page = db_connection(SQL_query_all_pacients_pages,tuple(params), one_row=False)
+
+
+        SQL_query_all_pacients = """
+            SELECT *
+            FROM
+            (
+
+                SELECT Patients.PatientID, Patients.Surname, Buildings.Name AS Building, Patients.Name AS ClientName, Departments.Name AS Department,
+                    Rooms.RoomNumber, Beds.BedNumber, Patients.CygnusClientId, Patients.CygnusBrokenClient, Patients.DodsSubjectId,
+                    Patients.DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID, Patients.BedID
+                FROM Patients
+                JOIN Beds ON Beds.BedID = Patients.BedID
+                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Beds.RoomID
+                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
+                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+                UNION ALL
+
+                SELECT Patients.PatientID, Patients.Surname, Buildings.Name AS Building, Patients.Name AS ClientName, Departments.Name AS Department,
+                    Rooms.RoomNumber, Beds.BedNumber, Patients.CygnusClientId, Patients.CygnusBrokenClient, Patients.DodsSubjectId,
+                    Patients.DodsBrokenClient, Buildings.BuildingID, Departments.DepartmentID, Patients.BedID
+                FROM Patients
+                JOIN Beds ON Beds.BedID = Patients.BedID
+                JOIN SubRooms ON SubRooms.SubRoomID = Beds.SubRoomID
+                JOIN Rooms ON Rooms.RoomID = SubRooms.RoomID
+                JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
+                JOIN Buildings ON Buildings.BuildingID = Floors.BuildingID
+
+                UNION ALL
+
+                SELECT Patients.PatientID, Patients.Surname, NULL AS Building, Patients.Name AS ClientName,
+                    NULL AS Department, NULL AS RoomNumber, NULL AS BedNumber, Patients.CygnusClientId,
+                    Patients.CygnusBrokenClient, Patients.DodsSubjectId, Patients.DodsBrokenClient,
+                    NULL AS BuildingID, NULL AS DepartmentID, Patients.BedID
+                FROM Patients
+                WHERE Patients.BedID IN (-1, 0)
+
+            ) AS clients
+            WHERE 1 = 1
+
+        """
+
+        params = []
+
+        if search:
+            SQL_query_all_pacients += """
+                AND CONCAT_WS(
+                    ' ',
+                    clients.Surname,
+                    clients.ClientName
+                ) LIKE %s
+            """
+            params.append(f"%{search}%")
+
+        if accommodated == "on-bed":
+            SQL_query_all_pacients += """
+                AND clients.BedID NOT IN (0, -1)
+            """
+
+        if department != "all":
+            SQL_query_all_pacients += """
+                AND clients.DepartmentID = %s
+            """
+            params.append(department)
+
+        if building != "all":
+            SQL_query_all_pacients += """
+                AND clients.BuildingID = %s
+            """
+            params.append(building)
+
+        if source == "Cygnus":
+            SQL_query_all_pacients += """
+                AND clients.CygnusClientId IS NOT NULL
+                AND clients.CygnusBrokenClient = 0
+            """
+
+        elif source == "Dods":
+            SQL_query_all_pacients += """
+                AND clients.DodsSubjectId IS NOT NULL
+                AND clients.DodsBrokenClient = 0
+            """
+        clients = db_connection(SQL_query_all_pacients,tuple(params), one_row=False)
+
+        clients_ids = [row[0] for row in clients]
         session["filtered_patient_ids"] = clients_ids
 
+        total_records =  len(clients_ids)
+        total_pages = ceil(total_records / per_page)
+
+        print(" Výsledek SQL dotazů result_all_pacients delivered !!! ")
+
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+        #                   KONEC SQL DOTAZU                    #
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
         loading_data = {
             "clients_per_page":clients_per_page,
@@ -1435,6 +1644,24 @@ def loading_data():
             "total_records":total_records,
             "total_pages":total_pages,
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # Varianta2 - moji klienti + klienti bez postelí
     # elif e_id > 0 or tech != True or admin != True:
