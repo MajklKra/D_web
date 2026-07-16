@@ -26,11 +26,11 @@
 
             <div id="list-patients-component-searchWrapper">
 
-                <span id="list-patients-component-searchLabel">
+                <span id="list-patients-component-searchLabel" class="{% if data.search %}hidden{% endif %}">
                     Vyhledat
                 </span>
 
-                <input id="list-patients-component-searching-bar-searchInput" type="search"  maxlength="50" name="q" autocomplete="off" spellcheck="false">
+                <input id="list-patients-component-searching-bar-searchInput" type="search"  maxlength="50" name="q" autocomplete="off" spellcheck="false" value="{{ data.search }}">
 
             </div>
 
@@ -109,7 +109,17 @@
                 <span id="list-patients-component-searching-bar-selectBox1-sp1">Klienti:</span>
 
                 <!-- <strong id="clientSelectValue">Všichni</strong> -->
-                <span id="list-patients-component-searching-bar-selectBox1-sp2">Všichni</span>
+                <span id="list-patients-component-searching-bar-selectBox1-sp2">
+
+                    {% if data.clients_filter == "without-bed" %}
+                        Neumístění
+                    {% elif data.clients_filter == "on-bed" %}
+                        Umístění
+                    {% else %}
+                        Všichni
+                    {% endif %}
+
+                </span>
 
                 <!-- <span class="arrow">⌄</span> -->
                 <svg id="list-patients-component-searching-bar-selectBox1-img" fill="currentcolor" viewBox="0 0 451.847 451.847" xml:space="preserve">
@@ -128,7 +138,7 @@
                 <div id="list-patients-component-searching-bar-selectBox1-menu-o3" data-value="without-bed" class="list-patients-component-searching-bar-selectBox1-menu-options">Neumístění</div>
             </div>
 
-            <input type="hidden" name="list-patients-component-searching-bar-selectBox1-filter" id="list-patients-component-searching-bar-selectBox1-filter" value="all">
+            <input type="hidden" name="list-patients-component-searching-bar-selectBox1-filter" id="list-patients-component-searching-bar-selectBox1-filter" value="{{ data.clients_filter }}">
 
         </div>
 
@@ -140,7 +150,29 @@
                 <span id="list-patients-component-searching-bar-selectBox2-sp1">Oddělení:</span>
 
                 <!-- <strong id="clientSelectValue">Všichni</strong> -->
-                <span id="list-patients-component-searching-bar-selectBox2-sp2">Všechny</span>
+                <span id="list-patients-component-searching-bar-selectBox2-sp2">
+
+                    {% if data.department_filter == "all" %}
+
+                        Všechny
+
+                    {% else %}
+
+                        {% set selected_department = namespace(name="Všechny") %}
+
+                        {% for department_id, department_name in data.departments %}
+
+                            {% if department_id|string == data.department_filter|string %}
+                                {% set selected_department.name = department_name %}
+                            {% endif %}
+
+                        {% endfor %}
+
+                        {{ selected_department.name }}
+
+                    {% endif %}
+
+                </span>
 
                 <!-- <span class="arrow">⌄</span> -->
                 <svg id="list-patients-component-searching-bar-selectBox2-img" fill="currentcolor" viewBox="0 0 451.847 451.847" xml:space="preserve">
@@ -169,7 +201,7 @@
 
             </div>
 
-            <input type="hidden" name="list-patients-component-searching-bar-selectBox2-filter" id="list-patients-component-searching-bar-selectBox2-filter" value="all">
+            <input type="hidden" name="list-patients-component-searching-bar-selectBox2-filter" id="list-patients-component-searching-bar-selectBox2-filter" value="{{ data.department_filter }}">
 
         </div>
 
@@ -181,7 +213,29 @@
                 <span id="list-patients-component-searching-bar-selectBox3-sp1">Budova:</span>
 
                 <!-- <strong id="clientSelectValue">Všichni</strong> -->
-                <span id="list-patients-component-searching-bar-selectBox3-sp2">Všechny</span>
+                <span id="list-patients-component-searching-bar-selectBox3-sp2">
+
+                    {% if data.building_filter == "all" %}
+
+                        Všechny
+
+                    {% else %}
+
+                        {% set selected_building = namespace(name="Všechny") %}
+
+                        {% for building_id, building_name in data.buildings %}
+
+                            {% if building_id|string == data.building_filter|string %}
+                                {% set selected_building.name = building_name %}
+                            {% endif %}
+
+                        {% endfor %}
+
+                        {{ selected_building.name }}
+
+                    {% endif %}
+
+                </span>
 
                 <!-- <span class="arrow">⌄</span> -->
                 <svg id="list-patients-component-searching-bar-selectBox3-img" fill="currentcolor" viewBox="0 0 451.847 451.847" xml:space="preserve">
@@ -210,7 +264,7 @@
 
             </div>
 
-            <input type="hidden" name="list-patients-component-searching-bar-selectBox3-filter" id="list-patients-component-searching-bar-selectBox3-filter" value="all">
+            <input type="hidden" name="list-patients-component-searching-bar-selectBox3-filter" id="list-patients-component-searching-bar-selectBox3-filter"  value="{{ data.building_filter }}">
 
         </div>
 
@@ -222,7 +276,17 @@
                 <span id="list-patients-component-searching-bar-selectBox4-sp1">Zdroj:</span>
 
                 <!-- <strong id="clientSelectValue">Všichni</strong> -->
-                <span id="list-patients-component-searching-bar-selectBox4-sp2">Všechny</span>
+                <span id="list-patients-component-searching-bar-selectBox4-sp2">
+
+                    {% if data.source_filter == "Cygnus" %}
+                        Cygnus
+                    {% elif data.source_filter == "Dods" %}
+                        Dods
+                    {% else %}
+                        Všechny
+                    {% endif %}
+
+                </span>
 
                 <!-- <span class="arrow">⌄</span> -->
                 <svg id="list-patients-component-searching-bar-selectBox4-img" fill="currentcolor" viewBox="0 0 451.847 451.847" xml:space="preserve">
@@ -241,7 +305,7 @@
                 <div id="list-patients-component-searching-bar-selectBox4-menu-o3" data-value="Dods" class="list-patients-component-searching-bar-selectBox4-menu-options">Dods</div>
             </div>
 
-            <input type="hidden" name="list-patients-component-searching-bar-selectBox4-filter" id="list-patients-component-searching-bar-selectBox4-filter" value="all">
+            <input type="hidden" name="list-patients-component-searching-bar-selectBox4-filter" id="list-patients-component-searching-bar-selectBox4-filter" value="{{ data.source_filter }}">
 
         </div>
 

@@ -1049,32 +1049,167 @@ document.addEventListener("click", async function (event)
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
-function sendCurrentFilters()
-{
-    const filters =
+// function sendCurrentFilters()
+// {
+//     const filters =
+//     {
+//         search: document.getElementById("list-patients-component-searching-bar-searchInput").value,
+
+//         clients: document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value,
+
+//         department: document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value,
+
+//         building: document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value,
+
+//         source: document.getElementById("list-patients-component-searching-bar-selectBox4-filter").value
+//     };
+
+//     console.log(filters);
+
+//     fetch("/administration/clients/current_data", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(filters)
+//     });
+// }
+
+
+/* * * * * * * * * Dnešní korekce * * * * * * */
+
+    async function sendCurrentFilters()
     {
-        search: document.getElementById("list-patients-component-searching-bar-searchInput").value,
+        const filters =
+        {
+            search: document.getElementById(
+                "list-patients-component-searching-bar-searchInput"
+            ).value,
 
-        clients: document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value,
+            clients: document.getElementById(
+                "list-patients-component-searching-bar-selectBox1-filter"
+            ).value,
 
-        department: document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value,
+            department: document.getElementById(
+                "list-patients-component-searching-bar-selectBox2-filter"
+            ).value,
 
-        building: document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value,
+            building: document.getElementById(
+                "list-patients-component-searching-bar-selectBox3-filter"
+            ).value,
 
-        source: document.getElementById("list-patients-component-searching-bar-selectBox4-filter").value
-    };
+            source: document.getElementById(
+                "list-patients-component-searching-bar-selectBox4-filter"
+            ).value
+        };
 
-    console.log(filters);
+        console.log("Odesílané filtry:", filters);
 
-    fetch("/administration/clients/current_data", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(filters)
-    });
-}
+        try
+        {
+            const response = await fetch(
+                "/administration/clients/current_data?page=1",
+                {
+                    method: "POST",
 
+                    headers:
+                    {
+                        "Content-Type": "application/json",
+                        "Accept": "text/html"
+                    },
+
+                    body: JSON.stringify(filters)
+                }
+            );
+
+            if (!response.ok)
+            {
+                throw new Error(
+                    `Server odpověděl stavem ${response.status}`
+                );
+            }
+
+            const html = await response.text();
+
+            console.log("HTML vrácené serverem:", html);
+
+            const parser = new DOMParser();
+
+            const responseDocument = parser.parseFromString(html,"text/html");
+
+            const newTable = responseDocument.getElementById("list-patients-component-listC-listC2-content-table-box");
+
+            const newPagination = responseDocument.getElementById("list-patients-component-lessC");
+
+            const currentTable = document.getElementById("list-patients-component-listC-listC2-content-table-box");
+
+            const currentPagination = document.getElementById("list-patients-component-lessC");
+
+            if (!newTable)
+            {
+                throw new Error("Server nevrátil element aktualizované tabulky.");
+            }
+
+            if (!currentTable)
+            {
+                throw new Error("Na stránce nebyla nalezena současná tabulka.");
+            }
+
+            if (!newPagination)
+            {
+                console.warn("Server nevrátil nové stránkování.");
+            }
+
+            currentTable.replaceWith(newTable);
+
+            if (newPagination && currentPagination)
+            {
+                currentPagination.replaceWith(newPagination);
+            }
+
+            window.history.replaceState(
+                {},
+                "",
+                "/administration/clients/?page=1"
+            );
+
+            SelectionManager.restore();
+            syncTotalRecords();
+            updateSelectionControls();
+
+            requestAnimationFrame(() =>
+            {
+                initCustomScrollbar();
+
+                const content = document.getElementById(
+                    "list-patients-component-listC-listC2-content"
+                );
+
+                const thumb = document.getElementById(
+                    "list-patients-component-listC-listC2-scrollC-thumb"
+                );
+
+                if (content)
+                {
+                    content.scrollTop = 0;
+                }
+
+                if (thumb)
+                {
+                    thumb.style.top = "0px";
+                }
+            });
+        }
+        catch (error)
+        {
+            console.error(
+                "Tabulku se nepodařilo aktualizovat:",
+                error
+            );
+        }
+    }
+
+/* * * * * * * * * Dnešní korekce * * * * * * */
 
 document.addEventListener("input", function (event)
 {
