@@ -1,5 +1,5 @@
 
-__version__ = "1.3.22"
+__version__ = "1.3.23"
 
 #  After refresh is done, SB1 - SB4 - searching box are made to be default
 

@@ -322,15 +322,20 @@ def clients():
     # # session.setdefault("SB3", "all")
     # # session.setdefault("SB4", "all")
 
-    # nastav výchozí filtry.
-    if not request.headers.get("HX-Request"):
+    is_htmx = request.headers.get("HX-Request") == "true"
+
+    if not is_htmx and request.args:
+        return redirect(
+            url_for("admin_clients.clients")
+        )
+
+    if not is_htmx:
         session["search"] = ""
         session["SB1"] = "all"
         session["SB2"] = "all"
         session["SB3"] = "all"
         session["SB4"] = "all"
 
-    # Jediný společný zdroj dat pro tabulku.
     table_data = loading_data()
 
     clients_per_page = table_data["clients_per_page"]

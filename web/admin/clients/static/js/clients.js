@@ -53,6 +53,8 @@ document.addEventListener("click", function (e)
         valueText.textContent = option.textContent;
         hiddenInput.value = option.dataset.value;
 
+        updateSelectBoxesState();
+
         console.log("Vybráno:", hiddenInput.value);
 
         select.classList.remove("open");
@@ -92,6 +94,8 @@ document.addEventListener("click", function (e)
 
         valueText.textContent = option.textContent;
         hiddenInput.value = option.dataset.value;
+
+        updateSelectBoxesState();
 
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
@@ -133,6 +137,8 @@ document.addEventListener("click", function (e)
         valueText.textContent = option.textContent;
         hiddenInput.value = option.dataset.value;
 
+        updateSelectBoxesState();
+
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
         select.classList.remove("open");
@@ -172,6 +178,8 @@ document.addEventListener("click", function (e)
 
         valueText.textContent = option.textContent;
         hiddenInput.value = option.dataset.value;
+
+        updateSelectBoxesState();
 
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
@@ -521,7 +529,9 @@ document.addEventListener("DOMContentLoaded", () =>
     SelectionManager.init();
     SelectionManager.restore();
 
+    updateSelectBoxesState();
     initCustomScrollbar();
+
 });
 
 document.addEventListener("htmx:afterSwap", event =>
@@ -556,18 +566,28 @@ document.addEventListener("htmx:afterSwap", event =>
         SelectionManager.restore();
     }
 
-    requestAnimationFrame(initCustomScrollbar);
+    requestAnimationFrame(() =>
+    {
+        initCustomScrollbar();
+        updateSelectBoxesState();
+    });
 });
 
 document.addEventListener("htmx:historyRestore", () =>
 {
     SelectionManager.restore();
+
+    updateSelectBoxesState();
+
     requestAnimationFrame(initCustomScrollbar);
 });
 
 window.addEventListener("pageshow", () =>
 {
     SelectionManager.restore();
+
+    updateSelectBoxesState();
+
     requestAnimationFrame(initCustomScrollbar);
 });
 
@@ -1167,6 +1187,15 @@ document.addEventListener("click", async function (event)
                 currentPagination.replaceWith(newPagination);
             }
 
+
+            htmx.process(newTable);
+
+            if (newPagination)
+            {
+                htmx.process(newPagination);
+            }
+
+
             window.history.replaceState(
                 {},
                 "",
@@ -1221,3 +1250,81 @@ document.addEventListener("input", function (event)
         sendCurrentFilters();
     }
 });
+
+
+
+/* * * * * * * * * * * * * /
+/*  Deaktivace SB2 a SB3 */
+/* * * * * * * * * * * * */
+
+// function updateSelectBoxesState()
+// {
+//     const sb1 = document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value;
+
+//     const sb2Btn = document.getElementById("list-patients-component-searching-bar-selectBox2-btn1");
+//     const sb3Btn = document.getElementById("list-patients-component-searching-bar-selectBox3-btn1");
+
+//     const disable = (sb1 === "without-bed");
+
+//     sb2Btn.disabled = disable;
+//     sb3Btn.disabled = disable;
+
+//     sb2Btn.classList.toggle("disabled", disable);
+//     sb3Btn.classList.toggle("disabled", disable);
+
+//     if (disable)
+//     {
+//         document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value = "all";
+//         document.getElementById("list-patients-component-searching-bar-selectBox2-sp2").textContent = "Všechny";
+
+//         document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value = "all";
+//         document.getElementById("list-patients-component-searching-bar-selectBox3-sp2").textContent = "Všechny";
+//     }
+// }
+
+
+function updateSelectBoxesState()
+{
+    const sb1Input = document.getElementById(
+        "list-patients-component-searching-bar-selectBox1-filter"
+    );
+
+    const sb2 = document.getElementById(
+        "list-patients-component-searching-bar-selectBox2"
+    );
+
+    const sb3 = document.getElementById(
+        "list-patients-component-searching-bar-selectBox3"
+    );
+
+    const sb2Btn = document.getElementById(
+        "list-patients-component-searching-bar-selectBox2-btn1"
+    );
+
+    const sb3Btn = document.getElementById(
+        "list-patients-component-searching-bar-selectBox3-btn1"
+    );
+
+    if (!sb1Input || !sb2 || !sb3 || !sb2Btn || !sb3Btn)
+    {
+        return;
+    }
+
+    const disabled = sb1Input.value === "without-bed";
+
+    sb2Btn.disabled = disabled;
+    sb3Btn.disabled = disabled;
+
+    sb2Btn.classList.toggle("disabled", disabled);
+    sb3Btn.classList.toggle("disabled", disabled);
+
+    sb2.classList.remove("open");
+    sb3.classList.remove("open");
+
+    console.log(
+        "Stav SB2 a SB3:",
+        disabled ? "deaktivováno" : "aktivováno",
+        "SB1:",
+        sb1Input.value
+    );
+}
