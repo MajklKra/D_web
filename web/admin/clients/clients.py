@@ -322,6 +322,14 @@ def clients():
     # # session.setdefault("SB3", "all")
     # # session.setdefault("SB4", "all")
 
+    # nastav výchozí filtry.
+    if not request.headers.get("HX-Request"):
+        session["search"] = ""
+        session["SB1"] = "all"
+        session["SB2"] = "all"
+        session["SB3"] = "all"
+        session["SB4"] = "all"
+
     # Jediný společný zdroj dat pro tabulku.
     table_data = loading_data()
 
@@ -351,6 +359,8 @@ def clients():
 
     # Data potřebná pro zbytek stránky.
     view_data = default_data()
+
+    # Pokud jde o normální načtení stránky (F5),
 
     # Načtení stránky klientů přes HTMX.
     if request.headers.get("HX-Request"):

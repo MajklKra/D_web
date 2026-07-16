@@ -1,7 +1,8 @@
 
-__version__ = "1.3.21"
+__version__ = "1.3.22"
 
-#  Search, SB1, SB2, SB3, SB4 values stored all the time
+#  After refresh is done, SB1 - SB4 - searching box are made to be default
+
 
 # Jedná se o tuto produkční verzi č. ___
 
