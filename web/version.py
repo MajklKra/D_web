@@ -1,7 +1,7 @@
 
 __version__ = "1.3.28"
 
-# SelectionManager.clear() after filter change
+# list-patients-component-searching-bar-count corrected
 
 # Jedná se o tuto produkční verzi č. ___
 

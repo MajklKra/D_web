@@ -656,12 +656,14 @@ function updateSelectionControls()
         if (isActive)
         {
             countSpan.textContent = selectedCount + " klientů";
-            countSpan.style.display = "flex";
+            // countSpan.style.display = "flex";
+            countSpan.style.visibility = "visible";
         }
         else
         {
             countSpan.textContent = "";
-            countSpan.style.display = "none";
+            // countSpan.style.display = "none";
+            countSpan.style.visibility = "hidden";
         }
     }
 
