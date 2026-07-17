@@ -1118,6 +1118,9 @@ document.addEventListener("click", async function (event)
 
     async function sendCurrentFilters()
     {
+
+        SelectionManager.clear();
+
         const filters =
         {
             search: document.getElementById(
@@ -1220,7 +1223,7 @@ document.addEventListener("click", async function (event)
                 "/administration/clients/?page=1"
             );
 
-            SelectionManager.restore();
+            // SelectionManager.restore();
             syncTotalRecords();
             updateSelectionControls();
 
