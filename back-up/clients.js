@@ -53,6 +53,8 @@ document.addEventListener("click", function (e)
         valueText.textContent = option.textContent;
         hiddenInput.value = option.dataset.value;
 
+        updateSelectBoxesState();
+
         console.log("Vybráno:", hiddenInput.value);
 
         select.classList.remove("open");
@@ -92,6 +94,8 @@ document.addEventListener("click", function (e)
 
         valueText.textContent = option.textContent;
         hiddenInput.value = option.dataset.value;
+
+        updateSelectBoxesState();
 
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
@@ -133,6 +137,8 @@ document.addEventListener("click", function (e)
         valueText.textContent = option.textContent;
         hiddenInput.value = option.dataset.value;
 
+        updateSelectBoxesState();
+
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
         select.classList.remove("open");
@@ -173,6 +179,8 @@ document.addEventListener("click", function (e)
         valueText.textContent = option.textContent;
         hiddenInput.value = option.dataset.value;
 
+        updateSelectBoxesState();
+
         console.log("%c🧪 Vybráno:",  "color: hotpink; font-weight: bold;",hiddenInput.value);
 
         select.classList.remove("open");
@@ -188,7 +196,6 @@ document.addEventListener("click", function (e)
     }
 
 });
-
 
 function initCustomScrollbar()
 {
@@ -210,12 +217,12 @@ function initCustomScrollbar()
     }
 
     /*
-     * Nepoužívat dataset.
-     * Dataset se může uložit do HTMX history cache,
-     * ale event listenery se s HTML neukládají.
+     * Pokud už jsou listenery přidané,
+     * pouze znovu přepočítáme scrollbar.
      */
     if (content._customScrollbarReady === true)
     {
+        content._updateCustomScrollbar?.();
         return;
     }
 
@@ -226,10 +233,21 @@ function initCustomScrollbar()
         const maxScroll =
             content.scrollHeight - content.clientHeight;
 
+        const hasScroll = maxScroll > 1;
+
+        track.style.opacity = hasScroll ? "1" : "0";
+        track.style.pointerEvents = hasScroll ? "auto" : "none";
+
+        if (!hasScroll)
+        {
+            thumb.style.top = "0px";
+            return;
+        }
+
         const maxThumb =
             track.clientHeight - thumb.clientHeight;
 
-        if (maxScroll <= 0 || maxThumb <= 0)
+        if (maxThumb <= 0)
         {
             thumb.style.top = "0px";
             return;
@@ -241,7 +259,12 @@ function initCustomScrollbar()
         thumb.style.top = `${newTop}px`;
     }
 
-    content.addEventListener("scroll", updateThumbPosition);
+    content._updateCustomScrollbar = updateThumbPosition;
+
+    content.addEventListener(
+        "scroll",
+        updateThumbPosition
+    );
 
     let isDragging = false;
     let startY = 0;
@@ -280,7 +303,10 @@ function initCustomScrollbar()
         let newTop =
             startTop + (event.clientY - startY);
 
-        newTop = Math.max(0, Math.min(newTop, maxThumb));
+        newTop = Math.max(
+            0,
+            Math.min(newTop, maxThumb)
+        );
 
         thumb.style.top = `${newTop}px`;
 
@@ -521,7 +547,9 @@ document.addEventListener("DOMContentLoaded", () =>
     SelectionManager.init();
     SelectionManager.restore();
 
+    updateSelectBoxesState();
     initCustomScrollbar();
+
 });
 
 document.addEventListener("htmx:afterSwap", event =>
@@ -556,18 +584,28 @@ document.addEventListener("htmx:afterSwap", event =>
         SelectionManager.restore();
     }
 
-    requestAnimationFrame(initCustomScrollbar);
+    requestAnimationFrame(() =>
+    {
+        initCustomScrollbar();
+        updateSelectBoxesState();
+    });
 });
 
 document.addEventListener("htmx:historyRestore", () =>
 {
     SelectionManager.restore();
+
+    updateSelectBoxesState();
+
     requestAnimationFrame(initCustomScrollbar);
 });
 
 window.addEventListener("pageshow", () =>
 {
     SelectionManager.restore();
+
+    updateSelectBoxesState();
+
     requestAnimationFrame(initCustomScrollbar);
 });
 
@@ -1049,32 +1087,176 @@ document.addEventListener("click", async function (event)
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
-function sendCurrentFilters()
-{
-    const filters =
+// function sendCurrentFilters()
+// {
+//     const filters =
+//     {
+//         search: document.getElementById("list-patients-component-searching-bar-searchInput").value,
+
+//         clients: document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value,
+
+//         department: document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value,
+
+//         building: document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value,
+
+//         source: document.getElementById("list-patients-component-searching-bar-selectBox4-filter").value
+//     };
+
+//     console.log(filters);
+
+//     fetch("/administration/clients/current_data", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(filters)
+//     });
+// }
+
+
+/* * * * * * * * * Dnešní korekce * * * * * * */
+
+    async function sendCurrentFilters()
     {
-        search: document.getElementById("list-patients-component-searching-bar-searchInput").value,
+        const filters =
+        {
+            search: document.getElementById(
+                "list-patients-component-searching-bar-searchInput"
+            ).value,
 
-        clients: document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value,
+            clients: document.getElementById(
+                "list-patients-component-searching-bar-selectBox1-filter"
+            ).value,
 
-        department: document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value,
+            department: document.getElementById(
+                "list-patients-component-searching-bar-selectBox2-filter"
+            ).value,
 
-        building: document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value,
+            building: document.getElementById(
+                "list-patients-component-searching-bar-selectBox3-filter"
+            ).value,
 
-        source: document.getElementById("list-patients-component-searching-bar-selectBox4-filter").value
-    };
+            source: document.getElementById(
+                "list-patients-component-searching-bar-selectBox4-filter"
+            ).value
+        };
 
-    console.log(filters);
+        console.log("Odesílané filtry:", filters);
 
-    fetch("/administration/clients/current_data", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(filters)
-    });
-}
+        try
+        {
+            const response = await fetch(
+                "/administration/clients/current_data?page=1",
+                {
+                    method: "POST",
 
+                    headers:
+                    {
+                        "Content-Type": "application/json",
+                        "Accept": "text/html"
+                    },
+
+                    body: JSON.stringify(filters)
+                }
+            );
+
+            if (!response.ok)
+            {
+                throw new Error(
+                    `Server odpověděl stavem ${response.status}`
+                );
+            }
+
+            const html = await response.text();
+
+            console.log("HTML vrácené serverem:", html);
+
+            const parser = new DOMParser();
+
+            const responseDocument = parser.parseFromString(html,"text/html");
+
+            const newTable = responseDocument.getElementById("list-patients-component-listC-listC2-content-table-box");
+
+            const newPagination = responseDocument.getElementById("list-patients-component-lessC");
+
+            const currentTable = document.getElementById("list-patients-component-listC-listC2-content-table-box");
+
+            const currentPagination = document.getElementById("list-patients-component-lessC");
+
+            if (!newTable)
+            {
+                throw new Error("Server nevrátil element aktualizované tabulky.");
+            }
+
+            if (!currentTable)
+            {
+                throw new Error("Na stránce nebyla nalezena současná tabulka.");
+            }
+
+            if (!newPagination)
+            {
+                console.warn("Server nevrátil nové stránkování.");
+            }
+
+            currentTable.replaceWith(newTable);
+
+            if (newPagination && currentPagination)
+            {
+                currentPagination.replaceWith(newPagination);
+            }
+
+
+            htmx.process(newTable);
+
+            if (newPagination)
+            {
+                htmx.process(newPagination);
+            }
+
+
+            window.history.replaceState(
+                {},
+                "",
+                "/administration/clients/?page=1"
+            );
+
+            SelectionManager.restore();
+            syncTotalRecords();
+            updateSelectionControls();
+
+            requestAnimationFrame(() =>
+            {
+                initCustomScrollbar();
+
+                const content = document.getElementById(
+                    "list-patients-component-listC-listC2-content"
+                );
+
+                const thumb = document.getElementById(
+                    "list-patients-component-listC-listC2-scrollC-thumb"
+                );
+
+                if (content)
+                {
+                    content.scrollTop = 0;
+                }
+
+                if (thumb)
+                {
+                    thumb.style.top = "0px";
+                }
+            });
+        }
+        catch (error)
+        {
+            console.error(
+                "Tabulku se nepodařilo aktualizovat:",
+                error
+            );
+        }
+    }
+
+/* * * * * * * * * Dnešní korekce * * * * * * */
 
 document.addEventListener("input", function (event)
 {
@@ -1086,3 +1268,86 @@ document.addEventListener("input", function (event)
         sendCurrentFilters();
     }
 });
+
+
+
+/* * * * * * * * * * * * * /
+/*  Deaktivace SB2 a SB3 */
+/* * * * * * * * * * * * */
+
+// function updateSelectBoxesState()
+// {
+//     const sb1 = document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value;
+
+//     const sb2Btn = document.getElementById("list-patients-component-searching-bar-selectBox2-btn1");
+//     const sb3Btn = document.getElementById("list-patients-component-searching-bar-selectBox3-btn1");
+
+//     const disable = (sb1 === "without-bed");
+
+//     sb2Btn.disabled = disable;
+//     sb3Btn.disabled = disable;
+
+//     sb2Btn.classList.toggle("disabled", disable);
+//     sb3Btn.classList.toggle("disabled", disable);
+
+//     if (disable)
+//     {
+//         document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value = "all";
+//         document.getElementById("list-patients-component-searching-bar-selectBox2-sp2").textContent = "Všechny";
+
+//         document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value = "all";
+//         document.getElementById("list-patients-component-searching-bar-selectBox3-sp2").textContent = "Všechny";
+//     }
+// }
+
+
+function updateSelectBoxesState()
+{
+    const sb1Input = document.getElementById(
+        "list-patients-component-searching-bar-selectBox1-filter"
+    );
+
+    const sb2 = document.getElementById(
+        "list-patients-component-searching-bar-selectBox2"
+    );
+
+    const sb3 = document.getElementById(
+        "list-patients-component-searching-bar-selectBox3"
+    );
+
+    const sb2Btn = document.getElementById(
+        "list-patients-component-searching-bar-selectBox2-btn1"
+    );
+
+    const sb3Btn = document.getElementById(
+        "list-patients-component-searching-bar-selectBox3-btn1"
+    );
+
+    if (!sb1Input || !sb2 || !sb3 || !sb2Btn || !sb3Btn)
+    {
+        return;
+    }
+
+    const disabled = sb1Input.value === "without-bed";
+
+    sb2Btn.disabled = disabled;
+    sb3Btn.disabled = disabled;
+
+    sb2Btn.classList.toggle("disabled", disabled);
+    sb3Btn.classList.toggle("disabled", disabled);
+
+    sb2.classList.remove("open");
+    sb3.classList.remove("open");
+
+    console.log(
+        "Stav SB2 a SB3:",
+        disabled ? "deaktivováno" : "aktivováno",
+        "SB1:",
+        sb1Input.value
+    );
+}
+
+
+
+/* 17.7.2026 dnešní experimenty */
+

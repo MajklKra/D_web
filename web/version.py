@@ -1,7 +1,7 @@
 
-__version__ = "1.3.26"
+__version__ = "1.3.27"
 
-# JS function initCustomScrollbar() updated - scroll-bar is automatically hidden when needed
+# JS SB2 a SB3 options updated
 
 # Jedná se o tuto produkční verzi č. ___
 

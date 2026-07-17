@@ -314,14 +314,6 @@ def clients():
 
     print("➡️ HX-Request:", request.headers.get("HX-Request"))
 
-    # Výchozí filtry musí existovat ještě před prvním
-    # zavoláním loading_data().
-    # # session.setdefault("search", "")
-    # # session.setdefault("SB1", "all")
-    # # session.setdefault("SB2", "all")
-    # # session.setdefault("SB3", "all")
-    # # session.setdefault("SB4", "all")
-
     is_htmx = request.headers.get("HX-Request") == "true"
 
     if not is_htmx and request.args:
@@ -719,16 +711,39 @@ def default_data():
     #                                   #
     # # # # # # # # # # # # # # # # # # #
 
+    e_id = session.get("e_id")
+    tech = session.get("tech")
+    admin = session.get("admin")
+    deps = session.get("e_deps")
 
-    SQL_departments = '''
+    if e_id == 0 or tech == True or admin == True:
 
-    SELECT      DepartmentID, Name
-    FROM        Departments
-    ORDER BY    Name
+        SQL_departments = '''
 
-    '''
+        SELECT      DepartmentID, Name
+        FROM        Departments
+        ORDER BY    Name
 
-    result_departments = db_connection(SQL_departments, (), one_row=False)
+        '''
+
+        result_departments = db_connection(SQL_departments, (), one_row=False)
+
+
+    else:
+
+        placeholders = ", ".join(["%s"] * len(deps))
+
+        SQL_departments = f'''
+
+        SELECT      DepartmentID, Name
+        FROM        Departments
+        WHERE       Departments.DepartmentID IN ({placeholders})
+        ORDER BY    Name
+
+        '''
+
+        result_departments = db_connection(SQL_departments, tuple(deps), one_row=False)
+
 
 
     # # # # # # # # # # # # # # # # # # #
@@ -737,16 +752,36 @@ def default_data():
     #                                   #
     # # # # # # # # # # # # # # # # # # #
 
+    if e_id == 0 or tech == True or admin == True:
 
-    SQL_buildings = '''
+        SQL_buildings = '''
 
-    SELECT 	    BuildingID, Name
-    FROM 		Buildings
-    ORDER BY    Name
+        SELECT 	    BuildingID, Name
+        FROM 		Buildings
+        ORDER BY    Name
 
-    '''
+        '''
 
-    result_buildings = db_connection(SQL_buildings, (), one_row=False)
+        result_buildings = db_connection(SQL_buildings, (), one_row=False)
+
+    else:
+
+        placeholders = ", ".join(["%s"] * len(deps))
+
+        SQL_buildings = f'''
+
+            SELECT          DISTINCT Buildings.BuildingID, Buildings.Name
+            FROM            Buildings
+            JOIN            Floors ON Floors.BuildingID = Buildings.BuildingID
+            JOIN            Rooms ON Rooms.FloorID = Floors.FloorID
+            JOIN            Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+            JOIN            Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+            WHERE           Departments.DepartmentID IN ({placeholders})
+            ORDER BY        Buildings.Name
+
+        '''
+
+        result_buildings = db_connection(SQL_buildings, tuple(deps), one_row=False)
 
     # # # # # # # # # # # # # # # # # # #
     #                                   #

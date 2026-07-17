@@ -2331,7 +2331,7 @@
 
 }
 
-.list-patients-component-searching-bar-selectBox-menu2-options:hover
+.list-patients-component-searching-bar-selectBox2-menu-options:hover
 {
   background: rgba(234,238,245,0.8);
 }
@@ -2356,4 +2356,30 @@
 .list-patients-component-searching-bar-selectBox3-menu-options:hover
 {
   background: rgba(234,238,245,0.8);
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * */
+/*        SB2 a SB3 deaktivita                   */
+/* * * * * * * * * * * * * * * * * * * * * * * * */
+
+#list-patients-component-searching-bar-selectBox2-btn1.disabled,
+#list-patients-component-searching-bar-selectBox3-btn1.disabled
+{
+    opacity: 0.45;
+    cursor: not-allowed;
+    color: #8a8a8a;
+    background: #f2f2f2;
+}
+
+#list-patients-component-searching-bar-selectBox2-btn1.disabled svg,
+#list-patients-component-searching-bar-selectBox3-btn1.disabled svg
+{
+    opacity: .4;
+}
+
+#list-patients-component-searching-bar-selectBox2-btn1.disabled span,
+#list-patients-component-searching-bar-selectBox3-btn1.disabled span
+{
+    color: #9a9a9a;
 }
