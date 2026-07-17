@@ -1,7 +1,7 @@
 
-__version__ = "1.3.25"
+__version__ = "1.3.26"
 
-# Sorting of all clients for my departments
+# JS function initCustomScrollbar() updated - scroll-bar is automatically hidden when needed
 
 # Jedná se o tuto produkční verzi č. ___
 

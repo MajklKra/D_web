@@ -197,7 +197,6 @@ document.addEventListener("click", function (e)
 
 });
 
-
 function initCustomScrollbar()
 {
     const content = document.getElementById(
@@ -218,12 +217,12 @@ function initCustomScrollbar()
     }
 
     /*
-     * Nepoužívat dataset.
-     * Dataset se může uložit do HTMX history cache,
-     * ale event listenery se s HTML neukládají.
+     * Pokud už jsou listenery přidané,
+     * pouze znovu přepočítáme scrollbar.
      */
     if (content._customScrollbarReady === true)
     {
+        content._updateCustomScrollbar?.();
         return;
     }
 
@@ -234,10 +233,21 @@ function initCustomScrollbar()
         const maxScroll =
             content.scrollHeight - content.clientHeight;
 
+        const hasScroll = maxScroll > 1;
+
+        track.style.opacity = hasScroll ? "1" : "0";
+        track.style.pointerEvents = hasScroll ? "auto" : "none";
+
+        if (!hasScroll)
+        {
+            thumb.style.top = "0px";
+            return;
+        }
+
         const maxThumb =
             track.clientHeight - thumb.clientHeight;
 
-        if (maxScroll <= 0 || maxThumb <= 0)
+        if (maxThumb <= 0)
         {
             thumb.style.top = "0px";
             return;
@@ -249,7 +259,12 @@ function initCustomScrollbar()
         thumb.style.top = `${newTop}px`;
     }
 
-    content.addEventListener("scroll", updateThumbPosition);
+    content._updateCustomScrollbar = updateThumbPosition;
+
+    content.addEventListener(
+        "scroll",
+        updateThumbPosition
+    );
 
     let isDragging = false;
     let startY = 0;
@@ -288,7 +303,10 @@ function initCustomScrollbar()
         let newTop =
             startTop + (event.clientY - startY);
 
-        newTop = Math.max(0, Math.min(newTop, maxThumb));
+        newTop = Math.max(
+            0,
+            Math.min(newTop, maxThumb)
+        );
 
         thumb.style.top = `${newTop}px`;
 
@@ -1328,3 +1346,8 @@ function updateSelectBoxesState()
         sb1Input.value
     );
 }
+
+
+
+/* 17.7.2026 dnešní experimenty */
+
