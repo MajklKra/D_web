@@ -1,12 +1,12 @@
 
-__version__ = "1.3.24"
+__version__ = "1.3.25"
 
-# Sorting of all clients for all departments
+# Sorting of all clients for my departments
 
 # Jedná se o tuto produkční verzi č. ___
 
 # Vytvořil:     Michal Kraninger
-# Datum:        16.7.2026
+# Datum:        17.7.2026
 
 
 
