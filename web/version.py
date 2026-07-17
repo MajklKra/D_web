@@ -1,7 +1,7 @@
 
-__version__ = "1.3.29"
+__version__ = "1.3.30"
 
-# client-card created  OpenBtn and CloseBtn
+# client-card-row2-c1-imgC created
 
 # Jedná se o tuto produkční verzi č. ___
 
