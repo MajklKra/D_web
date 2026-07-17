@@ -1,7 +1,7 @@
 
-__version__ = "1.3.28"
+__version__ = "1.3.29"
 
-# list-patients-component-searching-bar-count corrected
+# client-card created  OpenBtn and CloseBtn
 
 # Jedná se o tuto produkční verzi č. ___
 

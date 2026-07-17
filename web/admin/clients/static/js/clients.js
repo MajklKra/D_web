@@ -1356,3 +1356,80 @@ function updateSelectBoxesState()
 
 /* 17.7.2026 dnešní experimenty */
 
+/* * * * * * * * * * * * * * * * */
+/*                               */
+/*       Tlačítko přídej         */
+/*                               */
+/* * * * * * * * * * * * * * * * */
+
+
+// document.addEventListener("click", function (event)
+// {
+//     const button = event.target.closest("#list-patients-component-searching-bar-btn1");
+
+//     if (!button)
+//     {
+//         return;
+//     }
+
+//     button.classList.add("active");
+// });
+
+
+// const addBtn = document.getElementById("list-patients-component-searching-bar-btn1");
+// const clientCard = document.getElementById("client-card");
+
+// addBtn.addEventListener("click", function ()
+// {
+//     addBtn.classList.add("active");
+//     clientCard.style.display = "flex";
+// });
+
+
+// const closeBtn = document.getElementById("client-card-row1-btn1");
+
+// closeBtn.addEventListener("click", function ()
+// {
+//     clientCard.style.display = "none";
+//     addBtn.classList.remove("active");
+// });
+
+
+document.addEventListener("click", function (event)
+{
+    const addBtn = event.target.closest("#list-patients-component-searching-bar-btn1");
+
+    if (addBtn)
+    {
+        const clientCard = document.getElementById("client-card");
+
+        if (!clientCard)
+        {
+            return;
+        }
+
+        addBtn.classList.add("active");
+        clientCard.classList.add("show");
+
+        return;
+    }
+
+    const closeBtn = event.target.closest("#client-card-row1-btn1");
+
+    if (closeBtn)
+    {
+        const clientCard = document.getElementById("client-card");
+        const addBtn = document.getElementById("list-patients-component-searching-bar-btn1");
+
+        if (clientCard)
+        {
+            clientCard.classList.remove("show");
+        }
+
+        if (addBtn)
+        {
+            addBtn.classList.remove("active");
+        }
+    }
+
+});
