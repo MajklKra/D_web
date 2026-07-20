@@ -1890,10 +1890,18 @@
 
     border-radius: 5px;
 
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: center; */
+
+    display: flex;
+    align-items: center;      /* vertikálně doprostřed */
+    justify-content: flex-start; /* nebo center / flex-end podle potřeby */
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     font-family: 'Montserrat';
     font-weight: 600;

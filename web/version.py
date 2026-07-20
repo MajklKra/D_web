@@ -1,12 +1,12 @@
 
-__version__ = "1.3.30"
+__version__ = "1.3.31"
 
-# client-card-row2-c1-imgC created
+# list-patients-component-searching-bar-count updated
 
 # Jedná se o tuto produkční verzi č. ___
 
 # Vytvořil:     Michal Kraninger
-# Datum:        17.7.2026
+# Datum:        20.7.2026
 
 
 

@@ -1088,34 +1088,6 @@ document.addEventListener("click", async function (event)
 /*                   14.7.2026                             */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-
-// function sendCurrentFilters()
-// {
-//     const filters =
-//     {
-//         search: document.getElementById("list-patients-component-searching-bar-searchInput").value,
-
-//         clients: document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value,
-
-//         department: document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value,
-
-//         building: document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value,
-
-//         source: document.getElementById("list-patients-component-searching-bar-selectBox4-filter").value
-//     };
-
-//     console.log(filters);
-
-//     fetch("/administration/clients/current_data", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(filters)
-//     });
-// }
-
-
 /* * * * * * * * * Dnešní korekce * * * * * * */
 
     async function sendCurrentFilters()
@@ -1279,32 +1251,6 @@ document.addEventListener("input", function (event)
 /* * * * * * * * * * * * * /
 /*  Deaktivace SB2 a SB3 */
 /* * * * * * * * * * * * */
-
-// function updateSelectBoxesState()
-// {
-//     const sb1 = document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value;
-
-//     const sb2Btn = document.getElementById("list-patients-component-searching-bar-selectBox2-btn1");
-//     const sb3Btn = document.getElementById("list-patients-component-searching-bar-selectBox3-btn1");
-
-//     const disable = (sb1 === "without-bed");
-
-//     sb2Btn.disabled = disable;
-//     sb3Btn.disabled = disable;
-
-//     sb2Btn.classList.toggle("disabled", disable);
-//     sb3Btn.classList.toggle("disabled", disable);
-
-//     if (disable)
-//     {
-//         document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value = "all";
-//         document.getElementById("list-patients-component-searching-bar-selectBox2-sp2").textContent = "Všechny";
-
-//         document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value = "all";
-//         document.getElementById("list-patients-component-searching-bar-selectBox3-sp2").textContent = "Všechny";
-//     }
-// }
-
 
 function updateSelectBoxesState()
 {
