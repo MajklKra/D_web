@@ -2262,7 +2262,7 @@
     width: 100%;
     height: 50px;
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
     display: flex;
     flex-direction: row;
@@ -2274,7 +2274,7 @@
 {
     height: 100%;
     width: auto;
-    background-color: red;
+    /* background-color: red; */
 
     margin: 0;
 
@@ -2293,7 +2293,7 @@
 {
     height: 100%;
     width: auto;
-    background-color: blue;
+    /* background-color: blue; */
 
     margin: 0;
 
@@ -2314,7 +2314,7 @@
     width:   40px;
     height:  40px;
 
-    background-color: green;
+    /* background-color: green; */
 
     padding: 0px;
 
@@ -2322,6 +2322,11 @@
     margin-top: 5px;
 
     cursor: pointer;
+
+    border: none;
+    outline: none;
+
+    background-color: transparent;
 }
 
 
@@ -2329,7 +2334,9 @@
 {
     width:   100%;
     height:  100%;
-    color: red;
+    /* color: red; */
+
+    color: rgba(77,82,97,1);
 }
 
 #client-card.show
@@ -2368,7 +2375,7 @@
     width:  209px;
     height: 100%;
 
-    background-color: red;
+    /* background-color: red; */
 
     padding-top: 8px;
 }
@@ -2378,7 +2385,7 @@
     width:  210px;
     height: 100%;
 
-    background-color: pink;
+    /* background-color: pink; */
 
     margin-left: 169px;
 }
@@ -2388,7 +2395,7 @@
     width:  325px;
     height: 100%;
 
-    background-color: orange;
+    /* background-color: orange; */
 
     margin-left: 139px;
 }
@@ -2398,7 +2405,7 @@
     width:  15%;
     height: 100%;
 
-    background-color: violet;
+    /* background-color: violet; */
 }
 
 #client-card-row2-c1-imgC
@@ -2450,7 +2457,7 @@
 #client-card-row2-c2-name
 {
     width: 100%;
-    background-color: blue;
+    /* background-color: blue; */
     height: auto;
 
     margin-bottom: 19px;
@@ -2483,7 +2490,7 @@
 
 #client-card-row2-c2-name-i1-l
 {
-    background-color: pink;
+    /* background-color: pink; */
 
     font-family: 'Montserrat';
     font-weight: 600;
@@ -2497,7 +2504,7 @@
 #client-card-row2-c2-surname
 {
     width: 100%;
-    background-color: green;
+    /* background-color: green; */
     height: auto;
 }
 
@@ -2529,7 +2536,7 @@
 
 #client-card-row2-c2-surname-i1-l
 {
-    background-color: pink;
+    /* background-color: pink; */
 
     font-family: 'Montserrat';
     font-weight: 600;
@@ -2548,16 +2555,17 @@
     justify-content: start;
     align-items: center;
 
-    background-color: violet;
+    /* background-color: violet; */
 
     margin-top: 29px;
+    margin-bottom: 20px;
  }
 
 #client-card-row2-c2-radioC-radio1C
 {
 
     width: auto;
-    background-color: #B0C4DE;
+    /* background-color: #B0C4DE; */
 
     display: flex;
     flex-direction: column;
@@ -2571,7 +2579,7 @@
 #client-card-row2-c2-radioC-radio2C
 {
     width: auto;
-    background-color: pink;
+    /* background-color: pink; */
 
     display: flex;
     flex-direction: column;
@@ -2586,7 +2594,7 @@
 {
 
     width: auto;
-    background-color: palevioletred;
+    /* background-color: palevioletred; */
 
     display: flex;
     flex-direction: column;
@@ -2628,6 +2636,8 @@
 
     /* border: 2px solid #357fab; */
 
+    background-color: white;
+
     border: 1px solid rgba(236,238,240,1);
 
     border-radius: 50%;
@@ -2646,7 +2656,6 @@
 
     width:  14px;
     height: 14px;
-
 
     border-radius: 50%;
     background: #357fab;
@@ -2672,3 +2681,106 @@
 
     /* padding-left: 5px; */
 }
+
+#client-card-row2-c2-sourceC
+{
+
+    width: 100%;
+    /* background-color: green; */
+    height: auto;
+
+    margin-bottom: 19px;
+
+}
+
+#client-card-row2-c2-source-i1
+{
+    width:      100%;
+    height:     30px;
+
+    border-radius: 5px;
+
+    border-color: 5px;
+    border: none;
+    outline: none;
+
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 13px;
+    color: rgba(135,138,148,1);
+
+    border:  1px solid rgba(237,239,242,1);
+
+    margin-top: 3px;
+
+    padding-left: 11px;
+}
+
+#client-card-row2-c2-source-i1-l
+{
+    /* background-color: pink; */
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(100,108,121,1);
+
+    padding-left: 6px;
+}
+
+
+#client-card-row2-c2-IDC
+{
+    width: 100%;
+    /* background-color: green; */
+    height: auto;
+}
+
+#client-card-row2-c2-IDC-i1-l
+{
+    /* background-color: pink; */
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(100,108,121,1);
+
+    padding-left: 6px;
+}
+
+#client-card-row2-c2-IDC-i1
+{
+    /* background-color: pink; */
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(100,108,121,1);
+
+    padding-left: 6px;
+
+    width:      100%;
+    height:     30px;
+
+    border-radius: 5px;
+
+    border-color: 5px;
+    border: none;
+    outline: none;
+
+    color: rgba(135,138,148,1);
+
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 13px;
+
+    border:  1px solid rgba(237,239,242,1);
+
+    margin-top: 3px;
+
+    padding-left: 11px;
+
+
+
+}
+

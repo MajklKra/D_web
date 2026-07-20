@@ -1,7 +1,7 @@
 
 __version__ = "1.3.33"
 
-# client-card-row2-c2-radioC
+# client-card-row2-c2 created - first attempt
 
 # Jedná se o tuto produkční verzi č. ___
 
