@@ -2452,6 +2452,8 @@
     width: 100%;
     background-color: blue;
     height: auto;
+
+    margin-bottom: 19px;
 }
 
 #client-card-row2-c2-name-i1
@@ -2468,7 +2470,7 @@
     color: black;
 
     font-family: 'Montserrat';
-    font-weight: 500;
+    font-weight: 600;
     font-size: 13px;
     color: #324351;
 
@@ -2484,9 +2486,189 @@
     background-color: pink;
 
     font-family: 'Montserrat';
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
     color: rgba(100,108,121,1);
 
     padding-left: 6px;
+}
+
+
+#client-card-row2-c2-surname
+{
+    width: 100%;
+    background-color: green;
+    height: auto;
+}
+
+
+#client-card-row2-c2-surname-i1
+{
+    width:      100%;
+    height:     30px;
+
+    border-radius: 5px;
+
+    border-color: 5px;
+    border: none;
+    outline: none;
+
+    color: black;
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 13px;
+    color: #324351;
+
+    border:  1px solid rgba(237,239,242,1);
+
+    margin-top: 3px;
+
+    padding-left: 11px;
+}
+
+#client-card-row2-c2-surname-i1-l
+{
+    background-color: pink;
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(100,108,121,1);
+
+    padding-left: 6px;
+}
+
+
+ #client-card-row2-c2-radioC
+ {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    background-color: violet;
+
+    margin-top: 29px;
+ }
+
+#client-card-row2-c2-radioC-radio1C
+{
+
+    width: auto;
+    background-color: #B0C4DE;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    margin-left: 4px;
+
+}
+
+#client-card-row2-c2-radioC-radio2C
+{
+    width: auto;
+    background-color: pink;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    margin-left: 50px;
+}
+
+
+#client-card-row2-c2-radioC-radio3C
+{
+
+    width: auto;
+    background-color: palevioletred;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+    margin-left: 50px;
+}
+
+
+/* Vlastní radio buttony */
+
+.custom-radio
+{
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-radio input
+{
+    display: none;
+}
+
+.radio-circle
+{
+    /* width: 18px;
+    height: 18px; */
+
+    width:  32px;
+    height: 32px;
+
+    /* border: 2px solid #357fab; */
+
+    border: 1px solid rgba(236,238,240,1);
+
+    border-radius: 50%;
+    position: relative;
+    transition: .15s;
+
+    /* margin-left: 5px; */
+}
+
+.radio-circle::after
+{
+    content: "";
+    position: absolute;
+    /* width: 8px;
+    height: 8px; */
+
+    width:  14px;
+    height: 14px;
+
+
+    border-radius: 50%;
+    background: #357fab;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+
+    transition: transform .15s;
+}
+
+.custom-radio input:checked + .radio-circle::after
+{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.radio-text
+{
+    font-family: 'Montserrat';
+    font-size:    13px;
+    font-weight:  600;
+    color: rgba(100,108,121,1);
+
+    /* padding-left: 5px; */
 }
