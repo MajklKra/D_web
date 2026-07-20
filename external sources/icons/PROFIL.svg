@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vrstva_1" data-name="Vrstva 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.64 44.64">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .7;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #1b2838;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g class="cls-1">
+    <circle class="cls-2" cx="22.32" cy="16.79" r="5.48"/>
+    <path class="cls-2" d="M14.2,30.47c0-4.5,3.65-8.15,8.15-8.15s8.15,3.65,8.15,8.15"/>
+  </g>
+</svg>

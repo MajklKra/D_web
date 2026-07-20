@@ -1,7 +1,7 @@
 
-__version__ = "1.3.31"
+__version__ = "1.3.32"
 
-# list-patients-component-searching-bar-count updated
+# client-card-row2-c2-name created
 
 # Jedná se o tuto produkční verzi č. ___
 

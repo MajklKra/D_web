@@ -1919,6 +1919,8 @@
 
     z-index: 1;
 
+    margin-left: 1px;
+
     /* transform: translateX(-1px); */
 }
 
@@ -2366,7 +2368,9 @@
     width:  209px;
     height: 100%;
 
-    background-color: yellow;
+    background-color: red;
+
+    padding-top: 8px;
 }
 
 #client-card-row2-c3
@@ -2441,4 +2445,48 @@
     top:  67px;
 
     color: rgba(126,161,196,1);
+}
+
+#client-card-row2-c2-name
+{
+    width: 100%;
+    background-color: blue;
+    height: auto;
+}
+
+#client-card-row2-c2-name-i1
+{
+    width:      100%;
+    height:     30px;
+
+    border-radius: 5px;
+
+    border-color: 5px;
+    border: none;
+    outline: none;
+
+    color: black;
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 13px;
+    color: #324351;
+
+    border:  1px solid rgba(237,239,242,1);
+
+    margin-top: 3px;
+
+    padding-left: 11px;
+}
+
+#client-card-row2-c2-name-i1-l
+{
+    background-color: pink;
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(100,108,121,1);
+
+    padding-left: 6px;
 }
