@@ -2262,7 +2262,7 @@
     width: 100%;
     height: 50px;
 
-    /* background-color: yellow; */
+    background-color: yellow;
 
     display: flex;
     flex-direction: row;
@@ -2274,7 +2274,7 @@
 {
     height: 100%;
     width: auto;
-    /* background-color: red; */
+    background-color: red;
 
     margin: 0;
 
@@ -2293,7 +2293,7 @@
 {
     height: 100%;
     width: auto;
-    /* background-color: blue; */
+    background-color: blue;
 
     margin: 0;
 
@@ -2314,7 +2314,7 @@
     width:   40px;
     height:  40px;
 
-    /* background-color: green; */
+    background-color: green;
 
     padding: 0px;
 
@@ -2326,7 +2326,7 @@
     border: none;
     outline: none;
 
-    background-color: transparent;
+    /* background-color: transparent; */
 }
 
 
@@ -2375,19 +2375,21 @@
     width:  209px;
     height: 100%;
 
-    /* background-color: red; */
+    background-color: red;
 
     padding-top: 8px;
 }
 
 #client-card-row2-c3
 {
-    width:  210px;
+    width:  215px;
     height: 100%;
 
-    /* background-color: pink; */
+    background-color: pink;
 
-    margin-left: 169px;
+    margin-left: 168px;
+
+    box-sizing: border-box;
 }
 
 #client-card-row2-c4
@@ -2395,7 +2397,7 @@
     width:  325px;
     height: 100%;
 
-    /* background-color: orange; */
+    background-color: orange;
 
     margin-left: 139px;
 }
@@ -2405,7 +2407,7 @@
     width:  15%;
     height: 100%;
 
-    /* background-color: violet; */
+    background-color: violet;
 }
 
 #client-card-row2-c1-imgC
@@ -2466,7 +2468,7 @@
 #client-card-row2-c2-name-i1
 {
     width:      100%;
-    height:     30px;
+    height:     32px;
 
     border-radius: 5px;
 
@@ -2512,7 +2514,7 @@
 #client-card-row2-c2-surname-i1
 {
     width:      100%;
-    height:     30px;
+    height:     32px;
 
     border-radius: 5px;
 
@@ -2555,10 +2557,10 @@
     justify-content: start;
     align-items: center;
 
-    /* background-color: violet; */
+    background-color: violet;
 
     margin-top: 29px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
  }
 
 #client-card-row2-c2-radioC-radio1C
@@ -2686,7 +2688,7 @@
 {
 
     width: 100%;
-    /* background-color: green; */
+    background-color: green;
     height: auto;
 
     margin-bottom: 19px;
@@ -2696,7 +2698,7 @@
 #client-card-row2-c2-source-i1
 {
     width:      100%;
-    height:     30px;
+    height:     32px;
 
     border-radius: 5px;
 
@@ -2728,11 +2730,10 @@
     padding-left: 6px;
 }
 
-
 #client-card-row2-c2-IDC
 {
     width: 100%;
-    /* background-color: green; */
+    background-color: green;
     height: auto;
 }
 
@@ -2760,7 +2761,7 @@
     padding-left: 6px;
 
     width:      100%;
-    height:     30px;
+    height:     32px;
 
     border-radius: 5px;
 
@@ -2784,3 +2785,646 @@
 
 }
 
+/* SearchingBox again*/
+
+#client-card-row2-c3-searchC
+{
+    width:              100%;
+    height:              32px;
+    border-radius:        5px;
+
+    border:none;
+    outline:none;
+
+    background-color: white;
+
+    /* background-color: darkgreen; */
+
+    box-sizing:     border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    padding-left: 8px;
+
+    margin-top: 29px;
+
+    border: 1px solid rgba(237,239,242,1);
+
+    margin-bottom: 20px;
+
+}
+
+#client-card-row2-c3-searchC-magnifierC-magnifier
+{
+    /* background-color: blue; */
+    width: 100%;
+    color: rgba(130,171,219,1);
+
+    margin-top: 1px;
+
+}
+
+#client-card-row2-c3-searchC-magnifierC
+{
+    width: 19px;
+
+    /*background-color: pink;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#client-card-row2-c3-searchC-searchWrapper
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    /* background-color: blue; */
+}
+
+#client-card-row2-c3-searchC-searchLabel
+{
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: rgba(130,171,219,1);
+
+    font-family: 'Montserrat';
+    font-size: 13px;
+    font-weight: 600;
+
+    pointer-events: none;
+
+    transition: all .15s ease;
+
+    /* background-color: red; */
+}
+
+#client-card-row2-c3-searchC-searchLabel.hidden
+{
+    opacity: 0;
+}
+
+#client-card-row2-c3-searchC-searchInput
+{
+    width:100%;
+    height:100%;
+
+    border:none;
+    outline:none;
+    background:transparent;
+
+    padding-left:10px;
+
+    /* background-color: orange; */
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 13px;
+
+    color: rgba(130,171,219,1);
+
+    /* background-color: transparent; */
+    outline: none;
+    border: none;
+}
+
+
+/* Vlastní client-card-row2-c3-SB1C selectBox 1 */
+
+.SB1C-select-wrapper
+{
+
+  position: relative;
+  background-color: blue;
+
+  margin-top: 1px;
+
+}
+
+.SB1C-custom-building-select
+{
+  position: relative;
+  width: 100%;
+
+  background-color: red;
+}
+
+.SB1C-building-btn
+{
+  width: 100%;
+  height: 32px;
+
+  border-radius: 5px;
+  border: 1px solid rgba(234,238,245,1);
+  outline: none;
+
+  /* background: white; */
+
+  background-color: yellow;
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size:    13px;
+  font-weight:  700;
+
+  /* padding-left: 56px; */
+  padding-left: 13px;
+  padding-right: 55px;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  box-sizing: border-box;
+}
+
+#SB1C-dropdownImg
+{
+
+  height: 26px;
+
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  left: auto;
+
+  color: #324351;
+
+  background-color: green;
+
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  transform: translateY(1px);
+
+}
+
+#SB1C-dropdownImg.rotate
+{
+  transform: rotate(180deg);
+}
+
+.SB1C-building-menu
+{
+  position: absolute;
+  top: 54px;
+  left: 0;
+
+  width: 100%;
+
+  /* background: white; */
+
+  background-color: violet;
+
+  border: 3px solid rgba(234,238,245,1);
+  border-radius: 12px;
+
+  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+
+  overflow: hidden;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+
+  z-index: 100;
+}
+
+.SB1C-bulding-menu.open
+{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  background-color: coral;
+}
+
+.SB1C-building-option
+{
+  width: 100%;
+  height: 44px;
+
+  border: none;
+  outline: none;
+
+  /* background: white; */
+
+  background-color: darkgreen;
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size: 15px;
+  font-weight: 500;
+
+  padding-left: 56px;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.SB1C-bulding-option:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+.SB1C-bulding-option.selected
+{
+  background: rgba(53,127,171,0.12);
+  color: rgba(53,127,171,1);
+  font-weight: 600;
+
+  background-color: crimson;
+}
+
+#client-card-row2-c3-SB1C-title
+{
+    width: 100%;
+    height: auto;
+    background-color: chartreuse;
+
+    margin-left: 9px;
+}
+
+#client-card-row2-c3-SB1C
+{
+    width: 100%;
+    height: auto;
+
+    background-color: brown;
+
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 500;
+
+    color: rgba(100,108,121,1);
+
+    margin-bottom: 27px;
+}
+
+/* client-card-row2-c3-SB2C */
+
+.SB2C-select-wrapper
+{
+
+  position: relative;
+  background-color: blue;
+
+  margin-top: 5px;
+  margin-bottom: 28px;
+
+}
+
+.SB2C-custom-floor-select
+{
+  position: relative;
+  width: 100%;
+
+  background-color: red;
+}
+
+.SB2C-floor-btn
+{
+  width: 100%;
+  height: 32px;
+
+  border-radius: 5px;
+  border: 1px solid rgba(234,238,245,1);
+  outline: none;
+
+  /* background: white; */
+
+  background-color: yellow;
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size:    13px;
+  font-weight:  700;
+
+  /* padding-left: 56px; */
+  padding-left: 13px;
+  padding-right: 55px;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  box-sizing: border-box;
+}
+
+#SB2C-dropdownImg
+{
+
+  height: 26px;
+
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  left: auto;
+
+  color: #324351;
+
+  background-color: green;
+
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  transform: translateY(1px);
+
+}
+
+#SB2C-dropdownImg.rotate
+{
+  transform: rotate(180deg);
+}
+
+.SB2C-floor-menu
+{
+  position: absolute;
+  top: 54px;
+  left: 0;
+
+  width: 100%;
+
+  /* background: white; */
+
+  background-color: violet;
+
+  border: 3px solid rgba(234,238,245,1);
+  border-radius: 12px;
+
+  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+
+  overflow: hidden;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+
+  z-index: 100;
+}
+
+.SB2C-floor-menu.open
+{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  background-color: coral;
+}
+
+.SB2C-floor-option
+{
+  width: 100%;
+  height: 44px;
+
+  border: none;
+  outline: none;
+
+  /* background: white; */
+
+  background-color: darkgreen;
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size: 15px;
+  font-weight: 500;
+
+  padding-left: 56px;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.SB2C-floor-option:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+.SB2C-floor-option.selected
+{
+  background: rgba(53,127,171,0.12);
+  color: rgba(53,127,171,1);
+  font-weight: 600;
+
+  background-color: crimson;
+}
+
+#client-card-row2-c3-SB2C-title
+{
+    width: 100%;
+    height: auto;
+    background-color: chartreuse;
+
+    margin-left: 9px;
+}
+
+#client-card-row2-c3-SB2C
+{
+    width: 100%;
+    height: auto;
+
+    background-color: brown;
+
+    font-family:    'Montserrat';
+    font-size:      15px;
+    font-weight:    500;
+
+    color: rgba(100,108,121,1);
+}
+
+
+/* client-card-row2-c3-SB3C */
+
+.SB3C-select-wrapper
+{
+
+  position: relative;
+  background-color: blue;
+
+  margin-top: 2px;
+}
+
+.SB3C-custom-dep-select
+{
+  position: relative;
+  width: 100%;
+
+  background-color: red;
+}
+
+.SB3C-dep-btn
+{
+  width: 100%;
+  height: 32px;
+
+  border-radius: 5px;
+  border: 1px solid rgba(234,238,245,1);
+  outline: none;
+
+  /* background: white; */
+
+  background-color: yellow;
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size:    13px;
+  font-weight:  700;
+
+  /* padding-left: 56px; */
+  padding-left: 13px;
+  padding-right: 55px;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  box-sizing: border-box;
+}
+
+#SB3C-dropdownImg
+{
+
+  height: 26px;
+
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  left: auto;
+
+  color: #324351;
+
+  background-color: green;
+
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  transform: translateY(1px);
+
+}
+
+#SB3C-dropdownImg.rotate
+{
+  transform: rotate(180deg);
+}
+
+.SB2C-dep-menu
+{
+  position: absolute;
+  top: 54px;
+  left: 0;
+
+  width: 100%;
+
+  /* background: white; */
+
+  background-color: violet;
+
+  border: 3px solid rgba(234,238,245,1);
+  border-radius: 12px;
+
+  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+
+  overflow: hidden;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+
+  z-index: 100;
+}
+
+.SB2C-dep-menu.open
+{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  background-color: coral;
+}
+
+.SB2C-dep-option
+{
+  width: 100%;
+  height: 44px;
+
+  border: none;
+  outline: none;
+
+  /* background: white; */
+
+  background-color: darkgreen;
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size: 15px;
+  font-weight: 500;
+
+  padding-left: 56px;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.SB3C-dep-option:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+.SB3C-dep-option.selected
+{
+  background: rgba(53,127,171,0.12);
+  color: rgba(53,127,171,1);
+  font-weight: 600;
+
+  background-color: crimson;
+}
+
+#client-card-row2-c3-SB3C-title
+{
+    width: 100%;
+    height: auto;
+    background-color: chartreuse;
+
+    margin-left: 9px;
+}
+
+#client-card-row2-c3-SB3C
+{
+    width: 100%;
+    height: auto;
+
+    background-color: brown;
+
+    font-family:    'Montserrat';
+    font-size:      15px;
+    font-weight:    500;
+
+    color: rgba(100,108,121,1);
+}

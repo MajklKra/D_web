@@ -1,7 +1,7 @@
 
-__version__ = "1.3.33"
+__version__ = "1.3.36"
 
-# client-card-row2-c2 created - first attempt
+# client-card-row2-c3-SB3C - first attempt
 
 # Jedná se o tuto produkční verzi č. ___
 

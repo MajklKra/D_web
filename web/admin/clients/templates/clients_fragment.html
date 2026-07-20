@@ -34,7 +34,6 @@
 
             </div>
 
-
         </div>
 
         <button id="list-patients-component-searching-bar-btn1">
@@ -503,6 +502,151 @@
             </div>
 
             <div id="client-card-row2-c3">
+
+                <div id="client-card-row2-c3-searchC">
+
+                    <div id="client-card-row2-c3-searchC-magnifierC">
+
+                        <svg id="client-card-row2-c3-searchC-magnifierC-magnifier"  viewBox="4.5 4.5 16 16">
+                            <defs>
+                                <style>
+                                .client-card-row2-c3-searchC-magnifierC-magnifier-m_cls-1 {
+                                    fill: currentColor;
+                                    opacity: .71;
+                                }
+                                </style>
+                            </defs>
+                            <path class="client-card-row2-c3-searchC-magnifierC-magnifier-m_cls-1" d="M10.67,5.09c3.03,0,5.5,2.47,5.5,5.5,0,1.2-.39,2.3-1.04,3.21l4.46,4.32c.39.38.4,1,.02,1.39-.19.2-.45.3-.71.3s-.5-.09-.69-.28l-4.47-4.33s-.01-.02-.02-.03c-.87.59-1.92.93-3.05.93-3.03,0-5.5-2.47-5.5-5.5s2.47-5.5,5.5-5.5ZM10.67,14.61c2.22,0,4.02-1.8,4.02-4.02s-1.8-4.02-4.02-4.02-4.02,1.8-4.02,4.02,1.8,4.02,4.02,4.02Z"/>
+                        </svg>
+
+                    </div>
+
+                    <div id="client-card-row2-c3-searchC-searchWrapper">
+
+                        <span id="client-card-row2-c3-searchC-searchLabel" class="{% if data.search %}hidden{% endif %}">
+                            Vyhledat oddělení
+                        </span>
+
+                        <input id="client-card-row2-c3-searchC-searchInput" type="search"  maxlength="50" name="q" autocomplete="off" spellcheck="false" value="{{ data.search }}">
+
+                    </div>
+
+                </div>
+
+                <div id="client-card-row2-c3-SB1C" >
+
+                    <span id="client-card-row2-c3-SB1C-title"> Budova </span>
+
+                    <div id="client-card-row2-c3-SB1C-wrapper" class="SB1C-select-wrapper SB1C-custom-building-select">
+
+                        <button type="button" id="SB1C-buildingBtn" class="SB1C-building-btn">
+
+                            <span id="SB1C-buildingText">Nová budova B</span>
+
+                            <svg id="SB1C-dropdownImg" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                    fill="currentColor"/>
+                            </svg>
+
+                        </button>
+
+                        <!-- <div id="SB1C-buildingMenu" class="SB1C-building-menu">
+
+                                <button type="button" class="SB1C-building-option" data-value="{{ value }}">
+                                   Budova A
+                                </button>
+
+                                <button type="button" class="SB1C-building-option" data-value="{{ value }}">
+                                   Budova B
+                                </button>
+
+                                <button type="button" class="SB1C-building-option" data-value="{{ value }}">
+                                   Budova C
+                                </button>
+                        </div> -->
+
+
+                    </div>
+
+                </div>
+
+                <div id="client-card-row2-c3-SB2C" >
+
+                    <span id="client-card-row2-c3-SB2C-title"> Patro </span>
+
+                    <div id="client-card-row2-c3-SB2C-wrapper" class="SB2C-select-wrapper SB2C-custom-floor-select">
+
+                        <button type="button" id="SB2C-floorBtn" class="SB2C-floor-btn">
+
+                            <span id="SB2C-floorText">4.</span>
+
+                            <svg id="SB2C-dropdownImg" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                    fill="currentColor"/>
+                            </svg>
+
+                        </button>
+
+                        <!-- <div id="SB2C-floorMenu" class="SB2C-floor-menu">
+
+                                <button type="button" class="SB2C-floor-option" data-value="{{ value }}">
+                                   Budova A
+                                </button>
+
+                                <button type="button" class="SB2C-floor-option" data-value="{{ value }}">
+                                   Budova B
+                                </button>
+
+                                <button type="button" class="SB2C-floor-option" data-value="{{ value }}">
+                                   Budova C
+                                </button>
+
+                        </div> -->
+
+                    </div>
+
+                </div>
+
+                <div id="client-card-row2-c3-SB3C" >
+
+                    <span id="client-card-row2-c3-SB3C-title"> Oddělení </span>
+
+                    <div id="client-card-row2-c3-SB3C-wrapper" class="SB3C-select-wrapper SB3C-custom-dep-select">
+
+                        <button type="button" id="SB3C-depBtn" class="SB3C-dep-btn">
+
+                            <span id="SB3C-depText">Intenzivní péče (JIP)</span>
+
+                            <svg id="SB3C-dropdownImg" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+                                    fill="currentColor"/>
+                            </svg>
+
+                        </button>
+
+                        <!-- <div id="SB3C-depMenu" class="SB3C-dep-menu">
+
+                                <button type="button" class="SB3C-dep-option" data-value="{{ value }}">
+                                   Budova A
+                                </button>
+
+                                <button type="button" class="SB3C-dep-option" data-value="{{ value }}">
+                                   Budova B
+                                </button>
+
+                                <button type="button" class="SB3C-dep-option" data-value="{{ value }}">
+                                   Budova C
+                                </button>
+
+                        </div> -->
+
+                    </div>
+
+                </div>
+
 
             </div>
 
