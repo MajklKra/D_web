@@ -2262,7 +2262,7 @@
     width: 100%;
     height: 50px;
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
     display: flex;
     flex-direction: row;
@@ -2274,7 +2274,7 @@
 {
     height: 100%;
     width: auto;
-    background-color: red;
+    /* background-color: red; */
 
     margin: 0;
 
@@ -2293,7 +2293,7 @@
 {
     height: 100%;
     width: auto;
-    background-color: blue;
+    /* background-color: blue; */
 
     margin: 0;
 
@@ -2314,7 +2314,7 @@
     width:   40px;
     height:  40px;
 
-    background-color: green;
+    /* background-color: green; */
 
     padding: 0px;
 
@@ -2375,7 +2375,7 @@
     width:  209px;
     height: 100%;
 
-    background-color: red;
+    /* background-color: red; */
 
     padding-top: 8px;
 }
@@ -2385,7 +2385,7 @@
     width:  215px;
     height: 100%;
 
-    background-color: pink;
+    /* background-color: pink; */
 
     margin-left: 168px;
 
@@ -2397,7 +2397,7 @@
     width:  325px;
     height: 100%;
 
-    background-color: orange;
+    /* background-color: orange; */
 
     margin-left: 139px;
 }
@@ -2407,7 +2407,7 @@
     width:  15%;
     height: 100%;
 
-    background-color: violet;
+    /* background-color: violet; */
 }
 
 #client-card-row2-c1-imgC
@@ -2557,7 +2557,7 @@
     justify-content: start;
     align-items: center;
 
-    background-color: violet;
+    /* background-color: violet; */
 
     margin-top: 29px;
     margin-bottom: 30px;
@@ -2688,7 +2688,7 @@
 {
 
     width: 100%;
-    background-color: green;
+    /* background-color: green; */
     height: auto;
 
     margin-bottom: 19px;
@@ -2733,7 +2733,7 @@
 #client-card-row2-c2-IDC
 {
     width: 100%;
-    background-color: green;
+    /* background-color: green; */
     height: auto;
 }
 
@@ -2904,7 +2904,8 @@
 {
 
   position: relative;
-  background-color: blue;
+
+  /* background-color: blue; */
 
   margin-top: 1px;
 
@@ -2915,7 +2916,7 @@
   position: relative;
   width: 100%;
 
-  background-color: red;
+  /* background-color: red; */
 }
 
 .SB1C-building-btn
@@ -2927,9 +2928,9 @@
   border: 1px solid rgba(234,238,245,1);
   outline: none;
 
-  /* background: white; */
+  background: white;
 
-  background-color: yellow;
+  /* background-color: yellow; */
 
   color: #324351;
 
@@ -2961,7 +2962,7 @@
 
   color: #324351;
 
-  background-color: green;
+  /* background-color: green; */
 
   pointer-events: none;
   transition: transform 0.2s ease;
@@ -2984,7 +2985,7 @@
 
   /* background: white; */
 
-  background-color: violet;
+  /* background-color: violet; */
 
   border: 3px solid rgba(234,238,245,1);
   border-radius: 12px;
@@ -3008,7 +3009,7 @@
   visibility: visible;
   transform: translateY(0);
 
-  background-color: coral;
+  /* background-color: coral; */
 }
 
 .SB1C-building-option
@@ -3021,7 +3022,7 @@
 
   /* background: white; */
 
-  background-color: darkgreen;
+  /* background-color: darkgreen; */
 
   color: #324351;
 
@@ -3048,14 +3049,14 @@
   color: rgba(53,127,171,1);
   font-weight: 600;
 
-  background-color: crimson;
+  /* background-color: crimson; */
 }
 
 #client-card-row2-c3-SB1C-title
 {
     width: 100%;
     height: auto;
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
 
     margin-left: 9px;
 }
@@ -3065,13 +3066,13 @@
     width: 100%;
     height: auto;
 
-    background-color: brown;
+    /* background-color: brown; */
 
     font-family: 'Montserrat';
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
 
-    color: rgba(100,108,121,1);
+    color: rgba(89,99,112,1);
 
     margin-bottom: 27px;
 }
@@ -3082,7 +3083,7 @@
 {
 
   position: relative;
-  background-color: blue;
+  /* background-color: blue; */
 
   margin-top: 5px;
   margin-bottom: 28px;
@@ -3094,7 +3095,7 @@
   position: relative;
   width: 100%;
 
-  background-color: red;
+  /* background-color: red; */
 }
 
 .SB2C-floor-btn
@@ -3106,9 +3107,9 @@
   border: 1px solid rgba(234,238,245,1);
   outline: none;
 
-  /* background: white; */
+  background: white;
 
-  background-color: yellow;
+  /* background-color: yellow; */
 
   color: #324351;
 
@@ -3140,7 +3141,7 @@
 
   color: #324351;
 
-  background-color: green;
+  /* background-color: green; */
 
   pointer-events: none;
   transition: transform 0.2s ease;
@@ -3161,9 +3162,9 @@
 
   width: 100%;
 
-  /* background: white; */
+  /* background: white;  */
 
-  background-color: violet;
+  /* background-color: violet; */
 
   border: 3px solid rgba(234,238,245,1);
   border-radius: 12px;
@@ -3187,7 +3188,7 @@
   visibility: visible;
   transform: translateY(0);
 
-  background-color: coral;
+  /* background-color: coral; */
 }
 
 .SB2C-floor-option
@@ -3200,7 +3201,7 @@
 
   /* background: white; */
 
-  background-color: darkgreen;
+  /* background-color: darkgreen; */
 
   color: #324351;
 
@@ -3227,14 +3228,14 @@
   color: rgba(53,127,171,1);
   font-weight: 600;
 
-  background-color: crimson;
+  /* background-color: crimson; */
 }
 
 #client-card-row2-c3-SB2C-title
 {
     width: 100%;
     height: auto;
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
 
     margin-left: 9px;
 }
@@ -3244,13 +3245,13 @@
     width: 100%;
     height: auto;
 
-    background-color: brown;
+    /* background-color: brown; */
 
     font-family:    'Montserrat';
     font-size:      15px;
-    font-weight:    500;
+    font-weight:    600;
 
-    color: rgba(100,108,121,1);
+    color: rgba(89,99,112,1);
 }
 
 
@@ -3260,9 +3261,10 @@
 {
 
   position: relative;
-  background-color: blue;
+  /* background-color: blue; */
 
   margin-top: 2px;
+  margin-bottom: 18px;
 }
 
 .SB3C-custom-dep-select
@@ -3270,7 +3272,7 @@
   position: relative;
   width: 100%;
 
-  background-color: red;
+ /* background-color: red; */
 }
 
 .SB3C-dep-btn
@@ -3282,9 +3284,9 @@
   border: 1px solid rgba(234,238,245,1);
   outline: none;
 
-  /* background: white; */
+  background: white;
 
-  background-color: yellow;
+  /* background-color: yellow; */
 
   color: #324351;
 
@@ -3316,7 +3318,7 @@
 
   color: #324351;
 
-  background-color: green;
+  /* background-color: green; */
 
   pointer-events: none;
   transition: transform 0.2s ease;
@@ -3329,7 +3331,7 @@
   transform: rotate(180deg);
 }
 
-.SB2C-dep-menu
+.SB3C-dep-menu
 {
   position: absolute;
   top: 54px;
@@ -3339,7 +3341,7 @@
 
   /* background: white; */
 
-  background-color: violet;
+  /* background-color: violet; */
 
   border: 3px solid rgba(234,238,245,1);
   border-radius: 12px;
@@ -3357,16 +3359,16 @@
   z-index: 100;
 }
 
-.SB2C-dep-menu.open
+.SB3C-dep-menu.open
 {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 
-  background-color: coral;
+  /* background-color: coral; */
 }
 
-.SB2C-dep-option
+.SB3C-dep-option
 {
   width: 100%;
   height: 44px;
@@ -3376,7 +3378,7 @@
 
   /* background: white; */
 
-  background-color: darkgreen;
+  /* background-color: darkgreen; */
 
   color: #324351;
 
@@ -3403,14 +3405,15 @@
   color: rgba(53,127,171,1);
   font-weight: 600;
 
-  background-color: crimson;
+  /* background-color: crimson; */
 }
 
 #client-card-row2-c3-SB3C-title
 {
     width: 100%;
     height: auto;
-    background-color: chartreuse;
+
+    /* background-color: chartreuse; */
 
     margin-left: 9px;
 }
@@ -3420,11 +3423,189 @@
     width: 100%;
     height: auto;
 
-    background-color: brown;
+    /* background-color: brown; */
 
     font-family:    'Montserrat';
     font-size:      15px;
-    font-weight:    500;
+    font-weight:    600;
 
-    color: rgba(100,108,121,1);
+    color: rgba(89,99,112,1);
+}
+
+/* client-card-row2-c3-SB4C */
+
+.SB4C-select-wrapper
+{
+
+  position: relative;
+
+  /* background-color: blue; */
+
+  margin-top: 3px;
+}
+
+.SB4C-custom-room-select
+{
+  position: relative;
+  width: 100%;
+
+  /* background-color: red; */
+}
+
+.SB4C-room-btn
+{
+  width: 100%;
+  height: 32px;
+
+  border-radius: 5px;
+  border: 1px solid rgba(234,238,245,1);
+  outline: none;
+
+  background: white;
+
+  /* background-color: yellow; */
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size:    13px;
+  font-weight:  700;
+
+  /* padding-left: 56px; */
+  padding-left: 13px;
+  padding-right: 55px;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  box-sizing: border-box;
+}
+
+#SB4C-dropdownImg
+{
+
+  height: 26px;
+
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  left: auto;
+
+  color: #324351;
+
+  /* background-color: green; */
+
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  transform: translateY(1px);
+
+}
+
+#SB4C-dropdownImg.rotate
+{
+  transform: rotate(180deg);
+}
+
+.SB4C-room-menu
+{
+  position: absolute;
+  top: 54px;
+  left: 0;
+
+  width: 100%;
+
+  /* background: white; */
+
+  /* background-color: violet; */
+
+  border: 3px solid rgba(234,238,245,1);
+  border-radius: 12px;
+
+  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+
+  overflow: hidden;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+
+  z-index: 100;
+}
+
+.SB4C-room-menu.open
+{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  /* background-color: coral; */
+}
+
+.SB4C-room-option
+{
+  width: 100%;
+  height: 44px;
+
+  border: none;
+  outline: none;
+
+  /* background: white; */
+
+  /* background-color: darkgreen; */
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size: 15px;
+  font-weight: 500;
+
+  padding-left: 56px;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.SB4C-room-option:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+.SB4C-room-option.selected
+{
+  background: rgba(53,127,171,0.12);
+  color: rgba(53,127,171,1);
+  font-weight: 600;
+
+  /* background-color: crimson; */
+
+}
+
+#client-card-row2-c3-SB4C-title
+{
+    width: 100%;
+    height: auto;
+
+    /* background-color: chartreuse; */
+
+    margin-left: 9px;
+}
+
+#client-card-row2-c3-SB4C
+{
+    width: 100%;
+    height: auto;
+
+    /* background-color: brown; */
+
+    font-family:    'Montserrat';
+    font-size:      15px;
+    font-weight:    600;
+
+    color: rgba(89,99,112,1);
 }
