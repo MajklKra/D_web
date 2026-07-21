@@ -1,7 +1,7 @@
 
-__version__ = "1.3.39"
+__version__ = "1.3.40"
 
-# client-card-row2-c4 a client-card-row2-c5
+# client-card-row2-c4 created
 
 # Jedná se o tuto produkční verzi č. ___
 

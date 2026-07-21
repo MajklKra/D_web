@@ -3623,7 +3623,9 @@
     width: 325px;
     height: 369px;
 
-    background-color: #7ca0c2;
+    /* background-color: #7ca0c2; */
+
+    background-color: white;
 
     border-radius: 5px;
 
@@ -3702,4 +3704,246 @@
 
     cursor: pointer;
 
+}
+
+
+/* * * * * * * * * * * * * * * * * */
+/*              AcommC             */
+/*                                 */
+/* * * * * * * * * * * * * * * * * */
+
+  /* Uprava */
+
+#client-card-row2-c4-accomC
+{
+   height: 370px;
+   width: 327px;
+
+   background-color: white;
+   border-radius: 10px;
+   border: 1px solid rgba(214,222,236,1);
+
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: flex-start;
+
+   overflow-x: hidden;
+   overflow-y: hidden;
+}
+
+#client-card-row2-c4-accomC-c2-empC-c1
+{
+  width:  315px;
+  height: 100%;
+  /* background-color: red; */
+}
+
+#client-card-row2-c4-accomC-c2-empC-scrollC
+{
+    width:  13px;
+    height: 100%;
+
+    position: relative;
+
+    background-color: white;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    border-left: 1px solid rgba(244,245,247,1);
+    border-right: 1px solid rgba(214,222,236,1);
+
+}
+
+#client-card-row2-c4-accomC-c2-empC-thumb
+{
+    position: absolute;
+
+    background-color: rgba(205,215,231,1);
+
+    cursor: grab;
+
+    top: 0;
+    left: 1px;
+
+    width: 9px;
+
+    height: 31px;
+
+    /* background-color: dimgrey; */
+
+    border-radius: 10px;
+
+}
+
+.client-card-row2-c4-accomC-occup_row
+{
+
+    width: 100%;
+    height: auto;
+
+    background-color: lightcoral;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+
+    border-bottom: 1px solid rgba(244,245,247,1);
+
+}
+
+.client-card-row2-c4-accomC-occup_room
+{
+
+    width: 34%;
+    height: auto;
+
+    background-color: brown;
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+
+    padding-top:  6px;
+    padding-left: 7px;
+
+}
+
+
+.client-card-row2-c4-accomC-occup_list
+{
+
+    width: 66%;
+    height: auto;
+
+    background-color: green;
+
+    border-left: 2px solid rgba(244,245,247,1);
+
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     flex-start;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+
+.client-card-row2-c4-accomC-occup_patient
+{
+
+    background-color: lightcyan;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+
+    /* padding-left: 10px; */
+    /* padding-top: 6px; */
+
+    margin: 0px;
+
+    /* margin-bottom: 4px; */
+    /* margin-top: 6px; */
+
+    width: 100%;
+
+    height: 19px;
+
+}
+
+.client-card-row2-c4-accomC-occup_patient_id
+{
+    width: 12%;
+    background-color: greenyellow;
+    text-align: center;
+    color: #59646f;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 1px;
+}
+
+.client-card-row2-c4-accomC-occup_patient_name
+{
+    background-color: blue;
+    text-align: start;
+    padding-left: 6px;
+    color: #59646f;
+    width: 88%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    padding-bottom: 1px;
+}
+
+.client-card-row2-c4-accomC-occup_bed
+{
+    background-color: lightcyan;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+    margin: 0px;
+    width: 100%;
+    height: 19px;
+}
+
+.client-card-row2-c4-accomC-occup_bed_id
+{
+    width: 12%;
+
+    background-color: red;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 1px;
+}
+
+.client-card-row2-c4-accomC-occup_img_C
+{
+
+    background-color: orange;
+    text-align: start;
+    padding-left: 6px;
+
+    width: 88%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+}
+
+.client-card-row2-c4-accomC-occup_img
+{
+    width:  18px;
+    height: auto;
+    background-color: violet;
+    display: block;
+    /* margin-top: 1px; */
 }

@@ -656,12 +656,14 @@ function updateSelectionControls()
         if (isActive)
         {
             countSpan.textContent = selectedCount + " klientů";
-            countSpan.style.display = "flex";
+            // countSpan.style.display = "flex";
+            countSpan.style.visibility = "visible";
         }
         else
         {
             countSpan.textContent = "";
-            countSpan.style.display = "none";
+            // countSpan.style.display = "none";
+            countSpan.style.visibility = "hidden";
         }
     }
 
@@ -1086,38 +1088,13 @@ document.addEventListener("click", async function (event)
 /*                   14.7.2026                             */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-
-// function sendCurrentFilters()
-// {
-//     const filters =
-//     {
-//         search: document.getElementById("list-patients-component-searching-bar-searchInput").value,
-
-//         clients: document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value,
-
-//         department: document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value,
-
-//         building: document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value,
-
-//         source: document.getElementById("list-patients-component-searching-bar-selectBox4-filter").value
-//     };
-
-//     console.log(filters);
-
-//     fetch("/administration/clients/current_data", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(filters)
-//     });
-// }
-
-
 /* * * * * * * * * Dnešní korekce * * * * * * */
 
     async function sendCurrentFilters()
     {
+
+        SelectionManager.clear();
+
         const filters =
         {
             search: document.getElementById(
@@ -1220,7 +1197,7 @@ document.addEventListener("click", async function (event)
                 "/administration/clients/?page=1"
             );
 
-            SelectionManager.restore();
+            // SelectionManager.restore();
             syncTotalRecords();
             updateSelectionControls();
 
@@ -1275,32 +1252,6 @@ document.addEventListener("input", function (event)
 /*  Deaktivace SB2 a SB3 */
 /* * * * * * * * * * * * */
 
-// function updateSelectBoxesState()
-// {
-//     const sb1 = document.getElementById("list-patients-component-searching-bar-selectBox1-filter").value;
-
-//     const sb2Btn = document.getElementById("list-patients-component-searching-bar-selectBox2-btn1");
-//     const sb3Btn = document.getElementById("list-patients-component-searching-bar-selectBox3-btn1");
-
-//     const disable = (sb1 === "without-bed");
-
-//     sb2Btn.disabled = disable;
-//     sb3Btn.disabled = disable;
-
-//     sb2Btn.classList.toggle("disabled", disable);
-//     sb3Btn.classList.toggle("disabled", disable);
-
-//     if (disable)
-//     {
-//         document.getElementById("list-patients-component-searching-bar-selectBox2-filter").value = "all";
-//         document.getElementById("list-patients-component-searching-bar-selectBox2-sp2").textContent = "Všechny";
-
-//         document.getElementById("list-patients-component-searching-bar-selectBox3-filter").value = "all";
-//         document.getElementById("list-patients-component-searching-bar-selectBox3-sp2").textContent = "Všechny";
-//     }
-// }
-
-
 function updateSelectBoxesState()
 {
     const sb1Input = document.getElementById(
@@ -1351,3 +1302,80 @@ function updateSelectBoxesState()
 
 /* 17.7.2026 dnešní experimenty */
 
+/* * * * * * * * * * * * * * * * */
+/*                               */
+/*       Tlačítko přídej         */
+/*                               */
+/* * * * * * * * * * * * * * * * */
+
+
+// document.addEventListener("click", function (event)
+// {
+//     const button = event.target.closest("#list-patients-component-searching-bar-btn1");
+
+//     if (!button)
+//     {
+//         return;
+//     }
+
+//     button.classList.add("active");
+// });
+
+
+// const addBtn = document.getElementById("list-patients-component-searching-bar-btn1");
+// const clientCard = document.getElementById("client-card");
+
+// addBtn.addEventListener("click", function ()
+// {
+//     addBtn.classList.add("active");
+//     clientCard.style.display = "flex";
+// });
+
+
+// const closeBtn = document.getElementById("client-card-row1-btn1");
+
+// closeBtn.addEventListener("click", function ()
+// {
+//     clientCard.style.display = "none";
+//     addBtn.classList.remove("active");
+// });
+
+
+document.addEventListener("click", function (event)
+{
+    const addBtn = event.target.closest("#list-patients-component-searching-bar-btn1");
+
+    if (addBtn)
+    {
+        const clientCard = document.getElementById("client-card");
+
+        if (!clientCard)
+        {
+            return;
+        }
+
+        addBtn.classList.add("active");
+        clientCard.classList.add("show");
+
+        return;
+    }
+
+    const closeBtn = event.target.closest("#client-card-row1-btn1");
+
+    if (closeBtn)
+    {
+        const clientCard = document.getElementById("client-card");
+        const addBtn = document.getElementById("list-patients-component-searching-bar-btn1");
+
+        if (clientCard)
+        {
+            clientCard.classList.remove("show");
+        }
+
+        if (addBtn)
+        {
+            addBtn.classList.remove("active");
+        }
+    }
+
+});
