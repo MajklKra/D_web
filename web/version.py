@@ -1,7 +1,7 @@
 
-__version__ = "1.3.42"
+__version__ = "1.3.43"
 
-# client-card-row2-c2-sourceC cursor: not-allowed.
+# client-card-row2-c3-searchC-searchWrapper switching focus and placeholder
 
 # Jedná se o tuto produkční verzi č. ___
 

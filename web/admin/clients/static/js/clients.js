@@ -1379,3 +1379,32 @@ document.addEventListener("click", function (event)
     }
 
 });
+
+
+/* * * * * * * * * * * * * * * * * * * * * */
+/*                                         */
+/*       client-card-row2-c3-searchC       */
+/*                                         */
+/* * * * * * * * * * * * * * * * * * * * * */
+
+
+document.addEventListener("focusin", e =>
+{
+    if (e.target.id === "client-card-row2-c3-searchC-searchInput")
+    {
+        document.getElementById("client-card-row2-c3-searchC-searchLabel").classList.add("hidden");
+    }
+});
+
+document.addEventListener("focusout", e =>
+{
+    if (
+        e.target.id === "client-card-row2-c3-searchC-searchInput" &&
+        e.target.value === ""
+    )
+    {
+        document
+            .getElementById("client-card-row2-c3-searchC-searchLabel")
+            .classList.remove("hidden");
+    }
+})
