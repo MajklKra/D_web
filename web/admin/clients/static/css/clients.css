@@ -2409,6 +2409,14 @@
     height: 100%;
 
     background-color: violet;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+
+    padding-bottom: 16px;
+    padding-right: 16px;
 }
 
 #client-card-row2-c1-imgC
@@ -2510,7 +2518,6 @@
     /* background-color: green; */
     height: auto;
 }
-
 
 #client-card-row2-c2-surname-i1
 {
@@ -3618,7 +3625,81 @@
 
     background-color: #7ca0c2;
 
-    margin-top: 29px;
+    border-radius: 5px;
+
+}
+
+#client-card-row2-c4-inf
+{
+    display: block;
+    width: 100%;
+
+    background-color: greenyellow;
+
+    padding-left: 125px;
+
+    box-sizing: border-box;
+
+    font-family: 'Montserrat';
+    font-size:   12px;
+    font-weight: 500;
+    color: rgba(89,99,112,1);
+
+}
+
+
+#client-card-row2-c4-checkC
+{
+    width: 100%;
+    height: auto;
+
+    background-color: crimson;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+
+    padding: 0;
+    padding-right: 60px;
+
+    margin-top: 10px;
+
+}
+
+#client-card-row2-c4-checkC-checkbox-l
+{
+    height: 100%;
+    background-color: blue;
+
+    font-family: 'Montserrat';
+    font-size:   14px;
+    font-weight: 500;
+    color: rgba(100,108,121,1);
+}
+
+#client-card-row2-c5-btn
+{
+
+    width: 101px;
+    height: 31px;
+
+    background-color: rgba(71,133,176,1);
+
+    color:          white;
+    font-family:    'Montserrat';
+    font-size:      22px;
+    font-weight:    500;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
     border-radius: 5px;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
 }

@@ -1,7 +1,7 @@
 
-__version__ = "1.3.38"
+__version__ = "1.3.39"
 
-# client-card-row2-c4-accomC created
+# client-card-row2-c4 a client-card-row2-c5
 
 # Jedná se o tuto produkční verzi č. ___
 
