@@ -2262,7 +2262,7 @@
     width: 100%;
     height: 50px;
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
     display: flex;
     flex-direction: row;
@@ -2275,15 +2275,15 @@
     height: 100%;
     width: auto;
 
-    background-color: red;
+    /* background-color: red; */
 
     margin: 0;
 
     font-family: 'Montserrat';
-    font-weight: 600;
-    font-size: 19px;
+    font-weight: 700;
+    font-size: 18px;
 
-    color: rgba(89,99,112,1);
+    color: #59646f;
 
     padding-top: 19px;
 
@@ -2294,15 +2294,15 @@
 {
     height: 100%;
     width: auto;
-    background-color: blue;
+    /* background-color: blue; */
 
     margin: 0;
 
     font-family: 'Montserrat';
-    font-weight: 600;
-    font-size: 19px;
+    font-weight: 700;
+    font-size: 18px;
 
-    color: rgba(89,99,112,1);
+    color: #59646f;
 
     padding-top: 19px;
 
@@ -2315,7 +2315,7 @@
     width:   40px;
     height:  40px;
 
-    background-color: green;
+    /* background-color: green; */
 
     padding: 0px;
 
@@ -2365,7 +2365,7 @@
     width:  194px;
     height: 100%;
 
-    background-color: blue;
+    /* background-color: blue; */
 
     padding-top:  32px;
     padding-left: 33px;
@@ -2376,7 +2376,7 @@
     width:  209px;
     height: 100%;
 
-    background-color: red;
+    /* background-color: red; */
 
     padding-top: 8px;
 }
@@ -2386,7 +2386,7 @@
     width:  215px;
     height: 100%;
 
-    background-color: pink;
+    /* background-color: pink; */
 
     margin-left: 168px;
 
@@ -2398,7 +2398,7 @@
     width:  325px;
     height: 100%;
 
-    background-color: orange;
+    /* background-color: orange; */
 
     margin-left: 139px;
 }
@@ -2408,7 +2408,7 @@
     width:  15%;
     height: 100%;
 
-    background-color: violet;
+    /* background-color: violet; */
 
     display: flex;
     flex-direction: column;
@@ -2444,7 +2444,7 @@
 
     display: block;
 
-    color: rgba(126,161,196,1);
+    color: #92adcc;
 
     transform: translateY(-2px)
 }
@@ -2462,7 +2462,7 @@
     left: 61px;
     top:  67px;
 
-    color: rgba(126,161,196,1);
+    color: #92adcc;;
 }
 
 #client-card-row2-c2-name
@@ -2485,8 +2485,6 @@
     border: none;
     outline: none;
 
-    color: black;
-
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 13px;
@@ -2505,8 +2503,8 @@
 
     font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 14px;
-    color: rgba(100,108,121,1);
+    font-size: 13px;
+    color: #59646f;
 
     padding-left: 6px;
 }
@@ -2530,8 +2528,6 @@
     border: none;
     outline: none;
 
-    color: black;
-
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 13px;
@@ -2550,8 +2546,8 @@
 
     font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 14px;
-    color: rgba(100,108,121,1);
+    font-size: 13px;
+    color: #59646f;
 
     padding-left: 6px;
 }
@@ -2687,7 +2683,7 @@
     font-family: 'Montserrat';
     font-size:    13px;
     font-weight:  600;
-    color: rgba(100,108,121,1);
+    color: #59646f;
 
     /* padding-left: 5px; */
 }
@@ -2715,9 +2711,9 @@
     outline: none;
 
     font-family: 'Montserrat';
-    font-weight: 700;
+    font-weight: 500;
     font-size: 13px;
-    color: rgba(135,138,148,1);
+    color: #59646f;
 
     border:  1px solid rgba(237,239,242,1);
 
@@ -2732,8 +2728,8 @@
 
     font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 14px;
-    color: rgba(100,108,121,1);
+    font-size: 13px;
+    color: #59646f;
 
     padding-left: 6px;
 }
@@ -2751,8 +2747,8 @@
 
     font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 14px;
-    color: rgba(100,108,121,1);
+    font-size:   13px;
+    color: #59646f;
 
     padding-left: 6px;
 }
@@ -2777,10 +2773,10 @@
     border: none;
     outline: none;
 
-    color: rgba(135,138,148,1);
+    color: #59646f;
 
     font-family: 'Montserrat';
-    font-weight: 700;
+    font-weight: 500;
     font-size: 13px;
 
     border:  1px solid rgba(237,239,242,1);
@@ -2863,10 +2859,10 @@
     top: 50%;
     transform: translateY(-50%);
 
-    color: rgba(130,171,219,1);
+    color: #7ca0c2;
 
     font-family: 'Montserrat';
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
 
     pointer-events: none;
@@ -2944,7 +2940,7 @@
 
   font-family: 'Montserrat';
   font-size:    13px;
-  font-weight:  700;
+  font-weight:  600;
 
   /* padding-left: 56px; */
   padding-left: 13px;
@@ -3067,6 +3063,11 @@
     /* background-color: chartreuse; */
 
     margin-left: 9px;
+
+    font-family:    'Montserrat';
+    font-weight:    600;
+    font-size:      13px;
+    color:          #59646f;
 }
 
 #client-card-row2-c3-SB1C
@@ -3123,7 +3124,7 @@
 
   font-family: 'Montserrat';
   font-size:    13px;
-  font-weight:  700;
+  font-weight:  600;
 
   /* padding-left: 56px; */
   padding-left: 13px;
@@ -3246,6 +3247,11 @@
     /* background-color: chartreuse; */
 
     margin-left: 9px;
+
+    font-family:    'Montserrat';
+    font-weight:    600;
+    font-size:      13px;
+    color:          #59646f;
 }
 
 #client-card-row2-c3-SB2C
@@ -3300,7 +3306,7 @@
 
   font-family: 'Montserrat';
   font-size:    13px;
-  font-weight:  700;
+  font-weight:  600;
 
   /* padding-left: 56px; */
   padding-left: 13px;
@@ -3424,6 +3430,11 @@
     /* background-color: chartreuse; */
 
     margin-left: 9px;
+
+    font-family:    'Montserrat';
+    font-weight:    600;
+    font-size:      13px;
+    color:          #59646f;
 }
 
 #client-card-row2-c3-SB3C
@@ -3477,7 +3488,7 @@
 
   font-family: 'Montserrat';
   font-size:    13px;
-  font-weight:  700;
+  font-weight:  600;
 
   /* padding-left: 56px; */
   padding-left: 13px;
@@ -3602,6 +3613,12 @@
     /* background-color: chartreuse; */
 
     margin-left: 9px;
+
+    color: #324351;
+
+    font-family:    'Montserrat';
+    font-size:      13px;
+    font-weight:    600;
 }
 
 #client-card-row2-c3-SB4C
@@ -3636,7 +3653,7 @@
     display: block;
     width: 100%;
 
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
 
     padding-left: 125px;
 
@@ -3655,7 +3672,7 @@
     width: 100%;
     height: auto;
 
-    background-color: crimson;
+    /* background-color: crimson; */
 
     display: flex;
     flex-direction: row;
@@ -3672,7 +3689,7 @@
 #client-card-row2-c4-checkC-checkbox-l
 {
     height: 100%;
-    background-color: blue;
+    /* background-color: blue; */
 
     font-family: 'Montserrat';
     font-size:   14px;
@@ -3686,12 +3703,12 @@
     width: 101px;
     height: 31px;
 
-    background-color: rgba(71,133,176,1);
+    background-color: #357fab;
 
     color:          white;
     font-family:    'Montserrat';
-    font-size:      22px;
-    font-weight:    500;
+    font-size:      20px;
+    font-weight:    600;
 
     display: flex;
     flex-direction: row;
@@ -3752,7 +3769,7 @@
     border-bottom-right-radius: 5px;
 
     border-left: 1px solid rgba(244,245,247,1);
-    border-right: 1px solid rgba(214,222,236,1);
+    border-right: 1px solid rgba(244,245,247,1);
 
 }
 
@@ -3783,7 +3800,7 @@
     width: 100%;
     height: auto;
 
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
 
     display: flex;
     flex-direction: row;
@@ -3800,7 +3817,7 @@
     width: 34%;
     height: auto;
 
-    background-color: brown;
+    /* background-color: brown; */
 
     font-size:    13px;
     font-family:  'Montserrat';
@@ -3819,7 +3836,7 @@
     width: 66%;
     height: auto;
 
-    background-color: green;
+    /* background-color: green; */
 
     border-left: 2px solid rgba(244,245,247,1);
 
@@ -3837,7 +3854,7 @@
 .client-card-row2-c4-accomC-occup_patient
 {
 
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -3865,7 +3882,7 @@
 .client-card-row2-c4-accomC-occup_patient_id
 {
     width: 12%;
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
     text-align: center;
     color: #59646f;
 
@@ -3879,7 +3896,7 @@
 
 .client-card-row2-c4-accomC-occup_patient_name
 {
-    background-color: blue;
+    /* background-color: blue; */
     text-align: start;
     padding-left: 6px;
     color: #59646f;
@@ -3895,7 +3912,7 @@
 
 .client-card-row2-c4-accomC-occup_bed
 {
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -3913,7 +3930,7 @@
 {
     width: 12%;
 
-    background-color: red;
+    /* background-color: red; */
 
     display: flex;
     flex-direction: column;
@@ -3926,7 +3943,7 @@
 .client-card-row2-c4-accomC-occup_img_C
 {
 
-    background-color: orange;
+    /* background-color: orange; */
     text-align: start;
     padding-left: 6px;
 
@@ -3943,7 +3960,7 @@
 {
     width:  18px;
     height: auto;
-    background-color: violet;
+    /* background-color: violet; */
     display: block;
     /* margin-top: 1px; */
 }
