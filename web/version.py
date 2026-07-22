@@ -1,7 +1,7 @@
 
-__version__ = "1.3.45"
+__version__ = "1.3.46"
 
-# #client-card-row2-c4-accomC-c2-empC-scrollC updated
+# client-card-row2-c4-accomC-occup_btn hover added
 
 # Jedná se o tuto produkční verzi č. ___
 
