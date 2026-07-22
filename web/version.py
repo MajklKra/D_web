@@ -1,7 +1,7 @@
 
-__version__ = "1.3.48"
+__version__ = "1.3.49"
 
-# #client-card-row2-c4-accomC-c2-empC-c1 MODIFIED !
+# form.py created for new client form
 
 # Jedná se o tuto produkční verzi č. ___
 

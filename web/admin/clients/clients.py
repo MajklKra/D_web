@@ -13,6 +13,8 @@ from math import ceil
 from  web.share.s_print import s_print
 from  web.share.db import db_connection, sqliteDB
 
+from web.admin.clients.form import ClientForm
+
 # # # # # # # # # # # # # # # # # # #
 #   Defaultní vykreslení /clients   #
 # # # # # # # # # # # # # # # # # # #
@@ -338,6 +340,8 @@ def clients():
 
     partial = request.args.get("partial")
 
+    form = ClientForm()
+
     # HTMX stránkování:
     # vrátíme pouze tabulku a stránkování.
     if partial == "table":
@@ -352,6 +356,7 @@ def clients():
             total_records=total_records,
             total_pages=total_pages,
             table_response=True,
+            form = form,
         )
 
     # Data potřebná pro zbytek stránky.
@@ -373,6 +378,7 @@ def clients():
             total_records=total_records,
             total_pages=total_pages,
             table_response=False,
+            form = form,
         )
 
     # Klasické otevření celé stránky v prohlížeči.
@@ -387,6 +393,7 @@ def clients():
         total_records=total_records,
         total_pages=total_pages,
         table_response=False,
+        form = form,
     )
 
 # # # # # # # # # # # # # # # # # # # #

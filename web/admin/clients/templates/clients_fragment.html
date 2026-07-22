@@ -444,12 +444,21 @@
 
                 <div id="client-card-row2-c2-name">
                     <label for="client-card-row2-c2-name-i1" id="client-card-row2-c2-name-i1-l">Jméno</label>
-                    <input type="text" id="client-card-row2-c2-name-i1" name="client-card-row2-c2-name-i1" placeholder="">
+                    <!-- <input type="text" id="client-card-row2-c2-name-i1" name="client_card_name" placeholder=""> -->
+
+                    {{form.client_card_name(minLength=1, maxLength=50, id="client-card-row2-c2-name-i1", title="Zadej jméno.", autofocus=(focus_field=="client_card_name"), placeholder="")}}
+
+
+
+
                 </div>
 
                 <div id="client-card-row2-c2-surname">
                     <label for="client-card-row2-c2-surname" id="client-card-row2-c2-surname-i1-l">Příjmení</label>
-                    <input type="text" id="client-card-row2-c2-surname-i1" name="client-card-row2-c2-surname-i1" placeholder="">
+                    <!-- <input type="text" id="client-card-row2-c2-surname-i1" name="client_card_surname" placeholder=""> -->
+
+                    {{form.client_card_surname(minLength=1, maxLength=50, id="client-card-row2-c2-surname-i1", title="Zadej příjmení.", autofocus=(focus_field=="client_card_name"), placeholder="")}}
+
                 </div>
 
                 <div id="client-card-row2-c2-radioC">
@@ -1127,7 +1136,7 @@
 
             <div id="client-card-row2-c5">
 
-                <button id="client-card-row2-c5-btn" class="btn">Potvrdit</button>
+                <button id="client-card-row2-c5-btn" class="btn" type="submit">Potvrdit</button>
 
             </div>
 
