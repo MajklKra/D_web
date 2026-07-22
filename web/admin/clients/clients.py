@@ -1916,3 +1916,12 @@ def loading_data():
         }
 
     return loading_data
+
+
+
+@admin_clients_bp.route("/new-client", methods=["POST"])
+def new_client():
+
+    print ( " You have reached /new-client method ")
+
+    return " Welcome stranger how are you doing "

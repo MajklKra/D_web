@@ -3774,6 +3774,10 @@ input[readonly]
   width:  315px;
   height: 100%;
   /* background-color: red; */
+
+  overflow-y: auto;
+  overflow-x: hidden
+
 }
 
 #client-card-row2-c4-accomC-c2-empC-scrollC
@@ -3983,4 +3987,9 @@ input[readonly]
     /* background-color: violet; */
     display: block;
     /* margin-top: 1px; */
+}
+
+#client-card-row2-c4-accomC-c2-empC-c1::-webkit-scrollbar
+{
+    display: none;
 }

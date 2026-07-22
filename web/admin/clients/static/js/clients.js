@@ -197,6 +197,13 @@ document.addEventListener("click", function (e)
 
 });
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                               */
+/* Scroll-bar pohyb list-patients-component-listC-listC2-scrollC */
+/*                                                               */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
 function initCustomScrollbar()
 {
     const content = document.getElementById(
@@ -611,7 +618,7 @@ window.addEventListener("pageshow", () =>
 
 /* Další experimenty */
 
-/* Synchronizace počtu kilentů do hlavního checkboxu */
+/* Synchronizace počtu klientů do hlavního checkboxu */
 
 function syncTotalRecords()
 {
@@ -1357,6 +1364,15 @@ document.addEventListener("click", function (event)
         addBtn.classList.add("active");
         clientCard.classList.add("show");
 
+
+
+        /* Scroll-Bar 2 spuštění*/
+
+        requestAnimationFrame(() =>
+        {
+            initAccommodationScrollbar();
+        });
+
         return;
     }
 
@@ -1408,3 +1424,187 @@ document.addEventListener("focusout", e =>
             .classList.remove("hidden");
     }
 })
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                               */
+/* Scroll-bar pohyb client-card-row2-c4-accomC-c2-empC-scrollC   */
+/*                                                               */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+function initAccommodationScrollbar()
+{
+    const content = document.getElementById(
+        "client-card-row2-c4-accomC-c2-empC-c1"
+    );
+
+    const track = document.getElementById(
+        "client-card-row2-c4-accomC-c2-empC-scrollC"
+    );
+
+    const thumb = document.getElementById(
+        "client-card-row2-c4-accomC-c2-empC-thumb"
+    );
+
+    if (!content || !track || !thumb)
+    {
+        console.warn("Scrollbar u umístění nebyl nalezen.");
+        return;
+    }
+
+    function updateThumb()
+    {
+        const contentHeight = content.clientHeight;
+        const scrollHeight = content.scrollHeight;
+        const trackHeight = track.clientHeight;
+
+        const maxScroll = scrollHeight - contentHeight;
+        const hasScroll = maxScroll > 1;
+
+        track.style.opacity = hasScroll ? "1" : "0";
+        track.style.pointerEvents = hasScroll ? "auto" : "none";
+
+        if (!hasScroll)
+        {
+            thumb.style.top = "0px";
+            thumb.style.height = `${trackHeight}px`;
+            return;
+        }
+
+        const calculatedHeight =
+            trackHeight * (contentHeight / scrollHeight);
+
+        // const thumbHeight = Math.max(
+        //     30,
+        //     Math.min(calculatedHeight, trackHeight)
+        // );
+
+        const thumbHeight = 31;
+
+        thumb.style.height = `${thumbHeight}px`;
+
+        const maxThumbTop = trackHeight - thumbHeight;
+
+        const thumbTop =
+            (content.scrollTop / maxScroll) * maxThumbTop;
+
+        thumb.style.top = `${thumbTop}px`;
+    }
+
+    /*
+     * Při opakovaném otevření karty už nepřidáváme
+     * další stejné listenery.
+     */
+    if (content.dataset.scrollbarInitialized === "true")
+    {
+        updateThumb();
+        return;
+    }
+
+    content.dataset.scrollbarInitialized = "true";
+
+    content.addEventListener("scroll", updateThumb);
+
+    let dragging = false;
+    let startMouseY = 0;
+    let startThumbTop = 0;
+
+    thumb.addEventListener("mousedown", event =>
+    {
+        event.preventDefault();
+
+        dragging = true;
+        startMouseY = event.clientY;
+        startThumbTop = thumb.offsetTop;
+
+        thumb.style.cursor = "grabbing";
+        document.body.style.userSelect = "none";
+    });
+
+    document.addEventListener("mousemove", event =>
+    {
+        if (!dragging)
+        {
+            return;
+        }
+
+        const maxThumbTop =
+            track.clientHeight - thumb.clientHeight;
+
+        const maxScroll =
+            content.scrollHeight - content.clientHeight;
+
+        if (maxThumbTop <= 0 || maxScroll <= 0)
+        {
+            return;
+        }
+
+        let newThumbTop =
+            startThumbTop + event.clientY - startMouseY;
+
+        newThumbTop = Math.max(
+            0,
+            Math.min(newThumbTop, maxThumbTop)
+        );
+
+        thumb.style.top = `${newThumbTop}px`;
+
+        content.scrollTop =
+            (newThumbTop / maxThumbTop) * maxScroll;
+    });
+
+    document.addEventListener("mouseup", () =>
+    {
+        if (!dragging)
+        {
+            return;
+        }
+
+        dragging = false;
+
+        thumb.style.cursor = "grab";
+        document.body.style.userSelect = "";
+    });
+
+    /*
+     * Kliknutí přímo na dráhu scrollbaru.
+     */
+
+    track.addEventListener("mousedown", event =>
+    {
+        if (event.target === thumb)
+        {
+            return;
+        }
+
+        const trackRect = track.getBoundingClientRect();
+
+        const clickPosition =
+            event.clientY - trackRect.top;
+
+        const maxThumbTop =
+            track.clientHeight - thumb.clientHeight;
+
+        const maxScroll =
+            content.scrollHeight - content.clientHeight;
+
+        if (maxThumbTop <= 0 || maxScroll <= 0)
+        {
+            return;
+        }
+
+        let newThumbTop =
+            clickPosition - thumb.clientHeight / 2;
+
+        newThumbTop = Math.max(
+            0,
+            Math.min(newThumbTop, maxThumbTop)
+        );
+
+        content.scrollTop =
+            (newThumbTop / maxThumbTop) * maxScroll;
+    });
+
+    updateThumb();
+}
