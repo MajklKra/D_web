@@ -3771,12 +3771,13 @@ input[readonly]
 
 #client-card-row2-c4-accomC-c2-empC-c1
 {
-  width:  315px;
+  /* width:  315px; */
+  flex: 1;
   height: 100%;
   /* background-color: red; */
 
   overflow-y: auto;
-  overflow-x: hidden
+  overflow-x: hidden;
 
 }
 

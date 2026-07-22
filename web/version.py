@@ -1,7 +1,7 @@
 
-__version__ = "1.3.44"
+__version__ = "1.3.45"
 
-# #client-card-row2-c4-accomC-c2-empC-scrollC activated
+# #client-card-row2-c4-accomC-c2-empC-scrollC updated
 
 # Jedná se o tuto produkční verzi č. ___
 

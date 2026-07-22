@@ -1457,28 +1457,30 @@ function initAccommodationScrollbar()
     {
         const contentHeight = content.clientHeight;
         const scrollHeight = content.scrollHeight;
-        const trackHeight = track.clientHeight;
 
         const maxScroll = scrollHeight - contentHeight;
         const hasScroll = maxScroll > 1;
 
-        track.style.opacity = hasScroll ? "1" : "0";
-        track.style.pointerEvents = hasScroll ? "auto" : "none";
-
+        /*
+        * Pokud není co posouvat, celý scrollbar skryjeme.
+        */
         if (!hasScroll)
         {
+            track.style.display = "none";
+
             thumb.style.top = "0px";
-            thumb.style.height = `${trackHeight}px`;
             return;
         }
 
-        const calculatedHeight =
-            trackHeight * (contentHeight / scrollHeight);
+        /*
+        * Scrollování existuje, scrollbar zobrazíme.
+        */
+        track.style.display = "block";
 
-        // const thumbHeight = Math.max(
-        //     30,
-        //     Math.min(calculatedHeight, trackHeight)
-        // );
+        /*
+        * Výšku tracku získáme až po jeho zobrazení.
+        */
+        const trackHeight = track.clientHeight;
 
         const thumbHeight = 31;
 
@@ -1491,6 +1493,7 @@ function initAccommodationScrollbar()
 
         thumb.style.top = `${thumbTop}px`;
     }
+
 
     /*
      * Při opakovaném otevření karty už nepřidáváme
