@@ -1611,3 +1611,26 @@ function initAccommodationScrollbar()
 
     updateThumb();
 }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                             */
+/*   TEST Tlačítka   client-card-row2-c4-accomC-occup_btn      */
+/*                                                             */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// document.addEventListener("click", function (event)
+// {
+//     const button = event.target.closest(".client-card-row2-c4-accomC-occup_btn");
+
+//     if (!button)
+//     {
+//         return;
+//     }
+
+//     event.preventDefault();
+//     event.stopPropagation();
+
+//     const clientId = button.dataset.clientId;
+
+//     alert(`ID klienta: ${clientId}`);
+// });

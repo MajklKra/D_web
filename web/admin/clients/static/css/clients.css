@@ -4061,6 +4061,8 @@ input[readonly]
     outline: none;
 
     border-radius: 5px;
+
+    cursor: pointer;
 }
 
 /* #client-card-row2-c4-accomC-c1-row5-c2-btn1:hover
