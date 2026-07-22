@@ -1,7 +1,7 @@
 
-__version__ = "1.3.49"
+__version__ = "1.3.50"
 
-# form.py created for new client form
+# client-card-row2 data transfered
 
 # Jedná se o tuto produkční verzi č. ___
 

@@ -1931,4 +1931,18 @@ def new_client():
 
     print ( " You have reached /new-client method ")
 
+    # username = request.form.get("client_card_name")
+    # password = request.form.get("client_card_surname")
+
+    # print( f" username: {username} ")
+    # print( f" password: {password} ")
+
+    # gender = request.form.get("gender")
+
+    # print(f"Hodnota proměnné gender -> {gender}")
+
+    ID = request.form.get("client-card-row2-c2-IDC-i1")
+    print(f" Hodnota proměnné ID -> {ID}")
+
+
     return " Welcome stranger how are you doing "
