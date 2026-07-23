@@ -506,7 +506,7 @@
 
             <div id="client-card-row2-c3">
 
-                <div id="client-card-row2-c3-searchC">
+                <div id="client-card-row2-c3-searchC" >
 
                     <div id="client-card-row2-c3-searchC-magnifierC">
 
@@ -532,6 +532,12 @@
 
                         <input id="client-card-row2-c3-searchC-searchInput" type="search"  maxlength="50" name="q" autocomplete="off" spellcheck="false" value="{{ data.search }}">
 
+                        <!-- Sem JavaScript vloží nalezená oddělení -->
+                        <div id="client-card-row2-c3-searchC-results"></div>
+
+                        <!-- Sem se uloží ID vybraného oddělení -->
+                        <input type="hidden" id="client-card-row2-c3-searchC-departmentId" name="client-card-row2-c3-searchC-departmentId" value="">
+
                     </div>
 
                 </div>
@@ -544,7 +550,7 @@
 
                         <button type="button" id="SB1C-buildingBtn" class="SB1C-building-btn">
 
-                            <span id="SB1C-buildingText">Nová budova B</span>
+                            <span id="SB1C-buildingText"></span>
 
                             <svg id="SB1C-dropdownImg" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -554,21 +560,19 @@
 
                         </button>
 
-                        <!-- <div id="SB1C-buildingMenu" class="SB1C-building-menu">
+                        <div id="client-card-row2-c3-SB1C-menu">
 
-                                <button type="button" class="SB1C-building-option" data-value="{{ value }}">
-                                   Budova A
-                                </button>
+                            <div data-value="all" class="client-card-row2-c3-SB1C-menu-options">Všechny</div>
 
-                                <button type="button" class="SB1C-building-option" data-value="{{ value }}">
-                                   Budova B
-                                </button>
+                            {% for building_id, building_name in data.buildings %}
+                                <div class="client-card-row2-c3-SB1C-menu-options" data-value="{{ building_id }}">
+                                    {{ building_name}}
+                                </div>
+                            {% endfor %}
 
-                                <button type="button" class="SB1C-building-option" data-value="{{ value }}">
-                                   Budova C
-                                </button>
-                        </div> -->
+                        </div>
 
+                        <input type="hidden" name="client-card-row2-c3-SB1C-filter" id="client-card-row2-c3-SB1C-filter" value="{{ data.building_filter }}">
 
                     </div>
 
@@ -582,7 +586,7 @@
 
                         <button type="button" id="SB2C-floorBtn" class="SB2C-floor-btn">
 
-                            <span id="SB2C-floorText">4.</span>
+                            <span id="SB2C-floorText"></span>
 
                             <svg id="SB2C-dropdownImg" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -620,7 +624,7 @@
 
                         <button type="button" id="SB3C-depBtn" class="SB3C-dep-btn">
 
-                            <span id="SB3C-depText">Intenzivní péče (JIP)</span>
+                            <span id="SB3C-depText"></span>
 
                             <svg id="SB3C-dropdownImg" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -630,21 +634,21 @@
 
                         </button>
 
-                        <!-- <div id="SB3C-depMenu" class="SB3C-dep-menu">
+                        <div id="client-card-row2-c3-SB3C-menu">
 
-                                <button type="button" class="SB3C-dep-option" data-value="{{ value }}">
-                                   Budova A
-                                </button>
+                            <div data-value="all" class="client-card-row2-c3-SB3C-menu-options"> Všechny </div>
 
-                                <button type="button" class="SB3C-dep-option" data-value="{{ value }}">
-                                   Budova B
-                                </button>
+                            {% for department_id, department_name in data.departments %}
 
-                                <button type="button" class="SB3C-dep-option" data-value="{{ value }}">
-                                   Budova C
-                                </button>
+                                <div class="client-card-row2-c3-SB3C-menu-options" data-value="{{ department_id }}">
+                                    {{ department_name }}
+                                </div>
 
-                        </div> -->
+                            {% endfor %}
+
+                        </div>
+
+                        <input type="hidden" name="client-card-row2-c3-SB3C-filter" id="client-card-row2-c3-SB3C-filter" value="{{ data.department_filter }}">
 
                     </div>
 
@@ -1142,3 +1146,9 @@
     </section>
 
 </section>
+
+
+
+<!-- ### Pod čarou ### -->
+
+

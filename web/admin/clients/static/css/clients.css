@@ -2857,6 +2857,8 @@ input[readonly]
     height: 100%;
 
     /* background-color: blue; */
+
+    position: relative;
 }
 
 #client-card-row2-c3-searchC-searchLabel
@@ -4092,4 +4094,259 @@ input[readonly]
 .client-card-row2-c4-accomC-occup_img
 {
     color: white;
+}
+
+/* * * * * * * * * * * * * * */
+/*                           */
+/* client-card-row2-c3-SB3C  */
+/*                           */
+/* * * * * * * * * * * * * * */
+
+#client-card-row2-c3-SB3C-menu
+{
+
+  display:  none;
+  position: absolute;
+  top: 34px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: white;
+  border-radius: 5px;
+
+  border: 1px solid rgba(245,246,247,1);
+
+  padding-top:  6px;
+  /* padding-left: 9px; */
+
+  overflow: auto;
+
+  z-index: 5;
+
+}
+
+#client-card-row2-c3-SB3C-wrapper
+#client-card-row2-c3-SB3C-menu
+{
+    display: none;
+}
+
+#client-card-row2-c3-SB3C.open
+#client-card-row2-c3-SB3C-menu
+{
+    display: block;
+}
+
+.client-card-row2-c3-SB3C-menu-options
+{
+
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 12px;
+  color: #324351;
+
+  /* background-color: blue; */
+
+  margin-bottom: 3px;
+  padding-left: 9px;
+
+}
+
+.client-card-row2-c3-SB3C-menu-options:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+
+/* Pokusy o disabled boxu client-card-row2-c3-SB3C */
+
+/*
+#client-card-row2-c3-SB3C.disabled
+{
+    opacity: .45;
+}
+
+#client-card-row2-c3-SB3C.disabled *
+{
+    cursor: not-allowed;
+} */
+
+
+/* * * * * * * * * * * * * * */
+/*                           */
+/* client-card-row2-c3-SB1C  */
+/*                           */
+/* * * * * * * * * * * * * * */
+
+
+#client-card-row2-c3-SB1C-menu
+{
+
+  display: none;
+  position: absolute;
+  top: 34px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: white;
+  border-radius: 5px;
+
+  border: 1px solid rgba(245,246,247,1);
+
+  padding-top:  6px;
+  /* padding-left: 9px; */
+
+  overflow: auto;
+
+  z-index: 5;
+
+}
+
+#client-card-row2-c3-SB1C-wrapper
+#client-card-row2-c3-SB1C-menu
+{
+    display: none;
+}
+
+#client-card-row2-c3-SB1C-menu.open
+#client-card-row2-c3-SB1C-menu
+{
+    display: block;
+}
+
+.client-card-row2-c3-SB1C-menu-options
+{
+
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 12px;
+  color: #324351;
+
+  /* background-color: blue; */
+
+  margin-bottom: 3px;
+  padding-left: 9px;
+
+}
+
+.client-card-row2-c3-SB1C-menu-options:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * ** * * ** * * * * * */
+/* Disability of box client-card-row2-c3-SB2C - client-card-row2-c3-SB2C-SB4C  */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+#client-card-row2-c3-SB2C.disabled,
+#client-card-row2-c3-SB3C.disabled,
+#client-card-row2-c3-SB4C.disabled
+{
+    opacity: 0.45;
+}
+
+#client-card-row2-c3-SB2C.disabled *, #client-card-row2-c3-SB3C.disabled *, #client-card-row2-c3-SB4C.disabled *
+{
+    cursor: not-allowed;
+}
+
+
+#client-card-row2-c3-searchC-results
+{
+
+   display: none;
+
+   width:  185px;
+   height:  93px;
+
+   border: 1px solid rgba(240,241,243,1);
+
+   background-color: white;
+
+   margin-top: 10px;
+
+   border-radius: 5px;
+
+   position: absolute;
+   left: 2px;
+   top: 28px;
+
+   z-index: 5;
+
+   flex-direction: column;
+   justify-content: start;
+   align-items: start;
+
+   padding: 6px 4px;
+
+   overflow: auto;
+
+}
+
+#client-card-row2-c3-searchC-results.show
+{
+    display: flex;
+}
+
+
+.client-card-department-search-option
+{
+    /* width: auto;
+    height: auto; */
+
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #59646f;
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center; */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-left: 4px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    max-width: 100%;
+    /* width: 100%; */
+    min-width: 0;
+    height: 22px;
+
+    box-sizing: border-box;
+
+    display: block;
+
+    text-align: left;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    flex-shrink: 0;
+
+}
+
+.client-card-department-search-option:hover
+{
+    background-color: rgba(56,138,202,1);
+    color: white;
+    border-radius: 5px;
 }

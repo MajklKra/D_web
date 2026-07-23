@@ -1097,148 +1097,148 @@ document.addEventListener("click", async function (event)
 
 /* * * * * * * * * Dnešní korekce * * * * * * */
 
-    async function sendCurrentFilters()
+async function sendCurrentFilters()
+{
+
+    SelectionManager.clear();
+
+    const filters =
     {
+        search: document.getElementById(
+            "list-patients-component-searching-bar-searchInput"
+        ).value,
 
-        SelectionManager.clear();
+        clients: document.getElementById(
+            "list-patients-component-searching-bar-selectBox1-filter"
+        ).value,
 
-        const filters =
-        {
-            search: document.getElementById(
-                "list-patients-component-searching-bar-searchInput"
-            ).value,
+        department: document.getElementById(
+            "list-patients-component-searching-bar-selectBox2-filter"
+        ).value,
 
-            clients: document.getElementById(
-                "list-patients-component-searching-bar-selectBox1-filter"
-            ).value,
+        building: document.getElementById(
+            "list-patients-component-searching-bar-selectBox3-filter"
+        ).value,
 
-            department: document.getElementById(
-                "list-patients-component-searching-bar-selectBox2-filter"
-            ).value,
+        source: document.getElementById(
+            "list-patients-component-searching-bar-selectBox4-filter"
+        ).value
+    };
 
-            building: document.getElementById(
-                "list-patients-component-searching-bar-selectBox3-filter"
-            ).value,
+    console.log("Odesílané filtry:", filters);
 
-            source: document.getElementById(
-                "list-patients-component-searching-bar-selectBox4-filter"
-            ).value
-        };
+    try
+    {
+        const response = await fetch(
+            "/administration/clients/current_data?page=1",
+            {
+                method: "POST",
 
-        console.log("Odesílané filtry:", filters);
-
-        try
-        {
-            const response = await fetch(
-                "/administration/clients/current_data?page=1",
+                headers:
                 {
-                    method: "POST",
+                    "Content-Type": "application/json",
+                    "Accept": "text/html"
+                },
 
-                    headers:
-                    {
-                        "Content-Type": "application/json",
-                        "Accept": "text/html"
-                    },
-
-                    body: JSON.stringify(filters)
-                }
-            );
-
-            if (!response.ok)
-            {
-                throw new Error(
-                    `Server odpověděl stavem ${response.status}`
-                );
+                body: JSON.stringify(filters)
             }
+        );
 
-            const html = await response.text();
-
-            console.log("HTML vrácené serverem:", html);
-
-            const parser = new DOMParser();
-
-            const responseDocument = parser.parseFromString(html,"text/html");
-
-            const newTable = responseDocument.getElementById("list-patients-component-listC-listC2-content-table-box");
-
-            const newPagination = responseDocument.getElementById("list-patients-component-lessC");
-
-            const currentTable = document.getElementById("list-patients-component-listC-listC2-content-table-box");
-
-            const currentPagination = document.getElementById("list-patients-component-lessC");
-
-            if (!newTable)
-            {
-                throw new Error("Server nevrátil element aktualizované tabulky.");
-            }
-
-            if (!currentTable)
-            {
-                throw new Error("Na stránce nebyla nalezena současná tabulka.");
-            }
-
-            if (!newPagination)
-            {
-                console.warn("Server nevrátil nové stránkování.");
-            }
-
-            currentTable.replaceWith(newTable);
-
-            if (newPagination && currentPagination)
-            {
-                currentPagination.replaceWith(newPagination);
-            }
-
-
-            htmx.process(newTable);
-
-            if (newPagination)
-            {
-                htmx.process(newPagination);
-            }
-
-
-            window.history.replaceState(
-                {},
-                "",
-                "/administration/clients/?page=1"
-            );
-
-            // SelectionManager.restore();
-            syncTotalRecords();
-            updateSelectionControls();
-
-            requestAnimationFrame(() =>
-            {
-                initCustomScrollbar();
-
-                const content = document.getElementById(
-                    "list-patients-component-listC-listC2-content"
-                );
-
-                const thumb = document.getElementById(
-                    "list-patients-component-listC-listC2-scrollC-thumb"
-                );
-
-                if (content)
-                {
-                    content.scrollTop = 0;
-                }
-
-                if (thumb)
-                {
-                    thumb.style.top = "0px";
-                }
-            });
-        }
-        catch (error)
+        if (!response.ok)
         {
-            console.error(
-                "Tabulku se nepodařilo aktualizovat:",
-                error
+            throw new Error(
+                `Server odpověděl stavem ${response.status}`
             );
         }
+
+        const html = await response.text();
+
+        console.log("HTML vrácené serverem:", html);
+
+        const parser = new DOMParser();
+
+        const responseDocument = parser.parseFromString(html,"text/html");
+
+        const newTable = responseDocument.getElementById("list-patients-component-listC-listC2-content-table-box");
+
+        const newPagination = responseDocument.getElementById("list-patients-component-lessC");
+
+        const currentTable = document.getElementById("list-patients-component-listC-listC2-content-table-box");
+
+        const currentPagination = document.getElementById("list-patients-component-lessC");
+
+        if (!newTable)
+        {
+            throw new Error("Server nevrátil element aktualizované tabulky.");
+        }
+
+        if (!currentTable)
+        {
+            throw new Error("Na stránce nebyla nalezena současná tabulka.");
+        }
+
+        if (!newPagination)
+        {
+            console.warn("Server nevrátil nové stránkování.");
+        }
+
+        currentTable.replaceWith(newTable);
+
+        if (newPagination && currentPagination)
+        {
+            currentPagination.replaceWith(newPagination);
+        }
+
+
+        htmx.process(newTable);
+
+        if (newPagination)
+        {
+            htmx.process(newPagination);
+        }
+
+
+        window.history.replaceState(
+            {},
+            "",
+            "/administration/clients/?page=1"
+        );
+
+        // SelectionManager.restore();
+        syncTotalRecords();
+        updateSelectionControls();
+
+        requestAnimationFrame(() =>
+        {
+            initCustomScrollbar();
+
+            const content = document.getElementById(
+                "list-patients-component-listC-listC2-content"
+            );
+
+            const thumb = document.getElementById(
+                "list-patients-component-listC-listC2-scrollC-thumb"
+            );
+
+            if (content)
+            {
+                content.scrollTop = 0;
+            }
+
+            if (thumb)
+            {
+                thumb.style.top = "0px";
+            }
+        });
     }
+    catch (error)
+    {
+        console.error(
+            "Tabulku se nepodařilo aktualizovat:",
+            error
+        );
+    }
+}
 
 /* * * * * * * * * Dnešní korekce * * * * * * */
 
@@ -1315,39 +1315,6 @@ function updateSelectBoxesState()
 /*                               */
 /* * * * * * * * * * * * * * * * */
 
-
-// document.addEventListener("click", function (event)
-// {
-//     const button = event.target.closest("#list-patients-component-searching-bar-btn1");
-
-//     if (!button)
-//     {
-//         return;
-//     }
-
-//     button.classList.add("active");
-// });
-
-
-// const addBtn = document.getElementById("list-patients-component-searching-bar-btn1");
-// const clientCard = document.getElementById("client-card");
-
-// addBtn.addEventListener("click", function ()
-// {
-//     addBtn.classList.add("active");
-//     clientCard.style.display = "flex";
-// });
-
-
-// const closeBtn = document.getElementById("client-card-row1-btn1");
-
-// closeBtn.addEventListener("click", function ()
-// {
-//     clientCard.style.display = "none";
-//     addBtn.classList.remove("active");
-// });
-
-
 document.addEventListener("click", function (event)
 {
     const addBtn = event.target.closest("#list-patients-component-searching-bar-btn1");
@@ -1363,6 +1330,33 @@ document.addEventListener("click", function (event)
 
         addBtn.classList.add("active");
         clientCard.classList.add("show");
+
+
+        /* Disability of SB */
+
+        // Budova povolena
+
+        setSelectDisabled(
+            "client-card-row2-c3-SB2C",
+            "SB1C-buildingBtn",
+            true
+        );
+
+        // Patro zakázáno
+        setSelectDisabled(
+            "client-card-row2-c3-SB3C",
+            "SB2C-floorBtn",
+            true
+        );
+
+        // Oddělení zakázáno
+        setSelectDisabled(
+            "client-card-row2-c3-SB4C",
+            "SB3C-depBtn",
+            true
+        );
+
+        /* Disability of SB */
 
 
 
@@ -1633,4 +1627,326 @@ function initAccommodationScrollbar()
 //     const clientId = button.dataset.clientId;
 
 //     alert(`ID klienta: ${clientId}`);
+// });
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                                                 */
+/*  Function of disability of client-card-row2-c3-SB2C  - client-card-row2-c3-SB4C */
+/*                                                                                 */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+function setSelectDisabled(wrapperId, buttonId, disabled)
+{
+    const wrapper = document.getElementById(wrapperId);
+    const button = document.getElementById(buttonId);
+
+    if (!wrapper || !button) return;
+
+    wrapper.classList.toggle("disabled", disabled);
+    button.disabled = disabled;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+   # client-card-row2-c3-searchC-searchInput načtení dat + vytvoření seznamu
+     dostupných oddělení
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+let departmentSearchTimeout = null;
+let departmentSearchController = null;
+
+document.addEventListener("input", function (event)
+{
+    if (event.target.id !== "client-card-row2-c3-searchC-searchInput")
+    {
+        return;
+    }
+
+    const input = event.target;
+
+    const results = document.getElementById("client-card-row2-c3-searchC-results");
+
+    const departmentIdInput = document.getElementById("client-card-row2-c3-searchC-departmentId");
+
+    if (!results || !departmentIdInput)
+    {
+        return;
+    }
+
+    const search = input.value.trim();
+
+    /*
+     * Uživatel změnil text, takže předchozí výběr
+     * oddělení už není platný.
+     */
+
+    departmentIdInput.value = "";
+
+    clearTimeout(departmentSearchTimeout);
+
+    /*
+     *  Při prázdném inputu výsledky zavřeme.
+     */
+
+    if (search.length === 0)
+    {
+
+        /* Dnes */
+
+        if (departmentSearchController)
+        {
+            departmentSearchController.abort();
+            departmentSearchController = null;
+        }
+
+
+        closeDepartmentSearchResults();
+        return;
+    }
+
+    /*
+     * Krátké zpoždění zabraňuje odesílání požadavku
+     * po každém jednotlivém stisku klávesy.
+     */
+
+    departmentSearchTimeout = setTimeout(() =>
+    {
+        loadDepartmentSearchResults(search);
+    }, 250);
+});
+
+
+async function loadDepartmentSearchResults(search)
+{
+    const results = document.getElementById("client-card-row2-c3-searchC-results");
+
+    if (!results)
+    {
+        return;
+    }
+
+    /*
+     * Pokud ještě běží starší požadavek,
+     * zrušíme ho.
+     */
+
+    if (departmentSearchController)
+    {
+        departmentSearchController.abort();
+    }
+
+    departmentSearchController = new AbortController();
+
+    try
+    {
+        const response = await fetch(
+            `/administration/clients/api/search-departments?q=${encodeURIComponent(search)}`,
+            {
+                method: "GET",
+
+                headers:
+                {
+                    "Accept": "application/json"
+                },
+
+                signal: departmentSearchController.signal
+            }
+        );
+
+        if (!response.ok)
+        {
+            throw new Error(
+                `Server odpověděl stavem ${response.status}`
+            );
+        }
+
+        const data = await response.json();
+
+        renderDepartmentSearchResults(
+            data.departments || []
+        );
+    }
+    catch (error)
+    {
+        /*
+         * AbortError vznikne při zrušení staršího
+         * požadavku a není to skutečná chyba.
+         */
+        if (error.name === "AbortError")
+        {
+            return;
+        }
+
+        console.error(
+            "Nepodařilo se načíst oddělení:",
+            error
+        );
+
+        results.innerHTML = `
+            <div class="client-card-department-search-message">
+                Oddělení se nepodařilo načíst.
+            </div>
+        `;
+
+        results.classList.add("show");
+    }
+}
+
+
+function renderDepartmentSearchResults(departments)
+{
+    const results = document.getElementById("client-card-row2-c3-searchC-results");
+
+    if (!results)
+    {
+        return;
+    }
+
+    results.innerHTML = "";
+
+    if (departments.length === 0)
+    {
+        results.innerHTML = `
+            <div class="client-card-department-search-message">
+                Nebylo nalezeno žádné oddělení.
+            </div>
+        `;
+
+        results.classList.add("show");
+        return;
+    }
+
+    departments.forEach(department =>
+    {
+        const button = document.createElement("button");
+
+        button.type = "button";
+
+        button.className ="client-card-department-search-option";
+
+        button.dataset.departmentId =String(department.id);
+
+        button.dataset.departmentName =department.name;
+
+        button.textContent =department.name;
+
+        results.appendChild(button);
+    });
+
+    results.classList.add("show");
+}
+
+
+document.addEventListener("click", function (event)
+{
+    const option = event.target.closest(".client-card-department-search-option");
+
+    if (option)
+    {
+        const searchInput = document.getElementById("client-card-row2-c3-searchC-searchInput");
+
+        const departmentIdInput = document.getElementById("client-card-row2-c3-searchC-departmentId");
+
+        if (!searchInput || !departmentIdInput)
+        {
+            return;
+        }
+
+        const departmentId = option.dataset.departmentId;
+
+        const departmentName = option.dataset.departmentName;
+
+        /*
+         * Do viditelného inputu vložíme název.
+         */
+        searchInput.value = departmentName;
+
+        /*
+         * Do skrytého inputu uložíme skutečné ID.
+         */
+
+        departmentIdInput.value = departmentId;
+
+        document.getElementById("client-card-row2-c3-searchC-searchLabel")?.classList.add("hidden");
+
+        closeDepartmentSearchResults();
+
+        console.log( "Vybrané oddělení:",
+            {
+                id: departmentId,
+                name: departmentName
+            }
+        );
+
+        /*
+         * Zde později spustíme druhý krok:
+         *
+         * loadDepartmentLocation(departmentId);
+         */
+
+        return;
+    }
+
+    const searchContainer = document.getElementById("client-card-row2-c3-searchC");
+
+    if (searchContainer && !searchContainer.contains(event.target))
+    {
+        closeDepartmentSearchResults();
+    }
+});
+
+
+// function closeDepartmentSearchResults()
+// {
+//     const results = document.getElementById("client-card-row2-c3-searchC-results");
+
+//     if (!results)
+//     {
+//         return;
+//     }
+
+//     results.classList.remove("show");
+//     results.innerHTML = "";
+// }
+
+function closeDepartmentSearchResults()
+{
+    const results = document.getElementById(
+        "client-card-row2-c3-searchC-results"
+    );
+
+    if (!results)
+    {
+        return;
+    }
+
+    results.classList.remove("show");
+    results.innerHTML = "";
+}
+
+
+// document.addEventListener("click", function (event)
+// {
+//     const searchContainer = document.getElementById(
+//         "client-card-row2-c3-searchC"
+//     );
+
+//     if (!searchContainer)
+//     {
+//         return;
+//     }
+
+//     const clickedInsideSearch = searchContainer.contains(event.target);
+
+//     if (!clickedInsideSearch)
+//     {
+//         closeDepartmentSearchResults();
+//     }
 // });

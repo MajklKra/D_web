@@ -752,7 +752,6 @@ def default_data():
         result_departments = db_connection(SQL_departments, tuple(deps), one_row=False)
 
 
-
     # # # # # # # # # # # # # # # # # # #
     #                                   #
     #  SQL dotaz seznam budov + IDs  #
@@ -789,6 +788,7 @@ def default_data():
         '''
 
         result_buildings = db_connection(SQL_buildings, tuple(deps), one_row=False)
+
 
     # # # # # # # # # # # # # # # # # # #
     #                                   #
@@ -1946,3 +1946,78 @@ def new_client():
 
 
     return " Welcome stranger how are you doing "
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+#  Načtení oddělení pro client-card-row2-c3-searchC-searchInput #
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+@admin_clients_bp.route("/api/search-departments")
+def search_departments():
+
+    """
+    Vyhledání oddělení podle části názvu.
+    Vrací JSON pro našeptávač ve formuláři klienta.
+    """
+
+    search = request.args.get("q", "").strip()
+
+    if len(search) < 1:
+        return jsonify({
+            "departments": []
+        })
+
+    search_like = f"%{search}%"
+
+    e_id = session.get("e_id")
+    tech = session.get("tech")
+    admin = session.get("admin")
+    deps = session.get("e_deps") or []
+
+    if e_id == 0 or tech is True or admin is True:
+
+        sql_query = """
+            SELECT DepartmentID, Name
+            FROM Departments
+            WHERE Name LIKE %s
+            ORDER BY Name
+            LIMIT 20
+        """
+
+        params = (search_like,)
+
+    else:
+
+        if not deps:
+            return jsonify({
+                "departments": []
+            })
+
+        placeholders = ", ".join(["%s"] * len(deps))
+
+        sql_query = f"""
+            SELECT      DepartmentID, Name
+            FROM        Departments
+            WHERE       DepartmentID IN ({placeholders})
+              AND       Name LIKE %s
+            ORDER BY    Name
+            LIMIT 20
+        """
+
+        params = tuple(deps) + (search_like,)
+
+    departments = db_connection( sql_query, params, one_row=False)
+
+    return jsonify({
+        "departments": [
+            {
+                "id": department_id,
+                "name": department_name
+            }
+            for department_id, department_name in departments
+        ]
+    })
