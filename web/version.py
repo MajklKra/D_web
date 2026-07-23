@@ -1,7 +1,7 @@
 
-__version__ = "1.3.52"
+__version__ = "1.3.53"
 
-# ("/api/department-location/<int:department_id>",methods=["GET"]) created
+#  /searching way to populate data for client-card-row2-c3-SB1C- client-card-row2-c3-SB4C
 
 # Jedná se o tuto produkční verzi č. ___
 
