@@ -1622,6 +1622,7 @@ function setSelectDisabled(wrapperId, buttonId, disabled)
 
 let departmentSearchTimeout = null;
 let departmentSearchController = null;
+let initialBuildingMenuHTML = null;
 
 const accommodationState =
 {
@@ -2088,8 +2089,59 @@ function updateSelectBoxesFromAccommodationState()
 }
 
 
+// function resetAccommodationSelection()
+// {
+//     accommodationState.buildings = [];
+//     accommodationState.floors = [];
+//     accommodationState.department = null;
+//     accommodationState.rooms = [];
+
+//     accommodationState.selectedBuildingId = null;
+//     accommodationState.selectedFloorId = null;
+//     accommodationState.selectedDepartmentId = null;
+//     accommodationState.selectedRoomId = null;
+
+//     document.getElementById(
+//         "client-card-row2-c3-searchC-departmentId"
+//     ).value = "";
+
+//     document.getElementById("SB1C-buildingText").textContent =
+//         "";
+
+//     document.getElementById("SB2C-floorText").textContent =
+//         "";
+
+//     document.getElementById("SB3C-depText").textContent =
+//         "";
+
+//     document.getElementById("SB4C-roomText").textContent =
+//         "";
+
+//     setSelectDisabled(
+//         "client-card-row2-c3-SB2C",
+//         "SB2C-floorBtn",
+//         true
+//     );
+
+//     setSelectDisabled(
+//         "client-card-row2-c3-SB3C",
+//         "SB3C-depBtn",
+//         true
+//     );
+
+//     setSelectDisabled(
+//         "client-card-row2-c3-SB4C",
+//         "SB4C-roomBtn",
+//         true
+//     );
+
+//     // Později sem přidáme i vyčištění pravého panelu.
+// }
+
 function resetAccommodationSelection()
 {
+    accommodationState.source = null;
+
     accommodationState.buildings = [];
     accommodationState.floors = [];
     accommodationState.department = null;
@@ -2100,21 +2152,59 @@ function resetAccommodationSelection()
     accommodationState.selectedDepartmentId = null;
     accommodationState.selectedRoomId = null;
 
-    document.getElementById(
+    const departmentIdInput = document.getElementById(
         "client-card-row2-c3-searchC-departmentId"
-    ).value = "";
+    );
 
-    document.getElementById("SB1C-buildingText").textContent =
-        "";
+    if (departmentIdInput)
+    {
+        departmentIdInput.value = "";
+    }
 
-    document.getElementById("SB2C-floorText").textContent =
-        "";
+    const buildingMenu = document.getElementById(
+        "client-card-row2-c3-SB1C-menu"
+    );
 
-    document.getElementById("SB3C-depText").textContent =
-        "";
+    if (buildingMenu && initialBuildingMenuHTML !== null)
+    {
+        buildingMenu.innerHTML = initialBuildingMenuHTML;
+    }
 
-    document.getElementById("SB4C-roomText").textContent =
-        "";
+    const buildingText =
+        document.getElementById("SB1C-buildingText");
+
+    const floorText =
+        document.getElementById("SB2C-floorText");
+
+    const departmentText =
+        document.getElementById("SB3C-depText");
+
+    const roomText =
+        document.getElementById("SB4C-roomText");
+
+    if (buildingText)
+    {
+        buildingText.textContent = "";
+    }
+
+    if (floorText)
+    {
+        floorText.textContent = "";
+    }
+
+    if (departmentText)
+    {
+        departmentText.textContent = "";
+    }
+
+    if (roomText)
+    {
+        roomText.textContent = "";
+    }
+
+    document
+        .getElementById("client-card-row2-c3-SB1C-wrapper")
+        ?.classList.remove("open");
 
     setSelectDisabled(
         "client-card-row2-c3-SB2C",
@@ -2133,8 +2223,6 @@ function resetAccommodationSelection()
         "SB4C-roomBtn",
         true
     );
-
-    // Později sem přidáme i vyčištění pravého panelu.
 }
 
 
@@ -2254,6 +2342,7 @@ document.addEventListener("click", function (event)
 
 function renderAccommodationBuildingMenu()
 {
+
     const menu = document.getElementById("client-card-row2-c3-SB1C-menu");
 
     if (!menu)
@@ -2261,6 +2350,22 @@ function renderAccommodationBuildingMenu()
         console.warn("Menu budov SB1 nebylo nalezeno.");
         return;
     }
+
+    /*
+    * Původní menu uložíme pouze jednou,
+    * ještě před jeho prvním přepsáním.
+    */
+
+    if (initialBuildingMenuHTML === null)
+    {
+        initialBuildingMenuHTML = menu.innerHTML;
+
+        console.log(
+            "Uloženo původní menu budov:",
+            initialBuildingMenuHTML
+        );
+    }
+
 
     /*
      * Odstraníme původní obsah menu.
@@ -2275,6 +2380,7 @@ function renderAccommodationBuildingMenu()
     accommodationState.buildings.forEach(building =>
     {
         const option = document.createElement("button");
+        option.type = "button";
 
         option.className = "client-card-row2-c3-SB1C-menu-options";
 

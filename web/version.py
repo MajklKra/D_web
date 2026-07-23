@@ -1,7 +1,7 @@
 
-__version__ = "1.3.54"
+__version__ = "1.3.55"
 
-# client-card-row2-c3-SB1C correction
+# client-card-row2-c3-SB1C switch from search input to selectBox data updated
 
 # Jedná se o tuto produkční verzi č. ___
 
