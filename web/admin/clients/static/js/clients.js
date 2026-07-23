@@ -2013,6 +2013,10 @@ function applyDepartmentLocationFromSearch(data)
 
 function updateSelectBoxesFromAccommodationState()
 {
+    /* 23.7.2026 Dnes */
+    renderAccommodationBuildingMenu();
+
+
     const buildingText = document.getElementById("SB1C-buildingText");
 
     const floorText = document.getElementById("SB2C-floorText");
@@ -2132,3 +2136,152 @@ function resetAccommodationSelection()
 
     // Později sem přidáme i vyčištění pravého panelu.
 }
+
+
+/* AKTIVACE SELECTBOXŮ client-card-row2-c3-SB1C - client-card-row2-c3-SB4C */
+
+document.addEventListener("click", function (event)
+{
+    const wrapper = document.getElementById("client-card-row2-c3-SB1C-wrapper");
+
+    const button = event.target.closest("#SB1C-buildingBtn");
+
+    const option = event.target.closest(".client-card-row2-c3-SB1C-menu-options");
+
+    if (!wrapper)
+    {
+        return;
+    }
+
+    /*
+     * Kliknutí na tlačítko otevře nebo zavře menu.
+     */
+
+    if (button)
+    {
+        if (button.disabled)
+        {
+            return;
+        }
+
+        wrapper.classList.toggle("open");
+
+        return;
+    }
+
+    /*
+     * Kliknutí na konkrétní budovu.
+     */
+
+    if (option && wrapper.contains(option))
+    {
+        const buildingText = document.getElementById("SB1C-buildingText");
+
+        const hiddenInput = document.getElementById("client-card-row2-c3-SB1C-filter");
+
+        const buildingId = option.dataset.value;
+        const buildingName = option.textContent.trim();
+
+        /*
+         * Uložíme ID budovy do centrálního stavu.
+         */
+           accommodationState.selectedBuildingId = buildingId;
+
+        /*
+         * Nastavíme text v selectboxu.
+         */
+
+
+        if (buildingText)
+        {
+            buildingText.textContent = buildingName;
+        }
+
+        /*
+         * Nastavíme hidden input pro odeslání formuláře.
+         */
+
+        if (hiddenInput)
+        {
+            hiddenInput.value = buildingId;
+        }
+
+        /*
+         * Po změně budovy zrušíme případný
+         * předchozí výběr patra a pokoje.
+         */
+
+
+        accommodationState.selectedFloorId = null;
+        accommodationState.selectedRoomId = null;
+
+        const floorText = document.getElementById("SB2C-floorText");
+
+        const roomText = document.getElementById("SB4C-roomText");
+
+        if (floorText)
+        {
+            floorText.textContent = "Vyberte patro";
+        }
+
+        if (roomText)
+        {
+            roomText.textContent = "Vyberte pokoj";
+        }
+
+        wrapper.classList.remove("open");
+
+        console.log(
+            "%cVybraná budova:",
+            "color: green; font-weight: bold;",
+            {
+                id: accommodationState.selectedBuildingId,
+                name: buildingName
+            }
+        );
+
+        return;
+    }
+
+    /*
+     * Kliknutí mimo selectbox zavře menu.
+     */
+    if (!wrapper.contains(event.target))
+    {
+        wrapper.classList.remove("open");
+    }
+});
+
+function renderAccommodationBuildingMenu()
+{
+    const menu = document.getElementById("client-card-row2-c3-SB1C-menu");
+
+    if (!menu)
+    {
+        console.warn("Menu budov SB1 nebylo nalezeno.");
+        return;
+    }
+
+    /*
+     * Odstraníme původní obsah menu.
+     */
+
+    menu.innerHTML = "";
+
+    /*
+     * Vytvoříme položku pro každou budovu,
+     * kterou vrátil endpoint department-location.
+     */
+    accommodationState.buildings.forEach(building =>
+    {
+        const option = document.createElement("button");
+
+        option.className = "client-card-row2-c3-SB1C-menu-options";
+
+        option.dataset.value = String(building.id);
+        option.textContent = building.name;
+
+        menu.appendChild(option);
+    });
+}
+

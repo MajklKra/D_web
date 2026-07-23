@@ -1,7 +1,7 @@
 
-__version__ = "1.3.53"
+__version__ = "1.3.54"
 
-#  /searching way to populate data for client-card-row2-c3-SB1C- client-card-row2-c3-SB4C
+# client-card-row2-c3-SB1C correction
 
 # Jedná se o tuto produkční verzi č. ___
 
