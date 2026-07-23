@@ -534,13 +534,6 @@ document.addEventListener("change", function (e)
     console.log("%cVybraní klienti:","color:hotpink; font-weight:bold;",SelectionManager.getAll());
 });
 
-// document.addEventListener("DOMContentLoaded", () =>
-// {
-//     SelectionManager.init();
-//     SelectionManager.restore();
-
-//     initCustomScrollbar();
-// });
 
 document.addEventListener("DOMContentLoaded", () =>
 {
@@ -1254,7 +1247,6 @@ document.addEventListener("input", function (event)
 });
 
 
-
 /* * * * * * * * * * * * * /
 /*  Deaktivace SB2 a SB3 */
 /* * * * * * * * * * * * */
@@ -1305,8 +1297,6 @@ function updateSelectBoxesState()
     );
 }
 
-
-
 /* 17.7.2026 dnešní experimenty */
 
 /* * * * * * * * * * * * * * * * */
@@ -1338,21 +1328,21 @@ document.addEventListener("click", function (event)
 
         setSelectDisabled(
             "client-card-row2-c3-SB2C",
-            "SB1C-buildingBtn",
+            "SB2C-floorBtn",
             true
         );
 
         // Patro zakázáno
         setSelectDisabled(
             "client-card-row2-c3-SB3C",
-            "SB2C-floorBtn",
+            "SB3C-depBtn",
             true
         );
 
         // Oddělení zakázáno
         setSelectDisabled(
             "client-card-row2-c3-SB4C",
-            "SB3C-depBtn",
+            "SB4C-roomBtn",
             true
         );
 
@@ -1606,38 +1596,11 @@ function initAccommodationScrollbar()
     updateThumb();
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/*                                                             */
-/*   TEST Tlačítka   client-card-row2-c4-accomC-occup_btn      */
-/*                                                             */
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-// document.addEventListener("click", function (event)
-// {
-//     const button = event.target.closest(".client-card-row2-c4-accomC-occup_btn");
-
-//     if (!button)
-//     {
-//         return;
-//     }
-
-//     event.preventDefault();
-//     event.stopPropagation();
-
-//     const clientId = button.dataset.clientId;
-
-//     alert(`ID klienta: ${clientId}`);
-// });
-
-
-
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*                                                                                 */
 /*  Function of disability of client-card-row2-c3-SB2C  - client-card-row2-c3-SB4C */
 /*                                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 
 function setSelectDisabled(wrapperId, buttonId, disabled)
 {
@@ -1650,14 +1613,12 @@ function setSelectDisabled(wrapperId, buttonId, disabled)
     button.disabled = disabled;
 }
 
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
    # client-card-row2-c3-searchC-searchInput načtení dat + vytvoření seznamu
      dostupných oddělení
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 
 let departmentSearchTimeout = null;
 let departmentSearchController = null;
@@ -1706,7 +1667,6 @@ document.addEventListener("input", function (event)
             departmentSearchController = null;
         }
 
-
         closeDepartmentSearchResults();
         return;
     }
@@ -1721,7 +1681,6 @@ document.addEventListener("input", function (event)
         loadDepartmentSearchResults(search);
     }, 250);
 });
-
 
 async function loadDepartmentSearchResults(search)
 {
@@ -1799,7 +1758,6 @@ async function loadDepartmentSearchResults(search)
     }
 }
 
-
 function renderDepartmentSearchResults(departments)
 {
     const results = document.getElementById("client-card-row2-c3-searchC-results");
@@ -1842,7 +1800,6 @@ function renderDepartmentSearchResults(departments)
 
     results.classList.add("show");
 }
-
 
 document.addEventListener("click", function (event)
 {
@@ -1902,12 +1859,9 @@ document.addEventListener("click", function (event)
     }
 });
 
-
 function closeDepartmentSearchResults()
 {
-    const results = document.getElementById(
-        "client-card-row2-c3-searchC-results"
-    );
+    const results = document.getElementById("client-card-row2-c3-searchC-results");
 
     if (!results)
     {

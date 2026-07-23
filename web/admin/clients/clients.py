@@ -2021,3 +2021,142 @@ def search_departments():
             for department_id, department_name in departments
         ]
     })
+
+
+@admin_clients_bp.route("/api/department-location/<int:department_id>",methods=["GET"])
+def department_location(department_id):
+
+
+    """
+        Welcome to "/api/department-location/<int:department_id"
+
+    """
+
+    SQL_q_building = '''
+
+        SELECT DISTINCT BuildingID, BuildingName
+        FROM
+        (
+            SELECT      Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName, Departments.DepartmentID, Departments.`Name`, Rooms.RoomID, Rooms.RoomName
+            FROM 			Buildings
+            JOIN 			Floors ON Buildings.BuildingID = Floors.BuildingID
+            JOIN 			Rooms ON Rooms.FloorID = Floors.FloorID
+            JOIN 			Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+            JOIN 			Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+            WHERE 		Departments.DepartmentID = %s
+        ) AS clients
+
+    '''
+
+    buildings = db_connection(SQL_q_building, (department_id,), one_row=False)
+
+    SQL_q_floor = '''
+
+            SELECT DISTINCT floorID, floorName
+            FROM
+            (
+                SELECT      Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName, Departments.DepartmentID, Departments.`Name`, Rooms.RoomID, Rooms.RoomName
+                FROM 			Buildings
+                JOIN 			Floors ON Buildings.BuildingID = Floors.BuildingID
+                JOIN 			Rooms ON Rooms.FloorID = Floors.FloorID
+                JOIN 			Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                JOIN 			Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                WHERE 		Departments.DepartmentID = %s
+            ) AS clients
+
+        '''
+
+    floors = db_connection(SQL_q_floor, (department_id,), one_row=False)
+
+    SQL_q_dep = '''
+
+                SELECT DISTINCT DepartmentID, depName
+                FROM
+                (
+                    SELECT      Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName, Departments.DepartmentID, Departments.`Name` AS depName, Rooms.RoomID, Rooms.RoomName
+                    FROM 			Buildings
+                    JOIN 			Floors ON Buildings.BuildingID = Floors.BuildingID
+                    JOIN 			Rooms ON Rooms.FloorID = Floors.FloorID
+                    JOIN 			Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                    JOIN 			Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                    WHERE 		Departments.DepartmentID = %s
+                ) AS clients
+
+            '''
+
+    dep = db_connection(SQL_q_dep, (department_id,), one_row=False)
+
+    SQL_q_rooms = '''
+
+                    SELECT DISTINCT RoomID, RoomName
+                    FROM
+                    (
+                        SELECT      Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName, Departments.DepartmentID, Departments.`Name` AS depName, Rooms.RoomID, Rooms.RoomName
+                        FROM 		Buildings
+                        JOIN 		Floors ON Buildings.BuildingID = Floors.BuildingID
+                        JOIN 		Rooms ON Rooms.FloorID = Floors.FloorID
+                        JOIN 		Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                        JOIN 		Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                        WHERE 		Departments.DepartmentID = %s
+                    ) AS clients
+
+                '''
+
+    rooms = db_connection(SQL_q_rooms , (department_id,), one_row=False)
+
+    # return jsonify({
+    #     "building": {
+    #         "id": 1,
+    #         "name": "Budova A"
+    #     },
+    #     "floor": {
+    #         "id": 2,
+    #         "name": "2. patro"
+    #     },
+    #     "department": {
+    #         "id": department_id,
+    #         "name": "Testovací oddělení"
+    #     },
+    #     "rooms": [
+    #         {
+    #             "id": 10,
+    #             "name": "Pokoj 101"
+    #         },
+    #         {
+    #             "id": 11,
+    #             "name": "Pokoj 102"
+    #         }
+    #     ]
+    # })
+
+
+    return jsonify({
+        "buildings": [
+            {
+                "id": building[0],
+                "name": building[1]
+            }
+            for building in buildings
+        ],
+
+        "floors": [
+            {
+                "id": floor[0],
+                "name": floor[1]
+            }
+            for floor in floors
+        ],
+
+        "department": {
+            "id": dep[0][0],
+            "name": dep[0][1]
+        } if dep else None,
+
+        "rooms": [
+            {
+                "id": room[0],
+                "name": room[1]
+            }
+            for room in rooms
+        ]
+    })

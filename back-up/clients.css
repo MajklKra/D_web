@@ -260,6 +260,7 @@
 
 #list-patients-component-searching-bar-searchInput
 {
+
     width:100%;
     height:100%;
 
@@ -280,6 +281,7 @@
     /* background-color: transparent; */
     outline: none;
     border: none;
+
 }
 
 
@@ -2888,6 +2890,7 @@ input[readonly]
 
 #client-card-row2-c3-searchC-searchInput
 {
+    min-width: 0;
     width:100%;
     height:100%;
 
@@ -2908,6 +2911,10 @@ input[readonly]
     /* background-color: transparent; */
     outline: none;
     border: none;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* Vlastní client-card-row2-c3-SB1C selectBox 1 */
@@ -4017,31 +4024,7 @@ input[readonly]
     display: none;
 }
 
-
-/* Dnešní experimenty */
-
-/* #client-card-row2-c4-accomC-c1-row5-c2-btn1
-{
-    width: 48px;
-    height: 17px;
-
-    background-color: transparent;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-
-    padding-left: 5px;
-
-    margin-left: 5px;
-
-    border: none;
-    outline: none;
-
-    border-radius: 5px;
-} */
-
+/* Obarvení tlačítka client-card-row2-c4-accomC-occup_btn */
 
 .client-card-row2-c4-accomC-occup_btn
 {
@@ -4067,26 +4050,10 @@ input[readonly]
     cursor: pointer;
 }
 
-/* #client-card-row2-c4-accomC-c1-row5-c2-btn1:hover
-{
-    background-color: rgba(53,127,171,1);
-} */
-
 .client-card-row2-c4-accomC-occup_btn:hover
 {
     background-color: rgba(53,127,171,1);
 }
-
-/*
-#client-card-row2-c4-accomC-c1-row5-c2-btn1:hover
-.client-card-row2-c4-accomC-occup_bed_id,
-#client-card-row2-c4-accomC-c1-row5-c2-btn1:hover
-.client-card-row2-c4-accomC-occup_img
-{
-    color: white;
-} */
-
-
 
 .client-card-row2-c4-accomC-occup_btn:hover
 .client-card-row2-c4-accomC-occup_bed_id,
@@ -4158,20 +4125,6 @@ input[readonly]
 {
   background: rgba(234,238,245,0.8);
 }
-
-
-/* Pokusy o disabled boxu client-card-row2-c3-SB3C */
-
-/*
-#client-card-row2-c3-SB3C.disabled
-{
-    opacity: .45;
-}
-
-#client-card-row2-c3-SB3C.disabled *
-{
-    cursor: not-allowed;
-} */
 
 
 /* * * * * * * * * * * * * * */
@@ -4255,6 +4208,9 @@ input[readonly]
     cursor: not-allowed;
 }
 
+/* * * * * * * * * * * * * * * * * * * * * * * * *
+ * Stylování client-card-row2-c3-searchC-results *
+ * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #client-card-row2-c3-searchC-results
 {
@@ -4292,7 +4248,6 @@ input[readonly]
 {
     display: flex;
 }
-
 
 .client-card-department-search-option
 {
@@ -4335,10 +4290,6 @@ input[readonly]
     display: block;
 
     text-align: left;
-
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 
     flex-shrink: 0;
 

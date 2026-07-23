@@ -1,7 +1,7 @@
 
 __version__ = "1.3.52"
 
-# client-card-row2-c3-searchC-searchInput ... added
+# ("/api/department-location/<int:department_id>",methods=["GET"]) created
 
 # Jedná se o tuto produkční verzi č. ___
 
