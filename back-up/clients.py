@@ -13,6 +13,8 @@ from math import ceil
 from  web.share.s_print import s_print
 from  web.share.db import db_connection, sqliteDB
 
+from web.admin.clients.form import ClientForm
+
 # # # # # # # # # # # # # # # # # # #
 #   Defaultní vykreslení /clients   #
 # # # # # # # # # # # # # # # # # # #
@@ -338,6 +340,8 @@ def clients():
 
     partial = request.args.get("partial")
 
+    form = ClientForm()
+
     # HTMX stránkování:
     # vrátíme pouze tabulku a stránkování.
     if partial == "table":
@@ -352,6 +356,7 @@ def clients():
             total_records=total_records,
             total_pages=total_pages,
             table_response=True,
+            form = form,
         )
 
     # Data potřebná pro zbytek stránky.
@@ -373,6 +378,7 @@ def clients():
             total_records=total_records,
             total_pages=total_pages,
             table_response=False,
+            form = form,
         )
 
     # Klasické otevření celé stránky v prohlížeči.
@@ -387,6 +393,7 @@ def clients():
         total_records=total_records,
         total_pages=total_pages,
         table_response=False,
+        form = form,
     )
 
 # # # # # # # # # # # # # # # # # # # #
@@ -745,7 +752,6 @@ def default_data():
         result_departments = db_connection(SQL_departments, tuple(deps), one_row=False)
 
 
-
     # # # # # # # # # # # # # # # # # # #
     #                                   #
     #  SQL dotaz seznam budov + IDs  #
@@ -782,6 +788,7 @@ def default_data():
         '''
 
         result_buildings = db_connection(SQL_buildings, tuple(deps), one_row=False)
+
 
     # # # # # # # # # # # # # # # # # # #
     #                                   #
@@ -1916,3 +1923,101 @@ def loading_data():
         }
 
     return loading_data
+
+
+
+@admin_clients_bp.route("/new-client", methods=["POST"])
+def new_client():
+
+    print ( " You have reached /new-client method ")
+
+    # username = request.form.get("client_card_name")
+    # password = request.form.get("client_card_surname")
+
+    # print( f" username: {username} ")
+    # print( f" password: {password} ")
+
+    # gender = request.form.get("gender")
+
+    # print(f"Hodnota proměnné gender -> {gender}")
+
+    ID = request.form.get("client-card-row2-c2-IDC-i1")
+    print(f" Hodnota proměnné ID -> {ID}")
+
+
+    return " Welcome stranger how are you doing "
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+#  Načtení oddělení pro client-card-row2-c3-searchC-searchInput #
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+@admin_clients_bp.route("/api/search-departments")
+def search_departments():
+
+    """
+    Vyhledání oddělení podle části názvu.
+    Vrací JSON pro našeptávač ve formuláři klienta.
+    """
+
+    search = request.args.get("q", "").strip()
+
+    if len(search) < 1:
+        return jsonify({
+            "departments": []
+        })
+
+    search_like = f"%{search}%"
+
+    e_id = session.get("e_id")
+    tech = session.get("tech")
+    admin = session.get("admin")
+    deps = session.get("e_deps") or []
+
+    if e_id == 0 or tech is True or admin is True:
+
+        sql_query = """
+            SELECT DepartmentID, Name
+            FROM Departments
+            WHERE Name LIKE %s
+            ORDER BY Name
+            LIMIT 20
+        """
+
+        params = (search_like,)
+
+    else:
+
+        if not deps:
+            return jsonify({
+                "departments": []
+            })
+
+        placeholders = ", ".join(["%s"] * len(deps))
+
+        sql_query = f"""
+            SELECT      DepartmentID, Name
+            FROM        Departments
+            WHERE       DepartmentID IN ({placeholders})
+              AND       Name LIKE %s
+            ORDER BY    Name
+            LIMIT 20
+        """
+
+        params = tuple(deps) + (search_like,)
+
+    departments = db_connection( sql_query, params, one_row=False)
+
+    return jsonify({
+        "departments": [
+            {
+                "id": department_id,
+                "name": department_name
+            }
+            for department_id, department_name in departments
+        ]
+    })

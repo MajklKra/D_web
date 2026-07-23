@@ -260,6 +260,7 @@
 
 #list-patients-component-searching-bar-searchInput
 {
+
     width:100%;
     height:100%;
 
@@ -280,6 +281,7 @@
     /* background-color: transparent; */
     outline: none;
     border: none;
+
 }
 
 
@@ -2888,6 +2890,7 @@ input[readonly]
 
 #client-card-row2-c3-searchC-searchInput
 {
+    min-width: 0;
     width:100%;
     height:100%;
 
@@ -2908,6 +2911,10 @@ input[readonly]
     /* background-color: transparent; */
     outline: none;
     border: none;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* Vlastní client-card-row2-c3-SB1C selectBox 1 */
@@ -4336,10 +4343,6 @@ input[readonly]
 
     text-align: left;
 
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-
     flex-shrink: 0;
 
 }
@@ -4349,4 +4352,18 @@ input[readonly]
     background-color: rgba(56,138,202,1);
     color: white;
     border-radius: 5px;
+}
+
+.client-card-department-search-message
+{
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #59646f;
+
+    /* background-color: red; */
+
+    text-align: justify;
+
+    margin-top: 10px;
 }

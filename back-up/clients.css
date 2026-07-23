@@ -2262,7 +2262,7 @@
     width: 100%;
     height: 50px;
 
-    background-color: yellow;
+    /* background-color: yellow; */
 
     display: flex;
     flex-direction: row;
@@ -2275,15 +2275,15 @@
     height: 100%;
     width: auto;
 
-    background-color: red;
+    /* background-color: red; */
 
     margin: 0;
 
     font-family: 'Montserrat';
-    font-weight: 600;
-    font-size: 19px;
+    font-weight: 700;
+    font-size: 18px;
 
-    color: rgba(89,99,112,1);
+    color: #59646f;
 
     padding-top: 19px;
 
@@ -2294,15 +2294,15 @@
 {
     height: 100%;
     width: auto;
-    background-color: blue;
+    /* background-color: blue; */
 
     margin: 0;
 
     font-family: 'Montserrat';
-    font-weight: 600;
-    font-size: 19px;
+    font-weight: 700;
+    font-size: 18px;
 
-    color: rgba(89,99,112,1);
+    color: #59646f;
 
     padding-top: 19px;
 
@@ -2315,7 +2315,7 @@
     width:   40px;
     height:  40px;
 
-    background-color: green;
+    /* background-color: green; */
 
     padding: 0px;
 
@@ -2365,7 +2365,7 @@
     width:  194px;
     height: 100%;
 
-    background-color: blue;
+    /* background-color: blue; */
 
     padding-top:  32px;
     padding-left: 33px;
@@ -2376,7 +2376,7 @@
     width:  209px;
     height: 100%;
 
-    background-color: red;
+    /* background-color: red; */
 
     padding-top: 8px;
 }
@@ -2386,7 +2386,7 @@
     width:  215px;
     height: 100%;
 
-    background-color: pink;
+    /* background-color: pink; */
 
     margin-left: 168px;
 
@@ -2398,7 +2398,7 @@
     width:  325px;
     height: 100%;
 
-    background-color: orange;
+    /* background-color: orange; */
 
     margin-left: 139px;
 }
@@ -2408,7 +2408,7 @@
     width:  15%;
     height: 100%;
 
-    background-color: violet;
+    /* background-color: violet; */
 
     display: flex;
     flex-direction: column;
@@ -2444,7 +2444,7 @@
 
     display: block;
 
-    color: rgba(126,161,196,1);
+    color: #92adcc;
 
     transform: translateY(-2px)
 }
@@ -2462,7 +2462,7 @@
     left: 61px;
     top:  67px;
 
-    color: rgba(126,161,196,1);
+    color: #92adcc;;
 }
 
 #client-card-row2-c2-name
@@ -2485,8 +2485,6 @@
     border: none;
     outline: none;
 
-    color: black;
-
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 13px;
@@ -2497,6 +2495,12 @@
     margin-top: 3px;
 
     padding-left: 11px;
+
+}
+
+input[readonly]
+{
+    cursor: not-allowed;
 }
 
 #client-card-row2-c2-name-i1-l
@@ -2505,8 +2509,8 @@
 
     font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 14px;
-    color: rgba(100,108,121,1);
+    font-size: 13px;
+    color: #59646f;
 
     padding-left: 6px;
 }
@@ -2530,8 +2534,6 @@
     border: none;
     outline: none;
 
-    color: black;
-
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 13px;
@@ -2542,6 +2544,7 @@
     margin-top: 3px;
 
     padding-left: 11px;
+
 }
 
 #client-card-row2-c2-surname-i1-l
@@ -2550,8 +2553,8 @@
 
     font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 14px;
-    color: rgba(100,108,121,1);
+    font-size: 13px;
+    color: #59646f;
 
     padding-left: 6px;
 }
@@ -2687,7 +2690,7 @@
     font-family: 'Montserrat';
     font-size:    13px;
     font-weight:  600;
-    color: rgba(100,108,121,1);
+    color: #59646f;
 
     /* padding-left: 5px; */
 }
@@ -2715,9 +2718,9 @@
     outline: none;
 
     font-family: 'Montserrat';
-    font-weight: 700;
+    font-weight: 500;
     font-size: 13px;
-    color: rgba(135,138,148,1);
+    color: #59646f;
 
     border:  1px solid rgba(237,239,242,1);
 
@@ -2732,8 +2735,8 @@
 
     font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 14px;
-    color: rgba(100,108,121,1);
+    font-size: 13px;
+    color: #59646f;
 
     padding-left: 6px;
 }
@@ -2751,8 +2754,8 @@
 
     font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 14px;
-    color: rgba(100,108,121,1);
+    font-size:   13px;
+    color: #59646f;
 
     padding-left: 6px;
 }
@@ -2777,10 +2780,10 @@
     border: none;
     outline: none;
 
-    color: rgba(135,138,148,1);
+    color: #59646f;
 
     font-family: 'Montserrat';
-    font-weight: 700;
+    font-weight: 500;
     font-size: 13px;
 
     border:  1px solid rgba(237,239,242,1);
@@ -2854,6 +2857,8 @@
     height: 100%;
 
     /* background-color: blue; */
+
+    position: relative;
 }
 
 #client-card-row2-c3-searchC-searchLabel
@@ -2863,10 +2868,10 @@
     top: 50%;
     transform: translateY(-50%);
 
-    color: rgba(130,171,219,1);
+    color: #7ca0c2;
 
     font-family: 'Montserrat';
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
 
     pointer-events: none;
@@ -2904,7 +2909,6 @@
     outline: none;
     border: none;
 }
-
 
 /* Vlastní client-card-row2-c3-SB1C selectBox 1 */
 
@@ -2944,7 +2948,7 @@
 
   font-family: 'Montserrat';
   font-size:    13px;
-  font-weight:  700;
+  font-weight:  600;
 
   /* padding-left: 56px; */
   padding-left: 13px;
@@ -3067,6 +3071,11 @@
     /* background-color: chartreuse; */
 
     margin-left: 9px;
+
+    font-family:    'Montserrat';
+    font-weight:    600;
+    font-size:      13px;
+    color:          #59646f;
 }
 
 #client-card-row2-c3-SB1C
@@ -3123,7 +3132,7 @@
 
   font-family: 'Montserrat';
   font-size:    13px;
-  font-weight:  700;
+  font-weight:  600;
 
   /* padding-left: 56px; */
   padding-left: 13px;
@@ -3246,6 +3255,11 @@
     /* background-color: chartreuse; */
 
     margin-left: 9px;
+
+    font-family:    'Montserrat';
+    font-weight:    600;
+    font-size:      13px;
+    color:          #59646f;
 }
 
 #client-card-row2-c3-SB2C
@@ -3300,7 +3314,7 @@
 
   font-family: 'Montserrat';
   font-size:    13px;
-  font-weight:  700;
+  font-weight:  600;
 
   /* padding-left: 56px; */
   padding-left: 13px;
@@ -3424,6 +3438,11 @@
     /* background-color: chartreuse; */
 
     margin-left: 9px;
+
+    font-family:    'Montserrat';
+    font-weight:    600;
+    font-size:      13px;
+    color:          #59646f;
 }
 
 #client-card-row2-c3-SB3C
@@ -3477,7 +3496,7 @@
 
   font-family: 'Montserrat';
   font-size:    13px;
-  font-weight:  700;
+  font-weight:  600;
 
   /* padding-left: 56px; */
   padding-left: 13px;
@@ -3602,6 +3621,12 @@
     /* background-color: chartreuse; */
 
     margin-left: 9px;
+
+    color: #324351;
+
+    font-family:    'Montserrat';
+    font-size:      13px;
+    font-weight:    600;
 }
 
 #client-card-row2-c3-SB4C
@@ -3629,6 +3654,8 @@
 
     border-radius: 5px;
 
+    border: 1px solid rgba(235,237,239,1) !important;
+
 }
 
 #client-card-row2-c4-inf
@@ -3636,7 +3663,7 @@
     display: block;
     width: 100%;
 
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
 
     padding-left: 125px;
 
@@ -3647,6 +3674,8 @@
     font-weight: 500;
     color: rgba(89,99,112,1);
 
+    margin-top: 5px;
+
 }
 
 
@@ -3655,7 +3684,7 @@
     width: 100%;
     height: auto;
 
-    background-color: crimson;
+    /* background-color: crimson; */
 
     display: flex;
     flex-direction: row;
@@ -3663,21 +3692,31 @@
     align-items: center;
 
     padding: 0;
-    padding-right: 60px;
+    padding-right: 70px;
 
-    margin-top: 10px;
+    margin-top: 6px;
+
+}
+
+#client-card-row2-c4-checkC-checkbox
+{
+
+   margin-bottom: 7px;
 
 }
 
 #client-card-row2-c4-checkC-checkbox-l
 {
     height: 100%;
-    background-color: blue;
+
+    /* background-color: blue; */
 
     font-family: 'Montserrat';
-    font-size:   14px;
-    font-weight: 500;
-    color: rgba(100,108,121,1);
+    font-size:   13px;
+    font-weight: 600;
+    color: #59646f;
+
+    margin-bottom: 5px;
 }
 
 #client-card-row2-c5-btn
@@ -3686,12 +3725,12 @@
     width: 101px;
     height: 31px;
 
-    background-color: rgba(71,133,176,1);
+    background-color: #357fab;
 
     color:          white;
     font-family:    'Montserrat';
-    font-size:      22px;
-    font-weight:    500;
+    font-size:      20px;
+    font-weight:    600;
 
     display: flex;
     flex-direction: row;
@@ -3704,4 +3743,624 @@
 
     cursor: pointer;
 
+}
+
+
+/* * * * * * * * * * * * * * * * * */
+/*              AcommC             */
+/*                                 */
+/* * * * * * * * * * * * * * * * * */
+
+  /* Uprava */
+
+#client-card-row2-c4-accomC
+{
+   height: 370px;
+   width: 327px;
+
+   background-color: white;
+   border-radius: 10px;
+   border: 1px solid rgba(214,222,236,1);
+
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: flex-start;
+
+   overflow-x: hidden;
+   overflow-y: hidden;
+}
+
+#client-card-row2-c4-accomC-c2-empC-c1
+{
+  /* width:  315px; */
+  flex: 1;
+  height: 100%;
+  /* background-color: red; */
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+#client-card-row2-c4-accomC-c2-empC-scrollC
+{
+    width:  12px;
+    height: 100%;
+
+    position: relative;
+
+    background-color: white;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    border-left: 1px solid rgba(244,245,247,1);
+    border-right: 1px solid rgba(244,245,247,1);
+
+}
+
+#client-card-row2-c4-accomC-c2-empC-thumb
+{
+    position: absolute;
+
+    background-color: rgba(205,215,231,1);
+
+    cursor: grab;
+
+    top: 0;
+    left: 1px;
+
+    width: 9px;
+
+    height: 31px;
+
+    /* background-color: dimgrey; */
+
+    border-radius: 10px;
+
+}
+
+.client-card-row2-c4-accomC-occup_row
+{
+
+    width: 100%;
+    height: auto;
+
+    /* background-color: lightcoral; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+
+    border-bottom: 1px solid rgba(244,245,247,1);
+
+}
+
+.client-card-row2-c4-accomC-occup_room
+{
+
+    width: 34%;
+    height: auto;
+
+    /* background-color: brown; */
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+
+    padding-top:  6px;
+    padding-left: 7px;
+
+}
+
+
+.client-card-row2-c4-accomC-occup_list
+{
+
+    width: 66%;
+    height: auto;
+
+    /* background-color: green; */
+
+    border-left: 2px solid rgba(244,245,247,1);
+
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     flex-start;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+
+.client-card-row2-c4-accomC-occup_patient
+{
+
+    /* background-color: lightcyan; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  500;
+    color: #357fab;
+
+    /* padding-left: 10px; */
+    /* padding-top: 6px; */
+
+    margin: 0px;
+
+    /* margin-bottom: 4px; */
+    /* margin-top: 6px; */
+
+    width: 100%;
+
+    height: 19px;
+
+}
+
+.client-card-row2-c4-accomC-occup_patient_id
+{
+    /* width: 12%; */
+
+    min-width: 17px;
+    max-width: 17px;
+
+    /* background-color: greenyellow; */
+    text-align: center;
+    color: #59646f;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    padding-bottom: 1px;
+
+    margin-left: 10px;
+}
+
+.client-card-row2-c4-accomC-occup_patient_name
+{
+    /* background-color: blue; */
+    text-align: start;
+    padding-left: 5px;
+    color: #59646f;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    padding-bottom: 1px;
+}
+
+.client-card-row2-c4-accomC-occup_bed
+{
+    /* background-color: lightcyan; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0px;
+    width: 100%;
+    height: 19px;
+}
+
+.client-card-row2-c4-accomC-occup_bed_id
+{
+    /* width: 12%; */
+
+    /* width: auto; */
+
+    min-width: 17px;
+    max-width: 17px;
+
+    /* background-color: red; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    padding-bottom: 1px;
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+
+    color: #357fab;
+
+}
+
+.client-card-row2-c4-accomC-occup_img_C
+{
+
+    /* background-color: orange; */
+    text-align: start;
+    /* padding-left: 6px; */
+
+    /* width: 88%; */
+
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    margin-left: 5px;
+}
+
+.client-card-row2-c4-accomC-occup_img
+{
+    width:  18px;
+    height: auto;
+    /* background-color: violet; */
+    display: block;
+    /* margin-top: 1px; */
+
+    color: #357fab;
+
+}
+
+#client-card-row2-c4-accomC-c2-empC-c1::-webkit-scrollbar
+{
+    display: none;
+}
+
+
+/* Dnešní experimenty */
+
+/* #client-card-row2-c4-accomC-c1-row5-c2-btn1
+{
+    width: 48px;
+    height: 17px;
+
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    padding-left: 5px;
+
+    margin-left: 5px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 5px;
+} */
+
+
+.client-card-row2-c4-accomC-occup_btn
+{
+    width: 48px;
+    height: 17px;
+
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    padding-left: 5px;
+
+    margin-left: 5px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+/* #client-card-row2-c4-accomC-c1-row5-c2-btn1:hover
+{
+    background-color: rgba(53,127,171,1);
+} */
+
+.client-card-row2-c4-accomC-occup_btn:hover
+{
+    background-color: rgba(53,127,171,1);
+}
+
+/*
+#client-card-row2-c4-accomC-c1-row5-c2-btn1:hover
+.client-card-row2-c4-accomC-occup_bed_id,
+#client-card-row2-c4-accomC-c1-row5-c2-btn1:hover
+.client-card-row2-c4-accomC-occup_img
+{
+    color: white;
+} */
+
+
+
+.client-card-row2-c4-accomC-occup_btn:hover
+.client-card-row2-c4-accomC-occup_bed_id,
+.client-card-row2-c4-accomC-occup_btn:hover
+.client-card-row2-c4-accomC-occup_img
+{
+    color: white;
+}
+
+/* * * * * * * * * * * * * * */
+/*                           */
+/* client-card-row2-c3-SB3C  */
+/*                           */
+/* * * * * * * * * * * * * * */
+
+#client-card-row2-c3-SB3C-menu
+{
+
+  display:  none;
+  position: absolute;
+  top: 34px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: white;
+  border-radius: 5px;
+
+  border: 1px solid rgba(245,246,247,1);
+
+  padding-top:  6px;
+  /* padding-left: 9px; */
+
+  overflow: auto;
+
+  z-index: 5;
+
+}
+
+#client-card-row2-c3-SB3C-wrapper
+#client-card-row2-c3-SB3C-menu
+{
+    display: none;
+}
+
+#client-card-row2-c3-SB3C.open
+#client-card-row2-c3-SB3C-menu
+{
+    display: block;
+}
+
+.client-card-row2-c3-SB3C-menu-options
+{
+
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 12px;
+  color: #324351;
+
+  /* background-color: blue; */
+
+  margin-bottom: 3px;
+  padding-left: 9px;
+
+}
+
+.client-card-row2-c3-SB3C-menu-options:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+
+/* Pokusy o disabled boxu client-card-row2-c3-SB3C */
+
+/*
+#client-card-row2-c3-SB3C.disabled
+{
+    opacity: .45;
+}
+
+#client-card-row2-c3-SB3C.disabled *
+{
+    cursor: not-allowed;
+} */
+
+
+/* * * * * * * * * * * * * * */
+/*                           */
+/* client-card-row2-c3-SB1C  */
+/*                           */
+/* * * * * * * * * * * * * * */
+
+
+#client-card-row2-c3-SB1C-menu
+{
+
+  display: none;
+  position: absolute;
+  top: 34px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: white;
+  border-radius: 5px;
+
+  border: 1px solid rgba(245,246,247,1);
+
+  padding-top:  6px;
+  /* padding-left: 9px; */
+
+  overflow: auto;
+
+  z-index: 5;
+
+}
+
+#client-card-row2-c3-SB1C-wrapper
+#client-card-row2-c3-SB1C-menu
+{
+    display: none;
+}
+
+#client-card-row2-c3-SB1C-menu.open
+#client-card-row2-c3-SB1C-menu
+{
+    display: block;
+}
+
+.client-card-row2-c3-SB1C-menu-options
+{
+
+  cursor: pointer;
+
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 12px;
+  color: #324351;
+
+  /* background-color: blue; */
+
+  margin-bottom: 3px;
+  padding-left: 9px;
+
+}
+
+.client-card-row2-c3-SB1C-menu-options:hover
+{
+  background: rgba(234,238,245,0.8);
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * ** * * ** * * * * * */
+/* Disability of box client-card-row2-c3-SB2C - client-card-row2-c3-SB2C-SB4C  */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+#client-card-row2-c3-SB2C.disabled,
+#client-card-row2-c3-SB3C.disabled,
+#client-card-row2-c3-SB4C.disabled
+{
+    opacity: 0.45;
+}
+
+#client-card-row2-c3-SB2C.disabled *, #client-card-row2-c3-SB3C.disabled *, #client-card-row2-c3-SB4C.disabled *
+{
+    cursor: not-allowed;
+}
+
+
+#client-card-row2-c3-searchC-results
+{
+
+   display: none;
+
+   width:  185px;
+   height:  93px;
+
+   border: 1px solid rgba(240,241,243,1);
+
+   background-color: white;
+
+   margin-top: 10px;
+
+   border-radius: 5px;
+
+   position: absolute;
+   left: 2px;
+   top: 28px;
+
+   z-index: 5;
+
+   flex-direction: column;
+   justify-content: start;
+   align-items: start;
+
+   padding: 6px 4px;
+
+   overflow: auto;
+
+}
+
+#client-card-row2-c3-searchC-results.show
+{
+    display: flex;
+}
+
+
+.client-card-department-search-option
+{
+    /* width: auto;
+    height: auto; */
+
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #59646f;
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center; */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-left: 4px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    max-width: 100%;
+    /* width: 100%; */
+    min-width: 0;
+    height: 22px;
+
+    box-sizing: border-box;
+
+    display: block;
+
+    text-align: left;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    flex-shrink: 0;
+
+}
+
+.client-card-department-search-option:hover
+{
+    background-color: rgba(56,138,202,1);
+    color: white;
+    border-radius: 5px;
+}
+
+.client-card-department-search-message
+{
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #59646f;
+
+    /* background-color: red; */
+
+    text-align: justify;
+
+    margin-top: 10px;
 }

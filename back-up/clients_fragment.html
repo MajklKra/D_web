@@ -4,7 +4,6 @@
 <section id="list-patients-component">
 
     <section id="list-patients-component-searching-bar">
-        <!-- <input type="search" id="list-patients-component-searching-bar-searchInput" name="q" placeholder="Vyhledat klienta..." autocomplete="off" spellcheck="false"> -->
 
         <div id="list-patients-component-searching-bar-searchingBox">
 
@@ -392,7 +391,7 @@
 
         </div>
 
-        <div id="client-card-row2">
+        <form id="client-card-row2"  method="POST"  action="/administration/clients/new-client">
 
             <div id="client-card-row2-c1">
 
@@ -445,12 +444,18 @@
 
                 <div id="client-card-row2-c2-name">
                     <label for="client-card-row2-c2-name-i1" id="client-card-row2-c2-name-i1-l">Jméno</label>
-                    <input type="text" id="client-card-row2-c2-name-i1" name="client-card-row2-c2-name-i1" placeholder="">
+                    <!-- <input type="text" id="client-card-row2-c2-name-i1" name="client_card_name" placeholder=""> -->
+
+                    {{form.client_card_name(minLength=1, maxLength=50, id="client-card-row2-c2-name-i1", title="Zadej jméno.", autofocus=(focus_field=="client_card_name"), placeholder="")}}
+
                 </div>
 
                 <div id="client-card-row2-c2-surname">
                     <label for="client-card-row2-c2-surname" id="client-card-row2-c2-surname-i1-l">Příjmení</label>
-                    <input type="text" id="client-card-row2-c2-surname-i1" name="client-card-row2-c2-surname-i1" placeholder="">
+                    <!-- <input type="text" id="client-card-row2-c2-surname-i1" name="client_card_surname" placeholder=""> -->
+
+                    {{form.client_card_surname(minLength=1, maxLength=50, id="client-card-row2-c2-surname-i1", title="Zadej příjmení.", autofocus=(focus_field=="client_card_name"), placeholder="")}}
+
                 </div>
 
                 <div id="client-card-row2-c2-radioC">
@@ -489,21 +494,19 @@
 
                 <div id="client-card-row2-c2-sourceC">
                     <label for="client-card-row2-c2-source-i1" id="client-card-row2-c2-source-i1-l">Zdroj</label>
-                    <input type="text" id="client-card-row2-c2-source-i1" name="client-card-row2-c2-source-i1" placeholder="---">
+                    <input type="text" id="client-card-row2-c2-source-i1" name="client-card-row2-c2-source-i1" placeholder="---" readonly>
                 </div>
 
                 <div id="client-card-row2-c2-IDC">
                     <label for="client-card-row2-c2-IDC-i1" id="client-card-row2-c2-IDC-i1-l">ID</label>
-                    <input type="text" id="client-card-row2-c2-IDC-i1" name="client-card-row2-c2-IDC-i1" placeholder="72633839">
+                    <input type="text" id="client-card-row2-c2-IDC-i1" name="client-card-row2-c2-IDC-i1" placeholder="72633839" value="732637540" readonly>
                 </div>
-
-
 
             </div>
 
             <div id="client-card-row2-c3">
 
-                <div id="client-card-row2-c3-searchC">
+                <div id="client-card-row2-c3-searchC" >
 
                     <div id="client-card-row2-c3-searchC-magnifierC">
 
@@ -529,6 +532,12 @@
 
                         <input id="client-card-row2-c3-searchC-searchInput" type="search"  maxlength="50" name="q" autocomplete="off" spellcheck="false" value="{{ data.search }}">
 
+                        <!-- Sem JavaScript vloží nalezená oddělení -->
+                        <div id="client-card-row2-c3-searchC-results"></div>
+
+                        <!-- Sem se uloží ID vybraného oddělení -->
+                        <input type="hidden" id="client-card-row2-c3-searchC-departmentId" name="client-card-row2-c3-searchC-departmentId" value="">
+
                     </div>
 
                 </div>
@@ -541,7 +550,7 @@
 
                         <button type="button" id="SB1C-buildingBtn" class="SB1C-building-btn">
 
-                            <span id="SB1C-buildingText">Nová budova B</span>
+                            <span id="SB1C-buildingText"></span>
 
                             <svg id="SB1C-dropdownImg" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -551,21 +560,19 @@
 
                         </button>
 
-                        <!-- <div id="SB1C-buildingMenu" class="SB1C-building-menu">
+                        <div id="client-card-row2-c3-SB1C-menu">
 
-                                <button type="button" class="SB1C-building-option" data-value="{{ value }}">
-                                   Budova A
-                                </button>
+                            <div data-value="all" class="client-card-row2-c3-SB1C-menu-options">Všechny</div>
 
-                                <button type="button" class="SB1C-building-option" data-value="{{ value }}">
-                                   Budova B
-                                </button>
+                            {% for building_id, building_name in data.buildings %}
+                                <div class="client-card-row2-c3-SB1C-menu-options" data-value="{{ building_id }}">
+                                    {{ building_name}}
+                                </div>
+                            {% endfor %}
 
-                                <button type="button" class="SB1C-building-option" data-value="{{ value }}">
-                                   Budova C
-                                </button>
-                        </div> -->
+                        </div>
 
+                        <input type="hidden" name="client-card-row2-c3-SB1C-filter" id="client-card-row2-c3-SB1C-filter" value="{{ data.building_filter }}">
 
                     </div>
 
@@ -579,7 +586,7 @@
 
                         <button type="button" id="SB2C-floorBtn" class="SB2C-floor-btn">
 
-                            <span id="SB2C-floorText">4.</span>
+                            <span id="SB2C-floorText"></span>
 
                             <svg id="SB2C-dropdownImg" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -617,7 +624,7 @@
 
                         <button type="button" id="SB3C-depBtn" class="SB3C-dep-btn">
 
-                            <span id="SB3C-depText">Intenzivní péče (JIP)</span>
+                            <span id="SB3C-depText"></span>
 
                             <svg id="SB3C-dropdownImg" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -627,21 +634,21 @@
 
                         </button>
 
-                        <!-- <div id="SB3C-depMenu" class="SB3C-dep-menu">
+                        <div id="client-card-row2-c3-SB3C-menu">
 
-                                <button type="button" class="SB3C-dep-option" data-value="{{ value }}">
-                                   Budova A
-                                </button>
+                            <div data-value="all" class="client-card-row2-c3-SB3C-menu-options"> Všechny </div>
 
-                                <button type="button" class="SB3C-dep-option" data-value="{{ value }}">
-                                   Budova B
-                                </button>
+                            {% for department_id, department_name in data.departments %}
 
-                                <button type="button" class="SB3C-dep-option" data-value="{{ value }}">
-                                   Budova C
-                                </button>
+                                <div class="client-card-row2-c3-SB3C-menu-options" data-value="{{ department_id }}">
+                                    {{ department_name }}
+                                </div>
 
-                        </div> -->
+                            {% endfor %}
+
+                        </div>
+
+                        <input type="hidden" name="client-card-row2-c3-SB3C-filter" id="client-card-row2-c3-SB3C-filter" value="{{ data.department_filter }}">
 
                     </div>
 
@@ -685,7 +692,6 @@
 
                 </div>
 
-
             </div>
 
             <div id="client-card-row2-c4">
@@ -693,11 +699,437 @@
                 <div id="client-card-row2-c4-checkC">
 
                     <input type="checkbox" id="client-card-row2-c4-checkC-checkbox" name="client-card-row2-c4-checkC-checkbox">
-                    <label for="client-card-row2-c4-checkC-checkbox" id="client-card-row2-c4-checkC-checkbox-l"> Pouze volná lůžka </label>
+                    <label for="client-card-row2-c4-checkC-checkbox" id="client-card-row2-c4-checkC-checkbox-l"> &nbsp;Pouze volná lůžka </label>
 
                 </div>
 
-                <div id="client-card-row2-c4-accomC"></div>
+                <div id="client-card-row2-c4-accomC">
+
+                        <div id="client-card-row2-c4-accomC-c2-empC-c1" >
+
+                            <!-- Data z předchozího seznamu  -->
+
+                            <div class="client-card-row2-c4-accomC-occup_row">
+
+                                <div class="client-card-row2-c4-accomC-occup_room">201 Standart</div>
+
+                                <div class="client-card-row2-c4-accomC-occup_list">
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                       <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 1 </span>
+
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                            .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                                fill: currentColor;
+                                                            }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+
+                                            </span>
+                                        </button>
+
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_patient">
+                                        <span  class="client-card-row2-c4-accomC-occup_patient_id"> 2 </span>
+                                        <span  class="client-card-row2-c4-accomC-occup_patient_name"> Novák Jan </span>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_patient">
+                                        <span  class="client-card-row2-c4-accomC-occup_patient_id"> 3 </span>
+                                        <span  class="client-card-row2-c4-accomC-occup_patient_name"> Johson Dakota </span>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_patient">
+                                        <span class="client-card-row2-c4-accomC-occup_patient_id"> 4 </span>
+                                        <span class="client-card-row2-c4-accomC-occup_patient_name"> Malá Sára</span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="client-card-row2-c4-accomC-occup_row">
+
+                                <div class="client-card-row2-c4-accomC-occup_room">202 Izolace</div>
+
+                                <div class="client-card-row2-c4-accomC-occup_list">
+
+                                    <p class="client-card-row2-c4-accomC-occup_patient">
+                                        <span class="client-card-row2-c4-accomC-occup_patient_id"> 1 </span>
+                                        <span class="client-card-row2-c4-accomC-occup_patient_name"> Holý Filip </span>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 2 </span>
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+                                            </span>
+                                        </button>
+
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 3 </span>
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+
+                                            </span>
+
+                                        </button>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 4 </span>
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+
+                                            </span>
+
+                                        </button>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="client-card-row2-c4-accomC-occup_row">
+
+                                <div class="client-card-row2-c4-accomC-occup_room">203 Izolace</div>
+                                <div class="client-card-row2-c4-accomC-occup_list">
+
+                                    <p class="client-card-row2-c4-accomC-occup_patient">
+                                        <span class="client-card-row2-c4-accomC-occup_patient_id"> 1 </span>
+                                        <span class="client-card-row2-c4-accomC-occup_patient_name"> Červený Alfred </span>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 2 </span>
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg  viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+                                            </span>
+
+                                        </button>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 3 </span>
+
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11"  class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+
+                                            </span>
+                                        </button>
+
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 4 </span>
+
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                        <defs>
+                                                            <style>
+                                                            .client-card-row2-c4-accomC-occup_img-b-cls-1
+                                                            {
+                                                                fill: currentColor;
+                                                            }
+                                                            </style>
+                                                        </defs>
+                                                        <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                        <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                        <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+
+                                            </span>
+                                        </button>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_patient">
+                                        <span class="client-card-row2-c4-accomC-occup_patient_id"> 5</span>
+                                        <span class="client-card-row2-c4-accomC-occup_patient_name"> Sytá Aneta </span>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_patient">
+                                        <span class="client-card-row2-c4-accomC-occup_patient_id"> 6</span>
+                                        <span class="client-card-row2-c4-accomC-occup_patient_name"> Rychlý Vojta </span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="client-card-row2-c4-accomC-occup_row">
+
+                                <div class="client-card-row2-c4-accomC-occup_room">204 Izolace</div>
+                                <div class="client-card-row2-c4-accomC-occup_list">
+
+                                    <p class="client-card-row2-c4-accomC-occup_patient">
+                                        <span class="client-card-row2-c4-accomC-occup_patient_id" > 1 </span>
+                                        <span class="client-card-row2-c4-accomC-occup_patient_name" > Radek Richard </span>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 2 </span>
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+
+                                            </span>
+
+                                        </button>
+
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 3 </span>
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+
+                                            </span>
+
+                                        </button>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn">
+
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 4 </span>
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+
+                                            </span>
+                                        </button>
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Testovací žádek -->
+
+                            <!-- <div class="client-card-row2-c4-accomC-occup_row">
+
+                                <div  class="client-card-row2-c4-accomC-occup_room">205 Hospoda</div>
+                                <div  class="client-card-row2-c4-accomC-occup_list">
+
+                                    <p  class="client-card-row2-c4-accomC-occup_patient">
+                                        <span  class="client-card-row2-c4-accomC-occup_patient_id" > 1 </span>
+                                        <span  class="client-card-row2-c4-accomC-occup_patient_name" > Majkl K. </span>
+                                    </p>
+
+                                    <p  class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button  type="button" class="client-card-row2-c4-accomC-occup_btn" data-client-id="12345">
+                                            <span  class="client-card-row2-c4-accomC-occup_bed_id"> 2 </span>
+                                            <span  class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+
+                                            </span>
+                                        </button>
+
+
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button class="client-card-row2-c4-accomC-occup_btn">
+
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 3 </span>
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                    <defs>
+                                                        <style>
+                                                        .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                                                            fill: currentColor;
+                                                        }
+                                                        </style>
+                                                    </defs>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                    <path class="client-card-row2-c4-accomC-occup_img-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                    <circle class="client-card-row2-c4-accomC-occup_img-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                                </svg>
+                                            </span>
+
+                                        </button>
+                                    </p>
+
+                                    <p class="client-card-row2-c4-accomC-occup_bed">
+
+                                        <button class="client-card-row2-c4-accomC-occup_btn">
+                                            <span class="client-card-row2-c4-accomC-occup_bed_id"> 4 </span>
+
+                                            <span class="client-card-row2-c4-accomC-occup_img_C">
+
+                                                <svg viewBox="3 7 18 11" class="client-card-row2-c4-accomC-occup_img">
+                                                <defs>
+                                                    <style>
+                                                    .client-card-row2-c4-accomC-c1-row5-c2-bedImg-b-cls-1 {
+                                                        fill: currentColor;
+                                                    }
+                                                    </style>
+                                                </defs>
+                                                <path class="client-card-row2-c4-accomC-c1-row5-c2-bedImg-b-cls-1" d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"/>
+                                                <path class="client-card-row2-c4-accomC-c1-row5-c2-bedImg-b-cls-1" d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"/>
+                                                <circle class="client-card-row2-c4-accomC-c1-row5-c2-bedImg-b-cls-1" cx="6.63" cy="10.82" r="1.34"/>
+                                            </svg>
+
+                                            </span>
+                                        </button>
+                                    </p>
+
+                                </div>
+
+                            </div> -->
+
+                        </div>
+
+                        <div id="client-card-row2-c4-accomC-c2-empC-scrollC">
+                            <div id="client-card-row2-c4-accomC-c2-empC-thumb"></div>
+                        </div>
+
+                </div>
 
                 <span id="client-card-row2-c4-inf">* pro umístění zvolte volné lůžko</span>
 
@@ -705,12 +1137,18 @@
 
             <div id="client-card-row2-c5">
 
-                <button id="client-card-row2-c5-btn">Potvrdit</button>
+                <button id="client-card-row2-c5-btn" class="btn" type="submit">Potvrdit</button>
 
             </div>
 
-        </div>
+        </form>
 
     </section>
 
 </section>
+
+
+
+<!-- ### Pod čarou ### -->
+
+

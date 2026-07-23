@@ -1903,19 +1903,6 @@ document.addEventListener("click", function (event)
 });
 
 
-// function closeDepartmentSearchResults()
-// {
-//     const results = document.getElementById("client-card-row2-c3-searchC-results");
-
-//     if (!results)
-//     {
-//         return;
-//     }
-
-//     results.classList.remove("show");
-//     results.innerHTML = "";
-// }
-
 function closeDepartmentSearchResults()
 {
     const results = document.getElementById(
@@ -1932,21 +1919,3 @@ function closeDepartmentSearchResults()
 }
 
 
-// document.addEventListener("click", function (event)
-// {
-//     const searchContainer = document.getElementById(
-//         "client-card-row2-c3-searchC"
-//     );
-
-//     if (!searchContainer)
-//     {
-//         return;
-//     }
-
-//     const clickedInsideSearch = searchContainer.contains(event.target);
-
-//     if (!clickedInsideSearch)
-//     {
-//         closeDepartmentSearchResults();
-//     }
-// });
