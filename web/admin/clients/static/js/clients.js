@@ -2187,115 +2187,115 @@ function resetAccommodationSelection()
 * AKTIVACE SELECTBOXŮ client-card-row2-c3-SB1C - client-card-row2-c3-SB4C
 */
 
-document.addEventListener("click", function (event)
-{
+// document.addEventListener("click", function (event)
+// {
 
-    const wrapper = document.getElementById("client-card-row2-c3-SB1C-wrapper");
-    const button = event.target.closest("#SB1C-buildingBtn");
-    const option = event.target.closest(".client-card-row2-c3-SB1C-menu-options");
+//     const wrapper = document.getElementById("client-card-row2-c3-SB1C-wrapper");
+//     const button = event.target.closest("#SB1C-buildingBtn");
+//     const option = event.target.closest(".client-card-row2-c3-SB1C-menu-options");
 
-    if (!wrapper)
-    {
-        return;
-    }
+//     if (!wrapper)
+//     {
+//         return;
+//     }
 
-    /*
-     * Kliknutí na tlačítko otevře nebo zavře menu.
-     */
+//     /*
+//      * Kliknutí na tlačítko otevře nebo zavře menu.
+//      */
 
-    if (button)
-    {
-        if (button.disabled)
-        {
-            return;
-        }
+//     if (button)
+//     {
+//         if (button.disabled)
+//         {
+//             return;
+//         }
 
-        console.log("Klik na SB1", "color: red");
+//         console.log("Klik na SB1", "color: red");
 
-        wrapper.classList.toggle("open");
+//         wrapper.classList.toggle("open");
 
-        return;
-    }
+//         return;
+//     }
 
-    /*
-     * Kliknutí na konkrétní budovu.
-     */
+//     /*
+//      * Kliknutí na konkrétní budovu.
+//      */
 
-    if (option && wrapper.contains(option))
-    {
-        const buildingText = document.getElementById("SB1C-buildingText");
-        const hiddenInput = document.getElementById("client-card-row2-c3-SB1C-filter");
-        const buildingId = option.dataset.value;
-        const buildingName = option.textContent.trim();
+//     if (option && wrapper.contains(option))
+//     {
+//         const buildingText = document.getElementById("SB1C-buildingText");
+//         const hiddenInput = document.getElementById("client-card-row2-c3-SB1C-filter");
+//         const buildingId = option.dataset.value;
+//         const buildingName = option.textContent.trim();
 
-        /*
-         * Uložíme ID budovy do centrálního stavu.
-         */
-           accommodationState.selectedBuildingId = buildingId;
+//         /*
+//          * Uložíme ID budovy do centrálního stavu.
+//          */
+//            accommodationState.selectedBuildingId = buildingId;
 
-        /*
-         * Nastavíme text v selectboxu.
-         */
+//         /*
+//          * Nastavíme text v selectboxu.
+//          */
 
-        if (buildingText)
-        {
-            buildingText.textContent = buildingName;
-        }
+//         if (buildingText)
+//         {
+//             buildingText.textContent = buildingName;
+//         }
 
-        /*
-         * Nastavíme hidden input pro odeslání formuláře.
-         */
+//         /*
+//          * Nastavíme hidden input pro odeslání formuláře.
+//          */
 
-        if (hiddenInput)
-        {
-            hiddenInput.value = buildingId;
-        }
+//         if (hiddenInput)
+//         {
+//             hiddenInput.value = buildingId;
+//         }
 
-        /*
-         * Po změně budovy zrušíme případný
-         * předchozí výběr patra a pokoje.
-         */
+//         /*
+//          * Po změně budovy zrušíme případný
+//          * předchozí výběr patra a pokoje.
+//          */
 
-        accommodationState.selectedFloorId = null;
-        accommodationState.selectedRoomId = null;
+//         accommodationState.selectedFloorId = null;
+//         accommodationState.selectedRoomId = null;
 
-        const floorText = document.getElementById("SB2C-floorText");
-        const roomText = document.getElementById("SB4C-roomText");
+//         const floorText = document.getElementById("SB2C-floorText");
+//         const roomText = document.getElementById("SB4C-roomText");
 
-        if (floorText)
-        {
-            floorText.textContent = "Vyberte patro";
-        }
+//         if (floorText)
+//         {
+//             floorText.textContent = "Vyberte patro";
+//         }
 
-        if (roomText)
-        {
-            roomText.textContent = "Vyberte pokoj";
-        }
+//         if (roomText)
+//         {
+//             roomText.textContent = "Vyberte pokoj";
+//         }
 
-        wrapper.classList.remove("open");
+//         wrapper.classList.remove("open");
 
-        console.log(
-            "%cVybraná budova:",
-            "color: green; font-weight: bold;",
-            {
-                id: accommodationState.selectedBuildingId,
-                name: buildingName
-            }
-        );
+//         console.log(
+//             "%cVybraná budova:",
+//             "color: green; font-weight: bold;",
+//             {
+//                 id: accommodationState.selectedBuildingId,
+//                 name: buildingName
+//             }
+//         );
 
-        return;
-    }
+//         return;
+//     }
 
-    /*
-     * Kliknutí mimo selectbox zavře menu.
-     */
+//     /*
+//      * Kliknutí mimo selectbox zavře menu.
+//      */
 
-    if (!wrapper.contains(event.target))
-    {
-        wrapper.classList.remove("open");
-    }
+//     if (!wrapper.contains(event.target))
+//     {
+//         wrapper.classList.remove("open");
+//     }
 
-});
+// });
 
 
 function renderAccommodationBuildingMenu()
@@ -2411,8 +2411,52 @@ function renderAccommodationRoomMenu()
 }
 
 
+// const accommodationSelectBoxes =
+// {
+//     SB2:
+//     {
+//         wrapperId: "client-card-row2-c3-SB2C-wrapper",
+//         buttonId: "SB2C-floorBtn",
+//         optionClass: "client-card-row2-c3-SB2C-menu-options",
+//         textId: "SB2C-floorText",
+//         inputId: "client-card-row2-c3-SB2C-filter",
+//         stateProperty: "selectedFloorId"
+//     },
+
+//     SB3:
+//     {
+//         wrapperId: "client-card-row2-c3-SB3C-wrapper",
+//         buttonId: "SB3C-depBtn",
+//         optionClass: "client-card-row2-c3-SB3C-menu-options",
+//         textId: "SB3C-depText",
+//         inputId: "client-card-row2-c3-SB3C-filter",
+//         stateProperty: "selectedDepartmentId"
+//     },
+
+//     SB4:
+//     {
+//         wrapperId: "client-card-row2-c3-SB4C-wrapper",
+//         buttonId: "SB4C-roomBtn",
+//         optionClass: "client-card-row2-c3-SB4C-menu-options",
+//         textId: "SB4C-roomText",
+//         inputId: "client-card-row2-c3-SB4C-filter",
+//         stateProperty: "selectedRoomId"
+//     }
+// };
+
+
 const accommodationSelectBoxes =
 {
+    SB1:
+    {
+        wrapperId: "client-card-row2-c3-SB1C-wrapper",
+        buttonId: "SB1C-buildingBtn",
+        optionClass: "client-card-row2-c3-SB1C-menu-options",
+        textId: "SB1C-buildingText",
+        inputId: "client-card-row2-c3-SB1C-filter",
+        stateProperty: "selectedBuildingId"
+    },
+
     SB2:
     {
         wrapperId: "client-card-row2-c3-SB2C-wrapper",
@@ -2444,24 +2488,124 @@ const accommodationSelectBoxes =
     }
 };
 
+
+
+// document.addEventListener("click", function (event)
+// {
+//     for (const config of Object.values(accommodationSelectBoxes))
+//     {
+//         const wrapper =
+//             document.getElementById(config.wrapperId);
+
+//         if (!wrapper)
+//         {
+//             continue;
+//         }
+
+//         const button =
+//             event.target.closest(`#${config.buttonId}`);
+
+//         const option =
+//             event.target.closest(`.${config.optionClass}`);
+
+//         if (button)
+//         {
+//             if (button.disabled)
+//             {
+//                 return;
+//             }
+
+//             // closeAllAccommodationSelectBoxes(config.wrapperId);
+
+//             // wrapper.classList.toggle("open");
+
+//             const wasOpen = wrapper.classList.contains("open");
+
+//             closeAllAccommodationSelectBoxes();
+
+//             if (!wasOpen)
+//             {
+//                 wrapper.classList.add("open");
+//             }
+
+//             return;
+//         }
+
+//         if (option && wrapper.contains(option))
+//         {
+//             const value = option.dataset.value;
+//             const text = option.textContent.trim();
+
+//             accommodationState[config.stateProperty] = value;
+
+//             const textElement =
+//                 document.getElementById(config.textId);
+
+//             const hiddenInput =
+//                 document.getElementById(config.inputId);
+
+//             if (textElement)
+//             {
+//                 textElement.textContent = text;
+//             }
+
+//             if (hiddenInput)
+//             {
+//                 hiddenInput.value = value;
+//             }
+
+//             wrapper.classList.remove("open");
+
+//             console.log(
+//                 "Vybraná hodnota:",
+//                 config.stateProperty,
+//                 value,
+//                 text
+//             );
+
+//             return;
+//         }
+//     }
+
+//     const clickedInsideAccommodationSelectBox =
+//         event.target.closest(
+//             "#client-card-row2-c3-SB1C-wrapper, " +
+//             "#client-card-row2-c3-SB2C-wrapper, " +
+//             "#client-card-row2-c3-SB3C-wrapper, " +
+//             "#client-card-row2-c3-SB4C-wrapper"
+//         );
+
+//     if (!clickedInsideAccommodationSelectBox)
+//     {
+//         closeAllAccommodationSelectBoxes();
+//     }
+// });
+
+
 document.addEventListener("click", function (event)
 {
     for (const config of Object.values(accommodationSelectBoxes))
     {
-        const wrapper =
-            document.getElementById(config.wrapperId);
+        const wrapper = document.getElementById(
+            config.wrapperId
+        );
 
         if (!wrapper)
         {
             continue;
         }
 
-        const button =
-            event.target.closest(`#${config.buttonId}`);
+        const button = event.target.closest(
+            `#${config.buttonId}`
+        );
 
-        const option =
-            event.target.closest(`.${config.optionClass}`);
+        const option = event.target.closest(
+            `.${config.optionClass}`
+        );
 
+        /*
+         * Kliknutí na tlačítko SelectBoxu.
+         */
         if (button)
         {
             if (button.disabled)
@@ -2469,13 +2613,29 @@ document.addEventListener("click", function (event)
                 return;
             }
 
-            closeAllAccommodationSelectBoxes(config.wrapperId);
+            const wasOpen =
+                wrapper.classList.contains("open");
 
-            wrapper.classList.toggle("open");
+            /*
+             * Nejprve zavřeme všechna menu.
+             */
+            closeAllAccommodationSelectBoxes();
+
+            /*
+             * Pokud kliknuté menu předtím nebylo otevřené,
+             * otevřeme ho.
+             */
+            if (!wasOpen)
+            {
+                wrapper.classList.add("open");
+            }
 
             return;
         }
 
+        /*
+         * Kliknutí na položku menu.
+         */
         if (option && wrapper.contains(option))
         {
             const value = option.dataset.value;
@@ -2483,11 +2643,13 @@ document.addEventListener("click", function (event)
 
             accommodationState[config.stateProperty] = value;
 
-            const textElement =
-                document.getElementById(config.textId);
+            const textElement = document.getElementById(
+                config.textId
+            );
 
-            const hiddenInput =
-                document.getElementById(config.inputId);
+            const hiddenInput = document.getElementById(
+                config.inputId
+            );
 
             if (textElement)
             {
@@ -2512,6 +2674,9 @@ document.addEventListener("click", function (event)
         }
     }
 
+    /*
+     * Kliknutí mimo SelectBoxy.
+     */
     const clickedInsideAccommodationSelectBox =
         event.target.closest(
             "#client-card-row2-c3-SB1C-wrapper, " +
@@ -2525,6 +2690,9 @@ document.addEventListener("click", function (event)
         closeAllAccommodationSelectBoxes();
     }
 });
+
+
+
 
 function closeAllAccommodationSelectBoxes(exceptWrapperId = null)
 {
@@ -2543,6 +2711,38 @@ function closeAllAccommodationSelectBoxes(exceptWrapperId = null)
             return;
         }
 
+        document
+            .getElementById(wrapperId)
+            ?.classList.remove("open");
+    });
+}
+
+
+// function closeAllAccommodationSelectBoxes()
+// {
+//     document
+//         .querySelectorAll(
+//             "#client-card-row2-c3-SB1C-wrapper, " +
+//             "#client-card-row2-c3-SB2C-wrapper, " +
+//             "#client-card-row2-c3-SB3C-wrapper, " +
+//             "#client-card-row2-c3-SB4C-wrapper"
+//         )
+//         .forEach(wrapper => wrapper.classList.remove("open"));
+// }
+
+
+function closeAllAccommodationSelectBoxes()
+{
+    const wrapperIds =
+    [
+        "client-card-row2-c3-SB1C-wrapper",
+        "client-card-row2-c3-SB2C-wrapper",
+        "client-card-row2-c3-SB3C-wrapper",
+        "client-card-row2-c3-SB4C-wrapper"
+    ];
+
+    wrapperIds.forEach(wrapperId =>
+    {
         document
             .getElementById(wrapperId)
             ?.classList.remove("open");
