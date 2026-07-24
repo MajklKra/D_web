@@ -1,7 +1,7 @@
 
-__version__ = "1.3.56"
+__version__ = "1.3.57"
 
-# client-card-row2-c3-SB1C - client-card-row2-c3-SB4C partly functioning
+# client-card-row2-c3-SB1C - client-card-row2-c3-SB4C partly functioning 2
 
 # Jedná se o tuto produkční verzi č. ___
 
