@@ -3526,6 +3526,14 @@ input[readonly]
 }
 
 
+#SB1C-buildingText
+{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * ** * * ** * * * * * */
 /* Disability of box client-card-row2-c3-SB2C - client-card-row2-c3-SB2C-SB4C  */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -3659,6 +3667,17 @@ input[readonly]
 #client-card-row2-c3-SB1C-wrapper.open #SB1C-dropdownImg
 {
     transform: rotate(180deg);
+}
+
+#SB1C-buildingText
+{
+    display: inline-block;
+    width: 165px !important;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
 }
 
 
@@ -3975,11 +3994,20 @@ input[readonly]
 
 }
 
+#SB2C-floorText
+{
+    display: inline-block;
+    width: 165px !important;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
 
 /*
 *   client-card-row2-c3-SB3C
 */
-
 
 #client-card-row2-c3-SB3C
 {
@@ -4070,6 +4098,17 @@ input[readonly]
   pointer-events: none;
   transition: transform 0.2s ease;
   transform: translateY(1px);
+
+}
+
+#SB3C-depText
+{
+    display: inline-block;
+    width: 165px !important;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 }
 
@@ -4168,3 +4207,15 @@ input[readonly]
   transform: translateY(1px);
 
 }
+
+#SB4C-roomText
+{
+    display: inline-block;
+    width: 165px !important;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
