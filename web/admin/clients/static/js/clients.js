@@ -1640,8 +1640,6 @@ const accommodationState =
     selectedRoomId: null
 };
 
-
-
 document.addEventListener("input", function (event)
 {
     if (event.target.id !== "client-card-row2-c3-searchC-searchInput")
@@ -1897,7 +1895,6 @@ function closeDepartmentSearchResults()
     results.innerHTML = "";
 }
 
-
 async function loadDepartmentLocation(departmentId)
 {
     if (departmentLocationController)
@@ -1958,7 +1955,6 @@ async function loadDepartmentLocation(departmentId)
     }
 }
 
-
 function applyDepartmentLocationFromSearch(data)
 {
     accommodationState.source = "search";
@@ -2009,7 +2005,6 @@ function applyDepartmentLocationFromSearch(data)
 
     updateSelectBoxesFromAccommodationState();
 }
-
 
 function updateSelectBoxesFromAccommodationState()
 {
@@ -2489,7 +2484,6 @@ const accommodationSelectBoxes =
 };
 
 
-
 // document.addEventListener("click", function (event)
 // {
 //     for (const config of Object.values(accommodationSelectBoxes))
@@ -2690,8 +2684,6 @@ document.addEventListener("click", function (event)
         closeAllAccommodationSelectBoxes();
     }
 });
-
-
 
 
 function closeAllAccommodationSelectBoxes(exceptWrapperId = null)

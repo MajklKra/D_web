@@ -3763,9 +3763,6 @@ input[readonly]
    width:  185px !important;
    height:  93px !important;
 
-   width: auto;
-   height: auto;
-
    border: 1px solid rgba(240,241,243,1);
 
    background-color: white;
@@ -3787,9 +3784,10 @@ input[readonly]
 
    padding: 6px 4px;
 
-   overflow: auto;
-}
+   overflow-x: hidden;
+   overflow-y: auto;
 
+}
 
 #client-card-row2-c3-SB2C-wrapper.open
 #client-card-row2-c3-SB2C-menu,
@@ -3834,8 +3832,60 @@ input[readonly]
 .client-card-row2-c3-SB3C-menu-options,
 .client-card-row2-c3-SB4C-menu-options
 {
+
+    min-width: 0;
     width: auto !important;
+    max-width: 175px;
+
     /* height: auto; */
+
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #59646f;
+
+    /* display: flex; */
+
+    display: block;
+
+    /* flex-direction: row;
+    justify-content: start;
+    align-items: center; */
+
+    padding-left: 4px;
+    padding-right: 4px;
+
+    height: 22px;
+
+    box-sizing: border-box;
+
+    /* display: block; */
+
+    text-align: left;
+
+    flex-shrink: 0;
+
+    /* background-color: red; */
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+
+/* .client-card-row2-c3-SB2C-menu-options,
+.client-card-row2-c3-SB3C-menu-options,
+.client-card-row2-c3-SB4C-menu-options
+{
+    width: auto !important;
+    /* height: auto; *
 
     border-radius: 5px;
     border: none;
@@ -3864,14 +3914,14 @@ input[readonly]
 
     box-sizing: border-box;
 
-    /* display: block; */
+    /* display: block;
 
     text-align: left;
 
     flex-shrink: 0;
 
-    /* background-color: red; */
-}
+    /* background-color: red;
+} */
 
 .client-card-row2-c3-SB2C-menu-options:hover,
 .client-card-row2-c3-SB3C-menu-options:hover,

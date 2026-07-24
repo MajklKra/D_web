@@ -626,15 +626,15 @@
 
                             <div data-value="all" class="client-card-row2-c3-SB3C-menu-options"> Všechny </div>
 
-                            {% for department_id, department_name in data.departments %}
+                                {% for department_id, department_name in data.departments %}
 
-                                <div class="client-card-row2-c3-SB3C-menu-options" data-value="{{ department_id }}">
-                                    {{ department_name }}
-                                </div>
+                                    <div class="client-card-row2-c3-SB3C-menu-options" data-value="{{ department_id }}">
+                                        {{ department_name }}
+                                    </div>
 
-                            {% endfor %}
+                                {% endfor %}
 
-                        </div>
+                            </div>
 
                         <input type="hidden" name="client-card-row2-c3-SB3C-filter" id="client-card-row2-c3-SB3C-filter" value="{{ data.department_filter }}">
 
