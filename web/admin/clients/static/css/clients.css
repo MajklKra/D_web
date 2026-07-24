@@ -3914,11 +3914,11 @@ input[readonly]
     display: none;
 }
 
-#client-card-row2-c3-SB3C.open
+/* #client-card-row2-c3-SB3C.open
 #client-card-row2-c3-SB3C-menu
 {
     display: block;
-}
+} */
 
 .client-card-row2-c3-SB3C-menu-options
 {
@@ -4268,6 +4268,115 @@ input[readonly]
 }
 
 #client-card-row2-c3-SB1C-wrapper.open #SB1C-dropdownImg
+{
+    transform: rotate(180deg);
+}
+
+
+/*
+ *
+ * client-card-row2-c3-SB2C, SB3C, SB4C
+ *
+ */
+
+
+#client-card-row2-c3-SB3C-wrapper.open
+#client-card-row2-c3-SB3C-menu
+{
+    display: flex;
+}
+
+
+#client-card-row2-c3-SB2C-menu,
+#client-card-row2-c3-SB3C-menu,
+#client-card-row2-c3-SB4C-menu
+{
+    display: none;
+
+    position: absolute;
+    top: 34px;
+    left: 0;
+
+    width: 100%;
+    max-height: 100px;
+
+    background-color: white;
+
+    border: 1px solid rgba(245, 246, 247, 1);
+    border-radius: 5px;
+
+    padding: 5px;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+    flex-direction: column;
+
+    z-index: 20;
+}
+
+#client-card-row2-c3-SB2C-wrapper.open
+#client-card-row2-c3-SB2C-menu,
+
+#client-card-row2-c3-SB3C-wrapper.open
+#client-card-row2-c3-SB3C-menu,
+
+#client-card-row2-c3-SB4C-wrapper.open
+#client-card-row2-c3-SB4C-menu
+{
+    display: flex;
+}
+
+
+.client-card-row2-c3-SB2C-menu-options,
+.client-card-row2-c3-SB3C-menu-options,
+.client-card-row2-c3-SB4C-menu-options
+{
+    width: 100%;
+    min-height: 24px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: white;
+
+    padding: 4px 8px;
+
+    box-sizing: border-box;
+
+    text-align: left;
+
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #324351;
+
+    cursor: pointer;
+}
+
+.client-card-row2-c3-SB2C-menu-options:hover,
+.client-card-row2-c3-SB3C-menu-options:hover,
+.client-card-row2-c3-SB4C-menu-options:hover
+{
+    background-color: rgba(56, 138, 202, 1);
+    color: white;
+}
+
+
+#SB1C-dropdownImg,
+#SB2C-dropdownImg,
+#SB3C-dropdownImg,
+#SB4C-dropdownImg
+{
+    transition: transform 0.2s ease;
+}
+
+#client-card-row2-c3-SB1C-wrapper.open #SB1C-dropdownImg,
+#client-card-row2-c3-SB2C-wrapper.open #SB2C-dropdownImg,
+#client-card-row2-c3-SB3C-wrapper.open #SB3C-dropdownImg,
+#client-card-row2-c3-SB4C-wrapper.open #SB4C-dropdownImg
 {
     transform: rotate(180deg);
 }

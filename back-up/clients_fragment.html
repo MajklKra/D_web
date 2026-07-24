@@ -546,9 +546,9 @@
 
                     <span id="client-card-row2-c3-SB1C-title"> Budova </span>
 
-                    <div id="client-card-row2-c3-SB1C-wrapper">
+                    <div id="client-card-row2-c3-SB1C-wrapper" class="SB1C-select-wrapper SB1C-custom-building-select">
 
-                        <button type="button" id="SB1C-buildingBtn">
+                        <button type="button" id="SB1C-buildingBtn" class="SB1C-building-btn">
 
                             <span id="SB1C-buildingText"></span>
 
@@ -562,12 +562,12 @@
 
                         <div id="client-card-row2-c3-SB1C-menu">
 
-                            <button type="button" value="all" class="client-card-row2-c3-SB1C-menu-options">Všechny</button>
+                            <div data-value="all" class="client-card-row2-c3-SB1C-menu-options">Všechny</div>
 
                             {% for building_id, building_name in data.buildings %}
-                                <button  type="button" class="client-card-row2-c3-SB1C-menu-options" data-value="{{ building_id }}">
+                                <div class="client-card-row2-c3-SB1C-menu-options" data-value="{{ building_id }}">
                                     {{ building_name}}
-                                </button>
+                                </div>
                             {% endfor %}
 
                         </div>

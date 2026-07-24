@@ -1623,6 +1623,7 @@ function setSelectDisabled(wrapperId, buttonId, disabled)
 let departmentSearchTimeout = null;
 let departmentSearchController = null;
 let initialBuildingMenuHTML = null;
+let departmentLocationController = null;
 
 const accommodationState =
 {
@@ -1897,8 +1898,6 @@ function closeDepartmentSearchResults()
 }
 
 
-let departmentLocationController = null;
-
 async function loadDepartmentLocation(departmentId)
 {
     if (departmentLocationController)
@@ -2015,8 +2014,17 @@ function applyDepartmentLocationFromSearch(data)
 function updateSelectBoxesFromAccommodationState()
 {
     /* 23.7.2026 Dnes */
-    renderAccommodationBuildingMenu();
+    // renderAccommodationBuildingMenu();
 
+
+    /*
+    /   24.7.2026 Dnes
+    */
+
+    renderAccommodationBuildingMenu();
+    renderAccommodationFloorMenu();
+    renderAccommodationDepartmentMenu();
+    renderAccommodationRoomMenu();
 
     const buildingText = document.getElementById("SB1C-buildingText");
 
@@ -2087,56 +2095,6 @@ function updateSelectBoxesFromAccommodationState()
         false
     );
 }
-
-
-// function resetAccommodationSelection()
-// {
-//     accommodationState.buildings = [];
-//     accommodationState.floors = [];
-//     accommodationState.department = null;
-//     accommodationState.rooms = [];
-
-//     accommodationState.selectedBuildingId = null;
-//     accommodationState.selectedFloorId = null;
-//     accommodationState.selectedDepartmentId = null;
-//     accommodationState.selectedRoomId = null;
-
-//     document.getElementById(
-//         "client-card-row2-c3-searchC-departmentId"
-//     ).value = "";
-
-//     document.getElementById("SB1C-buildingText").textContent =
-//         "";
-
-//     document.getElementById("SB2C-floorText").textContent =
-//         "";
-
-//     document.getElementById("SB3C-depText").textContent =
-//         "";
-
-//     document.getElementById("SB4C-roomText").textContent =
-//         "";
-
-//     setSelectDisabled(
-//         "client-card-row2-c3-SB2C",
-//         "SB2C-floorBtn",
-//         true
-//     );
-
-//     setSelectDisabled(
-//         "client-card-row2-c3-SB3C",
-//         "SB3C-depBtn",
-//         true
-//     );
-
-//     setSelectDisabled(
-//         "client-card-row2-c3-SB4C",
-//         "SB4C-roomBtn",
-//         true
-//     );
-
-//     // Později sem přidáme i vyčištění pravého panelu.
-// }
 
 function resetAccommodationSelection()
 {
@@ -2225,15 +2183,15 @@ function resetAccommodationSelection()
     );
 }
 
-
-/* AKTIVACE SELECTBOXŮ client-card-row2-c3-SB1C - client-card-row2-c3-SB4C */
+/*
+* AKTIVACE SELECTBOXŮ client-card-row2-c3-SB1C - client-card-row2-c3-SB4C
+*/
 
 document.addEventListener("click", function (event)
 {
+
     const wrapper = document.getElementById("client-card-row2-c3-SB1C-wrapper");
-
     const button = event.target.closest("#SB1C-buildingBtn");
-
     const option = event.target.closest(".client-card-row2-c3-SB1C-menu-options");
 
     if (!wrapper)
@@ -2252,6 +2210,8 @@ document.addEventListener("click", function (event)
             return;
         }
 
+        console.log("Klik na SB1", "color: red");
+
         wrapper.classList.toggle("open");
 
         return;
@@ -2264,9 +2224,7 @@ document.addEventListener("click", function (event)
     if (option && wrapper.contains(option))
     {
         const buildingText = document.getElementById("SB1C-buildingText");
-
         const hiddenInput = document.getElementById("client-card-row2-c3-SB1C-filter");
-
         const buildingId = option.dataset.value;
         const buildingName = option.textContent.trim();
 
@@ -2278,7 +2236,6 @@ document.addEventListener("click", function (event)
         /*
          * Nastavíme text v selectboxu.
          */
-
 
         if (buildingText)
         {
@@ -2299,12 +2256,10 @@ document.addEventListener("click", function (event)
          * předchozí výběr patra a pokoje.
          */
 
-
         accommodationState.selectedFloorId = null;
         accommodationState.selectedRoomId = null;
 
         const floorText = document.getElementById("SB2C-floorText");
-
         const roomText = document.getElementById("SB4C-roomText");
 
         if (floorText)
@@ -2334,11 +2289,14 @@ document.addEventListener("click", function (event)
     /*
      * Kliknutí mimo selectbox zavře menu.
      */
+
     if (!wrapper.contains(event.target))
     {
         wrapper.classList.remove("open");
     }
+
 });
+
 
 function renderAccommodationBuildingMenu()
 {
@@ -2391,3 +2349,202 @@ function renderAccommodationBuildingMenu()
     });
 }
 
+/*
+ *     TOTÁLNÍ NASAZENÍ DNE 24. 7. 2026
+ */
+
+function renderAccommodationMenu(menuId,options,optionClass)
+{
+    const menu = document.getElementById(menuId);
+
+    if (!menu)
+    {
+        console.warn(`Menu ${menuId} nebylo nalezeno.`);
+        return;
+    }
+
+    menu.innerHTML = "";
+
+    options.forEach(item =>
+    {
+        const option = document.createElement("button");
+
+        option.type = "button";
+        option.className = optionClass;
+
+        option.dataset.value = String(item.id);
+        option.textContent = item.name;
+
+        menu.appendChild(option);
+    });
+}
+
+function renderAccommodationFloorMenu()
+{
+    renderAccommodationMenu(
+        "client-card-row2-c3-SB2C-menu",
+        accommodationState.floors,
+        "client-card-row2-c3-SB2C-menu-options"
+    );
+}
+
+function renderAccommodationDepartmentMenu()
+{
+    const departments = accommodationState.department
+        ? [accommodationState.department]
+        : [];
+
+    renderAccommodationMenu(
+        "client-card-row2-c3-SB3C-menu",
+        departments,
+        "client-card-row2-c3-SB3C-menu-options"
+    );
+}
+
+function renderAccommodationRoomMenu()
+{
+    renderAccommodationMenu(
+        "client-card-row2-c3-SB4C-menu",
+        accommodationState.rooms,
+        "client-card-row2-c3-SB4C-menu-options"
+    );
+}
+
+
+const accommodationSelectBoxes =
+{
+    SB2:
+    {
+        wrapperId: "client-card-row2-c3-SB2C-wrapper",
+        buttonId: "SB2C-floorBtn",
+        optionClass: "client-card-row2-c3-SB2C-menu-options",
+        textId: "SB2C-floorText",
+        inputId: "client-card-row2-c3-SB2C-filter",
+        stateProperty: "selectedFloorId"
+    },
+
+    SB3:
+    {
+        wrapperId: "client-card-row2-c3-SB3C-wrapper",
+        buttonId: "SB3C-depBtn",
+        optionClass: "client-card-row2-c3-SB3C-menu-options",
+        textId: "SB3C-depText",
+        inputId: "client-card-row2-c3-SB3C-filter",
+        stateProperty: "selectedDepartmentId"
+    },
+
+    SB4:
+    {
+        wrapperId: "client-card-row2-c3-SB4C-wrapper",
+        buttonId: "SB4C-roomBtn",
+        optionClass: "client-card-row2-c3-SB4C-menu-options",
+        textId: "SB4C-roomText",
+        inputId: "client-card-row2-c3-SB4C-filter",
+        stateProperty: "selectedRoomId"
+    }
+};
+
+document.addEventListener("click", function (event)
+{
+    for (const config of Object.values(accommodationSelectBoxes))
+    {
+        const wrapper =
+            document.getElementById(config.wrapperId);
+
+        if (!wrapper)
+        {
+            continue;
+        }
+
+        const button =
+            event.target.closest(`#${config.buttonId}`);
+
+        const option =
+            event.target.closest(`.${config.optionClass}`);
+
+        if (button)
+        {
+            if (button.disabled)
+            {
+                return;
+            }
+
+            closeAllAccommodationSelectBoxes(config.wrapperId);
+
+            wrapper.classList.toggle("open");
+
+            return;
+        }
+
+        if (option && wrapper.contains(option))
+        {
+            const value = option.dataset.value;
+            const text = option.textContent.trim();
+
+            accommodationState[config.stateProperty] = value;
+
+            const textElement =
+                document.getElementById(config.textId);
+
+            const hiddenInput =
+                document.getElementById(config.inputId);
+
+            if (textElement)
+            {
+                textElement.textContent = text;
+            }
+
+            if (hiddenInput)
+            {
+                hiddenInput.value = value;
+            }
+
+            wrapper.classList.remove("open");
+
+            console.log(
+                "Vybraná hodnota:",
+                config.stateProperty,
+                value,
+                text
+            );
+
+            return;
+        }
+    }
+
+    const clickedInsideAccommodationSelectBox =
+        event.target.closest(
+            "#client-card-row2-c3-SB1C-wrapper, " +
+            "#client-card-row2-c3-SB2C-wrapper, " +
+            "#client-card-row2-c3-SB3C-wrapper, " +
+            "#client-card-row2-c3-SB4C-wrapper"
+        );
+
+    if (!clickedInsideAccommodationSelectBox)
+    {
+        closeAllAccommodationSelectBoxes();
+    }
+});
+
+function closeAllAccommodationSelectBoxes(exceptWrapperId = null)
+{
+    const wrapperIds =
+    [
+        "client-card-row2-c3-SB1C-wrapper",
+        "client-card-row2-c3-SB2C-wrapper",
+        "client-card-row2-c3-SB3C-wrapper",
+        "client-card-row2-c3-SB4C-wrapper"
+    ];
+
+    wrapperIds.forEach(wrapperId =>
+    {
+        if (wrapperId === exceptWrapperId)
+        {
+            return;
+        }
+
+        document
+            .getElementById(wrapperId)
+            ?.classList.remove("open");
+    });
+}
