@@ -1,7 +1,7 @@
 
-__version__ = "1.3.61"
+__version__ = "1.3.62"
 
-# client-card-row2-c3-SB1C - client-card-row2-c3-SB4C-menu-options made dotted
+# @admin_clients_bp.route("/api/department-location/<int:department_id>",methods=["GET"]) JSON created
 
 # Jedná se o tuto produkční verzi č. ___
 
