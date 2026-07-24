@@ -2917,555 +2917,6 @@ input[readonly]
     text-overflow: ellipsis;
 }
 
-/* client-card-row2-c3-SB2C */
-
-.SB2C-select-wrapper
-{
-
-  position: relative;
-  /* background-color: blue; */
-
-  margin-top: 5px;
-  margin-bottom: 28px;
-
-}
-
-.SB2C-custom-floor-select
-{
-  position: relative;
-  width: 100%;
-
-  /* background-color: red; */
-}
-
-.SB2C-floor-btn
-{
-  width: 100%;
-  height: 32px;
-
-  border-radius: 5px;
-  border: 1px solid rgba(234,238,245,1);
-  outline: none;
-
-  background: white;
-
-  /* background-color: yellow; */
-
-  color: #324351;
-
-  font-family: 'Montserrat';
-  font-size:    13px;
-  font-weight:  600;
-
-  /* padding-left: 56px; */
-  padding-left: 13px;
-  padding-right: 55px;
-
-  text-align: left;
-  cursor: pointer;
-
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-  box-sizing: border-box;
-}
-
-#SB2C-dropdownImg
-{
-
-  height: 26px;
-
-  position: absolute;
-  top: 3px;
-  right: 8px;
-  left: auto;
-
-  color: #324351;
-
-  /* background-color: green; */
-
-  pointer-events: none;
-  transition: transform 0.2s ease;
-  transform: translateY(1px);
-
-}
-
-#SB2C-dropdownImg.rotate
-{
-  transform: rotate(180deg);
-}
-
-.SB2C-floor-menu
-{
-  position: absolute;
-  top: 54px;
-  left: 0;
-
-  width: 100%;
-
-  /* background: white;  */
-
-  /* background-color: violet; */
-
-  border: 3px solid rgba(234,238,245,1);
-  border-radius: 12px;
-
-  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
-
-  overflow: hidden;
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-
-  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
-
-  z-index: 100;
-}
-
-.SB2C-floor-menu.open
-{
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-
-  /* background-color: coral; */
-}
-
-.SB2C-floor-option
-{
-  width: 100%;
-  height: 44px;
-
-  border: none;
-  outline: none;
-
-  /* background: white; */
-
-  /* background-color: darkgreen; */
-
-  color: #324351;
-
-  font-family: 'Montserrat';
-  font-size: 15px;
-  font-weight: 500;
-
-  padding-left: 56px;
-  text-align: left;
-
-  cursor: pointer;
-
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.SB2C-floor-option:hover
-{
-  background: rgba(234,238,245,0.8);
-}
-
-.SB2C-floor-option.selected
-{
-  background: rgba(53,127,171,0.12);
-  color: rgba(53,127,171,1);
-  font-weight: 600;
-
-  /* background-color: crimson; */
-}
-
-#client-card-row2-c3-SB2C-title
-{
-    width: 100%;
-    height: auto;
-    /* background-color: chartreuse; */
-
-    margin-left: 9px;
-
-    font-family:    'Montserrat';
-    font-weight:    600;
-    font-size:      13px;
-    color:          #59646f;
-}
-
-#client-card-row2-c3-SB2C
-{
-    width: 100%;
-    height: auto;
-
-    /* background-color: brown; */
-
-    font-family:    'Montserrat';
-    font-size:      15px;
-    font-weight:    600;
-
-    color: rgba(89,99,112,1);
-}
-
-
-/* client-card-row2-c3-SB3C */
-
-.SB3C-select-wrapper
-{
-
-  position: relative;
-  /* background-color: blue; */
-
-  margin-top: 2px;
-  margin-bottom: 18px;
-}
-
-.SB3C-custom-dep-select
-{
-  position: relative;
-  width: 100%;
-
- /* background-color: red; */
-}
-
-.SB3C-dep-btn
-{
-  width: 100%;
-  height: 32px;
-
-  border-radius: 5px;
-  border: 1px solid rgba(234,238,245,1);
-  outline: none;
-
-  background: white;
-
-  /* background-color: yellow; */
-
-  color: #324351;
-
-  font-family: 'Montserrat';
-  font-size:    13px;
-  font-weight:  600;
-
-  /* padding-left: 56px; */
-  padding-left: 13px;
-  padding-right: 55px;
-
-  text-align: left;
-  cursor: pointer;
-
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-  box-sizing: border-box;
-}
-
-#SB3C-dropdownImg
-{
-
-  height: 26px;
-
-  position: absolute;
-  top: 3px;
-  right: 8px;
-  left: auto;
-
-  color: #324351;
-
-  /* background-color: green; */
-
-  pointer-events: none;
-  transition: transform 0.2s ease;
-  transform: translateY(1px);
-
-}
-
-#SB3C-dropdownImg.rotate
-{
-  transform: rotate(180deg);
-}
-
-.SB3C-dep-menu
-{
-  position: absolute;
-  top: 54px;
-  left: 0;
-
-  width: 100%;
-
-  /* background: white; */
-
-  /* background-color: violet; */
-
-  border: 3px solid rgba(234,238,245,1);
-  border-radius: 12px;
-
-  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
-
-  overflow: hidden;
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-
-  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
-
-  z-index: 100;
-}
-
-.SB3C-dep-menu.open
-{
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-
-  /* background-color: coral; */
-}
-
-.SB3C-dep-option
-{
-  width: 100%;
-  height: 44px;
-
-  border: none;
-  outline: none;
-
-  /* background: white; */
-
-  /* background-color: darkgreen; */
-
-  color: #324351;
-
-  font-family: 'Montserrat';
-  font-size: 15px;
-  font-weight: 500;
-
-  padding-left: 56px;
-  text-align: left;
-
-  cursor: pointer;
-
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.SB3C-dep-option:hover
-{
-  background: rgba(234,238,245,0.8);
-}
-
-.SB3C-dep-option.selected
-{
-  background: rgba(53,127,171,0.12);
-  color: rgba(53,127,171,1);
-  font-weight: 600;
-
-  /* background-color: crimson; */
-}
-
-#client-card-row2-c3-SB3C-title
-{
-    width: 100%;
-    height: auto;
-
-    /* background-color: chartreuse; */
-
-    margin-left: 9px;
-
-    font-family:    'Montserrat';
-    font-weight:    600;
-    font-size:      13px;
-    color:          #59646f;
-}
-
-#client-card-row2-c3-SB3C
-{
-    width: 100%;
-    height: auto;
-
-    /* background-color: brown; */
-
-    font-family:    'Montserrat';
-    font-size:      15px;
-    font-weight:    600;
-
-    color: rgba(89,99,112,1);
-}
-
-/* client-card-row2-c3-SB4C */
-
-.SB4C-select-wrapper
-{
-
-  position: relative;
-
-  /* background-color: blue; */
-
-  margin-top: 3px;
-}
-
-.SB4C-custom-room-select
-{
-  position: relative;
-  width: 100%;
-
-  /* background-color: red; */
-}
-
-.SB4C-room-btn
-{
-  width: 100%;
-  height: 32px;
-
-  border-radius: 5px;
-  border: 1px solid rgba(234,238,245,1);
-  outline: none;
-
-  background: white;
-
-  /* background-color: yellow; */
-
-  color: #324351;
-
-  font-family: 'Montserrat';
-  font-size:    13px;
-  font-weight:  600;
-
-  /* padding-left: 56px; */
-  padding-left: 13px;
-  padding-right: 55px;
-
-  text-align: left;
-  cursor: pointer;
-
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-  box-sizing: border-box;
-}
-
-#SB4C-dropdownImg
-{
-
-  height: 26px;
-
-  position: absolute;
-  top: 3px;
-  right: 8px;
-  left: auto;
-
-  color: #324351;
-
-  /* background-color: green; */
-
-  pointer-events: none;
-  transition: transform 0.2s ease;
-  transform: translateY(1px);
-
-}
-
-#SB4C-dropdownImg.rotate
-{
-  transform: rotate(180deg);
-}
-
-.SB4C-room-menu
-{
-  position: absolute;
-  top: 54px;
-  left: 0;
-
-  width: 100%;
-
-  /* background: white; */
-
-  /* background-color: violet; */
-
-  border: 3px solid rgba(234,238,245,1);
-  border-radius: 12px;
-
-  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
-
-  overflow: hidden;
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-
-  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
-
-  z-index: 100;
-}
-
-.SB4C-room-menu.open
-{
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-
-  /* background-color: coral; */
-}
-
-.SB4C-room-option
-{
-  width: 100%;
-  height: 44px;
-
-  border: none;
-  outline: none;
-
-  /* background: white; */
-
-  /* background-color: darkgreen; */
-
-  color: #324351;
-
-  font-family: 'Montserrat';
-  font-size: 15px;
-  font-weight: 500;
-
-  padding-left: 56px;
-  text-align: left;
-
-  cursor: pointer;
-
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.SB4C-room-option:hover
-{
-  background: rgba(234,238,245,0.8);
-}
-
-.SB4C-room-option.selected
-{
-  background: rgba(53,127,171,0.12);
-  color: rgba(53,127,171,1);
-  font-weight: 600;
-
-  /* background-color: crimson; */
-
-}
-
-#client-card-row2-c3-SB4C-title
-{
-    width: 100%;
-    height: auto;
-
-    /* background-color: chartreuse; */
-
-    margin-left: 9px;
-
-    color: #324351;
-
-    font-family:    'Montserrat';
-    font-size:      13px;
-    font-weight:    600;
-}
-
-#client-card-row2-c3-SB4C
-{
-    width: 100%;
-    height: auto;
-
-    /* background-color: brown; */
-
-    font-family:    'Montserrat';
-    font-size:      15px;
-    font-weight:    600;
-
-    color: rgba(89,99,112,1);
-}
-
 #client-card-row2-c4-accomC
 {
     width: 325px;
@@ -4487,4 +3938,295 @@ input[readonly]
 #client-card-row2-c3-SB4C-wrapper.open #SB4C-dropdownImg
 {
     transform: rotate(180deg);
+}
+
+
+/*
+*   client-card-row2-c3-SB2C
+*/
+
+#client-card-row2-c3-SB2C
+{
+    width: 100%;
+    height: auto;
+
+    /* background-color: brown; */
+
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+
+    color: rgba(89,99,112,1);
+
+    margin-bottom: 27px;
+}
+
+#client-card-row2-c3-SB2C-title
+{
+    width: 100%;
+    height: auto;
+    /* background-color: chartreuse; */
+
+    margin-left: 9px;
+
+    font-family:    'Montserrat';
+    font-weight:    600;
+    font-size:      13px;
+    color:          #59646f;
+}
+
+#client-card-row2-c3-SB2C-wrapper
+{
+    width: 100%;
+
+    position: relative;
+
+    /* background-color: blue; */
+
+    margin-top: 1px;
+}
+
+#SB2C-floorBtn
+{
+  width: 100%;
+  height: 32px;
+
+  border-radius: 5px;
+  border: 1px solid rgba(234,238,245,1);
+  outline: none;
+
+  background: white;
+
+  /* background-color: yellow; */
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size:    13px;
+  font-weight:  600;
+
+  /* padding-left: 56px; */
+  padding-left: 13px;
+  padding-right: 55px;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  box-sizing: border-box;
+}
+
+#SB2C-dropdownImg
+{
+
+  height: 26px;
+
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  left: auto;
+
+  color: #324351;
+
+  /* background-color: green; */
+
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  transform: translateY(1px);
+
+}
+
+
+/*
+*   client-card-row2-c3-SB3C
+*/
+
+
+#client-card-row2-c3-SB3C
+{
+    width: 100%;
+    height: auto;
+
+    /* background-color: brown; */
+
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+
+    color: rgba(89,99,112,1);
+
+    margin-bottom: 27px;
+}
+
+#client-card-row2-c3-SB3C-title
+{
+    width: 100%;
+    height: auto;
+    /* background-color: chartreuse; */
+
+    margin-left: 9px;
+
+    font-family:    'Montserrat';
+    font-weight:    600;
+    font-size:      13px;
+    color:          #59646f;
+}
+
+#client-card-row2-c3-SB3C-wrapper
+{
+    width: 100%;
+
+    position: relative;
+
+    /* background-color: blue; */
+
+    margin-top: 1px;
+}
+
+#SB3C-depBtn
+{
+  width: 100%;
+  height: 32px;
+
+  border-radius: 5px;
+  border: 1px solid rgba(234,238,245,1);
+  outline: none;
+
+  background: white;
+
+  /* background-color: yellow; */
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size:    13px;
+  font-weight:  600;
+
+  /* padding-left: 56px; */
+  padding-left: 13px;
+  padding-right: 55px;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  box-sizing: border-box;
+}
+
+#SB3C-dropdownImg
+{
+
+  height: 26px;
+
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  left: auto;
+
+  color: #324351;
+
+  /* background-color: green; */
+
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  transform: translateY(1px);
+
+}
+
+/*
+*   client-card-row2-c3-SB4C
+*/
+
+#client-card-row2-c3-SB4C
+{
+    width: 100%;
+    height: auto;
+
+    /* background-color: brown; */
+
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+
+    color: rgba(89,99,112,1);
+
+    margin-bottom: 27px;
+}
+
+#client-card-row2-c3-SB4C-title
+{
+    width: 100%;
+    height: auto;
+    /* background-color: chartreuse; */
+
+    margin-left: 9px;
+
+    font-family:    'Montserrat';
+    font-weight:    600;
+    font-size:      13px;
+    color:          #59646f;
+}
+
+#client-card-row2-c3-SB4C-wrapper
+{
+    width: 100%;
+
+    position: relative;
+
+    /* background-color: blue; */
+
+    margin-top: 1px;
+}
+
+#SB4C-roomBtn
+{
+  width: 100%;
+  height: 32px;
+
+  border-radius: 5px;
+  border: 1px solid rgba(234,238,245,1);
+  outline: none;
+
+  background: white;
+
+  /* background-color: yellow; */
+
+  color: #324351;
+
+  font-family: 'Montserrat';
+  font-size:    13px;
+  font-weight:  600;
+
+  /* padding-left: 56px; */
+  padding-left: 13px;
+  padding-right: 55px;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  box-sizing: border-box;
+}
+
+#SB4C-dropdownImg
+{
+
+  height: 26px;
+
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  left: auto;
+
+  color: #324351;
+
+  /* background-color: green; */
+
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  transform: translateY(1px);
+
 }
