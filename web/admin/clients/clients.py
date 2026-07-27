@@ -2186,9 +2186,7 @@ def department_location(department_id):
     })
 
 
-
 #  EXPERIMENTY  #
-
 
 @admin_clients_bp.route(
     "/api/building-floors/<int:building_id>",
@@ -2236,12 +2234,22 @@ def location_departments():
 
     floor_id = request.args.get("floor_id",type=int)
 
+    deps=session.get("e_deps")
+
+    if not deps:
+        return jsonify({
+            "departments": []
+        })
+
     if building_id is None or floor_id is None:
         return jsonify({
             "departments": []
         }), 400
 
-    SQL_query = """
+
+    placeholders = ",".join(["%s"] * len(deps))
+
+    SQL_query = f"""
 
         SELECT DISTINCT Departments.DepartmentID,Departments.Name
         FROM Departments
@@ -2249,19 +2257,14 @@ def location_departments():
         JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
         JOIN Floors ON Floors.FloorID = Rooms.FloorID
 
-        WHERE Floors.BuildingID = %s AND Floors.FloorID = %s
+        WHERE Floors.BuildingID = %s AND Floors.FloorID = %s AND Departments.DepartmentID IN ({placeholders})
         ORDER BY Departments.Name
 
     """
 
-    rows = db_connection(
-        SQL_query,
-        (
-            building_id,
-            floor_id
-        ),
-        one_row=False
-    )
+    params = (building_id,floor_id,*deps)
+
+    rows = db_connection( SQL_query, params, one_row=False)
 
     departments = [
         {
