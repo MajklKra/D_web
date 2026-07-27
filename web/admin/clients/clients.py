@@ -2409,3 +2409,106 @@ def location_rooms():
     return jsonify({
         "rooms": rooms
     })
+
+
+@admin_clients_bp.route( "/api/location-beds/<int:room_id>",methods=["GET"])
+def location_beds(room_id):
+
+
+    print(" Hello my friend welcome to the Themepark ! ")
+
+    SQL_query = """
+
+        SELECT
+            bed.BedID,
+            bed.BedNumber,
+            r.RoomID,
+            NULL AS SubRoomID,
+            p.PatientID,
+            p.Surname,
+            p.Name
+
+        FROM Rooms r
+
+        JOIN Beds bed
+            ON bed.RoomID = r.RoomID
+           AND (
+                bed.SubRoomID IS NULL
+                OR bed.SubRoomID = 0
+                OR bed.SubRoomID = -1
+           )
+
+        LEFT JOIN Patients p
+            ON p.BedID = bed.BedID
+
+        WHERE r.RoomID = %s
+
+
+        UNION ALL
+
+
+        SELECT
+            bed.BedID,
+            bed.BedNumber,
+            r.RoomID,
+            sr.SubRoomID,
+            p.PatientID,
+            p.Surname,
+            p.Name
+
+        FROM Rooms r
+
+        JOIN SubRooms sr
+            ON sr.RoomID = r.RoomID
+
+        JOIN Beds bed
+            ON bed.SubRoomID = sr.SubRoomID
+
+        LEFT JOIN Patients p
+            ON p.BedID = bed.BedID
+
+        WHERE r.RoomID = %s
+
+        ORDER BY BedNumber
+
+    """
+
+    rows = db_connection(
+        SQL_query,
+        (
+            room_id,
+            room_id
+        ),
+        one_row=False
+    )
+
+    beds = []
+
+    for row in rows:
+
+        bed_id = row[0]
+        bed_number = row[1]
+        returned_room_id = row[2]
+        subroom_id = row[3]
+        patient_id = row[4]
+        patient_surname = row[5]
+        patient_name = row[6]
+
+        beds.append({
+            "id": bed_id,
+            "number": bed_number,
+            "room_id": returned_room_id,
+            "subroom_id": subroom_id,
+
+            "patient": None if patient_id is None else
+            {
+                "id": patient_id,
+                "surname": patient_surname,
+                "name": patient_name
+            }
+        })
+
+    return jsonify({
+        "room_id": room_id,
+        "beds": beds
+    })

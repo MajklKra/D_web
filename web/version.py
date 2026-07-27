@@ -1,7 +1,7 @@
 
-__version__ = "1.3.67"
+__version__ = "1.3.68"
 
-#  Room's options modified
+# First interaction between selection and client-card-row2-c4-accomC
 
 # Jedná se o tuto produkční verzi č. ___
 
