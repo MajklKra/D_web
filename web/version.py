@@ -1,7 +1,7 @@
 
-__version__ = "1.3.69"
+__version__ = "1.3.70"
 
-# client-card-row2-c3-SB3C - selectBoxes options modified according to my departments
+# client-card-row2-c3-SB3C - selectBoxes options modified according to my departments including ADMIN
 
 # Jedná se o tuto produkční verzi č. ___
 

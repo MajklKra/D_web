@@ -2234,12 +2234,15 @@ def location_departments():
 
     floor_id = request.args.get("floor_id",type=int)
 
-    deps=session.get("e_deps")
+    e_id = session.get("e_id")
+    tech = session.get("tech")
+    admin = session.get("admin")
+    deps = session.get("e_deps")
 
-    if not deps:
-        return jsonify({
-            "departments": []
-        })
+    # if not deps:
+    #     return jsonify({
+    #         "departments": []
+    #     })
 
     if building_id is None or floor_id is None:
         return jsonify({
@@ -2247,24 +2250,51 @@ def location_departments():
         }), 400
 
 
-    placeholders = ",".join(["%s"] * len(deps))
+    if e_id == 0 or tech == True or admin == True:
 
-    SQL_query = f"""
 
-        SELECT DISTINCT Departments.DepartmentID,Departments.Name
-        FROM Departments
-        JOIN Departments_Rooms ON Departments_Rooms.DepartmentID = Departments.DepartmentID
-        JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
-        JOIN Floors ON Floors.FloorID = Rooms.FloorID
+        SQL_query = """
 
-        WHERE Floors.BuildingID = %s AND Floors.FloorID = %s AND Departments.DepartmentID IN ({placeholders})
-        ORDER BY Departments.Name
+                SELECT DISTINCT Departments.DepartmentID,Departments.Name
+                FROM Departments
+                JOIN Departments_Rooms ON Departments_Rooms.DepartmentID = Departments.DepartmentID
+                JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
 
-    """
+                WHERE Floors.BuildingID = %s AND Floors.FloorID = %s
+                ORDER BY Departments.Name
 
-    params = (building_id,floor_id,*deps)
+            """
 
-    rows = db_connection( SQL_query, params, one_row=False)
+
+        rows = db_connection( SQL_query, (building_id, floor_id,), one_row=False)
+
+    else:
+
+        if not deps:
+                return jsonify({
+                    "departments": []
+                })
+
+
+        placeholders = ",".join(["%s"] * len(deps))
+
+        SQL_query = f"""
+
+            SELECT DISTINCT Departments.DepartmentID,Departments.Name
+            FROM Departments
+            JOIN Departments_Rooms ON Departments_Rooms.DepartmentID = Departments.DepartmentID
+            JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+            JOIN Floors ON Floors.FloorID = Rooms.FloorID
+
+            WHERE Floors.BuildingID = %s AND Floors.FloorID = %s AND Departments.DepartmentID IN ({placeholders})
+            ORDER BY Departments.Name
+
+        """
+
+        params = (building_id,floor_id,*deps)
+
+        rows = db_connection( SQL_query, params, one_row=False)
 
     departments = [
         {
