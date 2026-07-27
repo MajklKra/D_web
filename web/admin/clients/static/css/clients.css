@@ -3274,6 +3274,7 @@ input[readonly]
     margin-left: 5px;
 }
 
+
 .client-card-row2-c4-accomC-occup_img
 {
     width:  18px;
@@ -4129,3 +4130,46 @@ input[readonly]
 
 }
 
+
+.client-card-row2-c4-accomC-c2-empC-c1
+{
+  /* width:  315px; */
+  flex: 1;
+  height: 100%;
+  /* background-color: red; */
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+
+.client-card-row2-c4-accomC-occup_img-b-cls-1
+{
+    width:  18px;
+    height: auto;
+    /* background-color: violet; */
+    display: block;
+    /* margin-top: 1px; */
+
+    /* color: #357fab; */
+
+    color: currentColor;
+}
+
+
+/* Obarvení tlačítka client-card-row2-c4-accomC-occup_btn */
+
+
+.client-card-row2-c4-accomC-occup_btn:hover
+{
+    background-color: rgba(53, 127, 171, 1);
+}
+
+.client-card-row2-c4-accomC-occup_btn:hover
+.client-card-row2-c4-accomC-occup_bed_id,
+.client-card-row2-c4-accomC-occup_btn:hover
+.client-card-row2-c4-accomC-occup_img
+{
+    color: white;
+}
