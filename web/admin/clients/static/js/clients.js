@@ -2493,6 +2493,15 @@ document.addEventListener("click", function (event)
                     config.stateProperty
                 );
             }
+            else if (
+                config.stateProperty === "selectedDepartmentId" &&
+                accommodationState.mode === "location-select"
+            )
+            {
+                handleAccommodationSelectChange(
+                    config.stateProperty
+                );
+            }
 
 
             const textElement = document.getElementById(
@@ -2924,13 +2933,6 @@ function handleAccommodationSelectChange(changedProperty)
         accommodationState
     );
 
-    /*
-     * Dynamické načítání podle budovy a patra
-     * provádíme pouze v režimu ručního výběru.
-     *
-     * Data načtená přes search se nesmí mazat.
-     */
-
     if (accommodationState.mode !== "location-select")
     {
         return;
@@ -2945,6 +2947,12 @@ function handleAccommodationSelectChange(changedProperty)
     if (changedProperty === "selectedFloorId")
     {
         handleAccommodationFloorChange();
+        return;
+    }
+
+    if (changedProperty === "selectedDepartmentId")
+    {
+        handleAccommodationDepartmentChange();
     }
 }
 
@@ -3469,6 +3477,149 @@ async function loadDepartmentsForLocation(buildingId, floorId)
         setSelectDisabled(
             "client-card-row2-c3-SB3C",
             "SB3C-depBtn",
+            true
+        );
+    }
+}
+
+
+async function handleAccommodationDepartmentChange()
+{
+    const buildingId =
+        accommodationState.selectedBuildingId;
+
+    const floorId =
+        accommodationState.selectedFloorId;
+
+    const departmentId =
+        accommodationState.selectedDepartmentId;
+
+    /*
+     * Při změně oddělení rušíme starý pokoj
+     * a případně vybranou postel.
+     */
+
+    accommodationState.selectedRoomId = null;
+    accommodationState.selectedBedId = null;
+
+    accommodationState.rooms = [];
+    accommodationState.beds = [];
+
+    resetAccommodationSelectBox(
+        "SB4C-roomText",
+        "client-card-row2-c3-SB4C-filter",
+        "Vyberte pokoj"
+    );
+
+    renderAccommodationRoomMenu();
+
+    setSelectDisabled(
+        "client-card-row2-c3-SB4C",
+        "SB4C-roomBtn",
+        true
+    );
+
+    clearAccommodationResults();
+
+    if (!buildingId || !floorId || !departmentId)
+    {
+        console.warn(
+            "Pro načtení pokojů chybí některé ID:",
+            {
+                buildingId,
+                floorId,
+                departmentId
+            }
+        );
+
+        return;
+    }
+
+    await loadRoomsForLocation(
+        buildingId,
+        floorId,
+        departmentId
+    );
+}
+
+async function loadRoomsForLocation(
+    buildingId,
+    floorId,
+    departmentId
+)
+{
+    try
+    {
+        console.log(
+            "%cNačítám pokoje:",
+            "color: blue; font-weight: bold;",
+            {
+                buildingId,
+                floorId,
+                departmentId
+            }
+        );
+
+        const response = await fetch(
+            `/administration/clients/api/location-rooms` +
+            `?building_id=${encodeURIComponent(buildingId)}` +
+            `&floor_id=${encodeURIComponent(floorId)}` +
+            `&department_id=${encodeURIComponent(departmentId)}`,
+            {
+                method: "GET",
+
+                headers:
+                {
+                    "Accept": "application/json"
+                }
+            }
+        );
+
+        if (!response.ok)
+        {
+            throw new Error(
+                `Server odpověděl stavem ${response.status}`
+            );
+        }
+
+        const data = await response.json();
+
+        accommodationState.rooms =
+            Array.isArray(data.rooms)
+                ? data.rooms
+                : [];
+
+        renderAccommodationRoomMenu();
+
+        const hasRooms =
+            accommodationState.rooms.length > 0;
+
+        setSelectDisabled(
+            "client-card-row2-c3-SB4C",
+            "SB4C-roomBtn",
+            !hasRooms
+        );
+
+        console.log(
+            "%cNačtené pokoje:",
+            "color: green; font-weight: bold;",
+            accommodationState.rooms
+        );
+    }
+    catch (error)
+    {
+        console.error(
+            "Nepodařilo se načíst pokoje:",
+            error
+        );
+
+        accommodationState.rooms = [];
+
+        renderAccommodationRoomMenu();
+
+        setSelectDisabled(
+            "client-card-row2-c3-SB4C",
+            "SB4C-roomBtn",
             true
         );
     }
