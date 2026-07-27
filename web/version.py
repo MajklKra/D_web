@@ -1,7 +1,7 @@
 
-__version__ = "1.3.65"
+__version__ = "1.3.66"
 
-# Experimental programming - search filtering vs selectBoxes filtering in the client-card-row2-c3 #2
+#  Bulding option leaves the posibility "all" out
 
 # Jedná se o tuto produkční verzi č. ___
 
