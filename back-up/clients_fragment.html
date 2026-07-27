@@ -546,9 +546,9 @@
 
                     <span id="client-card-row2-c3-SB1C-title"> Budova </span>
 
-                    <div id="client-card-row2-c3-SB1C-wrapper" class="SB1C-select-wrapper SB1C-custom-building-select">
+                    <div id="client-card-row2-c3-SB1C-wrapper">
 
-                        <button type="button" id="SB1C-buildingBtn" class="SB1C-building-btn">
+                        <button type="button" id="SB1C-buildingBtn">
 
                             <span id="SB1C-buildingText"></span>
 
@@ -582,9 +582,9 @@
 
                     <span id="client-card-row2-c3-SB2C-title"> Patro </span>
 
-                    <div id="client-card-row2-c3-SB2C-wrapper" class="SB2C-select-wrapper SB2C-custom-floor-select">
+                    <div id="client-card-row2-c3-SB2C-wrapper">
 
-                        <button type="button" id="SB2C-floorBtn" class="SB2C-floor-btn">
+                        <button type="button" id="SB2C-floorBtn">
 
                             <span id="SB2C-floorText"></span>
 
@@ -596,21 +596,9 @@
 
                         </button>
 
-                        <!-- <div id="SB2C-floorMenu" class="SB2C-floor-menu">
+                        <div id="client-card-row2-c3-SB2C-menu"></div>
 
-                                <button type="button" class="SB2C-floor-option" data-value="{{ value }}">
-                                   Budova A
-                                </button>
-
-                                <button type="button" class="SB2C-floor-option" data-value="{{ value }}">
-                                   Budova B
-                                </button>
-
-                                <button type="button" class="SB2C-floor-option" data-value="{{ value }}">
-                                   Budova C
-                                </button>
-
-                        </div> -->
+                        <input type="hidden" id="client-card-row2-c3-SB2C-filter" name="client-card-row2-c3-SB2C-filter" value="">
 
                     </div>
 
@@ -620,9 +608,9 @@
 
                     <span id="client-card-row2-c3-SB3C-title"> Oddělení </span>
 
-                    <div id="client-card-row2-c3-SB3C-wrapper" class="SB3C-select-wrapper SB3C-custom-dep-select">
+                    <div id="client-card-row2-c3-SB3C-wrapper">
 
-                        <button type="button" id="SB3C-depBtn" class="SB3C-dep-btn">
+                        <button type="button" id="SB3C-depBtn">
 
                             <span id="SB3C-depText"></span>
 
@@ -638,15 +626,15 @@
 
                             <div data-value="all" class="client-card-row2-c3-SB3C-menu-options"> Všechny </div>
 
-                            {% for department_id, department_name in data.departments %}
+                                {% for department_id, department_name in data.departments %}
 
-                                <div class="client-card-row2-c3-SB3C-menu-options" data-value="{{ department_id }}">
-                                    {{ department_name }}
-                                </div>
+                                    <div class="client-card-row2-c3-SB3C-menu-options" data-value="{{ department_id }}">
+                                        {{ department_name }}
+                                    </div>
 
-                            {% endfor %}
+                                {% endfor %}
 
-                        </div>
+                            </div>
 
                         <input type="hidden" name="client-card-row2-c3-SB3C-filter" id="client-card-row2-c3-SB3C-filter" value="{{ data.department_filter }}">
 
@@ -658,9 +646,9 @@
 
                     <span id="client-card-row2-c3-SB4C-title"> Pokoj </span>
 
-                    <div id="client-card-row2-c3-SB4C-wrapper" class="SB4C-select-wrapper SB4C-custom-room-select">
+                    <div id="client-card-row2-c3-SB4C-wrapper">
 
-                        <button type="button" id="SB4C-roomBtn" class="SB4C-room-btn">
+                        <button type="button" id="SB4C-roomBtn">
 
                             <span id="SB4C-roomText"></span>
 
@@ -672,21 +660,9 @@
 
                         </button>
 
-                        <!-- <div id="SB4C-roomMenu" class="S4C-room-menu">
+                        <div id="client-card-row2-c3-SB4C-menu"></div>
 
-                                <button type="button" class="SB4C-room-option" data-value="{{ value }}">
-                                   Budova A
-                                </button>
-
-                                <button type="button" class="SB4C-room-option" data-value="{{ value }}">
-                                   Budova B
-                                </button>
-
-                                <button type="button" class="SB4C-room-option" data-value="{{ value }}">
-                                   Budova C
-                                </button>
-
-                        </div> -->
+                        <input type="hidden" id="client-card-row2-c3-SB4C-filter" name="client-card-row2-c3-SB4C-filter" value="">
 
                     </div>
 

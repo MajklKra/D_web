@@ -2184,3 +2184,114 @@ def department_location(department_id):
         "subrooms": list(subrooms.values()),
         "beds": list(beds.values())
     })
+
+
+
+
+
+#  EXPERIMENTY  #
+
+
+@admin_clients_bp.route(
+    "/api/building-floors/<int:building_id>",
+    methods=["GET"]
+)
+def building_floors(building_id):
+
+    sql = """
+        SELECT DISTINCT
+            Floors.FloorID,
+            Floors.Name
+        FROM Floors
+        WHERE Floors.BuildingID = %s
+        ORDER BY Floors.FloorID
+    """
+
+    rows = db_connection(
+        sql,
+        (building_id,),
+        one_row=False
+    )
+
+    floors = [
+        {
+            "id": row[0],
+            "name": row[1]
+        }
+        for row in rows
+    ]
+
+    return jsonify({
+        "floors": floors
+    })
+
+
+### RUČNÍ REŽIM - NAČÍTÁNÍ ODDĚLENÍ ###
+
+
+@admin_clients_bp.route(
+    "/api/location-departments",
+    methods=["GET"]
+)
+def location_departments():
+
+    building_id = request.args.get(
+        "building_id",
+        type=int
+    )
+
+    floor_id = request.args.get(
+        "floor_id",
+        type=int
+    )
+
+    if building_id is None or floor_id is None:
+        return jsonify({
+            "departments": []
+        }), 400
+
+    SQL_query = """
+        SELECT DISTINCT
+            Departments.DepartmentID,
+            Departments.Name
+
+        FROM Departments
+
+        JOIN Departments_Rooms
+            ON Departments_Rooms.DepartmentID =
+               Departments.DepartmentID
+
+        JOIN Rooms
+            ON Rooms.RoomID =
+               Departments_Rooms.RoomID
+
+        JOIN Floors
+            ON Floors.FloorID =
+               Rooms.FloorID
+
+        WHERE Floors.BuildingID = %s
+          AND Floors.FloorID = %s
+
+        ORDER BY Departments.Name
+    """
+
+    rows = db_connection(
+        SQL_query,
+        (
+            building_id,
+            floor_id
+        ),
+        one_row=False
+    )
+
+    departments = [
+        {
+            "id": row[0],
+            "name": row[1]
+        }
+        for row in rows
+    ]
+
+    return jsonify({
+        "departments": departments
+    })

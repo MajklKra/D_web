@@ -1948,13 +1948,11 @@ def new_client():
     return " Welcome stranger how are you doing "
 
 
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 #  Načtení oddělení pro client-card-row2-c3-searchC-searchInput #
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
 
 @admin_clients_bp.route("/api/search-departments")
 def search_departments():
@@ -2026,137 +2024,163 @@ def search_departments():
 @admin_clients_bp.route("/api/department-location/<int:department_id>",methods=["GET"])
 def department_location(department_id):
 
-
     """
-        Welcome to "/api/department-location/<int:department_id"
-
+    Welcome to "/api/department-location/<int:department_id"
     """
 
-    SQL_q_building = '''
+    SQL_q_department_location = """
 
-        SELECT DISTINCT BuildingID, BuildingName
-        FROM
+    	SELECT d.DepartmentID, d.Name AS DepartmentName, b.BuildingID, b.Name AS BuildingName, f.FloorID,
+	    f.Name AS FloorName, r.RoomID, r.RoomName, r.RoomNumber, NULL AS SubRoomID, NULL AS SubRoomName,
+	    NULL AS SubRoomNumber, bed.BedID, bed.BedNumber, p.PatientID, p.Surname AS PatientSurname, p.Name AS PatientName
+
+        FROM Departments d
+        JOIN Departments_Rooms dr ON dr.DepartmentID = d.DepartmentID
+        JOIN Rooms r ON r.RoomID = dr.RoomID
+        JOIN Floors f ON f.FloorID = r.FloorID
+        JOIN Buildings b ON b.BuildingID = f.BuildingID
+
+        JOIN Beds bed ON bed.RoomID = r.RoomID AND bed.SubRoomID = -1
+
+        LEFT JOIN Patients p ON p.BedID = bed.BedID
+
+        WHERE d.DepartmentID = %s
+
+        UNION ALL
+
+        SELECT d.DepartmentID, d.Name AS DepartmentName, b.BuildingID, b.Name AS BuildingName, f.FloorID,
+            f.Name AS FloorName, r.RoomID, r.RoomName, r.RoomNumber, sr.SubRoomID, sr.SubRoomName, sr.SubRoomNumber, bed.BedID, bed.BedNumber,
+            p.PatientID, p.Surname AS PatientSurname, p.Name AS PatientName
+
+        FROM Departments d
+        JOIN Departments_Rooms dr ON dr.DepartmentID = d.DepartmentID
+        JOIN Rooms r ON r.RoomID = dr.RoomID
+        JOIN Floors f ON f.FloorID = r.FloorID
+        JOIN Buildings b ON b.BuildingID = f.BuildingID
+        JOIN SubRooms sr ON sr.RoomID = r.RoomID
+
+        JOIN Beds bed ON bed.SubRoomID = sr.SubRoomID AND bed.RoomID = -1
+
+        LEFT JOIN Patients p ON p.BedID = bed.BedID
+
+        WHERE d.DepartmentID = %s
+
+        ORDER BY BuildingName, FloorName, RoomNumber, SubRoomNumber, BedNumber;
+
+    """
+
+    rows = db_connection(SQL_q_department_location, (department_id, department_id, ), one_row=False)
+
+    print("Počet vrácených SQL řádků:", len(rows))
+
+    for row in rows:
+        print(
+            "DepartmentID:", row[0],
+            "RoomID:", row[6],
+            "RoomName:", row[7],
+            "RoomNumber:", row[8],
+            "SubRoomID:", row[9],
+            "BedID:", row[12]
+        )
+
+    unique_rooms = {
+        row[6]
+        for row in rows
+    }
+
+    print("Unikátní RoomID:", unique_rooms)
+    print("Počet unikátních pokojů:", len(unique_rooms))
+
+    buildings = {}
+    floors = {}
+    rooms = {}
+    subrooms = {}
+    beds = {}
+
+    for row in rows:
         (
-            SELECT      Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName, Departments.DepartmentID, Departments.`Name`, Rooms.RoomID, Rooms.RoomName
-            FROM 			Buildings
-            JOIN 			Floors ON Buildings.BuildingID = Floors.BuildingID
-            JOIN 			Rooms ON Rooms.FloorID = Floors.FloorID
-            JOIN 			Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
-            JOIN 			Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-            WHERE 		Departments.DepartmentID = %s
-        ) AS clients
+            department_id,
+            department_name,
+            building_id,
+            building_name,
+            floor_id,
+            floor_name,
+            room_id,
+            room_name,
+            room_number,
+            subroom_id,
+            subroom_name,
+            subroom_number,
+            bed_id,
+            bed_number,
+            patient_id,
+            patient_surname,
+            patient_name
+        ) = row
 
-    '''
+        # Budovy
+        if building_id not in buildings:
+            buildings[building_id] = {
+                "id": building_id,
+                "name": building_name
+            }
 
-    buildings = db_connection(SQL_q_building, (department_id,), one_row=False)
+        # Patra
+        if floor_id not in floors:
+            floors[floor_id] = {
+                "id": floor_id,
+                "name": floor_name,
+                "building_id": building_id
+            }
 
-    SQL_q_floor = '''
+        # Pokoje
+        if room_id not in rooms:
+            rooms[room_id] = {
+                "id": room_id,
+                "name": room_name,
+                "number": room_number,
+                "building_id": building_id,
+                "floor_id": floor_id
+            }
 
-            SELECT DISTINCT floorID, floorName
-            FROM
-            (
-                SELECT      Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName, Departments.DepartmentID, Departments.`Name`, Rooms.RoomID, Rooms.RoomName
-                FROM 			Buildings
-                JOIN 			Floors ON Buildings.BuildingID = Floors.BuildingID
-                JOIN 			Rooms ON Rooms.FloorID = Floors.FloorID
-                JOIN 			Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
-                JOIN 			Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-                WHERE 		Departments.DepartmentID = %s
-            ) AS clients
+        # Podpokoje
+        if subroom_id is not None:
+            if subroom_id not in subrooms:
 
-        '''
+                subrooms[subroom_id] = {
+                    "id": subroom_id,
+                    "name": subroom_name,
+                    "number": subroom_number,
+                    "room_id": room_id
+                }
 
-    floors = db_connection(SQL_q_floor, (department_id,), one_row=False)
+        # Postele
+        beds[bed_id] = {
 
-    SQL_q_dep = '''
+            "id": bed_id,
+            "number": bed_number,
 
-                SELECT DISTINCT DepartmentID, depName
-                FROM
-                (
-                    SELECT      Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName, Departments.DepartmentID, Departments.`Name` AS depName, Rooms.RoomID, Rooms.RoomName
-                    FROM 			Buildings
-                    JOIN 			Floors ON Buildings.BuildingID = Floors.BuildingID
-                    JOIN 			Rooms ON Rooms.FloorID = Floors.FloorID
-                    JOIN 			Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
-                    JOIN 			Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-                    WHERE 		Departments.DepartmentID = %s
-                ) AS clients
+            "room_id": room_id,
+            "subroom_id": subroom_id,
 
-            '''
-
-    dep = db_connection(SQL_q_dep, (department_id,), one_row=False)
-
-    SQL_q_rooms = '''
-
-                    SELECT DISTINCT RoomID, RoomName
-                    FROM
-                    (
-                        SELECT      Buildings.BuildingID, Buildings.`Name` AS BuildingName, Floors.FloorID, Floors.`Name` AS FloorName, Departments.DepartmentID, Departments.`Name` AS depName, Rooms.RoomID, Rooms.RoomName
-                        FROM 		Buildings
-                        JOIN 		Floors ON Buildings.BuildingID = Floors.BuildingID
-                        JOIN 		Rooms ON Rooms.FloorID = Floors.FloorID
-                        JOIN 		Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
-                        JOIN 		Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
-                        WHERE 		Departments.DepartmentID = %s
-                    ) AS clients
-
-                '''
-
-    rooms = db_connection(SQL_q_rooms , (department_id,), one_row=False)
-
-    # return jsonify({
-    #     "building": {
-    #         "id": 1,
-    #         "name": "Budova A"
-    #     },
-    #     "floor": {
-    #         "id": 2,
-    #         "name": "2. patro"
-    #     },
-    #     "department": {
-    #         "id": department_id,
-    #         "name": "Testovací oddělení"
-    #     },
-    #     "rooms": [
-    #         {
-    #             "id": 10,
-    #             "name": "Pokoj 101"
-    #         },
-    #         {
-    #             "id": 11,
-    #             "name": "Pokoj 102"
-    #         }
-    #     ]
-    # })
-
+            "patient": None if patient_id is None else
+            {
+                "id": patient_id,
+                "surname": patient_surname,
+                "name": patient_name
+            }
+        }
 
     return jsonify({
-        "buildings": [
-            {
-                "id": building[0],
-                "name": building[1]
-            }
-            for building in buildings
-        ],
+        "department":
+        {
+            "id": department_id,
+            "name": department_name
+        },
 
-        "floors": [
-            {
-                "id": floor[0],
-                "name": floor[1]
-            }
-            for floor in floors
-        ],
-
-        "department": {
-            "id": dep[0][0],
-            "name": dep[0][1]
-        } if dep else None,
-
-        "rooms": [
-            {
-                "id": room[0],
-                "name": room[1]
-            }
-            for room in rooms
-        ]
+        "buildings": list(buildings.values()),
+        "floors": list(floors.values()),
+        "rooms": list(rooms.values()),
+        "subrooms": list(subrooms.values()),
+        "beds": list(beds.values())
     })
