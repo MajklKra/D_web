@@ -1,7 +1,7 @@
 
-__version__ = "1.3.66"
+__version__ = "1.3.67"
 
-#  Bulding option leaves the posibility "all" out
+#  Room's options modified
 
 # Jedná se o tuto produkční verzi č. ___
 
