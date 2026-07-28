@@ -1,7 +1,7 @@
 
-__version__ = "1.3.74"
+__version__ = "1.3.75"
 
-# client-card-row2-c4-accomC sorting process set up
+# client-card-row2-c4-accomC clearing after content is disapeared from #client-card-row2-c3-searchC
 
 # Jedná se o tuto produkční verzi č. ___
 

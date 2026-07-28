@@ -1665,6 +1665,12 @@ document.addEventListener("input", function (event)
     if (event.target.value.trim() === "")
     {
         resetAccommodationSelection();
+
+        accommodationState.rooms = [];
+        accommodationState.beds = [];
+
+        clearAccommodationResults();
+
     }
 
     const input = event.target;
@@ -3998,7 +4004,6 @@ function renderAccommodationResults()
 
         container.appendChild(roomRow);
     });
-
 
     /*
      * Po vykreslení přepočítáme scrollbar.
