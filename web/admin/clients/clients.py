@@ -1926,26 +1926,26 @@ def loading_data():
 
 
 
-@admin_clients_bp.route("/new-client", methods=["POST"])
-def new_client():
+# @admin_clients_bp.route("/new-client", methods=["POST"])
+# def new_client():
 
-    print ( " You have reached /new-client method ")
+#     print ( " You have reached /new-client method ")
 
-    # username = request.form.get("client_card_name")
-    # password = request.form.get("client_card_surname")
+#     # username = request.form.get("client_card_name")
+#     # password = request.form.get("client_card_surname")
 
-    # print( f" username: {username} ")
-    # print( f" password: {password} ")
+#     # print( f" username: {username} ")
+#     # print( f" password: {password} ")
 
-    # gender = request.form.get("gender")
+#     # gender = request.form.get("gender")
 
-    # print(f"Hodnota proměnné gender -> {gender}")
+#     # print(f"Hodnota proměnné gender -> {gender}")
 
-    ID = request.form.get("client-card-row2-c2-IDC-i1")
-    print(f" Hodnota proměnné ID -> {ID}")
+#     ID = request.form.get("client-card-row2-c2-IDC-i1")
+#     print(f" Hodnota proměnné ID -> {ID}")
 
 
-    return " Welcome stranger how are you doing "
+#     return " Welcome stranger how are you doing "
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2617,4 +2617,31 @@ def location_beds(room_id):
     return jsonify({
         "room_id": room_id,
         "beds": beds
+    })
+
+
+@admin_clients_bp.route("/new-client",methods=["POST"])
+def new_client():
+
+    name = request.form.get("client_card_name","",type=str).strip()
+    surname = request.form.get("client_card_surname","",type=str).strip()
+    gender = request.form.get("gender",type=int)
+    client_id = request.form.get("client_id",type=int)
+    bed_id = request.form.get("bed_id",type=int)
+
+    print("Jméno:", name)
+    print("Příjmení:", surname)
+    print("Pohlaví:", gender)
+    print("ID klienta:", client_id)
+    print("BedID:", bed_id)
+
+    return jsonify({
+        "success": True,
+        "received": {
+            "name": name,
+            "surname": surname,
+            "gender": gender,
+            "client_id": client_id,
+            "bed_id": bed_id
+        }
     })

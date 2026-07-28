@@ -1,7 +1,7 @@
 
-__version__ = "1.3.78"
+__version__ = "1.3.79"
 
-# client-card-selected-bed-id value stored / emptied
+# "/new-client" created
 
 # Jedná se o tuto produkční verzi č. ___
 
