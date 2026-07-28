@@ -2174,17 +2174,6 @@ function updateSelectBoxesFromAccommodationState()
 
 function resetAccommodationSelection()
 {
-    // accommodationState.source = null;
-
-    // accommodationState.buildings = [];
-    // accommodationState.floors = [];
-    // accommodationState.department = null;
-    // accommodationState.rooms = [];
-
-    // accommodationState.selectedBuildingId = null;
-    // accommodationState.selectedFloorId = null;
-    // accommodationState.selectedDepartmentId = null;
-    // accommodationState.selectedRoomId = null;
 
     accommodationState.mode = null;
 
@@ -2763,6 +2752,13 @@ function resetClientCard()
      */
 
     resetAccommodationSelection();
+
+    const selectedBedInput = document.getElementById("client-card-selected-bed-id");
+
+    if (selectedBedInput)
+    {
+        selectedBedInput.value = "";
+    }
 
     /*
      * Vyhledávání oddělení.

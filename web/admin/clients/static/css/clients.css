@@ -3323,7 +3323,7 @@ input[readonly]
     cursor: pointer;
 }
 
-.client-card-row2-c4-accomC-occup_btn:hover
+/* .client-card-row2-c4-accomC-occup_btn:hover
 {
     background-color: rgba(53,127,171,1);
 }
@@ -3334,7 +3334,7 @@ input[readonly]
 .client-card-row2-c4-accomC-occup_img
 {
     color: white;
-}
+} */
 
 
 
@@ -4171,7 +4171,7 @@ input[readonly]
 /* Obarvení tlačítka client-card-row2-c4-accomC-occup_btn */
 
 
-.client-card-row2-c4-accomC-occup_btn:hover
+/* .client-card-row2-c4-accomC-occup_btn:hover
 {
     background-color: rgba(53, 127, 171, 1);
 }
@@ -4182,9 +4182,7 @@ input[readonly]
 .client-card-row2-c4-accomC-occup_img
 {
     color: white;
-}
-
-
+} */
 
 .client-card-row2-c4-accomC-occup_subroom
 {
@@ -4209,7 +4207,6 @@ input[readonly]
 
 }
 
-
 .client-card-row2-c4-accomC-occup_subroom_title
 {
     padding-left: 7px;
@@ -4220,4 +4217,25 @@ input[readonly]
 {
     /* background-color: pink; */
     margin-top: 3px;
+}
+
+
+/* Klik na tlačítko s postelí */
+
+.client-card-row2-c4-accomC-occup_btn:hover,
+.client-card-row2-c4-accomC-occup_btn.selected
+{
+    background-color: rgba(53, 127, 171, 1);
+}
+
+.client-card-row2-c4-accomC-occup_btn:hover
+.client-card-row2-c4-accomC-occup_bed_id,
+.client-card-row2-c4-accomC-occup_btn:hover
+.client-card-row2-c4-accomC-occup_img,
+.client-card-row2-c4-accomC-occup_btn.selected
+.client-card-row2-c4-accomC-occup_bed_id,
+.client-card-row2-c4-accomC-occup_btn.selected
+.client-card-row2-c4-accomC-occup_img
+{
+    color: white;
 }

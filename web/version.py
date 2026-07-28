@@ -1,7 +1,7 @@
 
-__version__ = "1.3.77"
+__version__ = "1.3.78"
 
-# SBoxes and search selection last version
+# client-card-selected-bed-id value stored / emptied
 
 # Jedná se o tuto produkční verzi č. ___
 
