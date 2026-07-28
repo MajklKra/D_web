@@ -2184,3 +2184,364 @@ def department_location(department_id):
         "subrooms": list(subrooms.values()),
         "beds": list(beds.values())
     })
+
+
+#  EXPERIMENTY  #
+
+@admin_clients_bp.route(
+    "/api/building-floors/<int:building_id>",
+    methods=["GET"]
+)
+def building_floors(building_id):
+
+    sql = """
+        SELECT DISTINCT
+            Floors.FloorID,
+            Floors.Name
+        FROM Floors
+        WHERE Floors.BuildingID = %s
+        ORDER BY Floors.FloorID
+    """
+
+    rows = db_connection(
+        sql,
+        (building_id,),
+        one_row=False
+    )
+
+    floors = [
+        {
+            "id": row[0],
+            "name": row[1]
+        }
+        for row in rows
+    ]
+
+    return jsonify({
+        "floors": floors
+    })
+
+
+### RUČNÍ REŽIM - NAČÍTÁNÍ ODDĚLENÍ ###
+
+@admin_clients_bp.route(
+    "/api/location-departments",
+    methods=["GET"]
+)
+def location_departments():
+
+    building_id = request.args.get("building_id",type=int)
+
+    floor_id = request.args.get("floor_id",type=int)
+
+    e_id = session.get("e_id")
+    tech = session.get("tech")
+    admin = session.get("admin")
+    deps = session.get("e_deps")
+
+    # if not deps:
+    #     return jsonify({
+    #         "departments": []
+    #     })
+
+    if building_id is None or floor_id is None:
+        return jsonify({
+            "departments": []
+        }), 400
+
+
+    if e_id == 0 or tech == True or admin == True:
+
+
+        SQL_query = """
+
+                SELECT DISTINCT Departments.DepartmentID,Departments.Name
+                FROM Departments
+                JOIN Departments_Rooms ON Departments_Rooms.DepartmentID = Departments.DepartmentID
+                JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+                JOIN Floors ON Floors.FloorID = Rooms.FloorID
+
+                WHERE Floors.BuildingID = %s AND Floors.FloorID = %s
+                ORDER BY Departments.Name
+
+            """
+
+
+        rows = db_connection( SQL_query, (building_id, floor_id,), one_row=False)
+
+    else:
+
+        if not deps:
+                return jsonify({
+                    "departments": []
+                })
+
+
+        placeholders = ",".join(["%s"] * len(deps))
+
+        SQL_query = f"""
+
+            SELECT DISTINCT Departments.DepartmentID,Departments.Name
+            FROM Departments
+            JOIN Departments_Rooms ON Departments_Rooms.DepartmentID = Departments.DepartmentID
+            JOIN Rooms ON Rooms.RoomID = Departments_Rooms.RoomID
+            JOIN Floors ON Floors.FloorID = Rooms.FloorID
+
+            WHERE Floors.BuildingID = %s AND Floors.FloorID = %s AND Departments.DepartmentID IN ({placeholders})
+            ORDER BY Departments.Name
+
+        """
+
+        params = (building_id,floor_id,*deps)
+
+        rows = db_connection( SQL_query, params, one_row=False)
+
+    departments = [
+        {
+            "id": row[0],
+            "name": row[1]
+        }
+        for row in rows
+    ]
+
+    return jsonify({
+        "departments": departments
+    })
+
+
+###  RUČNÍ VÝBER - NAČÍTANÍ POKOJŮ  ###
+
+# @admin_clients_bp.route( "/api/location-rooms", methods=["GET"])
+# def location_rooms():
+
+    building_id = request.args.get( "building_id",type=int)
+    floor_id = request.args.get( "floor_id", type=int)
+    department_id = request.args.get( "department_id",type=int)
+
+    if (
+        building_id is None
+        or floor_id is None
+        or department_id is None
+    ):
+        return jsonify({
+            "rooms": []
+        }), 400
+
+    SQL_query = """
+
+        SELECT DISTINCT Rooms.RoomID, CONCAT(Rooms.RoomName, ' ', Rooms.RoomNumber) AS RoomDisplayName,Rooms.FloorID
+        FROM Rooms
+
+        JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+        JOIN Floors ON Floors.FloorID = Rooms.FloorID
+
+        WHERE Departments_Rooms.DepartmentID = %s AND Rooms.FloorID = %s AND Floors.BuildingID = %s
+
+        ORDER BY
+            Rooms.RoomNumber,
+            Rooms.RoomName
+    """
+
+    rows = db_connection( SQL_query,( department_id, floor_id, building_id),one_row=False)
+
+    rooms = [
+        {
+            "id": row[0],
+            "name": row[1],
+            "floor_id": row[2]
+        }
+        for row in rows
+    ]
+
+    return jsonify({
+        "rooms": rooms
+    })
+
+@admin_clients_bp.route( "/api/location-rooms", methods=["GET"])
+def location_rooms():
+
+    building_id = request.args.get( "building_id",type=int)
+    floor_id = request.args.get( "floor_id", type=int)
+    department_id = request.args.get( "department_id",type=int)
+
+    if ( building_id is None or floor_id is None or department_id is None):
+        return jsonify({ "rooms": []}), 400
+
+    # SQL_query = """
+
+    #     SELECT DISTINCT Rooms.RoomID, CONCAT(Rooms.RoomName, ' ', Rooms.RoomNumber) AS RoomDisplayName,Rooms.FloorID
+    #     FROM Rooms
+
+    #     JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+    #     JOIN Floors ON Floors.FloorID = Rooms.FloorID
+
+    #     WHERE Departments_Rooms.DepartmentID = %s AND Rooms.FloorID = %s AND Floors.BuildingID = %s
+
+    #     ORDER BY
+    #         Rooms.RoomNumber,
+    #         Rooms.RoomName
+    # """
+
+
+    SQL_query = """
+
+                    SELECT DISTINCT RoomID, RoomName, FloorID
+                    FROM
+
+                    (
+                        SELECT  d.DepartmentID, d.Name AS DepartmentName, b.BuildingID, b.Name AS BuildingName, f.FloorID,
+                                f.Name AS FloorName, r.RoomID, r.RoomName, r.RoomNumber, NULL AS SubRoomID, NULL AS SubRoomName,
+                                NULL AS SubRoomNumber, bed.BedID, bed.BedNumber, p.PatientID, p.Surname AS PatientSurname, p.Name AS PatientName
+
+                        FROM Departments d
+                        JOIN Departments_Rooms dr ON dr.DepartmentID = d.DepartmentID
+                        JOIN Rooms r ON r.RoomID = dr.RoomID
+                        JOIN Floors f ON f.FloorID = r.FloorID
+                        JOIN Buildings b ON b.BuildingID = f.BuildingID
+                        JOIN Beds bed ON bed.RoomID = r.RoomID AND bed.SubRoomID = -1
+
+                        LEFT JOIN Patients p ON p.BedID = bed.BedID
+
+                        WHERE b.BuildingID = %s AND f.FloorID = %s AND d.DepartmentID = %s
+
+                        UNION ALL
+
+                        SELECT  d.DepartmentID, d.Name AS DepartmentName, b.BuildingID, b.Name AS BuildingName, f.FloorID,
+                                f.Name AS FloorName, r.RoomID, r.RoomName, r.RoomNumber, sr.SubRoomID, sr.SubRoomName, sr.SubRoomNumber, bed.BedID, bed.BedNumber,
+                                p.PatientID, p.Surname AS PatientSurname, p.Name AS PatientName
+
+                        FROM Departments d
+                        JOIN Departments_Rooms dr ON dr.DepartmentID = d.DepartmentID
+                        JOIN Rooms r ON r.RoomID = dr.RoomID
+                        JOIN Floors f ON f.FloorID = r.FloorID
+                        JOIN Buildings b ON b.BuildingID = f.BuildingID
+                        JOIN SubRooms sr ON sr.RoomID = r.RoomID
+                        JOIN Beds bed ON bed.SubRoomID = sr.SubRoomID AND bed.RoomID = -1
+                        LEFT JOIN Patients p ON p.BedID = bed.BedID
+
+                        WHERE b.BuildingID =  %s AND f.FloorID = %s AND d.DepartmentID = %s
+
+                    ) AS clients
+
+                    ORDER BY BuildingName, FloorName, RoomNumber, SubRoomNumber, BedNumber;
+
+                """
+
+
+    rows = db_connection( SQL_query,( building_id, floor_id, department_id, building_id, floor_id, department_id),one_row=False)
+
+    rooms = [
+        {
+            "id": row[0],
+            "name": row[1],
+            "floor_id": row[2]
+        }
+        for row in rows
+    ]
+
+    return jsonify({
+        "rooms": rooms
+    })
+
+
+@admin_clients_bp.route( "/api/location-beds/<int:room_id>",methods=["GET"])
+def location_beds(room_id):
+
+
+    print(" Hello my friend welcome to the Themepark ! ")
+
+    SQL_query = """
+
+        SELECT
+            bed.BedID,
+            bed.BedNumber,
+            r.RoomID,
+            NULL AS SubRoomID,
+            p.PatientID,
+            p.Surname,
+            p.Name
+
+        FROM Rooms r
+
+        JOIN Beds bed
+            ON bed.RoomID = r.RoomID
+           AND (
+                bed.SubRoomID IS NULL
+                OR bed.SubRoomID = 0
+                OR bed.SubRoomID = -1
+           )
+
+        LEFT JOIN Patients p
+            ON p.BedID = bed.BedID
+
+        WHERE r.RoomID = %s
+
+
+        UNION ALL
+
+
+        SELECT
+            bed.BedID,
+            bed.BedNumber,
+            r.RoomID,
+            sr.SubRoomID,
+            p.PatientID,
+            p.Surname,
+            p.Name
+
+        FROM Rooms r
+
+        JOIN SubRooms sr
+            ON sr.RoomID = r.RoomID
+
+        JOIN Beds bed
+            ON bed.SubRoomID = sr.SubRoomID
+
+        LEFT JOIN Patients p
+            ON p.BedID = bed.BedID
+
+        WHERE r.RoomID = %s
+
+        ORDER BY BedNumber
+
+    """
+
+    rows = db_connection(
+        SQL_query,
+        (
+            room_id,
+            room_id
+        ),
+        one_row=False
+    )
+
+    beds = []
+
+    for row in rows:
+
+        bed_id = row[0]
+        bed_number = row[1]
+        returned_room_id = row[2]
+        subroom_id = row[3]
+        patient_id = row[4]
+        patient_surname = row[5]
+        patient_name = row[6]
+
+        beds.append({
+            "id": bed_id,
+            "number": bed_number,
+            "room_id": returned_room_id,
+            "subroom_id": subroom_id,
+
+            "patient": None if patient_id is None else
+            {
+                "id": patient_id,
+                "surname": patient_surname,
+                "name": patient_name
+            }
+        })
+
+    return jsonify({
+        "room_id": room_id,
+        "beds": beds
+    })

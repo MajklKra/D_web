@@ -3118,7 +3118,7 @@ input[readonly]
     width: 34%;
     height: auto;
 
-    /* background-color: brown; */
+    /* background-color: red; */
 
     font-size:    13px;
     font-family:  'Montserrat';
@@ -3127,6 +3127,13 @@ input[readonly]
 
     padding-top:  6px;
     padding-left: 7px;
+    padding-right: 5px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+
 
 }
 

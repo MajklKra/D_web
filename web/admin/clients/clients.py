@@ -2308,54 +2308,7 @@ def location_departments():
         "departments": departments
     })
 
-
 ###  RUČNÍ VÝBER - NAČÍTANÍ POKOJŮ  ###
-
-# @admin_clients_bp.route( "/api/location-rooms", methods=["GET"])
-# def location_rooms():
-
-    building_id = request.args.get( "building_id",type=int)
-    floor_id = request.args.get( "floor_id", type=int)
-    department_id = request.args.get( "department_id",type=int)
-
-    if (
-        building_id is None
-        or floor_id is None
-        or department_id is None
-    ):
-        return jsonify({
-            "rooms": []
-        }), 400
-
-    SQL_query = """
-
-        SELECT DISTINCT Rooms.RoomID, CONCAT(Rooms.RoomName, ' ', Rooms.RoomNumber) AS RoomDisplayName,Rooms.FloorID
-        FROM Rooms
-
-        JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
-        JOIN Floors ON Floors.FloorID = Rooms.FloorID
-
-        WHERE Departments_Rooms.DepartmentID = %s AND Rooms.FloorID = %s AND Floors.BuildingID = %s
-
-        ORDER BY
-            Rooms.RoomNumber,
-            Rooms.RoomName
-    """
-
-    rows = db_connection( SQL_query,( department_id, floor_id, building_id),one_row=False)
-
-    rooms = [
-        {
-            "id": row[0],
-            "name": row[1],
-            "floor_id": row[2]
-        }
-        for row in rows
-    ]
-
-    return jsonify({
-        "rooms": rooms
-    })
 
 @admin_clients_bp.route( "/api/location-rooms", methods=["GET"])
 def location_rooms():
@@ -2385,9 +2338,8 @@ def location_rooms():
 
     SQL_query = """
 
-                    SELECT DISTINCT RoomID, RoomName, FloorID
+                    SELECT DISTINCT RoomID, RoomName, RoomNumber, FloorID
                     FROM
-
                     (
                         SELECT  d.DepartmentID, d.Name AS DepartmentName, b.BuildingID, b.Name AS BuildingName, f.FloorID,
                                 f.Name AS FloorName, r.RoomID, r.RoomName, r.RoomNumber, NULL AS SubRoomID, NULL AS SubRoomName,
@@ -2434,7 +2386,8 @@ def location_rooms():
         {
             "id": row[0],
             "name": row[1],
-            "floor_id": row[2]
+            "number": row[2],
+            "floor_id": row[3]
         }
         for row in rows
     ]
