@@ -3656,13 +3656,18 @@ input[readonly]
     font-size:    13px;
     font-family:  'Montserrat';
     font-weight:  600;
-    color: #59646f;
+
+    /* color: #59646f; */
+
+    color: #357fab;
 
     /* background-color: red; */
 
     text-align: justify;
 
     margin-top: 10px;
+
+    padding-left: 10px;
 }
 
 #SB1C-dropdownImg

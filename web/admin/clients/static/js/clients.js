@@ -2600,15 +2600,30 @@ document.addEventListener("click", function (event)
                     config.stateProperty
                 );
             }
-            else if (
-                config.stateProperty === "selectedDepartmentId" &&
-                accommodationState.mode === "location-select"
-            )
+            // else if (
+            //     config.stateProperty === "selectedDepartmentId" &&
+            //     accommodationState.mode === "location-select"
+            // )
+            // {
+            //     handleAccommodationSelectChange(
+            //         config.stateProperty
+            //     );
+            // }
+
+            else if (config.stateProperty === "selectedDepartmentId")
             {
-                handleAccommodationSelectChange(
-                    config.stateProperty
-                );
+                if (accommodationState.mode === "location-select")
+                {
+                    handleAccommodationSelectChange(
+                        config.stateProperty
+                    );
+                }
+                else if (accommodationState.mode === "department-search")
+                {
+                    handleDepartmentSearchSelectChange(value);
+                }
             }
+
             else if (config.stateProperty === "selectedRoomId")
             {
                 handleAccommodationRoomChange();
@@ -2873,6 +2888,8 @@ function resetClientCard()
     {
         accommodationThumb.style.top = "0px";
     }
+
+    clearAccommodationResults();
 }
 
 
@@ -4518,4 +4535,28 @@ function switchToLocationSelectMode()
         "color: blue; font-weight: bold;",
         accommodationState
     );
+}
+
+async function handleDepartmentSearchSelectChange(departmentId)
+{
+    /*
+     * Po opětovném výběru oddělení rušíme
+     * dříve vybraný konkrétní pokoj.
+     */
+
+    accommodationState.selectedRoomId = null;
+    accommodationState.selectedBedId = null;
+
+    resetAccommodationSelectBox(
+        "SB4C-roomText",
+        "client-card-row2-c3-SB4C-filter",
+        "Vyberte pokoj"
+    );
+
+    /*
+     * Znovu načteme celé oddělení:
+     * všechny budovy, patra, pokoje a postele.
+     */
+
+    await loadDepartmentLocation(departmentId);
 }

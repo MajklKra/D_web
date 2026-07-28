@@ -1,7 +1,7 @@
 
-__version__ = "1.3.76"
+__version__ = "1.3.77"
 
-# SBoxes and search selection repaired
+# SBoxes and search selection last version
 
 # Jedná se o tuto produkční verzi č. ___
 
