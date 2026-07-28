@@ -1,7 +1,7 @@
 
-__version__ = "1.3.75"
+__version__ = "1.3.76"
 
-# client-card-row2-c4-accomC clearing after content is disapeared from #client-card-row2-c3-searchC
+# SBoxes and search selection repaired
 
 # Jedná se o tuto produkční verzi č. ___
 
