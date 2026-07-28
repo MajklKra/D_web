@@ -1,7 +1,7 @@
 
-__version__ = "1.3.72"
+__version__ = "1.3.73"
 
-# client-card-row2-c4-accomC-occup_bed modified
+# client-card-row2-c4-accomC-occup_bed subrooms in the list
 
 # Jedná se o tuto produkční verzi č. ___
 
