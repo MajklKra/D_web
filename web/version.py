@@ -1,7 +1,7 @@
 
-__version__ = "1.3.73"
+__version__ = "1.3.74"
 
-# client-card-row2-c4-accomC-occup_bed subrooms in the list
+# client-card-row2-c4-accomC sorting process set up
 
 # Jedná se o tuto produkční verzi č. ___
 

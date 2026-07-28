@@ -2928,38 +2928,6 @@ function resetLocationSelectMode()
     closeAllAccommodationSelectBoxes();
 }
 
-// function handleAccommodationSelectChange(changedProperty)
-// {
-//     console.log(
-//         "%cZměna SelectBoxu:",
-//         "color: darkorange; font-weight: bold;",
-//         changedProperty,
-//         accommodationState
-//     );
-
-//     if (accommodationState.mode !== "location-select")
-//     {
-//         return;
-//     }
-
-//     if (changedProperty === "selectedBuildingId")
-//     {
-//         handleAccommodationBuildingChange();
-//         return;
-//     }
-
-//     if (changedProperty === "selectedFloorId")
-//     {
-//         handleAccommodationFloorChange();
-//         return;
-//     }
-
-//     if (changedProperty === "selectedDepartmentId")
-//     {
-//         handleAccommodationDepartmentChange();
-//     }
-// }
-
 function handleAccommodationSelectChange(changedProperty)
 {
     console.log(
@@ -3597,30 +3565,6 @@ async function loadRoomsForLocation(
     }
 }
 
-// function handleAccommodationRoomChange()
-// {
-//     accommodationState.selectedBedId = null;
-
-//     clearAccommodationResults();
-
-//     const roomId =
-//         accommodationState.selectedRoomId;
-
-//     if (!roomId)
-//     {
-//         return;
-//     }
-
-//     console.log(
-//         "%cFiltruji vykreslení na pokoj:",
-//         "color: green; font-weight: bold;",
-//         roomId
-//     );
-
-//     renderAccommodationResults();
-// }
-
-
 async function handleAccommodationRoomChange()
 {
     accommodationState.selectedBedId = null;
@@ -3642,7 +3586,6 @@ async function handleAccommodationRoomChange()
 
     await loadBedsForRoom(roomId);
 }
-
 
 async function loadBedsForDepartment(departmentId)
 {
@@ -3764,7 +3707,6 @@ async function loadBedsForRoom(roomId)
     renderAccommodationResults();
 }
 
-
 function renderBed(bed, parentElement)
 {
     /*
@@ -3826,7 +3768,6 @@ function renderBed(bed, parentElement)
     const bedElement = document.createElement("p");
 
     bedElement.className = "client-card-row2-c4-accomC-occup_bed";
-
 
     const bedButton = document.createElement("button");
 
@@ -3904,7 +3845,6 @@ function renderBed(bed, parentElement)
         </svg>
     `;
 
-
     bedButton.appendChild(bedIdElement);
 
     bedButton.appendChild(bedIconElement);
@@ -3914,7 +3854,6 @@ function renderBed(bed, parentElement)
     parentElement.appendChild(bedElement);
 
 }
-
 
 function renderAccommodationResults()
 {
@@ -4027,27 +3966,19 @@ function renderAccommodationResults()
 
             groupedBeds.subrooms.forEach(subroom =>
             {
-                const subroomContainer =
-                    document.createElement("div");
+                const subroomContainer = document.createElement("div");
 
-                subroomContainer.className =
-                    "client-card-row2-c4-accomC-occup_subroom";
+                subroomContainer.className = "client-card-row2-c4-accomC-occup_subroom";
 
-                const subroomTitle =
-                    document.createElement("div");
+                const subroomTitle = document.createElement("div");
 
-                subroomTitle.className =
-                    "client-card-row2-c4-accomC-occup_subroom_title";
+                subroomTitle.className = "client-card-row2-c4-accomC-occup_subroom_title";
 
-                subroomTitle.textContent =
-                    subroom.name ??
-                    `Box ${subroom.number}`;
+                subroomTitle.textContent = subroom.name ?? `Box ${subroom.number}`;
 
-                const subroomBeds =
-                    document.createElement("div");
+                const subroomBeds = document.createElement("div");
 
-                subroomBeds.className =
-                    "client-card-row2-c4-accomC-occup_subroom_beds";
+                subroomBeds.className = "client-card-row2-c4-accomC-occup_subroom_beds";
 
                 subroom.beds.forEach(bed =>
                 {
@@ -4079,7 +4010,8 @@ function renderAccommodationResults()
     });
 }
 
-document.addEventListener("click", function (event){
+document.addEventListener("click", function (event)
+{
 
         const bedButton = event.target.closest(
             ".client-card-row2-c4-accomC-occup_btn"
@@ -4219,3 +4151,5 @@ function groupBedsBySubrooms(roomBeds)
 
     return result;
 }
+
+

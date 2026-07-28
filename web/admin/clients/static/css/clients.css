@@ -3133,8 +3133,6 @@ input[readonly]
     white-space: nowrap;
     text-overflow: ellipsis;
 
-
-
 }
 
 
@@ -4179,4 +4177,42 @@ input[readonly]
 .client-card-row2-c4-accomC-occup_img
 {
     color: white;
+}
+
+
+
+.client-card-row2-c4-accomC-occup_subroom
+{
+
+    width: 100%;
+    height: auto;
+
+    /* background-color: red; */
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+
+    /* padding-top:  6px; */
+    /* padding-left: 7px; */
+    padding-right: 5px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+
+.client-card-row2-c4-accomC-occup_subroom_title
+{
+    padding-left: 7px;
+    /* background-color: yellow; */
+}
+
+.client-card-row2-c4-accomC-occup_subroom_beds
+{
+    /* background-color: pink; */
+    margin-top: 3px;
 }
