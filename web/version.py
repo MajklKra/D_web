@@ -1,7 +1,7 @@
 
-__version__ = "1.3.81"
+__version__ = "1.3.82"
 
-# client-card-row2-c3-SB2C updated - sorting of only available floors for the user
+# insert of client to DB
 
 # Jedná se o tuto produkční verzi č. ___
 

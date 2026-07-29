@@ -1,5 +1,5 @@
 
-from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for, current_app
+from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for, current_app, flash
 
 from .blueprints import admin_clients_bp
 
@@ -12,6 +12,8 @@ from math import ceil
 
 from  web.share.s_print import s_print
 from  web.share.db import db_connection, sqliteDB
+from  web.share.rString import generuj_user_unique_id
+from  web.share.db import get_next_patient_id
 
 from web.admin.clients.form import ClientForm
 
@@ -2639,28 +2641,43 @@ def location_beds(room_id):
     })
 
 
+#
+#   TVORBA NOVÉHO KLIENTA
+#
+
 @admin_clients_bp.route("/new-client",methods=["POST"])
 def new_client():
 
     name = request.form.get("client_card_name","",type=str).strip()
     surname = request.form.get("client_card_surname","",type=str).strip()
     gender = request.form.get("gender",type=int)
-    client_id = request.form.get("client_id",type=int)
     bed_id = request.form.get("bed_id",type=int)
 
     print("Jméno:", name)
     print("Příjmení:", surname)
     print("Pohlaví:", gender)
-    print("ID klienta:", client_id)
     print("BedID:", bed_id)
 
-    return jsonify({
-        "success": True,
-        "received": {
-            "name": name,
-            "surname": surname,
-            "gender": gender,
-            "client_id": client_id,
-            "bed_id": bed_id
-        }
-    })
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    newID = get_next_patient_id()
+
+    PatientUniqueID = generuj_user_unique_id()
+
+    SQL_insert = """
+
+        INSERT INTO Patients (PatientID, PatientUniqueID, SortOrder, BedID, Surname, NAME, PatientTypeID, CriticalPatient, CygnusClientId, CygnusRoom, CygnusRoomId, CygnusBrokenClient, Gender)
+	    VALUES(%s, %s, %s, %s, %s, %s, 0, 0, NULL, NULL, NULL, 0, %s);
+
+    """
+
+    db_connection(SQL_insert, (newID, PatientUniqueID, newID, bed_id, surname, name, gender), None)
+
+
+   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    flash("Klient byl úspěšně vytvořen.", "success")
+
+    return redirect(
+        url_for("admin_clients.clients")
+    )

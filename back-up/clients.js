@@ -1320,6 +1320,8 @@ document.addEventListener("click", function (event)
 
         resetClientCard();
 
+        accommodationState.mode = "location-select";
+
         addBtn.classList.add("active");
         clientCard.classList.add("show");
 
@@ -1647,6 +1649,8 @@ const accommodationState =
     selectedRoomId: null,
     selectedBedId: null,
 
+    onlyFreeBeds: false,
+
     buildings: [],
     floors: [],
     departments: [],
@@ -1655,69 +1659,87 @@ const accommodationState =
 };
 
 
-document.addEventListener("input", function (event)
+document.addEventListener("change", function (event)
 {
-    if (event.target.id !== "client-card-row2-c3-searchC-searchInput")
+    if (
+        event.target.id !==
+        "client-card-row2-c4-checkC-checkbox"
+    )
     {
         return;
     }
 
-    if (event.target.value.trim() === "")
+    accommodationState.onlyFreeBeds =
+        event.target.checked;
+
+    /*
+     * Vybraná postel už po změně filtru
+     * nemusí být viditelná.
+     */
+
+    accommodationState.selectedBedId = null;
+
+    renderAccommodationResults();
+
+    console.log(
+        "%cFiltrace volných postelí:",
+        "color: green; font-weight: bold;",
+        accommodationState.onlyFreeBeds
+    );
+});
+
+document.addEventListener("input", function (event)
+{
+    if (
+        event.target.id !==
+        "client-card-row2-c3-searchC-searchInput"
+    )
     {
-        resetAccommodationSelection();
+        return;
     }
 
     const input = event.target;
+    const search = input.value.trim();
 
-    const results = document.getElementById("client-card-row2-c3-searchC-results");
+    const results = document.getElementById(
+        "client-card-row2-c3-searchC-results"
+    );
 
-    const departmentIdInput = document.getElementById("client-card-row2-c3-searchC-departmentId");
+    const departmentIdInput = document.getElementById(
+        "client-card-row2-c3-searchC-departmentId"
+    );
 
     if (!results || !departmentIdInput)
     {
         return;
     }
 
-    const search = input.value.trim();
-
-
-    if (search !== "")
-    {
-        setAccommodationMode("department-search");
-    }
-
-    /*
-     * Uživatel změnil text, takže předchozí výběr
-     * oddělení už není platný.
-     */
-
-    departmentIdInput.value = "";
-
     clearTimeout(departmentSearchTimeout);
 
     /*
-     *  Při prázdném inputu výsledky zavřeme.
+     * Search byl ručně vymazán.
+     * Přecházíme do ručního SelectBox režimu.
      */
 
-    if (search.length === 0)
+    if (search === "")
     {
-
-        /* Dnes */
-
-        if (departmentSearchController)
-        {
-            departmentSearchController.abort();
-            departmentSearchController = null;
-        }
-
-        closeDepartmentSearchResults();
+        switchToLocationSelectMode();
         return;
     }
 
     /*
-     * Krátké zpoždění zabraňuje odesílání požadavku
-     * po každém jednotlivém stisku klávesy.
+     * Jakmile uživatel píše do search,
+     * jsme v režimu hledání oddělení.
      */
+
+    setAccommodationMode("department-search");
+
+    /*
+     * Text se změnil, předchozí vybrané
+     * oddělení již není platné.
+     */
+
+    departmentIdInput.value = "";
 
     departmentSearchTimeout = setTimeout(() =>
     {
@@ -2152,17 +2174,6 @@ function updateSelectBoxesFromAccommodationState()
 
 function resetAccommodationSelection()
 {
-    // accommodationState.source = null;
-
-    // accommodationState.buildings = [];
-    // accommodationState.floors = [];
-    // accommodationState.department = null;
-    // accommodationState.rooms = [];
-
-    // accommodationState.selectedBuildingId = null;
-    // accommodationState.selectedFloorId = null;
-    // accommodationState.selectedDepartmentId = null;
-    // accommodationState.selectedRoomId = null;
 
     accommodationState.mode = null;
 
@@ -2348,16 +2359,57 @@ function renderAccommodationDepartmentMenu()
     renderAccommodationMenu( "client-card-row2-c3-SB3C-menu", accommodationState.departments, "client-card-row2-c3-SB3C-menu-options");
 }
 
+// function renderAccommodationRoomMenu()
+// {
+//     const selectedFloorId =
+//         accommodationState.selectedFloorId;
+
+//     // const roomsToRender =
+//     //     selectedFloorId === null
+//     //         ? accommodationState.rooms
+//     //         : accommodationState.rooms.filter(room =>
+//     //             String(room.floor_id) === String(selectedFloorId)
+//     //         );
+
+
+//     let roomsToRender = selectedRoomId? accommodationState.rooms.filter(room =>String(room.id) === String(selectedRoomId)): accommodationState.rooms;
+
+//     /*
+//     * Při zobrazení pouze volných postelí
+//     * odstraníme také pokoje, které žádnou
+//     * volnou postel nemají.
+//     */
+
+//     if (accommodationState.onlyFreeBeds)
+//     {
+//         roomsToRender = roomsToRender.filter(room =>
+//         {
+//             return accommodationState.beds.some(bed =>
+//                 String(bed.room_id) === String(room.id) &&
+//                 !bed.patient
+//             );
+//         });
+//     }
+
+//     renderAccommodationMenu(
+//         "client-card-row2-c3-SB4C-menu",
+//         roomsToRender,
+//         "client-card-row2-c3-SB4C-menu-options"
+//     );
+// }
+
+
 function renderAccommodationRoomMenu()
 {
     const selectedFloorId =
         accommodationState.selectedFloorId;
 
-    const roomsToRender =
+    let roomsToRender =
         selectedFloorId === null
             ? accommodationState.rooms
             : accommodationState.rooms.filter(room =>
-                String(room.floor_id) === String(selectedFloorId)
+                String(room.floor_id) ===
+                String(selectedFloorId)
             );
 
     renderAccommodationMenu(
@@ -2366,6 +2418,7 @@ function renderAccommodationRoomMenu()
         "client-card-row2-c3-SB4C-menu-options"
     );
 }
+
 
 const accommodationSelectBoxes =
 {
@@ -2434,6 +2487,34 @@ document.addEventListener("click", function (event)
         /*
          * Kliknutí na tlačítko SelectBoxu.
          */
+        // if (button)
+        // {
+        //     if (button.disabled)
+        //     {
+        //         return;
+        //     }
+
+        //     const wasOpen =
+        //         wrapper.classList.contains("open");
+
+        //     /*
+        //      * Nejprve zavřeme všechna menu.
+        //      */
+        //     closeAllAccommodationSelectBoxes();
+
+        //     /*
+        //      * Pokud kliknuté menu předtím nebylo otevřené,
+        //      * otevřeme ho.
+        //      */
+        //     if (!wasOpen)
+        //     {
+        //         wrapper.classList.add("open");
+        //     }
+
+        //     return;
+        // }
+
+
         if (button)
         {
             if (button.disabled)
@@ -2444,15 +2525,8 @@ document.addEventListener("click", function (event)
             const wasOpen =
                 wrapper.classList.contains("open");
 
-            /*
-             * Nejprve zavřeme všechna menu.
-             */
             closeAllAccommodationSelectBoxes();
 
-            /*
-             * Pokud kliknuté menu předtím nebylo otevřené,
-             * otevřeme ho.
-             */
             if (!wasOpen)
             {
                 wrapper.classList.add("open");
@@ -2464,11 +2538,6 @@ document.addEventListener("click", function (event)
 
         if (option && wrapper.contains(option))
         {
-
-            if (config.stateProperty === "selectedBuildingId")
-            {
-                setAccommodationMode("location-select");
-            }
 
             const value = option.dataset.value;
             const text = option.textContent.trim();
@@ -2520,15 +2589,30 @@ document.addEventListener("click", function (event)
                     config.stateProperty
                 );
             }
-            else if (
-                config.stateProperty === "selectedDepartmentId" &&
-                accommodationState.mode === "location-select"
-            )
+            // else if (
+            //     config.stateProperty === "selectedDepartmentId" &&
+            //     accommodationState.mode === "location-select"
+            // )
+            // {
+            //     handleAccommodationSelectChange(
+            //         config.stateProperty
+            //     );
+            // }
+
+            else if (config.stateProperty === "selectedDepartmentId")
             {
-                handleAccommodationSelectChange(
-                    config.stateProperty
-                );
+                if (accommodationState.mode === "location-select")
+                {
+                    handleAccommodationSelectChange(
+                        config.stateProperty
+                    );
+                }
+                else if (accommodationState.mode === "department-search")
+                {
+                    handleDepartmentSearchSelectChange(value);
+                }
             }
+
             else if (config.stateProperty === "selectedRoomId")
             {
                 handleAccommodationRoomChange();
@@ -2669,6 +2753,13 @@ function resetClientCard()
 
     resetAccommodationSelection();
 
+    const selectedBedInput = document.getElementById("client-card-selected-bed-id");
+
+    if (selectedBedInput)
+    {
+        selectedBedInput.value = "";
+    }
+
     /*
      * Vyhledávání oddělení.
      */
@@ -2793,6 +2884,8 @@ function resetClientCard()
     {
         accommodationThumb.style.top = "0px";
     }
+
+    clearAccommodationResults();
 }
 
 
@@ -2884,6 +2977,81 @@ function resetDepartmentSearchMode()
         departmentLocationController = null;
     }
 
+
+    const buildingMenu = document.getElementById(
+        "client-card-row2-c3-SB1C-menu"
+    );
+
+    if (
+        buildingMenu &&
+        initialBuildingMenuHTML !== null
+    )
+    {
+        buildingMenu.innerHTML = initialBuildingMenuHTML;
+    }
+
+    /*
+    * Vyčistíme data pocházející z hledaného oddělení.
+    */
+
+    accommodationState.buildings = [];
+    accommodationState.floors = [];
+    accommodationState.departments = [];
+    accommodationState.rooms = [];
+    accommodationState.beds = [];
+
+    accommodationState.selectedBuildingId = null;
+    accommodationState.selectedFloorId = null;
+    accommodationState.selectedDepartmentId = null;
+    accommodationState.selectedRoomId = null;
+    accommodationState.selectedBedId = null;
+
+    /*
+    * Vyčistíme SelectBoxy za budovou.
+    */
+
+    resetAccommodationSelectBox(
+        "SB2C-floorText",
+        "client-card-row2-c3-SB2C-filter",
+        "Vyberte patro"
+    );
+
+    resetAccommodationSelectBox(
+        "SB3C-depText",
+        "client-card-row2-c3-SB3C-filter",
+        "Vyberte oddělení"
+    );
+
+    resetAccommodationSelectBox(
+        "SB4C-roomText",
+        "client-card-row2-c3-SB4C-filter",
+        "Vyberte pokoj"
+    );
+
+    renderAccommodationFloorMenu();
+    renderAccommodationDepartmentMenu();
+    renderAccommodationRoomMenu();
+
+    setSelectDisabled(
+        "client-card-row2-c3-SB2C",
+        "SB2C-floorBtn",
+        true
+    );
+
+    setSelectDisabled(
+        "client-card-row2-c3-SB3C",
+        "SB3C-depBtn",
+        true
+    );
+
+    setSelectDisabled(
+        "client-card-row2-c3-SB4C",
+        "SB4C-roomBtn",
+        true
+    );
+
+    clearAccommodationResults();
+
     closeDepartmentSearchResults();
 }
 
@@ -2927,38 +3095,6 @@ function resetLocationSelectMode()
 
     closeAllAccommodationSelectBoxes();
 }
-
-// function handleAccommodationSelectChange(changedProperty)
-// {
-//     console.log(
-//         "%cZměna SelectBoxu:",
-//         "color: darkorange; font-weight: bold;",
-//         changedProperty,
-//         accommodationState
-//     );
-
-//     if (accommodationState.mode !== "location-select")
-//     {
-//         return;
-//     }
-
-//     if (changedProperty === "selectedBuildingId")
-//     {
-//         handleAccommodationBuildingChange();
-//         return;
-//     }
-
-//     if (changedProperty === "selectedFloorId")
-//     {
-//         handleAccommodationFloorChange();
-//         return;
-//     }
-
-//     if (changedProperty === "selectedDepartmentId")
-//     {
-//         handleAccommodationDepartmentChange();
-//     }
-// }
 
 function handleAccommodationSelectChange(changedProperty)
 {
@@ -3597,14 +3733,13 @@ async function loadRoomsForLocation(
     }
 }
 
-function handleAccommodationRoomChange()
+async function handleAccommodationRoomChange()
 {
     accommodationState.selectedBedId = null;
 
     clearAccommodationResults();
 
-    const roomId =
-        accommodationState.selectedRoomId;
+    const roomId = accommodationState.selectedRoomId;
 
     if (!roomId)
     {
@@ -3612,14 +3747,13 @@ function handleAccommodationRoomChange()
     }
 
     console.log(
-        "%cFiltruji vykreslení na pokoj:",
+        "%cNačítám a vykresluji pokoj:",
         "color: green; font-weight: bold;",
         roomId
     );
 
-    renderAccommodationResults();
+    await loadBedsForRoom(roomId);
 }
-
 
 async function loadBedsForDepartment(departmentId)
 {
@@ -3679,7 +3813,6 @@ async function loadBedsForDepartment(departmentId)
         accommodationState.beds = [];
     }
 }
-
 
 async function loadBedsForRoom(roomId)
 {
@@ -3742,6 +3875,153 @@ async function loadBedsForRoom(roomId)
     renderAccommodationResults();
 }
 
+function renderBed(bed, parentElement)
+{
+    /*
+     * Sem zatím přesuneme celý blok,
+     * který dnes vykresluje jednu postel
+     * nebo jednoho pacienta.
+     */
+
+    if (bed.patient)
+    {
+        const patientElement = document.createElement("p");
+
+        patientElement.className = "client-card-row2-c4-accomC-occup_patient";
+
+        /*
+            * Číslo postele.
+            */
+
+        const patientBedNumber = document.createElement("span");
+
+        patientBedNumber.className = "client-card-row2-c4-accomC-occup_patient_id";
+
+        patientBedNumber.textContent = bed.number;
+
+        /*
+            * Jméno klienta.
+            */
+
+        const patientName = document.createElement("span");
+
+        patientName.className = "client-card-row2-c4-accomC-occup_patient_name";
+
+        patientName.textContent = `${bed.patient.surname ?? ""} ${bed.patient.name ?? ""}`.trim();
+
+
+        /*
+            * Data můžeme uložit také do datasetu.
+            */
+
+        patientElement.dataset.bedId = String(bed.id);
+
+        patientElement.dataset.patientId = String(bed.patient.id);
+
+
+        patientElement.appendChild(patientBedNumber);
+
+        patientElement.appendChild(patientName);
+
+        parentElement.appendChild(patientElement);
+
+        return;
+    }
+
+
+    /*
+        * VOLNÁ POSTEL
+        */
+
+    const bedElement = document.createElement("p");
+
+    bedElement.className = "client-card-row2-c4-accomC-occup_bed";
+
+    const bedButton = document.createElement("button");
+
+    bedButton.type = "button";
+
+    bedButton.className = "client-card-row2-c4-accomC-occup_btn";
+
+    bedButton.dataset.bedId = String(bed.id);
+
+    bedButton.dataset.roomId = String(bed.room_id);
+
+    bedButton.dataset.bedNumber = String(bed.number);
+
+    /*
+        * Obnovení označené postele
+        * po novém vykreslení.
+        */
+
+    const isSelected = String(accommodationState.selectedBedId) === String(bed.id);
+
+    bedButton.classList.toggle("selected",isSelected);
+
+
+    /*
+        * Číslo postele.
+        */
+
+    const bedIdElement = document.createElement("span");
+
+    bedIdElement.className = "client-card-row2-c4-accomC-occup_bed_id";
+
+    bedIdElement.textContent = bed.number;
+
+
+    /*
+        * Kontejner SVG ikony.
+        */
+
+    const bedIconElement = document.createElement("span");
+
+    bedIconElement.className = "client-card-row2-c4-accomC-occup_img_C";
+
+    bedIconElement.innerHTML = `
+        <svg
+            viewBox="3 7 18 11"
+            class="client-card-row2-c4-accomC-occup_img"
+        >
+
+            <defs>
+                <style>
+                .client-card-row2-c4-accomC-occup_img-b-cls-1 {
+                    fill: currentColor;
+                }
+                </style>
+            </defs>
+
+
+
+            <path
+                class="client-card-row2-c4-accomC-occup_img-b-cls-1"
+                d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"
+            />
+
+            <path
+                class="client-card-row2-c4-accomC-occup_img-b-cls-1"
+                d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"
+            />
+
+            <circle
+                class="client-card-row2-c4-accomC-occup_img-b-cls-1"
+                cx="6.63"
+                cy="10.82"
+                r="1.34"
+            />
+        </svg>
+    `;
+
+    bedButton.appendChild(bedIdElement);
+
+    bedButton.appendChild(bedIconElement);
+
+    bedElement.appendChild(bedButton);
+
+    parentElement.appendChild(bedElement);
+
+}
 
 function renderAccommodationResults()
 {
@@ -3771,13 +4051,48 @@ function renderAccommodationResults()
      * zobrazíme pouze tento pokoj.
      */
 
-    const roomsToRender = selectedRoomId ? accommodationState.rooms.filter(room => String(room.id) === String(selectedRoomId)) : accommodationState.rooms;
+    // const roomsToRender = selectedRoomId ? accommodationState.rooms.filter(room => String(room.id) === String(selectedRoomId)) : accommodationState.rooms;
+
+    let roomsToRender =
+    selectedRoomId
+        ? accommodationState.rooms.filter(room =>
+            String(room.id) === String(selectedRoomId)
+        )
+        : accommodationState.rooms;
+
+    if (accommodationState.onlyFreeBeds)
+    {
+        roomsToRender = roomsToRender.filter(room =>
+            accommodationState.beds.some(bed =>
+                String(bed.room_id) === String(room.id) &&
+                !bed.patient
+            )
+        );
+    }
+
+    // if (roomsToRender.length === 0)
+    // {
+    //     container.innerHTML = `
+    //         <div class="client-card-department-search-message">
+    //             Nebyly nalezeny žádné pokoje.
+    //         </div>
+    //     `;
+
+    //     requestAnimationFrame(initAccommodationScrollbar);
+
+    //     return;
+    // }
+
 
     if (roomsToRender.length === 0)
     {
         container.innerHTML = `
             <div class="client-card-department-search-message">
-                Nebyly nalezeny žádné pokoje.
+                ${
+                    accommodationState.onlyFreeBeds
+                        ? "Nebyly nalezeny žádné volné postele."
+                        : "Nebyly nalezeny žádné pokoje."
+                }
             </div>
         `;
 
@@ -3786,16 +4101,43 @@ function renderAccommodationResults()
         return;
     }
 
+
     roomsToRender.forEach(room =>
     {
         /*
          * Všechny postele patřící do aktuálního pokoje.
          */
 
+        // const roomBeds = accommodationState.beds.filter(bed => String(bed.room_id) === String(room.id));
 
-        console.log(room,"color:red");
+        let roomBeds = accommodationState.beds.filter(bed => String(bed.room_id) === String(room.id));
 
-        const roomBeds = accommodationState.beds.filter(bed => String(bed.room_id) === String(room.id));
+        /*
+        * Pokud je checkbox zatržený,
+        * ponecháme jen postele bez klienta.
+        */
+
+        if (accommodationState.onlyFreeBeds)
+        {
+            roomBeds = roomBeds.filter(
+                bed => !bed.patient
+            );
+        }
+
+        const groupedBeds = groupBedsBySubrooms(roomBeds);
+
+        console.log(
+            "%cRozdělené postele:",
+            "color: blue; font-weight:bold;",
+            groupedBeds
+        );
+
+        console.log(
+            "%cPostele pokoje:",
+            "color: purple; font-weight: bold;",
+            room.id,
+            roomBeds
+        );
 
         /*
          * Celý řádek pokoje.
@@ -3813,7 +4155,8 @@ function renderAccommodationResults()
 
         roomTitle.className = "client-card-row2-c4-accomC-occup_room";
 
-        roomTitle.textContent = `${room.number} ${room.name}`;
+        roomTitle.textContent =  `${room.number}\u00A0${room.name}`;
+
         /*
          * Seznam obsazených a volných postelí.
          */
@@ -3834,154 +4177,36 @@ function renderAccommodationResults()
         }
         else
         {
-            roomBeds.forEach(bed =>
+            groupedBeds.roomBeds.forEach(bed =>
             {
-                /*
-                 * OBSAZENÁ POSTEL
-                 *
-                 * V původním testovacím HTML se místo
-                 * tlačítka postele zobrazuje klient.
-                 */
+                renderBed(bed,bedList);
+            });
 
-                if (bed.patient)
+            groupedBeds.subrooms.forEach(subroom =>
+            {
+                const subroomContainer = document.createElement("div");
+
+                subroomContainer.className = "client-card-row2-c4-accomC-occup_subroom";
+
+                const subroomTitle = document.createElement("div");
+
+                subroomTitle.className = "client-card-row2-c4-accomC-occup_subroom_title";
+
+                subroomTitle.textContent = subroom.name ?? `Box ${subroom.number}`;
+
+                const subroomBeds = document.createElement("div");
+
+                subroomBeds.className = "client-card-row2-c4-accomC-occup_subroom_beds";
+
+                subroom.beds.forEach(bed =>
                 {
-                    const patientElement = document.createElement("p");
+                    renderBed(bed, subroomBeds);
+                });
 
-                    patientElement.className = "client-card-row2-c4-accomC-occup_patient";
+                subroomContainer.appendChild(subroomTitle);
+                subroomContainer.appendChild(subroomBeds);
 
-                    /*
-                     * Číslo postele.
-                     */
-
-                    const patientBedNumber = document.createElement("span");
-
-                    patientBedNumber.className = "client-card-row2-c4-accomC-occup_patient_id";
-
-                    patientBedNumber.textContent = bed.number;
-
-                    /*
-                     * Jméno klienta.
-                     */
-
-                    const patientName = document.createElement("span");
-
-                    patientName.className = "client-card-row2-c4-accomC-occup_patient_name";
-
-                    patientName.textContent = `${bed.patient.surname ?? ""} ${bed.patient.name ?? ""}`.trim();
-
-
-                    /*
-                     * Data můžeme uložit také do datasetu.
-                     */
-
-                    patientElement.dataset.bedId = String(bed.id);
-
-                    patientElement.dataset.patientId = String(bed.patient.id);
-
-
-                    patientElement.appendChild(patientBedNumber);
-
-                    patientElement.appendChild(patientName);
-
-                    bedList.appendChild(patientElement);
-
-                    return;
-                }
-
-
-                /*
-                 * VOLNÁ POSTEL
-                 */
-
-                const bedElement = document.createElement("p");
-
-                bedElement.className = "client-card-row2-c4-accomC-occup_bed";
-
-
-                const bedButton = document.createElement("button");
-
-                bedButton.type = "button";
-
-                bedButton.className = "client-card-row2-c4-accomC-occup_btn";
-
-                bedButton.dataset.bedId = String(bed.id);
-
-                bedButton.dataset.roomId = String(bed.room_id);
-
-                bedButton.dataset.bedNumber = String(bed.number);
-
-                /*
-                 * Obnovení označené postele
-                 * po novém vykreslení.
-                 */
-
-                const isSelected = String(accommodationState.selectedBedId) === String(bed.id);
-
-                bedButton.classList.toggle("selected",isSelected);
-
-
-                /*
-                 * Číslo postele.
-                 */
-
-                const bedIdElement = document.createElement("span");
-
-                bedIdElement.className = "client-card-row2-c4-accomC-occup_bed_id";
-
-                bedIdElement.textContent = bed.number;
-
-
-                /*
-                 * Kontejner SVG ikony.
-                 */
-
-                const bedIconElement = document.createElement("span");
-
-                bedIconElement.className = "client-card-row2-c4-accomC-occup_img_C";
-
-                bedIconElement.innerHTML = `
-                    <svg
-                        viewBox="3 7 18 11"
-                        class="client-card-row2-c4-accomC-occup_img"
-                    >
-
-                        <defs>
-                            <style>
-                            .client-card-row2-c4-accomC-occup_img-b-cls-1 {
-                                fill: currentColor;
-                            }
-                            </style>
-                        </defs>
-
-
-
-                        <path
-                            class="client-card-row2-c4-accomC-occup_img-b-cls-1"
-                            d="M19.73,10.27c-.37,0-.67.3-.67.67v1.91H4.84v-5.03c0-.37-.3-.67-.67-.67h0c-.37,0-.67.3-.67.67v9.25c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-1.5h14.22v1.5c0,.07.06.13.13.13h1.08c.07,0,.13-.06.13-.13v-6.13c0-.37-.3-.67-.67-.67Z"
-                        />
-
-                        <path
-                            class="client-card-row2-c4-accomC-occup_img-b-cls-1"
-                            d="M8.64,12.16h9.64c.07,0,.13-.06.13-.13v-1.64c0-.37-.3-.67-.67-.67h-8.56c-.37,0-.67.3-.67.67v1.64c0,.07.06.13.13.13Z"
-                        />
-
-                        <circle
-                            class="client-card-row2-c4-accomC-occup_img-b-cls-1"
-                            cx="6.63"
-                            cy="10.82"
-                            r="1.34"
-                        />
-                    </svg>
-                `;
-
-
-                bedButton.appendChild(bedIdElement);
-
-                bedButton.appendChild(bedIconElement);
-
-                bedElement.appendChild(bedButton);
-
-                bedList.appendChild(bedElement);
+                bedList.appendChild(subroomContainer);
             });
         }
 
@@ -3991,7 +4216,6 @@ function renderAccommodationResults()
 
         container.appendChild(roomRow);
     });
-
 
     /*
      * Po vykreslení přepočítáme scrollbar.
@@ -4003,8 +4227,8 @@ function renderAccommodationResults()
     });
 }
 
-
-document.addEventListener("click", function (event){
+document.addEventListener("click", function (event)
+{
 
         const bedButton = event.target.closest(
             ".client-card-row2-c4-accomC-occup_btn"
@@ -4097,3 +4321,253 @@ document.addEventListener("click", function (event){
         );
     }
 );
+
+
+function groupBedsBySubrooms(roomBeds)
+{
+    const result =
+    {
+        roomBeds: [],
+        subrooms: []
+    };
+
+    const subrooms = new Map();
+
+    roomBeds.forEach(bed =>
+    {
+        /*
+         * Postel je přímo v pokoji.
+         */
+
+        if (bed.subroom_id == null)
+        {
+            result.roomBeds.push(bed);
+            return;
+        }
+
+        /*
+         * Pokud Box ještě neexistuje,
+         * vytvoříme ho.
+         */
+
+        if (!subrooms.has(bed.subroom_id))
+        {
+            subrooms.set(bed.subroom_id,
+            {
+                id: bed.subroom_id,
+                name: bed.subroom_name,
+                number: bed.subroom_number,
+                beds: []
+            });
+        }
+
+        subrooms.get(bed.subroom_id).beds.push(bed);
+    });
+
+    result.subrooms = [...subrooms.values()];
+
+    return result;
+}
+
+function switchToLocationSelectMode()
+{
+    /*
+     * Zrušení probíhajících search požadavků.
+     */
+
+    clearTimeout(departmentSearchTimeout);
+    departmentSearchTimeout = null;
+
+    if (departmentSearchController)
+    {
+        departmentSearchController.abort();
+        departmentSearchController = null;
+    }
+
+    if (departmentLocationController)
+    {
+        departmentLocationController.abort();
+        departmentLocationController = null;
+    }
+
+    closeDepartmentSearchResults();
+
+    /*
+     * Vyčištění search ID.
+     */
+
+    const departmentIdInput = document.getElementById(
+        "client-card-row2-c3-searchC-departmentId"
+    );
+
+    if (departmentIdInput)
+    {
+        departmentIdInput.value = "";
+    }
+
+    // const searchLabel = document.getElementById(
+    //     "client-card-row2-c3-searchC-searchLabel"
+    // );
+
+    // if (searchLabel)
+    // {
+    //     searchLabel.classList.remove("hidden");
+    // }
+
+
+    const searchInput = document.getElementById("client-card-row2-c3-searchC-searchInput");
+
+    const searchLabel = document.getElementById("client-card-row2-c3-searchC-searchLabel");
+
+    if (searchLabel && searchInput)
+    {
+        /*
+        * Pokud je input stále aktivní, například po kliknutí
+        * na křížek type="search", label musí zůstat skrytý.
+        */
+        searchLabel.classList.toggle("hidden",document.activeElement === searchInput);
+    }
+
+
+    /*
+     * Obnovení původní nabídky všech budov.
+     */
+
+    const buildingMenu = document.getElementById(
+        "client-card-row2-c3-SB1C-menu"
+    );
+
+    if (
+        buildingMenu &&
+        initialBuildingMenuHTML !== null
+    )
+    {
+        buildingMenu.innerHTML = initialBuildingMenuHTML;
+    }
+
+    /*
+     * Přechod do ručního režimu.
+     */
+
+    accommodationState.mode = "location-select";
+
+    accommodationState.buildings = [];
+    accommodationState.floors = [];
+    accommodationState.departments = [];
+    accommodationState.rooms = [];
+    accommodationState.beds = [];
+
+    accommodationState.selectedBuildingId = null;
+    accommodationState.selectedFloorId = null;
+    accommodationState.selectedDepartmentId = null;
+    accommodationState.selectedRoomId = null;
+    accommodationState.selectedBedId = null;
+
+    /*
+     * Vyčištění všech hidden inputů SelectBoxů.
+     */
+
+    Object.values(accommodationSelectBoxes).forEach(config =>
+    {
+        const hiddenInput = document.getElementById(
+            config.inputId
+        );
+
+        if (hiddenInput)
+        {
+            hiddenInput.value = "";
+        }
+    });
+
+    /*
+     * Výchozí texty SelectBoxů.
+     */
+
+    resetAccommodationSelectBox(
+        "SB1C-buildingText",
+        "client-card-row2-c3-SB1C-filter",
+        ""
+    );
+
+    resetAccommodationSelectBox(
+        "SB2C-floorText",
+        "client-card-row2-c3-SB2C-filter",
+        ""
+    );
+
+    resetAccommodationSelectBox(
+        "SB3C-depText",
+        "client-card-row2-c3-SB3C-filter",
+        ""
+    );
+
+    resetAccommodationSelectBox(
+        "SB4C-roomText",
+        "client-card-row2-c3-SB4C-filter",
+        ""
+    );
+
+    /*
+     * Vyčištění menu za budovou.
+     */
+
+    renderAccommodationFloorMenu();
+    renderAccommodationDepartmentMenu();
+    renderAccommodationRoomMenu();
+
+    /*
+     * Povolená je jen budova.
+     */
+
+    setSelectDisabled(
+        "client-card-row2-c3-SB2C",
+        "SB2C-floorBtn",
+        true
+    );
+
+    setSelectDisabled(
+        "client-card-row2-c3-SB3C",
+        "SB3C-depBtn",
+        true
+    );
+
+    setSelectDisabled(
+        "client-card-row2-c3-SB4C",
+        "SB4C-roomBtn",
+        true
+    );
+
+    clearAccommodationResults();
+    closeAllAccommodationSelectBoxes();
+
+    console.log(
+        "%cSearch byl vymazán – aktivní ruční výběr.",
+        "color: blue; font-weight: bold;",
+        accommodationState
+    );
+}
+
+async function handleDepartmentSearchSelectChange(departmentId)
+{
+    /*
+     * Po opětovném výběru oddělení rušíme
+     * dříve vybraný konkrétní pokoj.
+     */
+
+    accommodationState.selectedRoomId = null;
+    accommodationState.selectedBedId = null;
+
+    resetAccommodationSelectBox(
+        "SB4C-roomText",
+        "client-card-row2-c3-SB4C-filter",
+        "Vyberte pokoj"
+    );
+
+    /*
+     * Znovu načteme celé oddělení:
+     * všechny budovy, patra, pokoje a postele.
+     */
+
+    await loadDepartmentLocation(departmentId);
+}
+

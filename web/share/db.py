@@ -200,45 +200,6 @@ def get_next_patient_id():
         cur.close()
 
 
-# def sqliteDB(Id):
-
-#     # Sqlite databáze pro evidenci přihlášení
-
-#     os.makedirs("web/db", exist_ok=True)
-
-#     db = sqlite3.connect("web/db/login.db")
-
-#     db.execute("""
-#         CREATE TABLE IF NOT EXISTS login (
-#             id INTEGER PRIMARY KEY,
-#             date TEXT
-#         );
-#     """)
-
-#     count = db.execute("""
-#         SELECT COUNT(*)
-#         FROM login
-#         WHERE id = ?
-#     """, (Id,)).fetchone()[0]
-
-#     db.execute("""
-#         INSERT INTO login (id, date)
-#         VALUES (?, datetime('now', 'localtime'))
-#         ON CONFLICT(id)
-#         DO UPDATE SET
-#             date = datetime('now', 'localtime');
-#     """, (Id,))
-
-#     db.commit()
-
-#     db.close()
-
-#     if count > 0:
-#        return False
-#     else:
-#         return True
-
-
 def sqliteDB(Id):
 
     # Sqlite databáze pro evidenci přihlášení

@@ -3116,11 +3116,9 @@ input[readonly]
 {
 
     width: 34%;
-    /* height: auto; */
+    height: auto;
 
-    height: 100%;
-
-    background-color: red !important;
+    /* background-color: red; */
 
     font-size:    13px;
     font-family:  'Montserrat';
@@ -3129,6 +3127,11 @@ input[readonly]
 
     padding-top:  6px;
     padding-left: 7px;
+    padding-right: 5px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 }
 
@@ -3320,7 +3323,7 @@ input[readonly]
     cursor: pointer;
 }
 
-.client-card-row2-c4-accomC-occup_btn:hover
+/* .client-card-row2-c4-accomC-occup_btn:hover
 {
     background-color: rgba(53,127,171,1);
 }
@@ -3331,7 +3334,7 @@ input[readonly]
 .client-card-row2-c4-accomC-occup_img
 {
     color: white;
-}
+} */
 
 
 
@@ -3653,13 +3656,19 @@ input[readonly]
     font-size:    13px;
     font-family:  'Montserrat';
     font-weight:  600;
-    color: #59646f;
+
+    /* color: #59646f; */
+
+    color: #7ca0c2;
 
     /* background-color: red; */
 
     text-align: justify;
 
     margin-top: 10px;
+
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #SB1C-dropdownImg
@@ -4163,7 +4172,7 @@ input[readonly]
 /* Obarvení tlačítka client-card-row2-c4-accomC-occup_btn */
 
 
-.client-card-row2-c4-accomC-occup_btn:hover
+/* .client-card-row2-c4-accomC-occup_btn:hover
 {
     background-color: rgba(53, 127, 171, 1);
 }
@@ -4174,4 +4183,68 @@ input[readonly]
 .client-card-row2-c4-accomC-occup_img
 {
     color: white;
+} */
+
+.client-card-row2-c4-accomC-occup_subroom
+{
+
+    width: 100%;
+    height: auto;
+
+    /* background-color: red; */
+
+    font-size:    13px;
+    font-family:  'Montserrat';
+    font-weight:  600;
+    color: #357fab;
+
+    /* padding-top:  6px; */
+    /* padding-left: 7px; */
+    padding-right: 5px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+.client-card-row2-c4-accomC-occup_subroom_title
+{
+    padding-left: 7px;
+    /* background-color: yellow; */
+}
+
+.client-card-row2-c4-accomC-occup_subroom_beds
+{
+    /* background-color: pink; */
+    margin-top: 3px;
+}
+
+
+/* Klik na tlačítko s postelí */
+
+.client-card-row2-c4-accomC-occup_btn:hover,
+.client-card-row2-c4-accomC-occup_btn.selected
+{
+    background-color: rgba(53, 127, 171, 1);
+}
+
+.client-card-row2-c4-accomC-occup_btn:hover
+.client-card-row2-c4-accomC-occup_bed_id,
+.client-card-row2-c4-accomC-occup_btn:hover
+.client-card-row2-c4-accomC-occup_img,
+.client-card-row2-c4-accomC-occup_btn.selected
+.client-card-row2-c4-accomC-occup_bed_id,
+.client-card-row2-c4-accomC-occup_btn.selected
+.client-card-row2-c4-accomC-occup_img
+{
+    color: white;
+}
+
+
+#client-card-row2-c3-searchC-searchInput::-webkit-search-cancel-button
+{
+    cursor: pointer;
+
+    filter: brightness(0) saturate(100%) invert(64%) sepia(33%) saturate(371%) hue-rotate(168deg) brightness(91%) contrast(88%);
 }
