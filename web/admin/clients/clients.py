@@ -2197,20 +2197,41 @@ def department_location(department_id):
 )
 def building_floors(building_id):
 
-    sql = """
-        SELECT DISTINCT
-            Floors.FloorID,
-            Floors.Name
-        FROM Floors
-        WHERE Floors.BuildingID = %s
-        ORDER BY Floors.FloorID
-    """
 
-    rows = db_connection(
-        sql,
-        (building_id,),
-        one_row=False
-    )
+    e_id = session.get("e_id")
+    tech = session.get("tech")
+    admin = session.get("admin")
+    deps = session.get("e_deps")
+
+    if e_id == 0 or tech == True or admin == True:
+
+        sql = """
+            SELECT DISTINCT Floors.FloorID, Floors.Name
+            FROM Floors
+            WHERE Floors.BuildingID = %s
+            ORDER BY Floors.FloorID
+        """
+
+        rows = db_connection(sql,(building_id,),one_row=False)
+
+
+    else:
+
+        placeholders = ",".join(["%s"] * len(deps))
+
+        sql = f"""
+                    SELECT DISTINCT Floors.FloorID, Floors.Name
+                    FROM Floors
+                    JOIN Rooms ON Rooms.FloorID = Floors.FloorID
+                    JOIN Departments_Rooms ON Departments_Rooms.RoomID = Rooms.RoomID
+                    JOIN Departments ON Departments.DepartmentID = Departments_Rooms.DepartmentID
+                    WHERE Floors.BuildingID = %s AND Departments.DepartmentID IN ({placeholders})
+                """
+
+        params = (building_id,*deps)
+
+        rows = db_connection(sql,params,one_row=False)
+
 
     floors = [
         {
@@ -2220,9 +2241,7 @@ def building_floors(building_id):
         for row in rows
     ]
 
-    return jsonify({
-        "floors": floors
-    })
+    return jsonify({"floors": floors})
 
 
 ### RUČNÍ REŽIM - NAČÍTÁNÍ ODDĚLENÍ ###
