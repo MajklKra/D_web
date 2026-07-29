@@ -1,11 +1,15 @@
 
-from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for, current_app, flash
+from flask import Blueprint, request, session, render_template, redirect, jsonify, json, url_for, current_app, flash, send_from_directory, abort
 
 from .blueprints import admin_clients_bp
 
 from ...version import __version__
 
 from vokativ import vokativ
+
+from pathlib import Path
+
+from werkzeug.utils import secure_filename
 
 import math
 from math import ceil
@@ -16,6 +20,7 @@ from  web.share.rString import generuj_user_unique_id
 from  web.share.db import get_next_patient_id
 
 from web.admin.clients.form import ClientForm
+
 
 # # # # # # # # # # # # # # # # # # #
 #   Defaultní vykreslení /clients   #
@@ -433,6 +438,8 @@ def delete_client(patient_id):
             (patient_id,)
         )
 
+        delete_patient_photo(patient_id)
+
         return render_clients_table()
 
     except Exception as error:
@@ -501,19 +508,15 @@ def delete_selected_clients():
             WHERE PatientID IN ({placeholders})
         """
 
-        db_connection(
-            SQL_query,
-            tuple(patient_ids)
-        )
+        db_connection(SQL_query,tuple(patient_ids))
+
+        # Smazání fotografií všech vybraných klientů.
+        for patient_id in patient_ids:
+            delete_patient_photo(patient_id)
 
         return render_clients_table()
 
     except Exception as error:
-
-        # current_app.logger.exception(
-        #     "Chyba při hromadném mazání klientů: %s",
-        #     error
-        # )
 
         s_print(f"Chyba při hromadném mazání klientů: ({error})", "red",0,1)
 
@@ -1927,29 +1930,6 @@ def loading_data():
     return loading_data
 
 
-
-# @admin_clients_bp.route("/new-client", methods=["POST"])
-# def new_client():
-
-#     print ( " You have reached /new-client method ")
-
-#     # username = request.form.get("client_card_name")
-#     # password = request.form.get("client_card_surname")
-
-#     # print( f" username: {username} ")
-#     # print( f" password: {password} ")
-
-#     # gender = request.form.get("gender")
-
-#     # print(f"Hodnota proměnné gender -> {gender}")
-
-#     ID = request.form.get("client-card-row2-c2-IDC-i1")
-#     print(f" Hodnota proměnné ID -> {ID}")
-
-
-#     return " Welcome stranger how are you doing "
-
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 #  Načtení oddělení pro client-card-row2-c3-searchC-searchInput #
@@ -2653,12 +2633,17 @@ def new_client():
     gender = request.form.get("gender",type=int)
     bed_id = request.form.get("bed_id",type=int)
 
+    photo = request.files.get("client_photo")
+
     print("Jméno:", name)
     print("Příjmení:", surname)
     print("Pohlaví:", gender)
     print("BedID:", bed_id)
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    if bed_id == None:
+       bed_id = -1
 
     newID = get_next_patient_id()
 
@@ -2673,11 +2658,65 @@ def new_client():
 
     db_connection(SQL_insert, (newID, PatientUniqueID, newID, bed_id, surname, name, gender), None)
 
-
    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     flash("Klient byl úspěšně vytvořen.", "success")
 
-    return redirect(
-        url_for("admin_clients.clients")
-    )
+    #  FOTKA
+
+    if photo and photo.filename:
+
+        extension = (secure_filename(photo.filename).rsplit(".", 1)[1].lower())
+
+        # photo_directory = ( Path(current_app.instance_path) / "patient_photos")
+
+        photo_directory = Path(__file__).parent / "patient_photos"
+        photo_directory.mkdir(parents=True,exist_ok=True)
+        photo_path = (photo_directory / f"patient_{newID}.{extension}")
+        photo.save(photo_path)
+
+    flash("Klient byl úspěšně vytvořen.","success")
+
+    return redirect(url_for("admin_clients.clients"))
+
+   # # # Pomocné funkce # # #
+
+ALLOWED_PHOTO_EXTENSIONS = {"jpg","jpeg","png","webp"}
+
+def allowed_photo(filename: str) -> bool:
+    return ( "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_PHOTO_EXTENSIONS)
+
+
+# # # ZOBRAZEENÍ FOTOGRAFIE # # #
+
+@admin_clients_bp.route("/photo/<int:patient_id>",methods=["GET"])
+def client_photo(patient_id):
+
+    photo_directory = (Path(__file__).parent / "patient_photos")
+
+    for extension in ("jpg", "jpeg", "png", "webp"):
+
+        filename = (f"patient_{patient_id}.{extension}")
+
+        photo_path = photo_directory / filename
+
+        if photo_path.is_file():
+            return send_from_directory(photo_directory,filename)
+
+    abort(404)
+
+
+# # # MAZANÍ FOTOGRAFIE # # #
+
+def delete_patient_photo(patient_id: int) -> None:
+
+    photo_directory = (Path(__file__).parent / "patient_photos")
+
+    for extension in ("jpg", "jpeg", "png", "webp"):
+
+        photo_path = (photo_directory/ f"patient_{patient_id}.{extension}")
+
+        if photo_path.is_file():
+            photo_path.unlink()
+
+

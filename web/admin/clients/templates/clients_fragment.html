@@ -391,11 +391,15 @@
 
         </div>
 
-        <form id="client-card-row2"  method="POST"  action="/administration/clients/new-client">
+        <form id="client-card-row2"  method="POST"  action="/administration/clients/new-client" enctype="multipart/form-data">
 
             <div id="client-card-row2-c1">
 
                 <div id="client-card-row2-c1-imgC">
+
+                    <input type="file" id="client-card-photo-input" name="client_photo" accept="image/jpeg,image/png,image/webp" hidden>
+
+                    <img id="client-card-photo-preview" alt="" hidden>
 
                     <!-- <svg id="client-card-row2-c1-imgC-img1" viewBox="0 0 44.64 44.64"> -->
                     <svg id="client-card-row2-c1-imgC-img1" viewBox="11 9 22 24">
@@ -433,8 +437,6 @@
                         </defs>
                         <path class="client-card-row2-c1-imgC-img2-cls-1" d="M12.33,11.2v-4.64c0-.29-.23-.52-.52-.52s-.52.23-.52.52v4.64h-4.64c-.29,0-.52.23-.52.52s.23.52.52.52h4.64v4.64c0,.29.23.52.52.52.14,0,.27-.06.37-.15s.15-.22.15-.37v-4.64h4.64c.14,0,.27-.06.37-.15s.15-.22.15-.37c0-.29-.23-.52-.52-.52h-4.64Z"/>
                     </svg>
-
-
 
                 </div>
 

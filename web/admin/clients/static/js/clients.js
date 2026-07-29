@@ -4571,3 +4571,91 @@ async function handleDepartmentSearchSelectChange(departmentId)
     await loadDepartmentLocation(departmentId);
 }
 
+/*
+*       OBRÁZEK
+*/
+
+
+document.addEventListener("click", function (event)
+{
+    const photoContainer = event.target.closest("#client-card-row2-c1-imgC");
+
+    if (!photoContainer)
+    {
+        return;
+    }
+
+    const photoInput = document.getElementById("client-card-photo-input");
+
+    photoInput?.click();
+});
+
+
+/*
+*           NÁHLED FOTOGRAFIE
+*/
+
+document.addEventListener("change", function (event)
+{
+    if (event.target.id !== "client-card-photo-input")
+    {
+        return;
+    }
+
+    const file = event.target.files?.[0];
+
+    if (!file)
+    {
+        return;
+    }
+
+    const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+    ];
+
+    if (!allowedTypes.includes(file.type))
+    {
+        alert("Vyber fotografii JPG, PNG nebo WEBP.");
+
+        event.target.value = "";
+
+        return;
+    }
+
+    const maxSize = 5 * 1024 * 1024;
+
+    if (file.size > maxSize)
+    {
+        alert("Fotografie může mít maximálně 5 MB.");
+
+        event.target.value = "";
+
+        return;
+    }
+
+    const preview = document.getElementById("client-card-photo-preview");
+
+    const personIcon = document.getElementById("client-card-row2-c1-imgC-img1");
+
+    const plusIcon = document.getElementById("client-card-row2-c1-imgC-img2");
+
+    if (!preview)
+    {
+        return;
+    }
+
+    preview.src = URL.createObjectURL(file);
+    preview.hidden = false;
+
+    if (personIcon)
+    {
+        personIcon.style.display = "none";
+    }
+
+    if (plusIcon)
+    {
+        plusIcon.style.display = "none";
+    }
+});

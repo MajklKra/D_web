@@ -44,6 +44,8 @@ if __name__ == '__main__':
 
         ssl_context = (app.config["CERT_PATH"],app.config["KEY_PATH"])
 
+        s_print(f"{app.config["MAX_CONTENT_LENGTH"]}", "green",0,1)
+
         app.run(host=Config.HOST_LINUX, port=Config.PORT_LINUX, ssl_context=ssl_context, debug=False )
         # app.run(host=Config.HOST_LINUX, port=Config.PORT_LINUX, ssl_context='adhoc', debug=False )
 

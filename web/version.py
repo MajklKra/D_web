@@ -1,7 +1,7 @@
 
-__version__ = "1.3.82"
+__version__ = "1.3.84"
 
-# insert of client to DB
+# Insert of clients without bed
 
 # Jedná se o tuto produkční verzi č. ___
 
