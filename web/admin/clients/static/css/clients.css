@@ -4285,3 +4285,14 @@ input[readonly]
 {
     display: none;
 }
+
+
+#mainC-layer
+{
+    display: none;
+}
+
+#mainC-layer.show
+{
+    display: block;
+}

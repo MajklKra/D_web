@@ -1447,6 +1447,8 @@ body
 {
   width: 100%;
   height: 100%;
+
+  position: relative;
 }
 
 #leftMenu
@@ -12375,3 +12377,22 @@ body
 }
 
 
+#mainC-layer
+{
+
+  width: 100%;
+  height: 100%;
+
+  /* background-color: red; */
+
+  background-color: transparent;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: none;
+
+  z-index: 4;
+
+}

@@ -1325,6 +1325,7 @@ document.addEventListener("click", function (event)
         addBtn.classList.add("active");
         clientCard.classList.add("show");
 
+        document.getElementById("mainC-layer")?.classList.add("show");
 
         /* Disability of SB */
 
@@ -1375,6 +1376,8 @@ document.addEventListener("click", function (event)
         {
             clientCard.classList.remove("show");
         }
+
+        document.getElementById("mainC-layer")?.classList.remove("show");
 
         if (addBtn)
         {
@@ -2358,46 +2361,6 @@ function renderAccommodationDepartmentMenu()
 {
     renderAccommodationMenu( "client-card-row2-c3-SB3C-menu", accommodationState.departments, "client-card-row2-c3-SB3C-menu-options");
 }
-
-// function renderAccommodationRoomMenu()
-// {
-//     const selectedFloorId =
-//         accommodationState.selectedFloorId;
-
-//     // const roomsToRender =
-//     //     selectedFloorId === null
-//     //         ? accommodationState.rooms
-//     //         : accommodationState.rooms.filter(room =>
-//     //             String(room.floor_id) === String(selectedFloorId)
-//     //         );
-
-
-//     let roomsToRender = selectedRoomId? accommodationState.rooms.filter(room =>String(room.id) === String(selectedRoomId)): accommodationState.rooms;
-
-//     /*
-//     * Při zobrazení pouze volných postelí
-//     * odstraníme také pokoje, které žádnou
-//     * volnou postel nemají.
-//     */
-
-//     if (accommodationState.onlyFreeBeds)
-//     {
-//         roomsToRender = roomsToRender.filter(room =>
-//         {
-//             return accommodationState.beds.some(bed =>
-//                 String(bed.room_id) === String(room.id) &&
-//                 !bed.patient
-//             );
-//         });
-//     }
-
-//     renderAccommodationMenu(
-//         "client-card-row2-c3-SB4C-menu",
-//         roomsToRender,
-//         "client-card-row2-c3-SB4C-menu-options"
-//     );
-// }
-
 
 function renderAccommodationRoomMenu()
 {
@@ -4770,3 +4733,20 @@ document.addEventListener("click", function (event)
         }
     );
 });
+
+
+/*
+*    mainC-layer
+*/
+
+function openClientCard()
+{
+    document.getElementById("client-card-row2").style.display = "flex";
+    document.getElementById("mainC-layer").style.display = "block";
+}
+
+function closeClientCard()
+{
+    document.getElementById("client-card-row2").style.display = "none";
+    document.getElementById("mainC-layer").style.display = "none";
+}

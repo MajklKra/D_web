@@ -1,7 +1,7 @@
 
-__version__ = "1.3.86"
+__version__ = "1.3.87"
 
-# Doubleclick for bed in client-card-row2-c4-accomC
+# mainC-layer created
 
 # Jedná se o tuto produkční verzi č. ___
 
