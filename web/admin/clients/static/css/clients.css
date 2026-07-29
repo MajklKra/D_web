@@ -3659,7 +3659,7 @@ input[readonly]
 
     /* color: #59646f; */
 
-    color: #357fab;
+    color: #7ca0c2;
 
     /* background-color: red; */
 
@@ -3668,6 +3668,7 @@ input[readonly]
     margin-top: 10px;
 
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 #SB1C-dropdownImg
@@ -4238,4 +4239,12 @@ input[readonly]
 .client-card-row2-c4-accomC-occup_img
 {
     color: white;
+}
+
+
+#client-card-row2-c3-searchC-searchInput::-webkit-search-cancel-button
+{
+    cursor: pointer;
+
+    filter: brightness(0) saturate(100%) invert(64%) sepia(33%) saturate(371%) hue-rotate(168deg) brightness(91%) contrast(88%);
 }

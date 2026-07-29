@@ -4369,7 +4369,6 @@ function groupBedsBySubrooms(roomBeds)
     return result;
 }
 
-
 function switchToLocationSelectMode()
 {
     /*
@@ -4406,14 +4405,29 @@ function switchToLocationSelectMode()
         departmentIdInput.value = "";
     }
 
-    const searchLabel = document.getElementById(
-        "client-card-row2-c3-searchC-searchLabel"
-    );
+    // const searchLabel = document.getElementById(
+    //     "client-card-row2-c3-searchC-searchLabel"
+    // );
 
-    if (searchLabel)
+    // if (searchLabel)
+    // {
+    //     searchLabel.classList.remove("hidden");
+    // }
+
+
+    const searchInput = document.getElementById("client-card-row2-c3-searchC-searchInput");
+
+    const searchLabel = document.getElementById("client-card-row2-c3-searchC-searchLabel");
+
+    if (searchLabel && searchInput)
     {
-        searchLabel.classList.remove("hidden");
+        /*
+        * Pokud je input stále aktivní, například po kliknutí
+        * na křížek type="search", label musí zůstat skrytý.
+        */
+        searchLabel.classList.toggle("hidden",document.activeElement === searchInput);
     }
+
 
     /*
      * Obnovení původní nabídky všech budov.
@@ -4472,25 +4486,25 @@ function switchToLocationSelectMode()
     resetAccommodationSelectBox(
         "SB1C-buildingText",
         "client-card-row2-c3-SB1C-filter",
-        "Vyberte budovu"
+        ""
     );
 
     resetAccommodationSelectBox(
         "SB2C-floorText",
         "client-card-row2-c3-SB2C-filter",
-        "Vyberte patro"
+        ""
     );
 
     resetAccommodationSelectBox(
         "SB3C-depText",
         "client-card-row2-c3-SB3C-filter",
-        "Vyberte oddělení"
+        ""
     );
 
     resetAccommodationSelectBox(
         "SB4C-roomText",
         "client-card-row2-c3-SB4C-filter",
-        "Vyberte pokoj"
+        ""
     );
 
     /*
@@ -4556,3 +4570,4 @@ async function handleDepartmentSearchSelectChange(departmentId)
 
     await loadDepartmentLocation(departmentId);
 }
+
