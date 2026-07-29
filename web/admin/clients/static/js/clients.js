@@ -2886,6 +2886,8 @@ function resetClientCard()
     }
 
     clearAccommodationResults();
+    resetClientPhoto();
+
 }
 
 
@@ -4659,3 +4661,27 @@ document.addEventListener("change", function (event)
         plusIcon.style.display = "none";
     }
 });
+
+
+function resetClientPhoto()
+{
+    const input = document.getElementById("client-card-photo-input");
+    const preview = document.getElementById("client-card-photo-preview");
+    const icon = document.getElementById("client-card-row2-c1-imgC-img1");
+
+    if (input)
+    {
+        input.value = "";
+    }
+
+    if (preview)
+    {
+        preview.removeAttribute("src");
+        preview.hidden = true;
+    }
+
+    if (icon)
+    {
+        icon.hidden = false;
+    }
+}

@@ -1,7 +1,7 @@
 
-__version__ = "1.3.84"
+__version__ = "1.3.85"
 
-# Insert of clients without bed
+# Empty the form while closing
 
 # Jedná se o tuto produkční verzi č. ___
 
