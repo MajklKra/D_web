@@ -4229,100 +4229,100 @@ function renderAccommodationResults()
     });
 }
 
-document.addEventListener("click", function (event)
-{
+// document.addEventListener("click", function (event)
+// {
 
-        const bedButton = event.target.closest(
-            ".client-card-row2-c4-accomC-occup_btn"
-        );
+//         const bedButton = event.target.closest(
+//             ".client-card-row2-c4-accomC-occup_btn"
+//         );
 
-        if (!bedButton)
-        {
-            return;
-        }
+//         if (!bedButton)
+//         {
+//             return;
+//         }
 
-        /*
-            * Obsazené tlačítko je disabled,
-            * ale kontrolu provedeme i zde.
-            */
+//         /*
+//             * Obsazené tlačítko je disabled,
+//             * ale kontrolu provedeme i zde.
+//             */
 
-        if (bedButton.disabled)
-        {
-            return;
-        }
+//         if (bedButton.disabled)
+//         {
+//             return;
+//         }
 
-        const bedId =
-            bedButton.dataset.bedId;
+//         const bedId =
+//             bedButton.dataset.bedId;
 
-        if (!bedId)
-        {
-            console.warn(
-                "Kliknutá postel nemá data-bed-id."
-            );
+//         if (!bedId)
+//         {
+//             console.warn(
+//                 "Kliknutá postel nemá data-bed-id."
+//             );
 
-            return;
-        }
-
-
-        /*
-        * Uložení vybrané postele
-        * do aplikačního stavu.
-        */
-
-        accommodationState.selectedBedId =
-            bedId;
+//             return;
+//         }
 
 
-        /*
-            * Uložení BedID do formuláře.
-            */
+//         /*
+//         * Uložení vybrané postele
+//         * do aplikačního stavu.
+//         */
 
-        const hiddenInput =
-            document.getElementById(
-                "client-card-selected-bed-id"
-            );
-
-        if (hiddenInput)
-        {
-            hiddenInput.value = bedId;
-        }
+//         accommodationState.selectedBedId =
+//             bedId;
 
 
-        /*
-            * Odebrání označení ze staré postele.
-            */
+//         /*
+//             * Uložení BedID do formuláře.
+//             */
 
-        document.querySelectorAll(
-            ".client-card-row2-c4-accomC-occup_btn.selected"
-        ).forEach(button =>
-        {
-            button.classList.remove("selected");
-        });
+//         const hiddenInput =
+//             document.getElementById(
+//                 "client-card-selected-bed-id"
+//             );
 
-
-        /*
-            * Označení nové postele.
-            */
-
-        bedButton.classList.add("selected");
+//         if (hiddenInput)
+//         {
+//             hiddenInput.value = bedId;
+//         }
 
 
-        console.log(
-            "%cVybraná postel:",
-            "color: green; font-weight: bold;",
-            {
-                bedId:
-                    accommodationState.selectedBedId,
+//         /*
+//             * Odebrání označení ze staré postele.
+//             */
 
-                roomId:
-                    bedButton.dataset.roomId,
+//         document.querySelectorAll(
+//             ".client-card-row2-c4-accomC-occup_btn.selected"
+//         ).forEach(button =>
+//         {
+//             button.classList.remove("selected");
+//         });
 
-                bedNumber:
-                    bedButton.dataset.bedNumber
-            }
-        );
-    }
-);
+
+//         /*
+//             * Označení nové postele.
+//             */
+
+//         bedButton.classList.add("selected");
+
+
+//         console.log(
+//             "%cVybraná postel:",
+//             "color: green; font-weight: bold;",
+//             {
+//                 bedId:
+//                     accommodationState.selectedBedId,
+
+//                 roomId:
+//                     bedButton.dataset.roomId,
+
+//                 bedNumber:
+//                     bedButton.dataset.bedNumber
+//             }
+//         );
+//     }
+// );
 
 
 function groupBedsBySubrooms(roomBeds)
@@ -4685,3 +4685,88 @@ function resetClientPhoto()
         icon.hidden = false;
     }
 }
+
+/*
+*       ZRUŠENÍ VÝBĚRU POSTELE
+*/
+
+document.addEventListener("click", function (event)
+{
+    const bedButton = event.target.closest(
+        ".client-card-row2-c4-accomC-occup_btn"
+    );
+
+    if (!bedButton)
+    {
+        return;
+    }
+
+    const bedId = bedButton.dataset.bedId;
+
+    if (!bedId)
+    {
+        return;
+    }
+
+    const hiddenInput = document.getElementById(
+        "client-card-selected-bed-id"
+    );
+
+    const isAlreadySelected =
+        String(accommodationState.selectedBedId) ===
+        String(bedId);
+
+    /*
+     * Druhé kliknutí na stejnou postel.
+     */
+    if (isAlreadySelected)
+    {
+        bedButton.classList.remove("selected");
+
+        accommodationState.selectedBedId = null;
+
+        if (hiddenInput)
+        {
+            hiddenInput.value = "";
+        }
+
+        console.log(
+            "%cPostel byla odznačena.",
+            "color: orange; font-weight: bold;"
+        );
+
+        return;
+    }
+
+    /*
+     * Odznačení předchozí postele.
+     */
+    document.querySelectorAll(
+        ".client-card-row2-c4-accomC-occup_btn.selected"
+    ).forEach(button =>
+    {
+        button.classList.remove("selected");
+    });
+
+    /*
+     * Označení nové postele.
+     */
+    bedButton.classList.add("selected");
+
+    accommodationState.selectedBedId = bedId;
+
+    if (hiddenInput)
+    {
+        hiddenInput.value = bedId;
+    }
+
+    console.log(
+        "%cVybraná postel:",
+        "color: green; font-weight: bold;",
+        {
+            bedId: bedId,
+            roomId: bedButton.dataset.roomId,
+            bedNumber: bedButton.dataset.bedNumber
+        }
+    );
+});

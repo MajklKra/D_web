@@ -1,7 +1,7 @@
 
-__version__ = "1.3.85"
+__version__ = "1.3.86"
 
-# Empty the form while closing
+# Doubleclick for bed in client-card-row2-c4-accomC
 
 # Jedná se o tuto produkční verzi č. ___
 
